@@ -1,0 +1,76 @@
+<div class="layout-page" style="margin-left: 400px;">
+    <div class="content-wrapper">
+          <div class="card-body" style="font-size: 15px; font-family:'Serif'; box-shadow: 0 0 5px grey;">
+            <div class="table-responsive text-nowrap">
+              <h3 class="card-header">Patient Details</h3>
+
+              <table class="table table-basic">
+                <thead>
+                  <!-- Patient Details -->
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Name</strong>
+                    </td>
+                    <td>{{ patient.name }}</td>                    
+                  </tr>
+                  <tr>
+                      <td>
+                        <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>SAM ID</strong>
+                      </td>
+                      <td>{{ patient.samId }}</td>                    
+                    </tr>                
+                  <tr>
+                      <td>
+                        <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>RCH ID</strong>
+                      </td>
+                      <td>{{ patient.rchId }}</td>       
+                  </tr>
+                  <tr>
+                      <td>
+                        <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Aadhar No</strong>
+                      </td>
+                      <td>{{ patient.aadharId }}</td>       
+                  </tr>
+                  <tr>
+                      <td>
+                        <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>ABHA No</strong>
+                      </td>
+                      <td>{{ patient.abhaId }}</td>       
+                  </tr>
+            
+                  <tr>
+                    <td>
+                      <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Contact No</strong>
+                    </td>
+                    <td>{{ patient.contactNo }}</td>                         
+                  </tr>
+
+                  <tr>
+                      <td>
+                        <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>NRC Discharged From</strong>
+                      </td>
+                      <td>{{ patient.nrcFrom }}</td>       
+                  </tr>
+
+                  <tr>
+                      <td>
+                        <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Discharge Date</strong>
+                      </td>
+                      <td>{{ patient.dischargeDate }}</td>       
+                  </tr>
+
+                  <tr>
+                      <td>
+                        <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Standard Deviation on Date of Discharge</strong>
+                      </td>
+                      <td>{{ patient.stdev }}</td>       
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      <div class="content-backdrop fade"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<!-- <h4 style="margin-top:1%; padding-bottom: 1%;"></h4> -->
+<div class="content-wrapper" style="margin-left: 300px;">
+  <!-- Content -->
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card" style="box-shadow: 0 0 5px grey;">
+      <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Discharged Patients</h3>
+      <app-search></app-search>
+
+      <div class="table-responsive text-nowrap" style="font-size: 15px; font-family:'Serif'">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>RCH ID</th>
+              <th>Patient Name</th>
+              <th>Discharge Date</th>
+              <th>Contact No</th>
+              <th>Name of NRC</th>
+              <th>Discharge Details</th>
+            </tr>
+          </thead>
+          <tbody class="table-border-bottom-0">
+            <tr *ngFor="let p of patients">
+              <td> <a href="patient-details.html"><strong>{{ p.rchId }}</strong></a></td>
+              <td><a href="patient-details.html">{{ p.name }}</a></td>
+              <td><a href="patient-details.html">{{ p.dischargeDate }}</a></td>
+              <td><a href="patient-details.html">{{ p.contactNo }}</a></td>
+              <td><a href="patient-details.html">{{ p.nrcFrom }}</a></td>
+              <td><span class="badge bg-label-primary me-1"><a href="/discharge-summary">Summary</a></span></td>           
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-backdrop fade"></div>
