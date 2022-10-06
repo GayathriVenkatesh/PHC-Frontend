@@ -1,0 +1,59 @@
+<style>
+    .column {
+     float: left;
+     width: 50%;
+     padding: 50px;
+   }
+   
+   /* Clear floats after the columns */
+   .row:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   </style>
+   
+   <div class="card" style="margin-left: 300px; box-shadow: 0 0 5px grey;">
+         <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Assign Asha Worker</h3>
+         
+   <div class="row">
+       
+           
+           <div class="card-body">
+               
+                   <form>
+                       <div class="column">
+                           <div class="mb-3">
+                               <label class="form-label" for="basic-default-fullname">Full Name</label>
+                               <select id="defaultSelect" class="form-select">
+                                   <option>Choose</option>
+                                   <option value="1">Worker 1</option>
+                                   <option value="2">Worker 2</option>
+                                   <option value="3">Worker 3</option>
+                                 </select>                        </div>
+                           <div class="mb-3">
+                               <label class="form-label" for="basic-default-age">Age</label>
+                               <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." />
+                           </div>
+                       </div>
+   
+                       <div class="column">
+                           <div class="mb-3">
+                               <label class="form-label" for="basic-default-age">Ward</label>
+                               <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." />
+                           </div>
+   
+                           <div class="mb-3">
+                               <label class="form-label" for="basic-default-age">Address</label>
+                               <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." />
+                           </div>
+                       </div>
+       
+                       <button type="submit" class="btn rounded-pill btn-primary" style="background-color: #007bff; float: right; margin-right: 40px">Save</button>
+                   </form>
+   
+               
+               </div>
+       
+     </div>
+   </div>

@@ -11,11 +11,13 @@ import { PatientFollowupTableComponent } from './patient-followup-table/patient-
 import { EnterFollowupComponent } from './enter-followup/enter-followup.component';
 import { DischargeSummaryComponent } from './discharge-summary/discharge-summary.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AssignAshaComponent } from './assign-asha/assign-asha.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
   { path: '', redirectTo: 'patients', pathMatch: 'full' },
   { path: 'patients', component: PatientTableComponent },
+  { path: 'assign-asha', component: AssignAshaComponent },
   { path: 'patient/:rchId', component: PatientDetailsComponent },
   { path: 'discharge-summary', component: DischargeSummaryComponent },
   { path: 'followup-list', component: FollowupTableComponent },

@@ -16,6 +16,7 @@ import { SearchComponent } from './search/search.component';
 import { DischargeSummaryComponent } from './discharge-summary/discharge-summary.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AssignAshaComponent } from './assign-asha/assign-asha.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SearchComponent,
     DischargeSummaryComponent,
     TopBarComponent,
-    DashboardComponent
+    DashboardComponent,
+    AssignAshaComponent
   ],
   imports: [
     BrowserModule,

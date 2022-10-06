@@ -13,9 +13,10 @@
               <th>RCH ID</th>
               <th>Patient Name</th>
               <th>Discharge Date</th>
-              <th>Contact No</th>
+              <!-- <th>Contact No</th> -->
               <th>Name of NRC</th>
               <th>Discharge Details</th>
+              <th>Asha Worker</th>
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
@@ -23,9 +24,10 @@
               <td> <a href="patient-details.html"><strong>{{ p.rchId }}</strong></a></td>
               <td><a href="patient-details.html">{{ p.name }}</a></td>
               <td><a href="patient-details.html">{{ p.dischargeDate }}</a></td>
-              <td><a href="patient-details.html">{{ p.contactNo }}</a></td>
+              <!-- <td><a href="patient-details.html">{{ p.contactNo }}</a></td> -->
               <td><a href="patient-details.html">{{ p.nrcFrom }}</a></td>
               <td><span class="badge bg-label-primary me-1"><a href="/discharge-summary">Summary</a></span></td>           
+              <td><button type="button" class="btn rounded-pill btn-primary" style="color: white; background-color:#4bf584; border: white"><a href="/assign-asha">Assign</a></button></td>           
             </tr>
             
           </tbody>
