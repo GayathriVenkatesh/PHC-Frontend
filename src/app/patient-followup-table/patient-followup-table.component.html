@@ -1,108 +1,61 @@
-    <div class="content-wrapper" style="margin-left: 300px;">
+ <div class="content-wrapper" style="margin-left: 300px;">
     <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card" style="box-shadow: 0 0 5px grey;">
+      <div class="card" style="box-shadow: 0 0 5px grey; width: 150%">
         <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Follow Up Details of Patient</h3>
+
+        
 
         <div class="table-responsive text-nowrap" style="font-family: Serif; width: 100%">
           <table class="table">
             <thead>
               <tr>
-                <th>Date</th>
-                <!-- <th>Worker Details</th> -->
-                <th>Height</th>
-                <th>Weight</th>
-                <th>MUAC</th>
-                <th>SD Range</th>
-                <th>Diet Instructions</th>
-                <th>Compliance</th>               
-                <th>Remarks  </th>
+                <th>Community Followups</th>
+                <th>NRC Followups</th>
+                <th>General Visits</th>             
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
               <tr class="table-default">
-                <td><strong>01-08-2022</strong></td>
-                <!-- <td><a href="phc_details.html"><div class="avatar avatar">
-                    <img src="../../assets/avatars/5.png"  alt class="w-px-34 h-auto rounded-circle" />
-                  </div></a></td> -->
-                <td> 
-                    <a href="phc_details.html">56</a>
-                </td>
-                <td>20</td>
-                <td>5.6</td>
-                <td>-3</td>
-                <td>None</td>
-                <td>Yes</td>
-                <td><span class="badge bg-label-danger">SAM</span></td>
+                <td><strong><button class="btn btn-primary" style="background-color: #ceffb6 !important; color: black; border-color: white;" (click)="openModal()">01-08-2022</button></strong></td>
+                <td><strong><button class="btn btn-primary" style="background-color: #bfbff9 !important; color: black; border-color: white;" (click)="openSmallModal()">01-08-2022</button></strong></td>
+                <td><strong><button class="btn btn-primary" style="background-color: #fceac4; color: black; border-color: white;" (click)="openModal()">01-08-2022</button></strong></td>
               </tr>
               
               <tr class="table-default">
-                <td><strong>15-08-2022</strong></td>
-                <!-- <td><a href="phc_details.html"><div class="avatar avatar">
-                    <img src="../../assets/avatars/7.png"  alt class="w-px-34 h-auto rounded-circle" />
-                  </div></a></td> -->
-                <td>
-                    <a href="phc_details.html">56.2</a>
-                </td>
-                <td>25</td>
-                <td>6.3</td>
-                <td>-2</td>
-                <td>None</td>
-                <td>Yes</td>
-                <td><span class="badge bg-label-warning">MAM</span></td>
+                <td><strong><button class="btn btn-primary" style="background-color: #ceffb6; color: black; border-color: white;" (click)="openModal()">15-08-2022</button></strong></td>
+                <td><strong><button class="btn btn-primary" style="background-color: #bfbff9; color: black; border-color: white;" (click)="openSmallModal()">07-08-2022</button></strong></td>
               </tr>
 
               <tr class="table-default">
-                <td><strong>30-08-2022</strong></td>
-                <!-- <td><a href="phc_details.html"><div class="avatar avatar">
-                    <img src="../../assets/avatars/5.png"  alt class="w-px-34 h-auto rounded-circle" />
-                  </div></a></td> -->
-                <td>
-                    56.5
-                </td>
-                <td>28</td>
-                <td>6.7 </td>
-                <td>-1</td>
-                <td>None</td>
-                <td>Yes</td>
-                <td><span class="badge bg-label-success">Normal</span></td>
+                <td><strong>
+                  <a href="add-followup">
+                    <button class="btn btn-primary" style="background-color: #eaf8e3; color: black; border-color: white;">30-08-2022</button>
+                  </a>
+                  </strong></td>
+                  <td><strong><button class="btn btn-primary" style="background-color: #e5e5f7; color: black; border-color: white;" (click)="openSmallModal()">12-08-2022</button></strong></td>
+              </tr>
+              
+              <tr class="table-default">
+                <td><strong>
+                  <a href="add-followup">
+                    <button class="btn btn-primary" style="background-color: #eaf8e3; color: black; border-color: white;">15-09-2022</button>
+                  </a>
+                  </strong></td>
               </tr>
 
+              
               <tr class="table-default">
-                <td><a href="add-followup"><strong>15-09-2022</strong></a></td>
-                <!-- <td><a href="phc_details.html"><div class="avatar avatar">
-                    <img src="../../assets/avatars/5.png"  alt class="w-px-34 h-auto rounded-circle" />
-                  </div></a></td> -->
-                
-                <td> 
-                    <a href="add-followup">
-                    <button type="button" class="btn btn-icon btn-secondary">
-                        <span class="tf-icons bx bx-plus"></span>
-                    </button>
-                    </a>    
-                </td>
-                
                 <td></td>
                 <td></td>
               </tr>
               
-              <tr class="table-default">
-                <td><a href="add-followup"><strong>30-09-2022</strong></a></td>
-                <!-- <td><a href="phc_details.html"><div class="avatar avatar">
-                    <img src="../../assets/avatars/5.png"  alt class="w-px-34 h-auto rounded-circle" />
-                  </div></a></td> -->
-                
-                <td> 
-                    <a href="add-followup">
-                    <button type="button" class="btn btn-icon btn-secondary">
-                        <span class="tf-icons bx bx-plus"></span>
-                    </button>
-                    </a>    
-                </td>
-                <td></td>
-                <td></td>
-              </tr>
+              
+              
             </tbody>
+            
           </table>
+          <a href="add-followup"><button type="submit" class="btn btn-primary" style="margin-bottom: 2%; margin-right: 40px; float: right; background-color: #66adf9;">Record New Visit</button></a>
+
         </div>
       </div>
       <!--/ Contextual Classes -->
@@ -115,4 +68,4 @@
     
 
     <div class="content-backdrop fade"></div>
-  </div>
+  </div> 

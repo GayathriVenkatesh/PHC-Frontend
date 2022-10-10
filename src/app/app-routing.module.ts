@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
 import { PatientTableComponent } from './patient-table/patient-table.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';

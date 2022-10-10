@@ -21,13 +21,14 @@
           </thead>
           <tbody class="table-border-bottom-0">
             <tr *ngFor="let p of patients">
-              <td> <a href="patient-details.html"><strong>{{ p.rchId }}</strong></a></td>
-              <td><a href="patient-details.html">{{ p.name }}</a></td>
-              <td><a href="patient-details.html">{{ p.dischargeDate }}</a></td>
+              <td> <a href="patient/1240"><strong>{{ p.rchId }}</strong></a></td>
+              <td><a href="patient/1240">{{ p.name }}</a></td>
+              <td><a href="patient/1240">{{ p.dischargeDate }}</a></td>
               <!-- <td><a href="patient-details.html">{{ p.contactNo }}</a></td> -->
-              <td><a href="patient-details.html">{{ p.nrcFrom }}</a></td>
+              <!-- <td><a href="patient-details.html">{{ p.nrcFrom }}</a></td> -->
+              <td><a href="patient/1240">VVH</a></td>
               <td><span class="badge bg-label-primary me-1"><a href="/discharge-summary">Summary</a></span></td>           
-              <td><button type="button" class="btn rounded-pill btn-primary" style="color: white; background-color:#4bf584; border: white"><a href="/assign-asha">Assign</a></button></td>           
+              <td><button type="button" class="btn rounded-pill btn-primary" style="color: white; background-color:#ceffb6; border: white"><a href="/assign-asha">Assign</a></button></td>           
             </tr>
             
           </tbody>

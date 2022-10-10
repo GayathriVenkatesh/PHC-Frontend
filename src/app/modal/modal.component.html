@@ -1,0 +1,110 @@
+<style>
+  .column {
+   float: left;
+   width: 50%;
+   padding: 50px;
+ }
+ 
+ /* Clear floats after the columns */
+ .row:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+ </style>
+
+<div class="modal-header" style="width: 200px">
+    <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+    (click)="modalRef.close()"></i>
+
+  </div>
+  <div class="modal-body">
+    <div class="row">
+    <div class="table-responsive text-nowrap" style="font-family: Serif; width: 100%;">
+        <table class="table">
+          <thead>
+            
+          </thead>
+          <tbody class="table-border-bottom-0">
+            <div class="column">
+            <tr>
+                <td>Height</td>
+                <td>120 cm</td>
+            </tr>
+
+            <tr>
+                <td>Weight</td>
+                <td>25 kg</td>
+              </tr>
+
+              <tr>
+                <td>MUAC</td>
+                <td>4 cm</td>
+              </tr>
+
+              <tr>
+                <td>Head Circumference</td>
+                <td>20 cm</td>
+              </tr>
+
+              <tr>
+                <td>SD Range</td>
+                <td>-2</td>
+              </tr>
+
+              <tr>
+                <td>Diet Chart</td>
+                <td>-</td>
+              </tr>
+            </div>
+
+            <div class="column">
+              
+
+              <tr>
+                <td>Diet Adequacy</td>
+                <td><span class="badge bg-label-success" style="color: #71dd37 !important; background-color: #e8fadf; height: 10%">YES</span></td>
+              </tr>
+
+              <tr>
+                <td>Co-morbidities</td>
+                <td>None</td>
+              </tr>
+
+              <tr>
+                <td>Other Symptoms</td>
+                <td>Diarrhoea</td>
+              </tr>
+              
+              <tr>
+                <td>Reason for Followup</td>
+                <td>Scheduled</td>
+              </tr>
+
+              <tr>
+                <td>Scheduled Date</td>
+                <td>07-10-2022</td>
+              </tr>
+
+              <tr>
+                <td>Actual Date</td>
+                <td>09-10-2022</td>
+              </tr>
+
+              <tr>
+                <td>Result</td>
+                <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; height: 10%">MAM</span></td>
+              </tr>
+            </div>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+      Close
+    </button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div> -->

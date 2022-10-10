@@ -34,9 +34,6 @@
                     <label class="form-label" for="basic-default-company" style="color: black">Weight in kgs</label>
                     <input type="text" class="form-control" id="basic-default-weight"  />
                   </div>
-              
-                    
-                
 
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">MUAC</label>
@@ -44,34 +41,62 @@
                   </div>
 
                   <div class="mb-4">
+                    <label class="form-label" for="basic-default-muac" style="color: black">Head Circumference</label>
+                      <input type="text" class="form-control" id="basic-default-muac"/>
+                  </div>
+
+                  <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">SD Range</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="basic-default-company" style="color: black">Reason for not coming for followup</label>
+                    <input type="text" class="form-control" id="basic-default-company"><i aria-flowto=""></i>
+                </div>
                 </div>
 
                 <div class="column">
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Dietary Instructions</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black">Diet Chart</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
+                      <!-- <app-file-upload></app-file-upload> -->
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Dietary Compliance</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
+                    <label class="form-label" for="basic-default-muac" style="color: black">Diet Adequacy</label>
+                    <select id="defaultSelect" class="form-select">
+                      <option></option>
+                      <option value="1">Yes</option>
+                      <option value="2">No</option>
+                    </select>                      
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Medicine Compliance</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
+                      <!-- <input type="text" class="form-control" id="basic-default-muac"/> -->
+
+                    <label class="form-label" for="basic-default-fullname">Co-morbidities</label>
+                    <select id="defaultSelect" class="form-select">
+                        <option></option>
+                        <option value="1">Worker 1</option>
+                        <option value="2">Worker 2</option>
+                        <option value="3">Worker 3</option>
+                      </select>                        
                   </div>
                 
+                  <div class="mb-4">
+                    <label class="form-label" for="basic-default-muac" style="color: black">Other Symptoms</label>
+                      <input type="text" class="form-control" id="basic-default-muac"/>
+                  </div>
 
                   <div class="mb-4">
-                      <label class="form-label" for="basic-default-company" style="color: black">Remarks</label>
+                      <label class="form-label" for="basic-default-company" style="color: black">Reason for Followup</label>
                       <input type="text" class="form-control" id="basic-default-company"><i aria-flowto=""></i>
                   </div>
+
+                  
                 </div>
-                  <button type="submit" class="btn btn-primary" style="margin-left: 7%; margin-bottom: 7%; background-color: #66adf9;">Save</button>
+                  <button type="submit" class="btn btn-primary" style="margin-bottom: 7%; margin-right: 40px; float: right; background-color: #66adf9;">Save</button>
                 </form>
               <!-- </div> -->
             </div>

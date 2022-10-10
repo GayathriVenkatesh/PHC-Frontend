@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
 import { UserService } from './service/user.service';
 import { PatientService } from './service/patient.service';
 import { PatientTableComponent } from './patient-table/patient-table.component';
@@ -17,6 +16,12 @@ import { DischargeSummaryComponent } from './discharge-summary/discharge-summary
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignAshaComponent } from './assign-asha/assign-asha.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileUploadService } from './service/file-upload.service';
+import { ModalComponent } from './modal/modal.component';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { SmallModalComponent } from './small-modal/small-modal.component';
+
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
@@ -24,23 +29,26 @@ import { AssignAshaComponent } from './assign-asha/assign-asha.component';
     AppComponent,
     UserListComponent,
     PatientTableComponent,
-    UserFormComponent,
     FollowupTableComponent,
     SidePanelComponent,
     SearchComponent,
     DischargeSummaryComponent,
     TopBarComponent,
     DashboardComponent,
-    AssignAshaComponent
+    AssignAshaComponent,
+    FileUploadComponent,
+    ModalComponent,
+    SmallModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MdbModalModule
     // FontAwesomeModule
   ],
-  providers: [UserService, PatientService, FollowupService],
+  providers: [UserService, PatientService, FollowupService, FileUploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
