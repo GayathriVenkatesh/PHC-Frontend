@@ -1,9 +1,37 @@
-<div class="content-wrapper" style="margin-left: 230px">
-  
-    <div class="container-xxl flex-grow-1 container-p-y">
+<style>
+  tr:hover td {
+    background:#000
+  }
+
+  tr:hover {
+    background-color: #eee;
+}
+
+</style>
+
+<div class="content-wrapper" style="margin-left: 200px;  width: 86%">
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <h3 style="font-family: 'Mulish'"><strong>Follow Up Details</strong></h3>
       <div class="card" style="box-shadow: 0 0 5px grey;">
-        <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Follow Up Details</h3>
-        <app-search></app-search>
+        <div class="card-header" style="background-color: #d9ecf3; font-family: Serif;">
+        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse" 
+        style="margin-left: 2%; float: right; margin-top: -10px; margin-bottom: -10px; width: 50%
+        font-size: 13px; font-family: 'Times New Roman', Times, serif;">
+            
+            <div class="navbar-nav align-items-center">
+            <div class="nav-item d-flex align-items-center" style="box-shadow: 0px 15px 10px -15px #111">
+                
+                <input
+                type="text"
+                class="form-control border-0 shadow-none"
+                placeholder="Search"
+                aria-label="Search..."
+                />
+                <!-- <i class="fa fa-search"></i> -->
+            </div>
+            </div>
+        </div>
+        </div>
         <div class="table-responsive text-nowrap" style="font-family: Serif; color: black">
           <table class="table">
             <thead>
@@ -30,22 +58,24 @@
               <tr class="table-default">
                 <td> <strong>KR2038</strong> </td>
                 <td><a href="followup/1">Kalyani</a></td>
-                <td><a href="asha-worker/1"><div class="avatar avatar">
-                  <img src="../../assets/1.png"  alt class="w-px-34 h-auto rounded-circle" />
-                </div></a></td>
+                <td><div class="avatar avatar">
+                  <img src="../../assets/user.png"  alt class="w-px-34 h-auto rounded-circle" (click)="openModal()"/>
+                </div></td>
                 <td><a href="followup/1">3</a></td>
                 <td><a href="followup/1">15-09-2022</a></td>
-                <td><span class="badge bg-label-danger">Overdue</span></td>
+                <td><span class="badge" style="color: white; background-color: #ef0000;">Overdue</span></td>
               </tr>
 
               <tr class="table-default">
                 <td> <strong>KR2038</strong> </td>
                 <td>Madhumitha</td>
-                <td><a href="asha-worker/1"><div class="avatar avatar">
-                  <img src="../../assets/7.png"  alt class="w-px-34 h-auto rounded-circle" />
-                </div></a></td>
+                <td><a href="asha-worker/1">
+                  <div class="avatar avatar">
+                  <img src="../../assets/user.png"  alt class="w-px-34 h-auto rounded-circle" />
+                </div>
+              </a></td>
                 <td>1</td>
-                <td><span class="badge bg-label-danger">Overdue</span>
+                <td><span class="badge" style="color: white; background-color: #ef0000;">Overdue</span>
                 </td>
                 <td>15-09-2022</td>
               </tr>
@@ -54,7 +84,7 @@
                 <td> <strong>KR2038</strong> </td>
                 <td>Raman</td>
                 <td><a href="asha-worker/1"><div class="avatar avatar">
-                  <img src="../../assets/6.png"  alt class="w-px-34 h-auto rounded-circle" />
+                  <img src="../../assets/user.png"  alt class="w-px-34 h-auto rounded-circle" />
                 </div></a></td>
                 <td>2</td>
                 <td>15-09-2022</td>
@@ -65,10 +95,10 @@
                 <td> <strong>KR2038</strong> </td>
                 <td>Ranjani</td>
                 <td><a href="asha-worker/1"><div class="avatar avatar">
-                  <img src="../../assets/5.png"  alt class="w-px-34 h-auto rounded-circle" />
+                  <img src="../../assets/user.png"  alt class="w-px-34 h-auto rounded-circle" />
                 </div></a></td>
                 <td>1</td>
-                <td><span class="badge bg-label-danger">Overdue</span></td>
+                <td><span class="badge" style="color: white; background-color: #ef0000;">Overdue</span></td>
                 <td>15-09-2022</td>
               </tr>
               

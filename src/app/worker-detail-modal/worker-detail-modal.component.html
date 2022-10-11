@@ -1,0 +1,64 @@
+<style>
+    .column {
+     float: left;
+     width: 50%;
+     padding: 20px;
+   }
+   
+   /* Clear floats after the columns */
+   .row:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   </style>
+  
+  <div class="modal-header" style="width: 100% ">
+    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Asha Worker Details</strong></h3>
+    <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+      (click)="modalRef.close()"></i>
+      
+    </div>
+    <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
+      
+        <table class="table">
+            <thead>
+              
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <!-- <div class="column"> -->
+              <tr>
+                  <td>Asha Name</td>
+                  <td>Nilam Patel</td>
+              </tr>
+  
+              <tr>
+                  <td>Assigned Anganwadi</td>
+                  <td>HSR Layout, Bengaluru</td>
+                </tr>
+            
+                <tr>
+                    <td>Contact No</td>
+                    <td>9838573818</td>
+                  </tr>
+              <!-- </div> -->
+              
+            </tbody>
+          </table>
+        
+            <button type="submit" class="btn rounded-pill btn-primary" 
+            style="background-color: #008ebe; float: right; margin-right: 5px; margin-left: 5px;
+            margin-bottom: 5%; width: 20%"
+            (click)="modalRef.close()">Close</button>
+
+            <!-- <button type="submit" class="btn rounded-pill btn-primary" 
+            style="background-color: white; border-color: #008EBE; float: right; margin-right: 5px; width: 20%;
+            color: #008EBE">Cancel</button> -->
+        
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> -->

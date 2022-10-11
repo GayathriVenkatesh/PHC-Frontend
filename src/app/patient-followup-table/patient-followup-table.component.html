@@ -1,9 +1,26 @@
- <div class="content-wrapper" style="margin-left: 300px;">
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <div class="card" style="box-shadow: 0 0 5px grey; width: 150%">
-        <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Follow Up Details of Patient</h3>
-
+<div class="content-wrapper" style="margin-left: 200px;  width: 140%">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <h3 style="font-family: 'Mulish'"><strong>Follow Up Details of Patient</strong></h3>
+  <div class="card" style="box-shadow: 0 0 5px grey;">
+    <div class="card-header" style="background-color: #d9ecf3; font-family: Serif;">
+    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse" 
+    style="margin-left: 2%; float: right; margin-top: -10px; margin-bottom: -10px; width: 50%
+    font-size: 13px; font-family: 'Times New Roman', Times, serif;">
         
+        <div class="navbar-nav align-items-center">
+        <div class="nav-item d-flex align-items-center" style="box-shadow: 0px 15px 10px -15px #111">
+            
+            <input
+            type="text"
+            class="form-control border-0 shadow-none"
+            placeholder="Search"
+            aria-label="Search..."
+            />
+            <!-- <i class="fa fa-search"></i> -->
+        </div>
+        </div>
+    </div>
+    </div>
 
         <div class="table-responsive text-nowrap" style="font-family: Serif; width: 100%">
           <table class="table">
@@ -16,31 +33,104 @@
             </thead>
             <tbody class="table-border-bottom-0">
               <tr class="table-default">
-                <td><strong><button class="btn btn-primary" style="background-color: #ceffb6 !important; color: black; border-color: white;" (click)="openModal()">01-08-2022</button></strong></td>
-                <td><strong><button class="btn btn-primary" style="background-color: #bfbff9 !important; color: black; border-color: white;" (click)="openSmallModal()">01-08-2022</button></strong></td>
-                <td><strong><button class="btn btn-primary" style="background-color: #fceac4; color: black; border-color: white;" (click)="openModal()">01-08-2022</button></strong></td>
-              </tr>
+                <td>
+                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" 
+                style="color: #00a141; background-color:white; 
+                width: 40%; border-color: #00a141; border-width: 1.5px;
+                font-family: 'Times New Roman', Times, serif;">
+                01-08-2022
+              </button>                 
+                </td>
+                <td>
+                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" 
+                style="color: #00a141; background-color:white; 
+                width: 50%; border-color: #00a141; border-width: 1.5px;
+                font-family: 'Times New Roman', Times, serif;">
+                15-08-2022
+              </button>
+                </td>
+                
+                <td>
+                  
+                  <button type="button" class="btn rounded-pill btn-primary" 
+                style="color: #00a141; background-color:white; border-width: 1.5px;
+                width: 50%; border-color: #00a141; 
+                font-family: 'Times New Roman', Times, serif;">
+                07-08-2022
+                
+              </button>   
+                </td>
+            </tr>
               
               <tr class="table-default">
-                <td><strong><button class="btn btn-primary" style="background-color: #ceffb6; color: black; border-color: white;" (click)="openModal()">15-08-2022</button></strong></td>
-                <td><strong><button class="btn btn-primary" style="background-color: #bfbff9; color: black; border-color: white;" (click)="openSmallModal()">07-08-2022</button></strong></td>
+                <td>
+                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" 
+                style="color: #00a141; background-color:white; 
+                width: 40%; border-color: #00a141; border-width: 1.5px;
+                font-family: 'Times New Roman', Times, serif;">
+                01-08-2022
+              </button>                 
+                </td>
+                
+                <td>
+                  <a href="add-followup">
+                  <button type="button" class="btn rounded-pill btn-primary" 
+                style="color: #008ebe; background-color:white; 
+                width: 50%; border-color: #008ebe; 
+                font-family: 'Times New Roman', Times, serif;">
+                01-08-2022
+              </button>    
+                  </a>             
+                </td>
+                
+                <td><a href="record-visit">
+                  
+                  <button type="button" class="btn btn-primary" 
+                  style="color: white; background-color: #008ebe; 
+                  width: 50%; border-color: #008ebe; 
+                  font-family: 'Times New Roman', Times, serif;">
+                      
+                <i class='fa fa-plus' style='font-size:15px;'></i>
+                </button></a>
+                </td>
+      
               </tr>
 
               <tr class="table-default">
-                <td><strong>
+                <td>
                   <a href="add-followup">
-                    <button class="btn btn-primary" style="background-color: #eaf8e3; color: black; border-color: white;">30-08-2022</button>
-                  </a>
-                  </strong></td>
-                  <td><strong><button class="btn btn-primary" style="background-color: #e5e5f7; color: black; border-color: white;" (click)="openSmallModal()">12-08-2022</button></strong></td>
-              </tr>
+                  <button type="button" class="btn rounded-pill btn-primary" 
+                style="color: #008ebe; background-color:white; 
+                width: 40%; border-color: #008ebe; 
+                font-family: 'Times New Roman', Times, serif;">
+                01-08-2022
+                
+              </button> 
+                  </a>                
+                </td>
+                <td>
+                  <a href="add-followup">
+                  <button type="button" class="btn rounded-pill btn-primary" 
+                style="color: #008ebe; background-color:white; 
+                width: 50%; border-color: #008ebe; 
+                font-family: 'Times New Roman', Times, serif;">
+                01-08-2022
+              </button>   
+                  </a>              
+                </td>
+            </tr>
               
               <tr class="table-default">
-                <td><strong>
+                <td>
                   <a href="add-followup">
-                    <button class="btn btn-primary" style="background-color: #eaf8e3; color: black; border-color: white;">15-09-2022</button>
-                  </a>
-                  </strong></td>
+                  <button type="button" class="btn rounded-pill btn-primary" 
+                style="color: #008ebe; background-color:white; 
+                width: 40%; border-color: #008ebe; 
+                font-family: 'Times New Roman', Times, serif;">
+                01-08-2022
+              </button>   
+                  </a>              
+                </td>
               </tr>
 
               
@@ -54,8 +144,7 @@
             </tbody>
             
           </table>
-          <a href="add-followup"><button type="submit" class="btn btn-primary" style="margin-bottom: 2%; margin-right: 40px; float: right; background-color: #66adf9;">Record New Visit</button></a>
-
+          
         </div>
       </div>
       <!--/ Contextual Classes -->

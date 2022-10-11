@@ -1,0 +1,71 @@
+<style>
+    .column {
+     float: left;
+     width: 50%;
+     padding: 20px;
+   }
+   
+   /* Clear floats after the columns */
+   .row:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   </style>
+  
+  <div class="modal-header" style="width: 100% ">
+    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Assign Asha</strong></h3>
+    <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+      (click)="modalRef.close()"></i>
+      
+    </div>
+    <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
+      <div class="row">
+        <form>
+            <div class="column">
+                 <div class="mb-3">
+                     <label class="form-label" for="basic-default-age">Pin Code</label>
+                     <input type="text" class="form-control" id="basic-default-company" />
+                 </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-age">Area / Location</label>
+                    <input type="text" class="form-control" id="basic-default-company" />
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-age">Ward / Village</label>
+                    <input type="text" class="form-control" id="basic-default-company"  />
+                </div>
+                
+                <div class="mb-3">
+                 <label class="form-label" for="basic-default-fullname">Asha Worker Name</label>
+                 <select id="defaultSelect" class="form-select">
+                     <option>Choose</option>
+                     <option value="1">Worker 1</option>
+                     <option value="2">Worker 2</option>
+                     <option value="3">Worker 3</option>
+                   </select>                        
+              </div>
+                
+            </div>
+            
+        
+            <button type="submit" class="btn rounded-pill btn-primary" 
+            style="background-color: #008ebe; float: right; margin-right: 5px; margin-left: 5px; width: 20%"
+            (click)="openModal()">Save</button>
+
+            <button type="submit" class="btn rounded-pill btn-primary" 
+            style="background-color: white; border-color: #008EBE; float: right; margin-right: 5px; width: 20%;
+            color: #008EBE">Cancel</button>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> -->

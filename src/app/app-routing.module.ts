@@ -11,11 +11,16 @@ import { EnterFollowupComponent } from './enter-followup/enter-followup.componen
 import { DischargeSummaryComponent } from './discharge-summary/discharge-summary.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignAshaComponent } from './assign-asha/assign-asha.component';
+import { RecordVisitComponent } from './record-visit/record-visit.component';
+import { DischargedPatientsComponent } from './discharged-patients/discharged-patients.component';
+import { TrackChildComponent } from './track-child/track-child.component';
+import { TrackChildDetailsComponent } from './track-child-details/track-child-details.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
-  { path: '', redirectTo: 'patients', pathMatch: 'full' },
+  { path: '', redirectTo: 'discharged-patients', pathMatch: 'full' },
   { path: 'patients', component: PatientTableComponent },
+  { path: 'discharged-patients', component: DischargedPatientsComponent },
   { path: 'assign-asha', component: AssignAshaComponent },
   { path: 'patient/:rchId', component: PatientDetailsComponent },
   { path: 'discharge-summary', component: DischargeSummaryComponent },
@@ -23,8 +28,9 @@ const routes: Routes = [
   { path: 'asha-worker/:awId', component: WorkerDetailsComponent },
   { path: 'followup/:samId', component: PatientFollowupTableComponent },
   { path: 'add-followup', component: EnterFollowupComponent },
-
-  
+  { path: 'record-visit', component: RecordVisitComponent },
+  { path: 'track-child', component: TrackChildComponent },
+  { path: 'track-child/:rchId', component: TrackChildDetailsComponent },
 ];
 
 @NgModule({

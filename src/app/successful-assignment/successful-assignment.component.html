@@ -1,0 +1,53 @@
+<style>
+    .column {
+     float: left;
+     width: 50%;
+     padding: 20px;
+   }
+   
+   /* Clear floats after the columns */
+   .row:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   </style>
+  
+  <div class="modal-header" style="width: 100% ">
+    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Asha has been Assigned Successfully</strong></h3>
+    <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+      (click)="modalRef.close()"></i>
+      
+    </div>
+    <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
+        <table class="table">
+            <thead>
+              
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <!-- <div class="column"> -->
+              <tr>
+                  <td>Asha Name</td>
+                  <td>Nilam Patel</td>
+              </tr>
+  
+              <tr>
+                  <td>Location</td>
+                  <td>HSR Layout, Bengaluru</td>
+                </tr>
+            
+                <tr>
+                    <td>Pincode</td>
+                    <td>560075</td>
+                  </tr>
+              <!-- </div> -->
+              
+            </tbody>
+          </table>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> -->

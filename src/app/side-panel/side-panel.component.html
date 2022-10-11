@@ -2,6 +2,10 @@
   .w3-button:hover {
     background-color: #00ff00;
   }
+
+  .active{
+    background-color: #d9ecf3;
+}
 </style>
 
 <html>
@@ -11,21 +15,31 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
 
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%; height:100%; font-family: 'Times New Roman', Times, serif; margin-top: -50px; position: fixed; font-size: 15px; color: black">
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%; height:100%; font-family: 'Times New Roman', Times, serif; margin-top: -50px; position: fixed; font-size: 16px; color: black">
   <h3 class="w3-bar-item"></h3>
   <!-- <a href="home" class="w3-bar-item w3-button" style="color: black">
     <i class="fa fa-home" style="color: black; padding-right: 10px"></i>
     HOME 
   </a> -->
 
-  <a href="/patients" class="w3-bar-item w3-button" style="color: black">
-    <i class="fa fa-users" style="color: black; padding-right: 10px"></i>
-    PATIENTS 
+  <a routerLink="/discharged-patients" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
+    <i class="fa fa-plus" style="color: black; padding-right: 10px"></i>
+    Discharges 
   </a>
 
-  <a href="/followup-list" class="w3-bar-item w3-button" style="color: black">
+  <a routerLink="/patients" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
+    <i class="fa fa-users" style="color: black; padding-right: 10px"></i>
+    Patients 
+  </a>
+
+  <a routerLink="/followup-list" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
     <i class="fa fa-medkit" style="color: black; padding-right: 10px"></i>
-    FOLLOW UPS 
+    Follow Ups
+  </a>
+
+  <a routerLink="/track-child" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
+    <i class="fa fa-search" style="color: black; padding-right: 10px"></i>
+    Track Child
   </a>
 </div>
 

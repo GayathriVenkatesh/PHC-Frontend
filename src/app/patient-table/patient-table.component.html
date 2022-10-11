@@ -1,10 +1,38 @@
 <!-- <h4 style="margin-top:1%; padding-bottom: 1%;"></h4> -->
-<div class="content-wrapper" style="margin-left: 300px;">
-  <!-- Content -->
-  <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="card" style="box-shadow: 0 0 5px grey;">
-      <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Discharged Patients</h3>
-      <app-search></app-search>
+<style>
+  tr:hover td {
+    background:#000
+  }
+
+  tr:hover {
+    background-color: #eee;
+}
+
+</style>
+
+<div class="content-wrapper" style="margin-left: 200px;  width: 100%">
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <h3 style="font-family: 'Mulish'"><strong>Discharged Patients</strong></h3>
+      <div class="card" style="box-shadow: 0 0 5px grey;">
+        <div class="card-header" style="background-color: #d9ecf3; font-family: Serif;">
+        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse" 
+        style="margin-left: 2%; float: right; margin-top: -10px; margin-bottom: -10px; width: 50%
+        font-size: 13px; font-family: 'Times New Roman', Times, serif;">
+            
+            <div class="navbar-nav align-items-center">
+            <div class="nav-item d-flex align-items-center" style="box-shadow: 0px 15px 10px -15px #111">
+                
+                <input
+                type="text"
+                class="form-control border-0 shadow-none"
+                placeholder="Search"
+                aria-label="Search..."
+                />
+                <!-- <i class="fa fa-search"></i> -->
+            </div>
+            </div>
+        </div>
+        </div>
 
       <div class="table-responsive text-nowrap" style="font-size: 15px; font-family:'Serif'">
         <table class="table">
@@ -27,8 +55,14 @@
               <!-- <td><a href="patient-details.html">{{ p.contactNo }}</a></td> -->
               <!-- <td><a href="patient-details.html">{{ p.nrcFrom }}</a></td> -->
               <td><a href="patient/1240">VVH</a></td>
-              <td><span class="badge bg-label-primary me-1"><a href="/discharge-summary">Summary</a></span></td>           
-              <td><button type="button" class="btn rounded-pill btn-primary" style="color: white; background-color:#ceffb6; border: white"><a href="/assign-asha">Assign</a></button></td>           
+              <td><span class="badge" style="background-color: #d9ecf3;">
+                <a style="color:#008ebe;" href="/discharge-summary">Summary</a></span>
+              </td>           
+              <td><button type="button" class="btn rounded-pill btn-primary" 
+                style="color: white; background-color:#008ebe; width: 80%; border-color: white"
+                (click)="openModal()">
+                Assign
+              </button></td>           
             </tr>
             
           </tbody>
