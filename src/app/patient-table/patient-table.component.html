@@ -44,17 +44,17 @@
               <!-- <th>Contact No</th> -->
               <th>Name of NRC</th>
               <th>Discharge Details</th>
-              <th>Asha Worker</th>
+              <th>ASHA Worker</th>
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
             <tr *ngFor="let p of patients">
-              <td> <a href="patient/1240"><strong>{{ p.rchId }}</strong></a></td>
-              <td><a href="patient/1240">{{ p.name }}</a></td>
-              <td><a href="patient/1240">{{ p.dischargeDate }}</a></td>
+              <td> <a href="patient/{{p.rchId}}"><strong>{{ p.rchId }}</strong></a></td>
+              <td><a href="patient/{{p.rchId}}">{{ p.name }}</a></td>
+              <td><a href="patient/{{p.rchId}}">{{ p.dischargeDate }}</a></td>
               <!-- <td><a href="patient-details.html">{{ p.contactNo }}</a></td> -->
               <!-- <td><a href="patient-details.html">{{ p.nrcFrom }}</a></td> -->
-              <td><a href="patient/1240">VVH</a></td>
+              <td><a href="patient/{{p.rchId}}">VVH</a></td>
               <td><span class="badge" style="background-color: #d9ecf3;">
                 <a style="color:#008ebe;" href="/discharge-summary">Summary</a></span>
               </td>           

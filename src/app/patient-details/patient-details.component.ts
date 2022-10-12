@@ -15,6 +15,7 @@ export class PatientDetailsComponent implements OnInit {
   rchId: String;
 
   constructor(private router: Router, private patientService: PatientService) {
+    console.log("OLD PATIENT", this.patient);
   }
 
   ngOnInit() {

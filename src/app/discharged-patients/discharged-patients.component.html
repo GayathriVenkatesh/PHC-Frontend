@@ -1,8 +1,8 @@
 <!-- <h4 style="margin-top:1%; padding-bottom: 1%;">Discharged Patients</h4> -->
-<div class="content-wrapper" style="margin-left: 200px;  width: 100%">
+<div class="content-wrapper" style="margin-left: 200px;  width: 95%">
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h3 style="font-family: 'Mulish'"><strong>Discharged Patients</strong></h3>
+        <h3 style="font-family: 'Mulish'"><strong>Patients Admitted at NRC</strong></h3>
       <div class="card" style="box-shadow: 0 0 5px grey;">
         <!-- <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Discharged Patients</h3>
         <app-search></app-search> -->
@@ -36,6 +36,7 @@
                 <th>Name of NRC</th>
                 <th>Mobile No</th>
                 <th>Address</th>
+                <th>Pincode</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -44,9 +45,10 @@
                 <td> <a href="patient/1240"><strong>Aanchal</strong></a></td>
                 <td><a href="patient/1240">VVH</a></td>
                 <td><a href="patient/1240">98879389829</a></td>
-                <td><a href="patient/1240">Singasandra</a></td>
+                <td><a href="patient/1240">21st Road, Singasandra</a></td>
+                <td><a href="patient/1240">560076</a></td>
                 <td style="color: white">
-                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white">Approve</button></td>           
+                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white" (click)="openApproveModal()">Approve</button></td>           
                 <td style="color:#111">
                   <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; margin-left:-40px;" (click)="openModal()">Reject</button></td>           
               </tr>
@@ -55,9 +57,10 @@
                 <td> <a href="patient/1240"><strong>Aanchal</strong></a></td>
                 <td><a href="patient/1240">VVH</a></td>
                 <td><a href="patient/1240">98879389829</a></td>
-                <td><a href="patient/1240">Singasandra</a></td>
+                <td><a href="patient/1240">4th main, HSR Layout</a></td>
+                <td><a href="patient/1240">560008</a></td>
                 <td style="color: white">
-                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white">Approve</button></td>           
+                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white" (click)="openApproveModal()">Approve</button></td>           
                 <td style="color:#111">
                   <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; margin-left:-40px;" (click)="openModal()">Reject</button></td>           
               </tr>

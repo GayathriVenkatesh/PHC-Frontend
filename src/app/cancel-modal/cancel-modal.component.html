@@ -1,7 +1,7 @@
 <style>
     .column {
      float: left;
-     width: 50%;
+     width: 170%;
      padding: 20px;
    }
    
@@ -16,36 +16,26 @@
   <div style="box-shadow: 0px 8px 10px gray, 
   -10px 8px 15px gray, 10px 8px 15px gray;">
   <div class="modal-header" style="width: 100% ">
-    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>ASHA has been Assigned Successfully</strong></h3>
+    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Cancel Follow Up</strong></h3>
     <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
       (click)="modalRef.close()"></i>
       
     </div>
     <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
-        <table class="table">
-            <thead>
-              
-            </thead>
-            <tbody class="table-border-bottom-0">
-              <!-- <div class="column"> -->
-              <tr>
-                  <td>ASHA Name</td>
-                  <td>Nilam Patel</td>
-              </tr>
-  
-              <tr>
-                  <td>Location</td>
-                  <td>HSR Layout, Bengaluru</td>
-                </tr>
-            
-                <tr>
-                    <td>Pincode</td>
-                    <td>560075</td>
-                  </tr>
-              <!-- </div> -->
-              
-            </tbody>
-          </table>
+      <div class="row">
+        <form>
+            <div class="column">
+               <div class="mb-6">
+                   <label class="form-label" for="basic-default-age">Reason for Cancellation</label>
+                   <textarea type="text" class="form-control" id="basic-default-company"></textarea>
+               </div>
+            </div>
+
+
+          <button type="submit" class="btn rounded-pill btn-primary" 
+          style="background-color: #008eBe; float: right; width: 30%">Save</button>
+      </form>
+      </div>
     </div>
   </div>
     <!-- <div class="modal-footer">

@@ -29,6 +29,8 @@ import { SuccessfulAssignmentComponent } from './successful-assignment/successfu
 import { WorkerDetailModalComponent } from './worker-detail-modal/worker-detail-modal.component';
 import { TrackChildComponent } from './track-child/track-child.component';
 import { TrackChildDetailsComponent } from './track-child-details/track-child-details.component';
+import { ApproveModalComponent } from './approve-modal/approve-modal.component';
+import { CancelModalComponent } from './cancel-modal/cancel-modal.component';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
@@ -54,7 +56,9 @@ import { TrackChildDetailsComponent } from './track-child-details/track-child-de
     SuccessfulAssignmentComponent,
     WorkerDetailModalComponent,
     TrackChildComponent,
-    TrackChildDetailsComponent
+    TrackChildDetailsComponent,
+    ApproveModalComponent,
+    CancelModalComponent
   ],
   imports: [
     BrowserModule,

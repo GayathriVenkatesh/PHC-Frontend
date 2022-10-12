@@ -11,20 +11,26 @@
    display: table;
    clear: both;
  }
+
+  .modal-body {
+    bottom:0;
+  }
+
  </style>
 
-<div class="modal-header" style="width: 200px">
-    <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+<div style="box-shadow: 0px 8px 10px gray, 
+-10px 8px 15px gray, 10px 8px 15px gray;">
+<div class="modal-header" style="width: 100%; padding-left: 5%; padding-bottom: 0%;">
+  <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Follow Up Details</strong></h3>
+  <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
     (click)="modalRef.close()"></i>
 
   </div>
-  <div class="modal-body">
-    <div class="row">
-    <div class="table-responsive text-nowrap" style="font-family: Serif; width: 100%;">
+  <div class="modal-body" style="padding: 1px; margin-top: -20px;">
+    <!-- <div class="row"> -->
+    <div class="table-responsive text-nowrap" style="font-family: 'Times New Roman', Times, serif; width: 100%;">
         <table class="table">
-          <thead>
-            
-          </thead>
+          
           <tbody class="table-border-bottom-0">
             <div class="column">
             <tr>
@@ -39,7 +45,7 @@
 
               <tr>
                 <td>MUAC</td>
-                <td><span class="badge bg-label-danger" style="color: #ff3e1d !important; background-color: #ffe0db !important; height: 10%">102mm</span></td>
+                <td><span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">102 mm</span></td>
               </tr>
 
               <tr>
@@ -56,6 +62,11 @@
                 <td>Diet Chart</td>
                 <td>-</td>
               </tr>
+
+              <tr>
+                <td>Result</td>
+                <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM</span></td>
+              </tr>
             </div>
 
             <div class="column">
@@ -63,7 +74,7 @@
 
               <tr>
                 <td>Diet Adequacy</td>
-                <td><span class="badge bg-label-success" style="color: #71dd37 !important; background-color: #e8fadf; height: 10%">YES</span></td>
+                <td><span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;">YES</span></td>
               </tr>
 
               <tr>
@@ -92,16 +103,24 @@
               </tr>
 
               <tr>
-                <td>Result</td>
-                <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; height: 10%">MAM</span></td>
+              <button type="button" class="btn rounded-pill btn-primary" 
+            style="background-color: #008ebe; float: right; margin-top: 10%; margin-left: 100px;
+            width: 60%"
+            (click)="modalRef.close()">Close</button>
               </tr>
+
+              <!-- <button type="submit" class="btn rounded-pill btn-primary" 
+            style="background-color: #008ebe; float: right; margin-right: 5px; margin-left: 5px; width: 20%"
+            (click)="openModal()">Save</button> -->
+              
             </div>
             
           </tbody>
         </table>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
+</div>
   <!-- <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
       Close

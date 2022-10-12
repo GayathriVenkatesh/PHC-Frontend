@@ -11,6 +11,11 @@
   display: table;
   clear: both;
 }
+
+.file-input {
+  display: none;
+}
+
 </style>
 
 <div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 200px;  width: 90%">
@@ -35,7 +40,7 @@ width: 100%">
           <form style="color: black">
               <div class="column">
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-fullname" style="color: black" >Height in Centimeters</label>
+                    <label class="form-label" for="basic-default-fullname" style="color: black" >Height in cm</label>
                     <input type="text" class="form-control" id="basic-default-fullname" />
                   </div>
                   <div class="mb-4">
@@ -44,21 +49,17 @@ width: 100%">
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">MUAC</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black">MUAC in cm</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
-                  </div>
-
-                  <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Head Circumference</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
-                  </div>
-
-                  
-
-                  
+                  </div>        
                 </div>
 
                 <div class="column">
+                  <div class="mb-4">
+                    <label class="form-label" for="basic-default-muac" style="color: black">Head Circumference in cm</label>
+                      <input type="text" class="form-control" id="basic-default-muac"/>
+                  </div>
+
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">SD Range</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
@@ -66,10 +67,16 @@ width: 100%">
 
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">Diet Chart</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
+                    <input type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
+                    onchange="console.log(event.target.files)">
+                   
                       <!-- <app-file-upload></app-file-upload> -->
                   </div>
 
+                       
+                </div>
+
+                <div class="column">
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">Diet Adequacy</label>
                     <select id="defaultSelect" class="form-select">
@@ -77,45 +84,34 @@ width: 100%">
                       <option value="1">Yes</option>
                       <option value="2">No</option>
                     </select>                      
-                  </div>
+                  </div>  
 
                   <div class="mb-4">
-                      <!-- <input type="text" class="form-control" id="basic-default-muac"/> -->
+                    <!-- <input type="text" class="form-control" id="basic-default-muac"/> -->
 
-                    <label class="form-label" for="basic-default-fullname">Co-morbidities</label>
-                    <select id="defaultSelect" class="form-select">
-                        <option></option>
-                        <option value="1">Worker 1</option>
-                        <option value="2">Worker 2</option>
-                        <option value="3">Worker 3</option>
-                      </select>                        
-                  </div>
-                
-                  
-
-                  
+                  <label class="form-label" for="basic-default-fullname">Co-morbidities</label>
+                  <select id="defaultSelect" class="form-select">
+                      <option></option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>                        
                 </div>
 
-                <div class="column">
-                  
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">Other Symptoms</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
 
-                  <div class="mb-4">
-                      <label class="form-label" for="basic-default-company" style="color: black">Reason for Followup</label>
-                      <input type="text" class="form-control" id="basic-default-company"><i aria-flowto=""></i>
-                  </div>
-
-                  <div class="mb-4">
-                    <label class="form-label" for="basic-default-company" style="color: black">Reason for not coming for followup</label>
-                    <input type="text" class="form-control" id="basic-default-company"><i aria-flowto=""></i>
-                </div>
+                  
                 <!-- </div> -->
                 <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: white; background-color:#008ebe; width: 70%; border-color: white"
+                style="color: white; float: left; background-color:#008ebe; width: 38%; border-color: white"
                 > Save </button>
+
+                <button type="button" class="btn rounded-pill btn-primary" 
+                style="color: #ef0000; float: right; background-color:white; width: 58%; border-color: #ef0000"
+                (click) = "openCancelModal()"> Cancel Followup </button>
                   <!-- <button type="submit" class="btn btn-primary" style="margin-bottom: 7%; margin-right: 40px; float: right; background-color: #66adf9;">Save</button> -->
                 </div>
                 </form>
