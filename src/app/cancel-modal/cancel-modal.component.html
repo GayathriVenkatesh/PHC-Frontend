@@ -1,7 +1,7 @@
 <style>
     .column {
      float: left;
-     width: 170%;
+     width: 100%;
      padding: 20px;
    }
    
@@ -27,8 +27,21 @@
             <div class="column">
                <div class="mb-6">
                    <label class="form-label" for="basic-default-age">Reason for Cancellation</label>
-                   <textarea type="text" class="form-control" id="basic-default-company"></textarea>
-               </div>
+                   <!-- <textarea type="text" class="form-control" id="basic-default-company"></textarea> -->
+                   <select id="defaultSelect" class="form-select" style="margin-left: 10%">
+                    <option>Choose</option>
+                    <option value="1">Relocated</option>
+                    <option value="2">Commute Issues</option>
+                    <option value="3">No Time</option>
+                    <option value="4">Lack of Clarity</option>
+                    <option value="5">Other</option>
+                  </select>     
+                  </div>
+
+                  <div class="mb-6">
+                    <label class="form-label" for="basic-default-age">Other Reason</label>
+                    <input type="text" class="form-control" id="basic-default-company"  />
+                </div>
             </div>
 
 
