@@ -31,6 +31,7 @@ import { TrackChildComponent } from './track-child/track-child.component';
 import { TrackChildDetailsComponent } from './track-child-details/track-child-details.component';
 import { ApproveModalComponent } from './approve-modal/approve-modal.component';
 import { CancelModalComponent } from './cancel-modal/cancel-modal.component';
+import { CommonModule } from '@angular/common';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
@@ -62,6 +63,7 @@ import { CancelModalComponent } from './cancel-modal/cancel-modal.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

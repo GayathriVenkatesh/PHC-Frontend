@@ -27,28 +27,26 @@
             <div class="column">
                  <div class="mb-3">
                      <label class="form-label" for="basic-default-age">Pin Code</label>
-                     <input type="text" class="form-control" id="basic-default-company" />
+                     <input type="text" (keyup)="onKeyPincode($event)" class="form-control" id="basic-default-company" />
                  </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-age">Area / Location</label>
-                    <input type="text" class="form-control" id="basic-default-company" />
+                    <input id="area" (keyup)="onKeyArea($event)" type="text" class="form-control" id="basic-default-company" />
                 </div>
             </div>
 
             <div class="column">
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-age">Ward / Village</label>
-                    <input type="text" class="form-control" id="basic-default-company"  />
+                    <input type="text" (keyup)="onKeyWard($event)" class="form-control" id="basic-default-company"  />
                 </div>
                 
                 <div class="mb-3">
                  <label class="form-label" for="basic-default-fullname">ASHA Worker Name</label>
                  <select id="defaultSelect" class="form-select">
-                     <option>Choose</option>
-                     <option value="1">Worker 1</option>
-                     <option value="2">Worker 2</option>
-                     <option value="3">Worker 3</option>
+                    <option>Choose</option>
+                     <option *ngFor="let w of workers" value={{w.name}}>{{ w.name }}  </option>
                    </select>                        
               </div>
                 

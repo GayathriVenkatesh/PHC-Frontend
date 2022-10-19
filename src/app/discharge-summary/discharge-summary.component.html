@@ -1,7 +1,7 @@
-<div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 200px;  width: 150%">
+<div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 50%;  width: 150%">
   <button type="button" class="btn rounded-pill btn-primary" 
                 style="color: #008ebe; background-color:white; 
-                width: 20%; border-color: #008ebe; float: right;
+                width: 22%; border-color: #008ebe; float: right;
                 font-family: 'Times New Roman', Times, serif;">
                 <i class="fa fa-file-pdf-o" style="color: red; "></i>
                 Export as PDF
@@ -23,97 +23,97 @@ width: 100%">
         <tbody>
           <tr>
             <td><strong>Name</strong></td>
-            <td>Aanchal</td>
+            <td>{{ patient.name }}</td>
           </tr>
 
           <tr>
               <td><strong>RCH-ID</strong></td>
-              <td>2467825</td>
+              <td>{{ child.rchId }}</td>
             </tr>
 
             <tr>
-              <td><strong>Age</strong></td>
-              <td>3</td>
+              <td><strong>Age in months</strong></td>
+              <td>{{ child.ageInMonths }}</td>
             </tr>
 
             <tr>
               <td><strong>Gender</strong></td>
-              <td>Female</td>
+              <td>{{ child.gender }}</td>
             </tr>
 
             <tr>
               <td><strong>NRC Name</strong></td>
-              <td>VVH</td>
+              <!-- <td>VVH</td> -->
             </tr>
 
             <tr>
               <td><strong>SAM ID</strong></td>
-              <td>32463</td>
+              <td>{{ patient.samId }}</td>
             </tr>
 
             <tr>
-              <td><strong>Discharge Weight</strong></td>
-              <td>30 </td>
+              <td><strong>Discharge Weight in Kg</strong></td>
+              <td>{{ discharge.weightKg }}</td>
             </tr>
 
             <tr>
-              <td><strong>Discharge Height</strong></td>
-              <td>120cm</td>
+              <td><strong>Discharge Height in Cm</strong></td>
+              <td>{{ discharge.heightCm }}</td>
             </tr>
             
             <tr>
               <td><strong>SD Range</strong></td>
-              <td>-2</td>
+              <td>{{ child.dischargeSd }}</td>
             </tr>
 
             <tr>
               <td><strong>MUAC</strong></td>
-              <td>120 mm</td>
+              <!-- <td>120 mm</td> -->
             </tr>
 
             <tr>
               <td><strong>Co-morbidities (if any)</strong></td>
-              <td>None</td>
+              <!-- <td>None</td> -->
             </tr>
 
             <tr>
               <td><strong>Duration of Stay</strong></td>
-              <td>14 days</td>
+              <!-- <td>14 days</td> -->
             </tr>
 
             <tr>
               <td><strong>Average Weight Gain</strong></td>
-              <td>17g/kg per day</td>
+              <td>{{ discharge.avgWeightGainKg }}</td>
             </tr>
 
             <tr>
               <td><strong>Clinical Impression</strong></td>
-              <td>-</td>
+              <td>{{ discharge.clinicalImpression }}</td>
             </tr>
 
             <tr>
               <td><strong>Outcome</strong></td>
-              <td>MAM</td>
+              <td>{{ discharge.outcome }}</td>
             </tr>
 
             <tr>
               <td><strong>Medical Prescription</strong></td>
-              <td>None</td>
+              <td>{{ discharge.medicalAdvice }}</td>
             </tr>
 
             <tr>
               <td><strong>Post-discharge Advice</strong></td>
-              <td>-</td>
+              <td>{{ discharge.treatmentGiven }}</td>
             </tr>
 
             <tr>
               <td><strong>Dietary Advice</strong></td>
-              <td>-</td>
+              <td>{{ discharge.dietaryAdvice }}</td>
             </tr>
 
             <tr>
               <td><strong>Community Follow Up Calendar</strong></td>
-              <td>-</td>
+              <!-- <td>-</td> -->
             </tr>
       
     </tbody>

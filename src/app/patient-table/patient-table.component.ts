@@ -31,4 +31,3 @@ export class PatientTableComponent implements OnInit {
   }
 
 }
-

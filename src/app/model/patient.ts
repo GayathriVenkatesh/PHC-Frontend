@@ -1,12 +1,17 @@
 export class Patient {
     patientId: number;
+    gender: string;
     rchId: string;
     samId: string;
+    ageInMonths: number;
     aadharId: string;
     abhaId: string;
-    contactNo: string;
+    mobileNumber: string;
     nrcFrom: string;
-    stdev: number;
+    dischargeSd: number;
     name: string;
     dischargeDate: string;
+    dischargeId: string;
+    address: string;
+    pincode: string;
 }

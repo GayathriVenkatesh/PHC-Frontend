@@ -1,10 +1,6 @@
-<div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 200px;  width: 100%">
-  
-              <h3 style="font-family: 'Mulish'"><strong>Patient Details</strong></h3>
-  
-<div class="card" 
-style=" font-family: 'Times New Roman', Times, serif;
-width: 100%">
+<div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 35%;  width: 100%">
+  <h3 style="font-family: 'Mulish'"><strong>Patient Details</strong></h3>
+  <div class="card" style=" font-family: 'Times New Roman', Times, serif; width: 100%">
       
           <div class="card-body" style="font-family:'Serif';">
             <div class="table-responsive text-nowrap">
@@ -30,8 +26,14 @@ width: 100%">
                       <td>
                         <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>RCH ID</strong>
                       </td>
-                      <td>{{ patient.rchId }}</td>       
+                      <td>{{ child.rchId }}</td>       
                   </tr>
+                  <tr>
+                    <td>
+                      <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Gender</strong>
+                    </td>
+                    <td>{{ child.gender }}</td>       
+                </tr>
                   <tr>
                       <td>
                         <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Aadhar No</strong>
@@ -49,21 +51,21 @@ width: 100%">
                     <td>
                       <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Contact No</strong>
                     </td>
-                    <td>{{ patient.contactNo }}</td>                         
+                    <td>{{ child.mobileNumber }}</td>                         
                   </tr>
 
                   <tr>
                     <td>
                       <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Address</strong>
                     </td>
-                    <td>Block 5, Electronic City Phase 1</td>                         
+                    <td>{{ child.address }}</td>                         
                   </tr>
 
                   <tr>
                     <td>
                       <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Pincode</strong>
                     </td>
-                    <td>560012</td>                         
+                    <td>{{ child.pincode }}</td>                         
                   </tr>
 
                   <tr>
@@ -77,14 +79,14 @@ width: 100%">
                       <td>
                         <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Discharge Date</strong>
                       </td>
-                      <td>{{ patient.dischargeDate }}</td>       
+                      <td>{{ child.dischargeDate }}</td>       
                   </tr>
 
                   <tr>
                       <td>
                         <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Standard Deviation on Date of Discharge</strong>
                       </td>
-                      <td>{{ patient.stdev }}</td>       
+                      <td>{{ child.dischargeSd }}</td>       
                   </tr>
                 </tbody>
               </table>

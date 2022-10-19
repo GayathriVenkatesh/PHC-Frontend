@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'discharged-patients', component: DischargedPatientsComponent },
   { path: 'assign-asha', component: AssignAshaComponent },
   { path: 'patient/:rchId', component: PatientDetailsComponent },
-  { path: 'discharge-summary', component: DischargeSummaryComponent },
+  { path: 'discharge-summary/:dischargeId', component: DischargeSummaryComponent },
   { path: 'followup-list', component: FollowupTableComponent },
   { path: 'asha-worker/:awId', component: WorkerDetailsComponent },
   { path: 'followup/:samId', component: PatientFollowupTableComponent },

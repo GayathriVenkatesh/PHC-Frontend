@@ -12,20 +12,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PatientDetailsComponent implements OnInit {
 
   patient: Patient;
-  rchId: String;
+  child: Patient;
+  dischargeId: String;
+  samId: String;
 
   constructor(private router: Router, private patientService: PatientService) {
-    console.log("OLD PATIENT", this.patient);
   }
 
   ngOnInit() {
-    console.log("KJBJBJB", this.router.url);
-    this.rchId = this.router.url.split("/")[2];
-    this.patientService.findByRchId(this.rchId).subscribe(data => {
-      this.patient = data;
-      console.log("PATIENT", this.patient);
-    });
+    this.dischargeId = this.router.url.split("/")[2];
+    this.patientService.findByDischargeId(this.dischargeId)
+    .subscribe(data => {
+      this.patient = data;  
+      this.samId = this.patient.samId;
 
+      this.patientService.findBySamId(this.samId.toString())
+        .subscribe(data => {
+          this.child = data;  
+        });
+    }); 
   }
 
 }
