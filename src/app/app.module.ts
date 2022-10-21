@@ -32,6 +32,9 @@ import { TrackChildDetailsComponent } from './track-child-details/track-child-de
 import { ApproveModalComponent } from './approve-modal/approve-modal.component';
 import { CancelModalComponent } from './cancel-modal/cancel-modal.component';
 import { CommonModule } from '@angular/common';
+import { AshaPatientComponent } from './asha-patient/asha-patient.component';
+import { AshaPatientFollowupComponent } from './asha-patient-followup/asha-patient-followup.component';
+import { NotificationComponent } from './notification/notification.component';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
@@ -59,7 +62,10 @@ import { CommonModule } from '@angular/common';
     TrackChildComponent,
     TrackChildDetailsComponent,
     ApproveModalComponent,
-    CancelModalComponent
+    CancelModalComponent,
+    AshaPatientComponent,
+    AshaPatientFollowupComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

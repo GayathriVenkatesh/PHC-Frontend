@@ -16,14 +16,19 @@
   <div style="box-shadow: 0px 8px 10px gray, 
   -10px 8px 15px gray, 10px 8px 15px gray;">
   <div class="modal-header" style="width: 100% ">
-    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Recommend PHC</strong></h3>
-    <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
-      (click)="modalRef.close()"></i>
+    <h4 style="font-family: 'Mulish'; color: #566a7f"><strong>New Children Assigned</strong></h4>
+    <!-- <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+      (click)="modalRef.close()"></i> -->
       
     </div>
     <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
       <div class="row">
-        <form>
+        <button type="submit" class="btn rounded-pill btn-primary" 
+          style="background-color: #008eBe; float: right; margin-right: 20px; margin-left: 20px; width: 25%">View</button>
+          <button type="submit" class="btn rounded-pill btn-primary" (click)="modalRef.close()"
+          style="border-color: #008eBe; color: #008eBe; background-color: white; float: right; margin-right: 0px; width: 25%">Close</button>
+
+        <!-- <form>
           <div class="column">
                <div class="mb-3">
                    <label class="form-label" for="basic-default-age">Reason for Rejection*</label>
@@ -35,29 +40,9 @@
                   <input type="text" class="form-control" id="basic-default-company" />
               </div>
           </div>
-
-          <!-- <div class="column">
-              <div class="mb-3">
-                  <label class="form-label" for="basic-default-age">Suggested PHC Name</label>
-                  <input type="text" class="form-control" id="basic-default-company"  />                      
-              </div>
-              
-              <div class="mb-3">
-               <label class="form-label" for="basic-default-fullname">Mobile No</label>
-               <input type="text" class="form-control" id="basic-default-company"  />                      
-            </div>
-              
-          </div> -->
-
           <button type="submit" class="btn rounded-pill btn-primary" 
           style="background-color: #008eBe; float: right; margin-right: 0px; width: 25%">Save</button>
-      </form>
+      </form> -->
       </div>
     </div>
   </div>
-    <!-- <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
-        Close
-      </button>
-      <button type="button" class="btn btn-primary">Save changes</button>
-    </div> -->

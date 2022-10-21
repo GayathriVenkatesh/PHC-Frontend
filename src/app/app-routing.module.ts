@@ -15,6 +15,8 @@ import { RecordVisitComponent } from './record-visit/record-visit.component';
 import { DischargedPatientsComponent } from './discharged-patients/discharged-patients.component';
 import { TrackChildComponent } from './track-child/track-child.component';
 import { TrackChildDetailsComponent } from './track-child-details/track-child-details.component';
+import { AshaPatientComponent } from './asha-patient/asha-patient.component';
+import { AshaPatientFollowupComponent } from './asha-patient-followup/asha-patient-followup.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: 'record-visit', component: RecordVisitComponent },
   { path: 'track-child', component: TrackChildComponent },
   { path: 'track-child/:rchId', component: TrackChildDetailsComponent },
+  { path: 'asha-followups', component: AshaPatientComponent },
+  { path: 'asha-patient-followup/:samId', component: AshaPatientFollowupComponent },
 ];
 
 @NgModule({
