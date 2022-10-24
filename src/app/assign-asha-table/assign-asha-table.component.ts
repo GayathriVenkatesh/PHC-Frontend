@@ -5,16 +5,16 @@ import { AshaModalComponent } from '../asha-modal/asha-modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
-  selector: 'app-patient-table',
-  templateUrl: './patient-table.component.html',
-  styleUrls: ['./patient-table.component.css']
+  selector: 'app-assign-asha-table',
+  templateUrl: './assign-asha-table.component.html',
+  styleUrls: ['./assign-asha-table.component.css']
 })
-export class PatientTableComponent implements OnInit {
+export class AssignAshaTableComponent implements OnInit {
 
   patients: Patient[];
-  children: Patient[];
-  dischargeId: String;
+  children: Patient[];  
   samId: String;
+  dischargeId: String;
   modalRef: MdbModalRef<AshaModalComponent> | null = null;
 
   constructor(private patientService: PatientService, private modalService: MdbModalService) {
@@ -38,5 +38,4 @@ export class PatientTableComponent implements OnInit {
       modalClass: 'modal-md'
     })
   }
-
 }

@@ -1,7 +1,7 @@
 <style>
   .column {
   float: left;
-  width: 30%;
+  width: 50%;
   padding: 50px;
 }
 
@@ -40,43 +40,36 @@ width: 100%">
           <form style="color: black">
               <div class="column">
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-fullname" style="color: black" >Height in cm</label>
+                    <label class="form-label" for="basic-default-fullname" style="color: black" >Height (in cm)</label>
                     <input type="text" class="form-control" id="basic-default-fullname" />
                   </div>
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-company" style="color: black">Weight in kgs</label>
+                    <label class="form-label" for="basic-default-company" style="color: black">Weight (in kgs)</label>
                     <input type="text" class="form-control" id="basic-default-weight"  />
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">MUAC in cm</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black">MUAC (in mm)</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>        
+
+                  <div class="mb-4">
+                    <label class="form-label" for="basic-default-muac" style="color: black">Head Circumference (in cm)</label>
+                      <input type="text" class="form-control" id="basic-default-muac"/>
+                  </div>
                 </div>
 
                 <div class="column">
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Head Circumference in cm</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
-                  </div>
-
-                  <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">SD Range</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
-                  </div>
-
-                  <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">Diet Chart</label>
-                    <input type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
+                    <br>
+                    <input style="margin-top: 30px;" type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
                     onchange="console.log(event.target.files)">
                    
                       <!-- <app-file-upload></app-file-upload> -->
                   </div>
 
-                       
-                </div>
-
-                <div class="column">
+                
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black">Diet Adequacy</label>
                     <select id="defaultSelect" class="form-select">

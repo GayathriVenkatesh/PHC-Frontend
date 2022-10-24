@@ -10,7 +10,7 @@ import { PatientFollowupTableComponent } from './patient-followup-table/patient-
 import { EnterFollowupComponent } from './enter-followup/enter-followup.component';
 import { DischargeSummaryComponent } from './discharge-summary/discharge-summary.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AssignAshaComponent } from './assign-asha/assign-asha.component';
+import { AssignAshaTableComponent } from './assign-asha-table/assign-asha-table.component';
 import { RecordVisitComponent } from './record-visit/record-visit.component';
 import { DischargedPatientsComponent } from './discharged-patients/discharged-patients.component';
 import { TrackChildComponent } from './track-child/track-child.component';
@@ -20,10 +20,11 @@ import { AshaPatientFollowupComponent } from './asha-patient-followup/asha-patie
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
-  { path: '', redirectTo: 'discharged-patients', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'patients', component: PatientTableComponent },
+  { path: 'assign-asha', component: AssignAshaTableComponent },
   { path: 'discharged-patients', component: DischargedPatientsComponent },
-  { path: 'assign-asha', component: AssignAshaComponent },
+  // { path: 'assign-asha', component: AssignAshaComponent },
   { path: 'patient/:rchId', component: PatientDetailsComponent },
   { path: 'discharge-summary/:dischargeId', component: DischargeSummaryComponent },
   { path: 'followup-list', component: FollowupTableComponent },

@@ -1,171 +1,260 @@
-<div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 200px;  width: 100%">
-  
-    <h3 style="font-family: 'Mulish'"><strong>Patient Details</strong></h3>
+<style>
+  .mat-tab-group.mat-primary .mat-ink-bar{
+  background: brown;
+  height: 5px;
+} 
+.mat-tab-label, .mat-tab-link {
+    color: red;
+}
+.mat-tab-label{
+  background:aqua;
+  color: blue;
+  width: 60px;
+  height: 50px;
+  font-size: 20px;
+}
+.mat-tab-group.mat-primary .mat-ink-bar{
+  background: brown;
+  height: 5px;
+} 
+</style>
 
-<div class="card" 
-style=" font-family: 'Times New Roman', Times, serif;
-width: 100%; background-color: white;">
+<div class="content-wrapper" style="margin-left: 220px;  width: 100%">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <h3 style="font-family: 'Mulish'"><strong>Track Patient: Aanchal (RCH-1234)</strong></h3>
+  <div class="card" style="box-shadow: 0 0 5px grey; background-color: white;">
+    <div class="card-header" style="background-color: #d9ecf3; font-family: Serif;"></div>
+<mat-tab-group style="width: 200%; font-family:'Times New Roman', Times, serif">
+  <mat-tab label="Demography">
+    <div class="table-responsive text-nowrap">
 
-<div class="card-body" style="font-family:'Serif';">
-  <div class="table-responsive text-nowrap">
-
-    <table class="table table-basic">
-      <thead>
-        <!-- Patient Details -->
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <strong>RCH ID</strong>
-          </td>
-          <td>7809</td>                    
-        </tr>
-        <tr>
+      <table class="table table-basic">
+        <thead>
+          <!-- Patient Details -->
+        </thead>
+        <tbody>
+          <tr>
             <td>
-              <strong>ABHA No</strong>
+              <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Name</strong>
             </td>
-            <td>5678</td>                    
-          </tr>                
-        <tr>
+            <td>Aanchal</td>                    
+          </tr>
+          <tr>
+              <td>
+                <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>SAM ID</strong>
+              </td>
+              <td>3456</td>                    
+            </tr>                
+          <tr>
+              <td>
+                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>RCH ID</strong>
+              </td>
+              <td>1234</td>       
+          </tr>
+          <tr>
             <td>
-              <strong>Co-morbidities (if any)</strong>
+              <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Gender</strong>
             </td>
-            <td>None</td>       
+            <td>Female</td>       
         </tr>
-        <tr>
+          <tr>
+              <td>
+                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Aadhar No</strong>
+              </td>
+              <td>9876543064</td>       
+          </tr>
+          <tr>
+              <td>
+                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>ABHA No</strong>
+              </td>
+              <td>876674</td>       
+          </tr>
+    
+          <tr>
             <td>
-              <strong>Average Weight Gain</strong>
+              <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Contact No</strong>
             </td>
-            <td>0.5 kg</td>       
-        </tr>
-        <tr>
-            <td>
-              <strong>Clinical Impression</strong>
-            </td>
-            <td>None</td>       
-        </tr>
-  
-        <tr>
-          <td>
-            <strong>Outcome</strong>
-          </td>
-          <td>Poor prognosis</td>                         
-        </tr>
-
-        <tr>
-          <td>
-            <strong>Medical Prescription</strong>
-          </td>
-          <td></td>                         
-        </tr>
-
-        <tr>
-          <td>
-            <strong>Dietary advice</strong>
-          </td>
-          <td></td>                         
-        </tr>
-
-        <tr>
-            <td>
-                <i ></i><strong>Community Followup 1</strong>
-            </td>
-            <td><strong style="color: #00a141">01-10-2022</strong></td>                         
+            <td>9876543210</td>                         
           </tr>
 
           <tr>
             <td>
-                <i ></i><strong>Community Followup 2</strong>
+              <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Address</strong>
             </td>
-            <td><strong style="color: #00a141">07-10-2022</strong></td>                         
+            <td>21st Road, HSR Layout</td>                         
           </tr>
 
           <tr>
             <td>
-                <i ></i><strong>Community Followup 3</strong>
+              <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Pincode</strong>
             </td>
-            <td><strong style="color: #ef0000">14-10-2022</strong></td>                         
+            <td>560075</td>                         
           </tr>
-        
+
           <tr>
-            <td>
-                <i ></i><strong>Community Followup 4</strong>
-            </td>
-            <td><strong style="color: #ef0000">21-10-2022</strong></td>                         
+              <td>
+                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>NRC Discharged From</strong>
+              </td>
+              <td>VVH</td>       
           </tr>
-        
+
           <tr>
-            <td>
-                <i ></i><strong>Community Followup 5</strong>
-            </td>
-            <td><strong style="color: #ef0000">28-10-2022</strong></td>                         
+              <td>
+                <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Discharge Date</strong>
+              </td>
+              <td>10-10-2022</td>       
           </tr>
-
-        
-<!-- </div>
-</div> -->
-
-        <!-- <div class="row">
-            <div class="col-12">
-              <div class="card mb-4">
-                <h5 class="card-header">Basic</h5>
-                <div class="card-body">
-                  <p class="card-text">
-                    Toggle the visibility of content across your project with a few classes and our JavaScript
-                    plugins.
-                  </p>
-                  <p class="demo-inline-spacing">
-                    <a
-                      class="btn btn-primary me-1"
-                      data-bs-toggle="collapse"
-                      href="#collapseExample"
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls="collapseExample"
-                    >
-                      Link with href
-                    </a>
-                    <button
-                      class="btn btn-primary me-1"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseExample"
-                      aria-expanded="false"
-                      aria-controls="collapseExample"
-                    >
-                      Button with data-bs-target
-                    </button>
-                  </p>
-                  <div class="collapse" id="collapseExample">
-                    <div class="d-grid d-sm-flex p-3 border">
-                      <img
-                        src="../assets/img/elements/1.jpg"
-                        alt="collapse-image"
-                        height="125"
-                        class="me-4 mb-sm-0 mb-2"
-                      />
-                      <span>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five
-                        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages, and more recently with desktop publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.It is a long established fact that a reader will be distracted by
-                        the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
-                        that it has a more-or-less normal distribution of letters.
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div> -->
-
-      </tbody>
-    </table>
+        </tbody>
+      </table>
 </div>
-<div class="content-backdrop fade"></div>
+  </mat-tab>
+  <mat-tab label="Discharge Summary">
+    <div class="table-responsive text-nowrap">
+      <table class="table card-table">
+        
+        <tbody>
+          <tr>
+            <td><strong>Name</strong></td>
+            <td>Aanchal</td>
+          </tr>
+
+          <tr>
+              <td><strong>RCH-ID</strong></td>
+              <td>1234</td>
+            </tr>
+
+            <tr>
+              <td><strong>Age in months</strong></td>
+              <td>12</td>
+            </tr>
+
+            <tr>
+              <td><strong>Gender</strong></td>
+              <td>Female</td>
+            </tr>
+
+            <tr>
+              <td><strong>NRC Name</strong></td>
+              <td>VVH</td>
+            </tr>
+
+            <tr>
+              <td><strong>SAM ID</strong></td>
+              <td>7872</td>
+            </tr>
+
+            <tr>
+              <td><strong>Discharge Weight in Kg</strong></td>
+              <td>6</td>
+            </tr>
+
+            <tr>
+              <td><strong>Discharge Height in Cm</strong></td>
+              <td>45</td>
+            </tr>
+            
+            <tr>
+              <td><strong>SD Range</strong></td>
+              <td>-1</td>
+            </tr>
+
+            <tr>
+              <td><strong>MUAC</strong></td>
+              <td>120 mm</td>
+            </tr>
+
+            <tr>
+              <td><strong>Co-morbidities (if any)</strong></td>
+              <td>None</td>
+            </tr>
+
+            <tr>
+              <td><strong>Duration of Stay</strong></td>
+              <td>14 days</td>
+            </tr>
+
+            <tr>
+              <td><strong>Average Weight Gain</strong></td>
+              <td>3g/kg per day</td>
+            </tr>
+
+            <tr>
+              <td><strong>Clinical Impression</strong></td>
+              <td>-</td>
+            </tr>
+
+            <tr>
+              <td><strong>Outcome</strong></td>
+              <td>Improved</td>
+            </tr>
+
+            <tr>
+              <td><strong>Medical Prescription</strong></td>
+              <td>None</td>
+            </tr>
+
+            <tr>
+              <td><strong>Post-discharge Advice</strong></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td><strong>Dietary Advice</strong></td>
+              <td>Increase protein intake</td>
+            </tr>
+
+            <tr>
+              <td><strong>Community Follow Up Calendar</strong></td>
+              <!-- <td>-</td> -->
+            </tr>
+      
+    </tbody>
+  </table>
 </div>
-</div>
+  </mat-tab>
+
+  <mat-tab label="Follow Up Details">
+    <div class="table-responsive text-nowrap">
+      <table class="table card-table" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Follow Up Type</th>
+            <th>ASHA Worker</th>
+            <th>Location</th>
+            <th>ASHA Contact</th>
+            <!-- <th>ASHA Worker</th> -->
+          </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+          <tr (click)="openModal()">
+            <td >12-02-2022</td>
+            <td>Community</td>
+            <td>Nilam Patel</td>
+            <td>Bangalore</td>
+            <td>9845778398</td>
+          </tr>
+          
+          <tr (click)="openModal()">
+            <td>20-02-2022</td>
+            <td>PHC</td>
+            <td>Dr. Srikanth</td>
+            <td>Bangalore</td>
+            <td>8983758793</td>
+          </tr>
+
+          <tr (click)="openModal()">
+            <td>28-02-2022</td>
+            <td>Community</td>
+            <td>Nilam Patel</td>
+            <td>Bangalore</td>
+            <td>9845778398</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+  </div>
+  </div>
 </div>

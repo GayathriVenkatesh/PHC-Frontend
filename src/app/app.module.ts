@@ -35,9 +35,39 @@ import { CommonModule } from '@angular/common';
 import { AshaPatientComponent } from './asha-patient/asha-patient.component';
 import { AshaPatientFollowupComponent } from './asha-patient-followup/asha-patient-followup.component';
 import { NotificationComponent } from './notification/notification.component';
+import { AssignAshaTableComponent } from './assign-asha-table/assign-asha-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+// import { MatRippleModule } from '@angular/material/ri';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+// import { MatNativeDateModule } from '@angular/material/native-date';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,15 +95,46 @@ import { NotificationComponent } from './notification/notification.component';
     CancelModalComponent,
     AshaPatientComponent,
     AshaPatientFollowupComponent,
-    NotificationComponent
+    NotificationComponent,
+    // AssignAshaTableComponent
   ],
   imports: [
     BrowserModule,
+    MatTabsModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     MdbModalModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatStepperModule,
     // FontAwesomeModule
   ],
   providers: [UserService, PatientService, FollowupService, FileUploadService],
