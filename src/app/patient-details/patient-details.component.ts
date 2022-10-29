@@ -28,7 +28,7 @@ export class PatientDetailsComponent implements OnInit {
 
       this.patientService.findBySamId(this.samId.toString())
         .subscribe(data => {
-          this.child = data;  
+          this.child = data[0];
         });
     }); 
   }

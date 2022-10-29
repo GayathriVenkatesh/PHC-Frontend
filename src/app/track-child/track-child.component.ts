@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from '../service/patient.service';
+import { Patient } from '../model/patient';
 
 @Component({
   selector: 'app-track-child',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackChildComponent implements OnInit {
 
-  constructor() { }
+  patients: Patient[];
+  discharge: Patient;
+  constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
+//   this.children=[];
+      this.patientService.trackChild().subscribe(data => {
+        this.patients = data;
+  // console.log("wassup2",this.patients);
+//   this.hello();
+console.log("track child: ",this.patients);
+
+    });
+
+
   }
 
 }

@@ -10,8 +10,11 @@ export class Patient {
     nrcFrom: string;
     dischargeSd: number;
     name: string;
-    dischargeDate: string;
+    admissionDate: Date;
+    dischargeDate: Date;
     dischargeId: string;
     address: string;
     pincode: string;
+    caseId: number;
+    samNum: string;
 }

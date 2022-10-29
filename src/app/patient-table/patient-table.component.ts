@@ -27,7 +27,7 @@ export class PatientTableComponent implements OnInit {
         this.samId = this.patients[i].samId;
         this.patientService.findBySamId(this.samId.toString())
         .subscribe(data => {
-          this.children.push(data);  
+          this.children.push(data[0]);
         });
       }      
   })

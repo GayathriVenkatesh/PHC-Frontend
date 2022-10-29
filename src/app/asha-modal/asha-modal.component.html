@@ -23,7 +23,7 @@
     </div>
     <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
       <div class="row">
-        <form>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="column">
                  <div class="mb-3">
                      <label class="form-label" for="basic-default-age">Pin Code</label>
@@ -44,22 +44,21 @@
                 
                 <div class="mb-3">
                  <label class="form-label" for="basic-default-fullname">ASHA Worker Name</label>
-                 <select id="defaultSelect" class="form-select">
+                 <select [(ngModel)] = "ashaId" name="ashaId" id="defaultSelect" class="form-select">
                     <option>Choose</option>
-                     <option *ngFor="let w of workers" value={{w.name}}>{{ w.name }}  </option>
+                     <option *ngFor="let w of workers" value={{w.ashaId}}>{{ w.name }}  </option>
                    </select>                        
               </div>
                 
             </div>
             
         
-            <button type="submit" class="btn rounded-pill btn-primary" 
-            style="background-color: #008ebe; float: right; margin-right: 5px; margin-left: 5px; width: 20%"
-            (click)="openModal()">Save</button>
+            <button type="submit" class="btn rounded-pill btn-primary" (click)="modalRef.close()"
+            style="background-color: #008ebe; float: right; margin-right: 5px; margin-left: 5px; width: 20%">Save</button>
 
-            <button type="submit" class="btn rounded-pill btn-primary" 
+            <button class="btn rounded-pill btn-primary"
             style="background-color: white; border-color: #008EBE; float: right; margin-right: 5px; width: 20%;
-            color: #008EBE">Cancel</button>
+            color: #008EBE" (click)="modalRef.close()">Cancel</button>
         </form>
       </div>
     </div>

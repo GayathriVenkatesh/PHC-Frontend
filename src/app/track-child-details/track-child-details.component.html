@@ -21,7 +21,7 @@
 
 <div class="content-wrapper" style="margin-left: 220px;  width: 100%">
   <div class="container-xxl flex-grow-1 container-p-y">
-    <h3 style="font-family: 'Mulish'"><strong>Track Patient: Aanchal (RCH-1234)</strong></h3>
+    <h3 style="font-family: 'Mulish'"><strong>Track Patient: {{patient.name}} (SAM- {{this.patient?.samNum}})</strong></h3>
   <div class="card" style="box-shadow: 0 0 5px grey; background-color: white;">
     <div class="card-header" style="background-color: #d9ecf3; font-family: Serif;"></div>
 <mat-tab-group style="width: 200%; font-family:'Times New Roman', Times, serif">
@@ -37,58 +37,58 @@
             <td>
               <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Name</strong>
             </td>
-            <td>Aanchal</td>                    
+            <td>{{patient.name}}</td>
           </tr>
           <tr>
               <td>
                 <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>SAM ID</strong>
               </td>
-              <td>3456</td>                    
+              <td>{{patient.samNum}}</td>
             </tr>                
           <tr>
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>RCH ID</strong>
               </td>
-              <td>1234</td>       
+              <td>{{patient.rchId}}</td>
           </tr>
           <tr>
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Gender</strong>
             </td>
-            <td>Female</td>       
+            <td>{{patient.gender}}</td>
         </tr>
           <tr>
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Aadhar No</strong>
               </td>
-              <td>9876543064</td>       
+              <td>{{patient?.aadharId}}</td>
           </tr>
           <tr>
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>ABHA No</strong>
               </td>
-              <td>876674</td>       
+              <td>{{patient?.abhaId}}</td>
           </tr>
     
           <tr>
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Contact No</strong>
             </td>
-            <td>9876543210</td>                         
+            <td>{{patient?.mobileNumber}}</td>
           </tr>
 
           <tr>
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Address</strong>
             </td>
-            <td>21st Road, HSR Layout</td>                         
+            <td>{{patient.address}}</td>
           </tr>
 
           <tr>
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Pincode</strong>
             </td>
-            <td>560075</td>                         
+            <td>{{patient.pincode}}</td>
           </tr>
 
           <tr>
@@ -102,7 +102,7 @@
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Discharge Date</strong>
               </td>
-              <td>10-10-2022</td>       
+              <td>{{patient.dischargeDate | date  : "dd-MM-y" }}</td>
           </tr>
         </tbody>
       </table>
@@ -115,22 +115,22 @@
         <tbody>
           <tr>
             <td><strong>Name</strong></td>
-            <td>Aanchal</td>
+            <td>{{patient?.name}}</td>
           </tr>
 
           <tr>
               <td><strong>RCH-ID</strong></td>
-              <td>1234</td>
+              <td>{{patient?.rchId}}</td>
             </tr>
 
             <tr>
               <td><strong>Age in months</strong></td>
-              <td>12</td>
+              <td>{{patient?.ageInMonths}}</td>
             </tr>
 
             <tr>
               <td><strong>Gender</strong></td>
-              <td>Female</td>
+              <td>{{patient?.gender}}</td>
             </tr>
 
             <tr>
@@ -140,17 +140,17 @@
 
             <tr>
               <td><strong>SAM ID</strong></td>
-              <td>7872</td>
+              <td>{{patient?.samNum}}</td>
             </tr>
 
             <tr>
               <td><strong>Discharge Weight in Kg</strong></td>
-              <td>6</td>
+              <td>{{discharge?.weightKg}} kg</td>
             </tr>
 
             <tr>
               <td><strong>Discharge Height in Cm</strong></td>
-              <td>45</td>
+              <td>{{discharge?.heightCm}} cm</td>
             </tr>
             
             <tr>
@@ -165,42 +165,42 @@
 
             <tr>
               <td><strong>Co-morbidities (if any)</strong></td>
-              <td>None</td>
+              <td>{{comorbid}}</td>
             </tr>
 
             <tr>
               <td><strong>Duration of Stay</strong></td>
-              <td>14 days</td>
+              <td>{{dur}}</td>
             </tr>
 
             <tr>
               <td><strong>Average Weight Gain</strong></td>
-              <td>3g/kg per day</td>
+              <td>{{discharge?.avgWeightGainKg}} g/kg per day</td>
             </tr>
 
             <tr>
               <td><strong>Clinical Impression</strong></td>
-              <td>-</td>
+              <td>{{discharge?.clinicalImpression}}</td>
             </tr>
 
             <tr>
               <td><strong>Outcome</strong></td>
-              <td>Improved</td>
+              <td>{{discharge?.outcome}}</td>
             </tr>
 
             <tr>
               <td><strong>Medical Prescription</strong></td>
-              <td>None</td>
+              <td>{{discharge?.treatmentGiven}}</td>
             </tr>
 
             <tr>
               <td><strong>Post-discharge Advice</strong></td>
-              <td></td>
+              <td>{{discharge?.medicalAdvice}}</td>
             </tr>
 
             <tr>
               <td><strong>Dietary Advice</strong></td>
-              <td>Increase protein intake</td>
+              <td>{{discharge?.dietaryAdvice}}</td>
             </tr>
 
             <tr>
@@ -227,29 +227,29 @@
           </tr>
         </thead>
         <tbody class="table-border-bottom-0">
-          <tr (click)="openModal()">
-            <td >12-02-2022</td>
-            <td>Community</td>
-            <td>Nilam Patel</td>
+          <tr *ngFor="let f of followups;" (click)="openModal(f.followupId, f.followupDate)">
+            <td >{{f.followupDate | date  : "dd-MM-y" }}</td>
+            <td>{{f.type}}</td>
+            <td>{{f.ashaName}}</td>
             <td>Bangalore</td>
-            <td>9845778398</td>
+            <td>{{f.ashaMobileNumber}}</td>
           </tr>
           
-          <tr (click)="openModal()">
-            <td>20-02-2022</td>
-            <td>PHC</td>
-            <td>Dr. Srikanth</td>
-            <td>Bangalore</td>
-            <td>8983758793</td>
-          </tr>
+<!--          <tr (click)="openModal()">-->
+<!--            <td>20-02-2022</td>-->
+<!--            <td>PHC</td>-->
+<!--            <td>Dr. Srikanth</td>-->
+<!--            <td>Bangalore</td>-->
+<!--            <td>8983758793</td>-->
+<!--          </tr>-->
 
-          <tr (click)="openModal()">
-            <td>28-02-2022</td>
-            <td>Community</td>
-            <td>Nilam Patel</td>
-            <td>Bangalore</td>
-            <td>9845778398</td>
-          </tr>
+<!--          <tr (click)="openModal()">-->
+<!--            <td>28-02-2022</td>-->
+<!--            <td>Community</td>-->
+<!--            <td>Nilam Patel</td>-->
+<!--            <td>Bangalore</td>-->
+<!--            <td>9845778398</td>-->
+<!--          </tr>-->
         </tbody>
       </table>
     </div>

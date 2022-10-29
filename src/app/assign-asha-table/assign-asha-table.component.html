@@ -34,11 +34,11 @@
           </div>
           </div>
   
-        <div class="table-responsive text-nowrap" style="font-size: 15px; font-family:'Serif'; width: 100%">
-          <table class="table">
+        <div class="table-responsive text-nowrap" style="font-size: 15px; font-family:'Serif';">
+          <table class="table mytable" >
             <thead>
               <tr>
-                <th>RCH ID</th>
+                <th>SAM ID</th>
                 <th>Patient Name</th>
                 <th>Address</th>
                 <th>Discharge Date</th>
@@ -48,18 +48,18 @@
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              <tr *ngFor="let p of patients; let c of children;">
-                <td> <a href="patient/{{p.dischargeId}}"><strong>{{ p.rchId }}</strong></a></td>
+              <tr *ngFor="let p of patients;index as i;">
+                <td> <a href="patient/{{p.dischargeId}}"><strong>{{ p.samId }}</strong></a></td>
                 <td><a href="patient/{{p.dischargeId}}">{{ p.name }}</a></td>
-                <td><a href="patient/{{p.dischargeId}}">Ward #4, HSR Layout</a></td>
-                <td><a href="patient/{{p.dischargeId}}">{{ p.dischargeDate.toString().slice(0,10) }}</a></td>
+                <td><a href="patient/{{p.dischargeId}}">{{this.children[i]?.address}}</a></td>
+                <td><a href="patient/{{p.dischargeId}}">{{ p.dischargeDate | date : "dd-MM-y" }}</a></td>
                 <td><a href="patient/{{p.dischargeId}}">VVH</a></td>
                 <!-- <td><span class="badge" style="background-color: #d9ecf3;">
                   <a style="color:#008ebe;" href="/discharge-summary/{{p.dischargeId}}">Summary</a></span>
                 </td>            -->
                 <td><button type="button" class="btn rounded-pill btn-primary" 
                   style="color: white; background-color:#008ebe; width: 80%; border-color: white"
-                  (click)="openModal()">
+                  (click)="openModal(p.caseId)">
                   Assign
                 </button></td>           
               </tr>
