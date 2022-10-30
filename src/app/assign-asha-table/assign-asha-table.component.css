@@ -10197,6 +10197,8 @@ button.list-group-item-gray.active {
 
 .rounded-pill {
   border-radius: 50rem !important;
+  height: 30px;
+  padding-bottom: 25px;
 }
 
 .rounded-top {

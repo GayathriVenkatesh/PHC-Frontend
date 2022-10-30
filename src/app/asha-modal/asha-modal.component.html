@@ -13,37 +13,36 @@
    }
    </style>
   
-  <div style="box-shadow: 0px 8px 10px gray, 
-  -10px 8px 15px gray, 10px 8px 15px gray;">
+  <div style="">
   <div class="modal-header" style="width: 100% ">
-    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Assign ASHA</strong></h3>
+    <h3 style="font-family: Arial, Helvetica, sans-serif; color: #566a7f"><strong>Assign ASHA</strong></h3>
     <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
       (click)="modalRef.close()"></i>
       
     </div>
-    <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
-      <div class="row">
-        <form>
-            <div class="column">
+    <div class="modal-body" style="font-family:Arial, Helvetica, sans-serif; color: black">
+      <div class="row" >
+        <form style="color: black;">
+            <div class="column" style="color: black;">
                  <div class="mb-3">
-                     <label class="form-label" for="basic-default-age">Pin Code</label>
+                     <label class="form-label" for="basic-default-age" style="color: black;">Pin Code</label>
                      <input type="text" (keyup)="onKeyPincode($event)" class="form-control" id="basic-default-company" />
                  </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="basic-default-age">Area / Location</label>
+                    <label class="form-label" for="basic-default-age" style="color: black;">Area / Location</label>
                     <input id="area" (keyup)="onKeyArea($event)" type="text" class="form-control" id="basic-default-company" />
                 </div>
             </div>
 
             <div class="column">
                 <div class="mb-3">
-                    <label class="form-label" for="basic-default-age">Ward / Village</label>
+                    <label class="form-label" for="basic-default-age" style="color: black;">Ward / Village</label>
                     <input type="text" (keyup)="onKeyWard($event)" class="form-control" id="basic-default-company"  />
                 </div>
                 
                 <div class="mb-3">
-                 <label class="form-label" for="basic-default-fullname">ASHA Worker Name</label>
+                 <label class="form-label" for="basic-default-fullname" style="color: black;">ASHA Worker Name</label>
                  <select id="defaultSelect" class="form-select">
                     <option>Choose</option>
                      <option *ngFor="let w of workers" value={{w.name}}>{{ w.name }}  </option>

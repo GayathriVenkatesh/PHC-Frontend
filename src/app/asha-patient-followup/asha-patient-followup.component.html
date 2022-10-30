@@ -1,43 +1,56 @@
-<div class="content-wrapper" style="margin-left: 200px;  width: 100%">
-    <div class="container-xxl flex-grow-1 container-p-y">
-      <h3 style="font-family: 'Mulish'"><strong>Follow Up Details of Patient</strong></h3>
-    <div class="card" style="box-shadow: 0 0 5px grey;">
-      <div class="card-header" style="background-color: #d9ecf3; font-family: Serif;">
+<style>
+  tr:hover td {
+    background:#000
+  }
+
+  tr:hover {
+    background-color: #eee;
+}
+
+</style>
+<div class="content-wrapper" style="margin-top: -30px; width: 100vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+  <!-- Content -->
+  <div class="container-xxl flex-grow-1 container-p-y">
+      <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; 
+      margin-bottom: 10px; margin-top: 10px;">Follow Up Details: Kalyani (SAM-6231)</h3>
+      <br>
+    <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px; width: 98%">    
+      <div class="card-header" style="background-color: #d9edf7; font-family: Arial, Helvetica, sans-serif;">
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse" 
-      style="margin-left: 2%; float: right; margin-top: -10px; margin-bottom: -10px; width: 50%
-      font-size: 13px; font-family: 'Times New Roman', Times, serif;">
-          
-          <div class="navbar-nav align-items-center">
-          <div class="nav-item d-flex align-items-center" style="box-shadow: 0px 15px 10px -15px #111">
-              
-              <input
-              type="text"
-              class="form-control border-0 shadow-none"
-              placeholder="Search"
-              aria-label="Search..."
-              />
-              <!-- <i class="fa fa-search"></i> -->
-          </div>
-          </div>
+      style="margin-left: 2%; float: right; margin-top: -18px; margin-bottom: -22px; 
+      font-size: 13px; font-family: Arial, Helvetica, sans-serif;">
+            
+            <div class="navbar-nav align-items-center">
+            <div class="nav-item d-flex align-items-center">
+                
+                <input
+                type="text"
+                class="form-control border-0 shadow-none"
+                placeholder="Search"
+                aria-label="Search..."
+                />
+                <!-- <i class="fa fa-search"></i> -->
+            </div>
+            </div>
       </div>
       </div>
   
-          <div class="table-responsive text-nowrap" style="font-family: Serif; width: 100%">
+          <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%">
             <table class="table">
               <thead>
                 <tr>
-                    <th>Followups</th>         
-                    <th>Height</th>         
-                    <th>Weight</th>         
-                    <th>MUAC</th>         
-                    <th>Head Circumference</th>
-                    <th>SD</th>         
-                    <th>Outcome</th>         
+                    <th style="color: black;">Followups</th>         
+                    <th style="color: black;">Height</th>         
+                    <th style="color: black;">Weight</th>         
+                    <th style="color: black;">MUAC</th>         
+                    <th style="color: black;">Head Circumference</th>
+                    <th style="color: black;">SD</th>         
+                    <th style="color: black;">Outcome</th>         
                 </tr>
               </thead>
-              <tbody class="table-border-bottom-0">
-                <tr class="table-default">
-                  <td (click)="openModal()">                 
+              <tbody class="table-border-bottom-0" style="color: black;">
+                <tr class="table-default" (click)="openModal()">
+                  <td>                 
                   01-08-2022
                   </td>
                   <td>60</td>
@@ -48,8 +61,8 @@
                   <td>MAM</td>
               </tr>
                 
-                <tr class="table-default">
-                  <td (click)="openModal()">              
+                <tr class="table-default" (click)="openModal()">
+                  <td>              
                   07-08-2022
                   </td>
                   <td>60</td>
@@ -60,8 +73,8 @@
                   <td>MAM</td>
                 </tr>
   
-                <tr class="table-default">
-                  <td (click)="openModal()">
+                <tr class="table-default" (click)="openModal()">
+                  <td>
                   14-08-2022                  
                   </td>
                   <td>60</td>
@@ -74,9 +87,8 @@
                 
                 <tr class="table-default">
                   <td>
-                    <a href="add-followup">
-                    
-                  21-08-2022
+                    <a href="asha-add-followup">                    
+                      21-08-2022
                     </a>              
                   </td>
 

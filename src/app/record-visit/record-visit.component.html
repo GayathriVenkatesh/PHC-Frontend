@@ -1,7 +1,7 @@
 <style>
   .column {
   float: left;
-  width: 30%;
+  width: 33%;
   padding: 50px;
 }
 
@@ -12,14 +12,13 @@
   clear: both;
 }
 </style>
-
-<div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 200px;  width: 90%">
-              <h3 style="font-family: 'Mulish'"><strong>Record New Visit</strong></h3>
-  
-<div class="card" 
-style=" font-family: 'Times New Roman', Times, serif;
-width: 100%">
-
+<div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+  <!-- Content -->
+  <div class="container-xxl flex-grow-1 container-p-y">
+      <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Record New Visit</h3>
+      <br>
+    <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px;">    
+     
 <!-- <div class="content-wrapper" style="margin-left: 300px; color: black">
   <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card" style="box-shadow: 0 0 5px grey;">
@@ -31,30 +30,30 @@ width: 100%">
           <h4 class="fw-bold py-3">Enter Follow Up Details</h4>
       </div> -->
 
-      <div class="row" style="color: black">
-          <form style="color: black">
+      <div class="row" style="color: black; font-size: 12.5px;">
+          <form style="color: black; font-size: 12.5px;">
               <div class="column">
                 <div class="mb-4">
-                  <label class="form-label" for="basic-default-company" style="color: black">Chief Complaints</label>
+                  <label class="form-label" for="basic-default-company" style="color: black; font-size: 12.5px;">Chief Complaints</label>
                   <input type="text" class="form-control" id="basic-default-company"><i aria-flowto=""></i>
               </div>
 
               <!-- <div class="mb-4">
-                <label class="form-label" for="basic-default-company" style="color: black">Remarks</label>
+                <label class="form-label" for="basic-default-company" style="color: black; font-size: 12.5px;">Remarks</label>
                 <input type="text" class="form-control" id="basic-default-company"><i aria-flowto=""></i>
             </div> -->
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-fullname" style="color: black" >Height in cm</label>
+                    <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;" >Height (in cm)</label>
                     <input type="text" class="form-control" id="basic-default-fullname" />
                   </div>
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-company" style="color: black">Weight in kgs</label>
+                    <label class="form-label" for="basic-default-company" style="color: black; font-size: 12.5px;">Weight (in kgs)</label>
                     <input type="text" class="form-control" id="basic-default-weight"  />
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">SD Range</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">SD Range</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
 
@@ -65,26 +64,26 @@ width: 100%">
 
                 <div class="column">
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">MUAC in cm</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">MUAC (in cm)</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Head Circumference in cm</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Head Circumference (in cm)</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
 
                   
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Diet Chart</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 14px;">Diet Chart</label>
                     <input type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
                     onchange="console.log(event.target.files)">
                       <!-- <app-file-upload></app-file-upload> -->
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Diet Adequacy</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Diet Adequacy</label>
                     <select id="defaultSelect" class="form-select">
                       <option></option>
                       <option value="1">Yes</option>
@@ -101,7 +100,7 @@ width: 100%">
                   
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-fullname">Co-morbidities</label>
+                    <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;">Co-morbidities</label>
                     <select id="defaultSelect" class="form-select">
                         <option></option>
                         <option value="1">Worker 1</option>
@@ -111,17 +110,17 @@ width: 100%">
                   </div>
                   
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Other Symptoms</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Other Symptoms</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Provisional Diagnosis</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Provisional Diagnosis</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
 
                   <div class="mb-4">
-                    <label class="form-label" for="basic-default-muac" style="color: black">Treatment</label>
+                    <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Treatment</label>
                       <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
 

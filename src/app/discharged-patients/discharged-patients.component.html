@@ -1,21 +1,23 @@
-<!-- <h4 style="margin-top:1%; padding-bottom: 1%;">Discharged Patients</h4> -->
-<div class="content-wrapper" style="margin-left: 200px;  width: 95%">
+<style>
+  .th {
+    color: black;
+    font-weight: 600;
+  }
+</style>
+
+<div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h3 style="font-family: 'Mulish'"><strong>Community Follow Up - PHC Approval</strong></h3>
-      <div class="card" style="box-shadow: 0 0 5px grey;">
-        <!-- <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Discharged Patients</h3>
-        <app-search></app-search> -->
-            
-        <div class="card-header" style="background-color: #d9ecf3; font-family: Serif;">
-        <!-- <app-search></app-search> -->
-        <!-- <i style="float: left; margin-right: 5px; color: grey; size: 15px" class="fa fa-filter"></i> Filter -->
+        <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Community Follow Up - PHC Approval</h3>
+        <br>
+      <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px;">    
+        <div class="card-header" style="background-color: #d9edf7; font-family: Arial, Helvetica, sans-serif;">
         <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse" 
-        style="margin-left: 2%; float: right; margin-top: -10px; margin-bottom: -10px; width: 50%
+        style="margin-left: 2%; float: right; margin-top: -18px; margin-bottom: -22px; 
         font-size: 13px; font-family: 'Times New Roman', Times, serif;">
             
             <div class="navbar-nav align-items-center">
-            <div class="nav-item d-flex align-items-center" style="box-shadow: 0px 15px 10px -15px #111">
+            <div class="nav-item d-flex align-items-center" >
                 
                 <input
                 type="text"
@@ -28,41 +30,46 @@
             </div>
         </div>
         </div>
-        <div class="table-responsive text-nowrap" style="font-size: 15px; font-family:'Serif'">
+        <div class="table-responsive text-nowrap" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: black;">
           <table class="table">
-            <thead>
-              <tr>
-                <th>Patient Name</th>
-                <th>Name of NRC</th>
-                <th>Mobile No</th>
-                <th>Address</th>
-                <th>Pincode</th>
-                <th>Action</th>
+            <thead style="color: black;">
+              <tr style="color: black;">
+                <th style="color: black;">SAM ID</th>
+                <th style="color: black;">Patient Name</th>
+                <th style="color: black;">Name of NRC</th>
+                <th style="color: black;">Mobile No</th>
+                <th style="color: black;">Address</th>
+                <th style="color: black;">Pincode</th>
+                <th style="color: black;">Action</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              <tr>
-                <td> <strong>Aanchal</strong></td>
+              <tr style="color: black;">
+                <td><strong>1243</strong></td>
+                <td>Aanchal</td>
                 <td>VVH</td>
                 <td>98879389829</td>
                 <td>21st Road, Singasandra</td>
                 <td>560076</td>
                 <td style="color: white">
-                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white" (click)="openApproveModal()">Approve</button></td>           
+                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white; padding-bottom: 25px; padding-top: -10px" (click)="openApproveModal()">Approve</button></td>           
                 <td style="color:#111">
-                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; margin-left:-40px;" (click)="openModal()">Reject</button></td>           
+                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; 
+                  margin-left:-40px; padding-bottom: 25px; padding-top: -10px" (click)="openModal()">Reject</button></td>           
               </tr>
 
-              <tr>
-                <td> <strong>Gayathri</strong></td>
+              <tr style="color: black;">
+                <td><strong>4532</strong></td>
+                <td>Gayathri</td>
                 <td>IGH</td>
                 <td>98879389829</td>
                 <td>4th main, HSR Layout</td>
                 <td>560008</td>
                 <td style="color: white">
-                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white" (click)="openApproveModal()">Approve</button></td>           
+                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white; padding-bottom: 25px; padding-top: -10px" (click)="openApproveModal()">Approve</button></td>           
                 <td style="color:#111">
-                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; margin-left:-40px;" (click)="openModal()">Reject</button></td>           
+                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; 
+                  margin-left:-40px; padding-bottom: 25px; padding-top: -10px;" (click)="openModal()">Reject</button></td>           
               </tr>
               
             </tbody>

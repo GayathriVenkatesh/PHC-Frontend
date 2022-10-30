@@ -10197,7 +10197,6 @@ button.list-group-item-gray.active {
 
 .rounded-pill {
   border-radius: 50rem !important;
-  width: 20px;
 }
 
 .rounded-top {
@@ -15257,6 +15256,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 
 .content-wrapper {
   display: flex;
+  border-radius: 10%;
   align-items: stretch;
   flex: 1 1 auto;
   flex-direction: column;
@@ -16863,7 +16863,7 @@ button.list-group-item-primary.active {
 
 .btn-primary {
   color: #fff;
-  background-color: #696cff;
+  background-color: #007bff;
   border-color: #696cff;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
 }

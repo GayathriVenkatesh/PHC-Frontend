@@ -17,10 +17,19 @@ import { TrackChildComponent } from './track-child/track-child.component';
 import { TrackChildDetailsComponent } from './track-child-details/track-child-details.component';
 import { AshaPatientComponent } from './asha-patient/asha-patient.component';
 import { AshaPatientFollowupComponent } from './asha-patient-followup/asha-patient-followup.component';
+import { LoginComponent } from './login/login.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginAshaComponent } from './login-asha/login-asha.component';
+import { LoginAnmComponent } from './login-anm/login-anm.component';
+import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'login-doctor', component: LoginFormComponent },
+  { path: 'login-asha', component: LoginAshaComponent },
+  { path: 'login-anm', component: LoginAnmComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'patients', component: PatientTableComponent },
   { path: 'assign-asha', component: AssignAshaTableComponent },
   { path: 'discharged-patients', component: DischargedPatientsComponent },
@@ -35,6 +44,7 @@ const routes: Routes = [
   { path: 'track-child', component: TrackChildComponent },
   { path: 'track-child/:rchId', component: TrackChildDetailsComponent },
   { path: 'asha-followups', component: AshaPatientComponent },
+  { path: 'asha-add-followup', component: AshaAddFollowupComponent },
   { path: 'asha-patient-followup/:samId', component: AshaPatientFollowupComponent },
 ];
 

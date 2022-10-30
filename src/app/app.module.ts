@@ -67,6 +67,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginAshaComponent } from './login-asha/login-asha.component';
+import { LoginAnmComponent } from './login-anm/login-anm.component';
+import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component';
  
 @NgModule({
   declarations: [
@@ -96,6 +101,11 @@ import { MatIconModule } from '@angular/material/icon';
     AshaPatientComponent,
     AshaPatientFollowupComponent,
     NotificationComponent,
+    LoginComponent,
+    LoginFormComponent,
+    LoginAshaComponent,
+    LoginAnmComponent,
+    AshaAddFollowupComponent,
     // AssignAshaTableComponent
   ],
   imports: [
