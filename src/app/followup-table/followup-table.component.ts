@@ -3,6 +3,7 @@ import { Followup } from '../model/followup';
 import { FollowupService } from '../service/followup.service';
 import { WorkerDetailModalComponent } from '../worker-detail-modal/worker-detail-modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { FollowupSchedule } from '../model/followup-schedule';
 
 @Component({
   selector: 'app-followup-table',
@@ -11,16 +12,21 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 })
 export class FollowupTableComponent implements OnInit {
 
-  followups: Followup[];
+  followup: Followup[];
+    followups: FollowupSchedule[];
   modalRef: MdbModalRef<WorkerDetailModalComponent> | null = null;
 
   constructor(private followupService: FollowupService, private modalService: MdbModalService) {
   }
 
   ngOnInit() {
-    this.followupService.findAll().subscribe(data => {
-      this.followups = data;
-    });
+//     this.followupService.findAll().subscribe(data => {
+//       this.followups = data;
+//     });
+    this.followupService.findFollowupSchedule().subscribe(data => {
+        this.followups = data;
+        console.log("followups", this.followups);
+        });
   }
 
   openModal() {

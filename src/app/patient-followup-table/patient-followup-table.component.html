@@ -21,143 +21,193 @@
             <!-- <i class="fa fa-search"></i> -->
         </div>
         </div>
-    </div>
-    </div>
-
-        <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%">
-          <table class="table">
-            <thead>
-              <tr>
-                <th style="color: black;">Community Followups</th>
-                <th style="color: black;">NRC Followups</th>
-                <th style="color: black;">General Visits</th>             
-              </tr>
-            </thead>
-            <tbody class="table-border-bottom-0">
-              <tr class="table-default">
-                <td>
-                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" 
-                style="color: #00a141; background-color:white; 
-                width: 40%; border-color: #00a141; border-width: 1.5px;
-                font-family: Arial, Helvetica, sans-serif;">
-                01-08-2022
-              </button>                 
-                </td>
-
-                <td>
-                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" 
-                style="color: #00a141; background-color:white; 
-                width: 50%; border-color: #00a141; border-width: 1.5px;
-                font-family: Arial, Helvetica, sans-serif;">
-                11-08-2022
-              </button>
-                </td>
-                
-                <td>
-                  
-                  <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: #00a141; background-color:white; border-width: 1.5px;
-                width: 50%; border-color: #00a141; 
-                font-family: Arial, Helvetica, sans-serif;">
-                07-08-2022
-                
-              </button>   
-                </td>
-            </tr>
-              
-              <tr class="table-default">
-                <td>
-                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" 
-                style="color: #00a141; background-color:white; 
-                width: 40%; border-color: #00a141; border-width: 1.5px;
-                font-family: Arial, Helvetica, sans-serif;">
-                07-08-2022
-              </button>                 
-                </td>
-                
-                <td>
-                  <a href="add-followup">
-                  <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: #008ebe; background-color:white; 
-                width: 50%; border-color: #008ebe; 
-                font-family: Arial, Helvetica, sans-serif;">
-                17-08-2022
-              </button>    
-                  </a>             
-                </td>
-                
-                <td><a href="record-visit">
-                  
-                  <button type="button" class="btn btn-primary" 
-                  style="color: white; background-color: #008ebe; 
-                  width: 50%; border-color: #008ebe; 
-                  font-family: Arial, Helvetica, sans-serif;">
-                      
-                <i class='fa fa-plus' style='font-size:15px;'></i>
-                </button></a>
-                </td>
-      
-              </tr>
-
-              <tr class="table-default">
-                <td>
-                  <a href="add-followup">
-                  <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: #008ebe; background-color:white; 
-                width: 40%; border-color: #008ebe; 
-                font-family: Arial, Helvetica, sans-serif;">
-                14-08-2022
-                
-              </button> 
-                  </a>                
-                </td>
-                <td>
-                  <a href="add-followup">
-                  <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: #008ebe; background-color:white; 
-                width: 50%; border-color: #008ebe; 
-                font-family: Arial, Helvetica, sans-serif;">
-                25-08-2022
-              </button>   
-                  </a>              
-                </td>
-            </tr>
-              
-              <tr class="table-default">
-                <td>
-                  <a href="add-followup">
-                  <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: #008ebe; background-color:white; 
-                width: 40%; border-color: #008ebe; 
-                font-family: Arial, Helvetica, sans-serif;">
-                21-08-2022
-              </button>   
-                  </a>              
-                </td>
-              </tr>
-
-              
-              <tr class="table-default">
-                <td></td>
-                <td></td>
-              </tr>
-              
-              
-              
-            </tbody>
-            
-          </table>
-          
-        </div>
       </div>
-      <!--/ Contextual Classes -->
-    
-     
-      <!--/ Responsive Table -->
+
+      <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="color: black;">Community Followups</th>
+              <th style="color: black;">NRC Followups</th>
+              <th style="color: black;">General Visits</th>             
+            </tr>
+          </thead>
+          <tbody class="table-border-bottom-0">
+          <tr class="table-default"  *ngFor="let f of community; index as i;">
+            <!--                <div *ngIf="this.community[i]">-->
+            <div *ngIf="this.community[i]; then thenCommunity"></div>
+            <ng-template #thenCommunity>
+              <div *ngIf="this.community[i].followupId; then thenBlock else elseBlock"></div>
+              <ng-template #thenBlock>
+                <td>
+                  <button type="button" (click)="openModal(this.community[i].followupId, this.community[i].followupDate)" class="btn rounded-pill btn-primary"
+                          style="color: #00a141; background-color:white;
+                width: 70%; border-color: #00a141; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.community[i]">
+                    {{this.community[i].followupDate | date : "dd-MM-y"  }} - View Followup
+                  </button>
+                </td>
+              </ng-template>
+
+              <ng-template #elseBlock>
+                <td>
+                  <a href="add-followup/{{this.community[i].scheduleId}}">
+                    <button type="button" class="btn rounded-pill btn-primary"
+                            style="color: #008ebe; background-color:white;
+                width: 70%; border-color: #008ebe; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.community[i]">
+                      {{this.community[i].followupDate | date : "dd-MM-y"  }} - Add Followup
+                    </button>
+                  </a>
+                </td>
+              </ng-template>
+            </ng-template>
+
+            <div *ngIf="this.nrc[i]; then thenNrc"></div>
+            <ng-template #thenNrc>
+              <div *ngIf="this.nrc[i].followupId; then thenBlock1 else elseBlock1"></div>
+              <ng-template #thenBlock1>
+                <td>
+                  <button type="button" (click)="openModal(this.nrc[i].followupId, this.nrc[i].followupDate)" class="btn rounded-pill btn-primary"
+                          style="color: #00a141; background-color:white;
+                width: 70%; border-color: #00a141; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif" *ngIf="this.nrc[i]">
+                    {{this.nrc[i].followupDate | date : "dd-MM-y"  }} - View Followup
+                  </button>
+                </td>
+              </ng-template>
+
+              <ng-template #elseBlock1>
+                <td>
+                  <a href="add-followup/{{this.nrc[i].scheduleId}}">
+                    <button type="button" class="btn rounded-pill btn-primary"
+                            style="color: #008ebe; background-color:white;
+                width: 70%; border-color: #008ebe; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.nrc[i]">
+                      {{this.nrc[i].followupDate | date : "dd-MM-y"  }} - Add Followup
+                    </button>
+                  </a>
+                </td>
+              </ng-template>
+            </ng-template>
+
+            <div *ngIf="!this.general[i] && this.general.length==i; then thenGeneral else elseGeneral"></div>
+            <ng-template #thenGeneral>
+              <td><a href="record-visit/{{this.caseId}}">
+                <button type="button" class="btn btn-primary"
+                        style="color: white; background-color: #008ebe;
+                  width: 50%; border-color: #008ebe;
+                  font-family: Arial, Helvetica, sans-serif;">
+
+                  <i class='fa fa-plus' style='font-size:15px;'></i>
+                </button></a>
+              </td>
+            </ng-template>
+            <ng-template #elseGeneral>
+              <td>
+                <button type="button" (click)="openModal(this.general[i].followupId, this.general[i].followupDate)" class="btn rounded-pill btn-primary"
+                        style="color: #00a141; background-color:white;
+                width: 50%; border-color: #00a141; border-width: 1.5px;
+                font-family: 'Times New Roman', Times, serif;" *ngIf="this.general[i]">
+                  {{this.general[i].followupDate | date : "dd-MM-y"  }} - View Followup
+                </button>
+              </td>
+            </ng-template>
+
+          </tr>
+
+          <!--              <tr class="table-default">-->
+          <!--                <td>-->
+          <!--                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" -->
+          <!--                style="color: #00a141; background-color:white; -->
+          <!--                width: 40%; border-color: #00a141; border-width: 1.5px;-->
+          <!--                font-family: 'Times New Roman', Times, serif;">-->
+          <!--                07-08-2022-->
+          <!--              </button>                 -->
+          <!--                </td>-->
+          <!--                -->
+          <!--                <td>-->
+          <!--                  <a href="add-followup">-->
+          <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+          <!--                style="color: #008ebe; background-color:white; -->
+          <!--                width: 50%; border-color: #008ebe; -->
+          <!--                font-family: 'Times New Roman', Times, serif;">-->
+          <!--                17-08-2022-->
+          <!--              </button>    -->
+          <!--                  </a>             -->
+          <!--                </td>-->
+          <!--                -->
+          <!--                <td><a href="record-visit">-->
+          <!--                  -->
+          <!--                  <button type="button" class="btn btn-primary" -->
+          <!--                  style="color: white; background-color: #008ebe; -->
+          <!--                  width: 50%; border-color: #008ebe; -->
+          <!--                  font-family: 'Times New Roman', Times, serif;">-->
+          <!--                      -->
+          <!--                <i class='fa fa-plus' style='font-size:15px;'></i>-->
+          <!--                </button></a>-->
+          <!--                </td>-->
+          <!--      -->
+          <!--              </tr>-->
+
+          <!--              <tr class="table-default">-->
+          <!--                <td>-->
+          <!--                  <a href="add-followup">-->
+          <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+          <!--                style="color: #008ebe; background-color:white; -->
+          <!--                width: 40%; border-color: #008ebe; -->
+          <!--                font-family: 'Times New Roman', Times, serif;">-->
+          <!--                14-08-2022-->
+          <!--                -->
+          <!--              </button> -->
+          <!--                  </a>                -->
+          <!--                </td>-->
+          <!--                <td>-->
+          <!--                  <a href="add-followup">-->
+          <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+          <!--                style="color: #008ebe; background-color:white; -->
+          <!--                width: 50%; border-color: #008ebe; -->
+          <!--                font-family: 'Times New Roman', Times, serif;">-->
+          <!--                25-08-2022-->
+          <!--              </button>   -->
+          <!--                  </a>              -->
+          <!--                </td>-->
+          <!--            </tr>-->
+
+          <!--              <tr class="table-default">-->
+          <!--                <td>-->
+          <!--                  <a href="add-followup">-->
+          <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+          <!--                style="color: #008ebe; background-color:white; -->
+          <!--                width: 40%; border-color: #008ebe; -->
+          <!--                font-family: 'Times New Roman', Times, serif;">-->
+          <!--                21-08-2022-->
+          <!--              </button>   -->
+          <!--                  </a>              -->
+          <!--                </td>-->
+          <!--              </tr>-->
+
+
+          <tr class="table-default">
+            <td></td>
+            <td></td>
+          </tr>
+
+
+
+          </tbody>
+
+        </table>
+      </div>
     </div>
-    <!-- / Content -->
+    <!--/ Contextual Classes -->
 
-    
 
-    <div class="content-backdrop fade"></div>
-  </div> 
+    <!--/ Responsive Table -->
+  </div>
+  <!-- / Content -->
+
+
+
+  <div class="content-backdrop fade"></div>
+</div>

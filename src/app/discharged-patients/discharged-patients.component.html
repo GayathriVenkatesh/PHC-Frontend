@@ -44,33 +44,31 @@
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              <tr style="color: black;">
-                <td><strong>1243</strong></td>
-                <td>Aanchal</td>
+              <tr style="color: black;" *ngFor="let p of patients;">
+                <td><strong>1234</strong></td>
+                <td>{{p.name}}</td>
                 <td>VVH</td>
-                <td>98879389829</td>
-                <td>21st Road, Singasandra</td>
-                <td>560076</td>
+                <td>{{p.mobileNumber}}</td>
+                <td>{{p.address}}</td>
+                <td>{{p.pincode}}</td>
                 <td style="color: white">
-                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white; padding-bottom: 25px; padding-top: -10px" (click)="openApproveModal()">Approve</button></td>           
+                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white; padding-bottom: 25px; padding-top: -10px" (click)="openApproveModal(p)">Approve</button></td>           
                 <td style="color:#111">
                   <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; 
                   margin-left:-40px; padding-bottom: 25px; padding-top: -10px" (click)="openModal()">Reject</button></td>           
               </tr>
 
-              <tr style="color: black;">
-                <td><strong>4532</strong></td>
-                <td>Gayathri</td>
-                <td>IGH</td>
-                <td>98879389829</td>
-                <td>4th main, HSR Layout</td>
-                <td>560008</td>
-                <td style="color: white">
-                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white; padding-bottom: 25px; padding-top: -10px" (click)="openApproveModal()">Approve</button></td>           
-                <td style="color:#111">
-                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; 
-                  margin-left:-40px; padding-bottom: 25px; padding-top: -10px;" (click)="openModal()">Reject</button></td>           
-              </tr>
+<!--              <tr>-->
+<!--                <td> <strong>Gayathri</strong></td>-->
+<!--                <td>IGH</td>-->
+<!--                <td>98879389829</td>-->
+<!--                <td>4th main, HSR Layout</td>-->
+<!--                <td>560008</td>-->
+<!--                <td style="color: white">-->
+<!--                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white" (click)="openApproveModal()">Approve</button></td>           -->
+<!--                <td style="color:#111">-->
+<!--                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; margin-left:-40px;" (click)="openModal()">Reject</button></td>           -->
+<!--              </tr>-->
               
             </tbody>
           </table>

@@ -1,5 +1,5 @@
 <app-top-bar></app-top-bar>
 <div style="display: flex; flex-grow: grow; margin-top: 2%;">
-  <app-side-panel *ngIf="! _router.url.startsWith('/asha-')"></app-side-panel>
+  <app-side-panel *ngIf="! _router.url.startsWith('/asha-') && ! _router.url.startsWith('/login')"></app-side-panel>
   <router-outlet></router-outlet>
 </div>

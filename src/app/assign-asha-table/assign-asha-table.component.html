@@ -40,36 +40,35 @@
           </div>
           </div>
   
-        <div class="table-responsive text-nowrap" style="font-size: 14px; font-family:Arial, Helvetica, sans-serif; width: 100%">
-          <table class="table">
-            <thead style="color: black;">
-              <tr>
-                <th style="color: black;">RCH ID</th>
-                <th style="color: black;">Patient Name</th>
-                <th style="color: black;">Address</th>
-                <th style="color: black;">Pincode</th>
-                <th style="color: black;">Contact No</th>
-                <th style="color: black;">Discharge Date</th>
-                <th style="color: black;">Name of NRC</th>
-                <!-- <th style="color: black;">Discharge Details</th> -->
-                <th style="color: black;">ASHA Worker</th>
-              </tr>
-            </thead>
+<div class="table-responsive text-nowrap" style="font-size: 14px; font-family:Arial, Helvetica, sans-serif; width: 100%">
+  <table class="table">
+    <thead style="color: black;">
+      <tr>
+        <th style="color: black;">RCH ID</th>
+        <th style="color: black;">Patient Name</th>
+        <th style="color: black;">Address</th>
+        <th style="color: black;">Pincode</th>
+        <th style="color: black;">Contact No</th>
+        <th style="color: black;">Discharge Date</th>
+        <th style="color: black;">Name of NRC</th>
+        <th style="color: black;">ASHA Worker</th>
+      </tr>
+    </thead>
             <tbody class="table-border-bottom-0">
-              <tr style="color: black;">
-                <td> <a href="patient/1"><strong>1234</strong></a></td>
-                <td><a href="patient/1">Aanchal Singh</a></td>
-                <td><a href="patient/1">Ward #4, HSR Layout</a></td>
-                <td><a href="patient/1">560082</a></td>                
-                <td><a href="patient/1">24-10-2022</a></td>
-                <td><a href="patient/1">9876543210</a></td>
-                <td><a href="patient/1">VVH</a></td>
+              <tr *ngFor="let p of patients;index as i;" style="color: black;">
+                <td> <a href="patient/{{p.dischargeId}}"><strong>{{ p.samId }}</strong></a></td>
+                <td><a href="patient/{{p.dischargeId}}">{{ p.name }}</a></td>
+                <td><a href="patient/{{p.dischargeId}}">{{this.children[i]?.address}}</a></td>
+                <td>560075</td>
+                <td>9876543210</td>
+                <td><a href="patient/{{p.dischargeId}}">{{ p.dischargeDate | date : "dd-MM-y" }}</a></td>
+                <td><a href="patient/{{p.dischargeId}}">VVH</a></td>
                 <!-- <td><span class="badge" style="background-color: #d9ecf3;">
                   <a style="color:#008ebe;" href="/discharge-summary/1">Summary</a></span>
                 </td>            -->
                 <td><button type="button" class="btn rounded-pill btn-primary" 
-                  style="color: white; background-color:#008ebe; width: 100%; border-color: white"
-                  (click)="openModal()">
+                  style="color: white; background-color:#008ebe; width: 80%; border-color: white"
+                  (click)="openModal(p.caseId)">
                   Assign
                 </button></td>           
               </tr>

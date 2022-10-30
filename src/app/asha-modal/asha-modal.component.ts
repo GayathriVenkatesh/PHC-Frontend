@@ -4,6 +4,7 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { AshaWorkerService } from '../service/asha-worker.service';
 import { Router } from '@angular/router';
 import { AshaWorker } from '../model/asha-worker';
+import { AshaChild } from '../model/asha-child';
 
 @Component({
   selector: 'app-asha-modal',
@@ -13,11 +14,17 @@ import { AshaWorker } from '../model/asha-worker';
 export class AshaModalComponent implements OnInit {
 
   workers: AshaWorker[];
+  caseId: number;
+  ashaId: number;
   area: String;
   ward: String;
   pincode: String;
+  ashaChild: AshaChild;
 
-  constructor(private router: Router, private ashaWorkerService: AshaWorkerService, public modalRef: MdbModalRef<AshaModalComponent>, private modalService: MdbModalService) { }
+  constructor(private router: Router, private ashaWorkerService: AshaWorkerService, public modalRef: MdbModalRef<AshaModalComponent>, private modalService: MdbModalService) {
+  this.ashaChild = new AshaChild;
+//   this.ashaChild.caseId = this.caseId;
+  }
 
   ngOnInit() {
     // this.dischargeId = this.router.url.split("/")[2];
@@ -25,7 +32,8 @@ export class AshaModalComponent implements OnInit {
     .subscribe(data => {
       this.workers = data;  
       console.log("WORKERS", data);
-    }); 
+    });
+    console.log("Assigned asha case id", this.caseId);
   } 
 
   change(ward: String, area: String, pincode: String) {
@@ -59,10 +67,31 @@ export class AshaModalComponent implements OnInit {
     this.change(this.ward, this.area, this.pincode);
   }
 
+  onSubmit(){
+  console.log("hello", this.ashaId, this.caseId);
+  this.ashaChild.ashaId = this.ashaId;
+  this.ashaChild.caseId = this.caseId;
+  this.ashaWorkerService.save(this.ashaChild).subscribe(result =>
+                this.openModal());
+
+  }
+
+  onCancel(){
+  console.log("cancel");
+//   this.closeModal();
+  }
+
+
   openModal() {
+//   this.router.navigate(['/assign-asha-table']);
+
     this.modalRef = this.modalService.open(SuccessfulAssignmentComponent, {
-      modalClass: 'modal-md'
+      modalClass: 'modal-md',
+      data: {ashaId: this.ashaId}
     })
+//     location.reload();
+//     this.router.navigate(['/assign-asha-table']);
+//     this.closeModal();
   }
 
 }

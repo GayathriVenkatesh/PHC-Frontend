@@ -37,7 +37,7 @@ import { AshaPatientFollowupComponent } from './asha-patient-followup/asha-patie
 import { NotificationComponent } from './notification/notification.component';
 import { AssignAshaTableComponent } from './assign-asha-table/assign-asha-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { PatientFollowupTableComponent } from './patient-followup-table/patient-followup-table.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -71,8 +71,9 @@ import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LoginAshaComponent } from './login-asha/login-asha.component';
 import { LoginAnmComponent } from './login-anm/login-anm.component';
-import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component';
- 
+import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component'; 
+import { EnterFollowupComponent } from './enter-followup/enter-followup.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,7 +107,9 @@ import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.
     LoginAshaComponent,
     LoginAnmComponent,
     AshaAddFollowupComponent,
-    // AssignAshaTableComponent
+    AssignAshaTableComponent,
+    PatientFollowupTableComponent,
+    EnterFollowupComponent
   ],
   imports: [
     BrowserModule,

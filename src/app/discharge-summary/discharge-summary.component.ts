@@ -25,13 +25,13 @@ export class DischargeSummaryComponent implements OnInit {
     this.dischargeId = this.router.url.split("/")[2];
     this.patientService.findByDischargeId(this.dischargeId)
     .subscribe(data => {
-      this.patient = data;  
+      this.patient = data;
       this.samId = this.patient.samId;
       console.log("Discharge patient", this.patient);
 
       this.patientService.findBySamId(this.samId.toString())
         .subscribe(data => {
-          this.child = data;  
+          this.child = data[0];
         });
 
         this.patientService.findDischargeById(this.dischargeId)

@@ -37,7 +37,7 @@
     <div class="table-responsive text-nowrap" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; background-color: white;">
       <table class="table">
         <thead>
-          <tr>
+          <tr> 
             <th style="color: black;">RCH ID</th>
             <th style="color: black;">Patient Name</th>
             <th style="color: black;">Discharge Date</th>
@@ -48,50 +48,30 @@
           </tr>
         </thead>
         <tbody class="table-border-bottom-0">
-          <tr style="color: black;">
-            <td> <a href="track-child/1240"><strong>1240</strong></a></td>
-            <td><a href="track-child/1240">Aanchal</a></td>
-            <td><a href="track-child/1240">12-02-2022</a></td>
-            <td><a href="track-child/1240">9878267381</a></td>
-            <td><a href="track-child/1240">VVH</a></td>
-            <td><a href="track-child/1240">Malini</a></td>                     
+          <tr *ngFor="let p of patients;" style="color: black;">
+            <td> <a href="track-child/{{p.caseId}}"><strong>{{p.samNum}}</strong></a></td>
+            <td><a href="track-child/{{p.caseId}}">{{p.name}}</a></td>
+            <td><a href="track-child/{{p.caseId}}">{{p.dischargeDate | date : "dd-MM-y"}}</a></td>
+            <td><a href="track-child/{{p.caseId}}">{{p.mobileNumber}}</a></td>
+            <td><a href="track-child/{{p.caseId}}">VVH</a></td>
+            <td><a href="track-child/{{p.caseId}}">Malini</a></td>
             <td><a href="track-child/1240"><span class="badge" style="color: white; background-color: #00a141;">Undergoing Followups</span></a></td>                     
+<!--            <td><a href="track-child/1240">7</a></td>                     -->
+            <!-- <td><i class="fa fa-ellipsis-v"></i></td>                      -->
             <td></td>           
           </tr>
 
-          <tr style="color: black;">
-            <td> <a href="track-child/1240"><strong>1241</strong></a></td>
-            <td><a href="track-child/1240">Gayathri</a></td>
-            <td><a href="track-child/1240">13-02-2022</a></td>
-            <td><a href="track-child/1240">8678672654</a></td>
-            <td><a href="track-child/1240">IGH</a></td>
-            <td><a href="track-child/1240">Sheela</a></td>                     
-            <td><a href="track-child/1240"><span class="badge" style="color: white; background-color: #ff2600;">Awaiting PHC Confirmation</span></a></td>                     
-            <td></td>           
-          </tr>
-
-          <tr style="color: black;">
-            <td> <a href="track-child/1240"><strong>1242</strong></a></td>
-            <td><a href="track-child/1240">Sridhar</a></td>
-            <td><a href="track-child/1240">13-02-2022</a></td>
-            <td><a href="track-child/1240">8678672654</a></td>
-            <td><a href="track-child/1240">VVH</a></td>
-            <td><a href="track-child/1240">Kriti</a></td>                     
-            <td><a href="track-child/1240"><span class="badge" style="color: white; background-color: #ffae00;">Awaiting ASHA Assignment</span></a></td>                     
-            <td></td>           
-          </tr>
-
-          <tr style="color: black;">
-            <td> <a href="track-child/1240"><strong>1243</strong></a></td>
-            <td><a href="track-child/1240">Malini</a></td>
-            <td><a href="track-child/1240">13-02-2022</a></td>
-            <td><a href="track-child/1240">8678672654</a></td>
-            <td><a href="track-child/1240">IGH</a></td>
-            <td><a href="track-child/1240">Sheela</a></td>                     
-            <td><a href="track-child/1240"><span class="badge" style="color: white; background-color: #00a141;">Undergoing Followups</span></a></td>                     
-            <td></td>           
-          </tr>
-
+<!--          <tr>-->
+<!--            <td> <a href="track-child/1240"><strong>1241</strong></a></td>-->
+<!--            <td><a href="track-child/1240">Gayathri</a></td>-->
+<!--            <td><a href="track-child/1240">13-02-2022</a></td>-->
+<!--            <td><a href="track-child/1240">8678672654</a></td>-->
+<!--            <td><a href="track-child/1240">IGH</a></td>-->
+<!--            <td><a href="track-child/1240">Sheela</a></td>                     -->
+<!--            <td><a href="track-child/1240">2</a></td>                     -->
+<!--            <td><i class="fa fa-ellipsis-v"></i></td>                     -->
+<!--            <td></td>           -->
+<!--          </tr>-->
           
         </tbody>
       </table>

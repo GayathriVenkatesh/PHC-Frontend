@@ -27,103 +27,100 @@
   </div>
   <div class="modal-body" style="padding: 1px; margin-top: -30px;">
     <!-- <div class="row"> -->
-    <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%;">
+<div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%;">
         <table class="table">
           
           <tbody class="table-border-bottom-0">
             <div class="column">
-              <tr>
-                <td>Scheduled Date</td>
-                <td>07-10-2022</td>
-              </tr>
+          <tr>
+            <td>Height</td>
+            <td>{{followup?.height}} cm</td>
+          </tr>
 
-              <tr>
-                <td>Actual Date</td>
-                <td>09-10-2022</td>
-              </tr>
-            <tr>
-                <td>Height</td>
-                <td>120 cm</td>
-            </tr>
+          <tr>
+            <td>Weight</td>
+            <td>{{followup?.weight}} kg</td>
+          </tr>
 
-            <tr>
-                <td>Weight</td>
-                <td>25 kg</td>
-              </tr>
+          <tr>
+            <td>MUAC</td>
+            <td><span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">{{followup?.muac}} mm</span></td>
+          </tr>
 
-              <tr>
-                <td>MUAC</td>
-                <td><span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">102 mm</span></td>
-              </tr>
+          <tr>
+            <td>Head Circumference</td>
+            <td>{{followup?.headCircumference}} cm</td>
+          </tr>
 
-              <tr>
-                <td>Head Circumference</td>
-                <td>20 cm</td>
-              </tr>
+          <tr>
+            <td>SD Range</td>
+            <td>{{followup?.sdRange}}</td>
+          </tr>
 
-              <tr>
-                <td>SD Range</td>
-                <td>-2</td>
-              </tr>
+          <tr>
+            <td>Diet Chart</td>
+            <td>{{followup?.dietChart}}</td>
+          </tr>
 
-             
-            </div>
+          <tr>
+            <td>Result</td>
+            <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM</span></td>
+          </tr>
+        </div>
 
-            <div class="column">
-              <tr>
-                <td>Diet Chart</td>
-                <td>-</td>
-              </tr>
+        <div class="column">
+          <tr>
+            <td>Diet Adequacy</td>
+            <td><span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;">{{followup?.dietAdequacy}}</span></td>
+          </tr>
 
-              <tr>
-                <td>Result</td>
-                <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM</span></td>
-              </tr>
+          <tr>
+            <td>Co-morbidities</td>
+            <td>{{followup?.coMorbidities}}</td>
+          </tr>
 
-              <tr>
-                <td>Diet Adequacy</td>
-                <td><span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;">YES</span></td>
-              </tr>
+          <tr>
+            <td>Other Symptoms</td>
+            <td>{{followup?.otherSymptoms}}</td>
+          </tr>
 
-              <tr>
-                <td>Co-morbidities</td>
-                <td>None</td>
-              </tr>
+          <tr>
+            <td>Reason for Followup</td>
+            <td>{{followup?.reasonFollowup}}</td>
+          </tr>
 
-              <tr>
-                <td>Other Symptoms</td>
-                <td>Diarrhoea</td>
-              </tr>
-              
-              <tr>
-                <td>Reason for Followup</td>
-                <td>Scheduled</td>
-              </tr>
+          <tr>
+            <td>Scheduled Date</td>
+            <td>{{followupDate | date : "dd-MM-y"}}</td>
+          </tr>
 
-              
+          <tr>
+            <td>Actual Date</td>
+            <td>{{followup?.followupDate | date : "dd-MM-y"}}</td>
+          </tr>
 
-              <tr>
-              <button type="button" class="btn rounded-pill btn-primary" 
-            style="background-color: #008ebe; float: right; margin-top: 10%; margin-left: 100px;
+          <tr>
+            <button type="button" class="btn rounded-pill btn-primary"
+                    style="background-color: #008ebe; float: right; margin-top: 10%; margin-left: 100px;
             width: 60%"
-            (click)="modalRef.close()">Close</button>
-              </tr>
+                    (click)="modalRef.close()">Close</button>
+          </tr>
 
-              <!-- <button type="submit" class="btn rounded-pill btn-primary" 
-            style="background-color: #008ebe; float: right; margin-right: 5px; margin-left: 5px; width: 20%"
-            (click)="openModal()">Save</button> -->
-              
-            </div>
-            
-          </tbody>
-        </table>
+          <!-- <button type="submit" class="btn rounded-pill btn-primary"
+        style="background-color: #008ebe; float: right; margin-right: 5px; margin-left: 5px; width: 20%"
+        (click)="openModal()">Save</button> -->
+
+        </div>
+
+        </tbody>
+      </table>
       <!-- </div> -->
     </div>
   </div>
 </div>
-  <!-- <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
-      Close
-    </button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div> -->
+<!-- <div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div> -->

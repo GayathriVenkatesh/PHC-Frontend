@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RejectModalComponent } from '../reject-modal/reject-modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ApproveModalComponent } from '../approve-modal/approve-modal.component';
+import { DischargedPatient } from '../model/discharged-patient';
+import { PatientService } from '../service/patient.service';
 
 @Component({
   selector: 'app-discharged-patients',
@@ -12,9 +14,15 @@ export class DischargedPatientsComponent implements OnInit {
 
   modalRef: MdbModalRef<RejectModalComponent> | null = null;
 
-  constructor(private modalService: MdbModalService) {}
+  patients: DischargedPatient[];
+
+  constructor(private patientService: PatientService,private modalService: MdbModalService) {}
 
   ngOnInit(): void {
+   this.patientService.getDischargedPatients().subscribe(data => {
+   this.patients = data;
+   console.log("discharged patients: ",this.patients[0].name);
+   });
   }
 
   openModal() {
@@ -23,9 +31,13 @@ export class DischargedPatientsComponent implements OnInit {
     })
   }
 
-  openApproveModal() {
+  openApproveModal(patient: DischargedPatient) {
+  this.patientService.approve(patient.caseId).subscribe();
+//     location.reload();
+
     this.modalRef = this.modalService.open(ApproveModalComponent, {
-      modalClass: 'modal-lg'
+      modalClass: 'modal-lg',
+      data: {patient: patient}
     })
   }
 
