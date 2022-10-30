@@ -18,7 +18,6 @@
 
 </style>
 
-<<<<<<< HEAD
 <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y">
@@ -35,25 +34,25 @@ style="font-size: 20px; font-family: 'Times New Roman', Times, serif; box-shadow
 width: 100%"> -->
 
       <div class="row" style="color: black; font-family: Helvetica;">
-          <form style="color: black">
-              <div class="column">
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm" style="color: black">
+            <div class="column">
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;" >Height (in cm)</label>
-                    <input type="text" class="form-control" id="basic-default-fullname" />
+                    <input type="text" [(ngModel)] = "followup.height" class="form-control" id="height" name="height" />
                   </div>
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-company" style="color: black; font-size: 12.5px;">Weight (in kgs)</label>
-                    <input type="text" class="form-control" id="basic-default-weight"  />
+                    <input type="text" [(ngModel)] = "followup.weight" class="form-control" id="weight" name="weight"/>
                   </div>
 
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">MUAC (in mm)</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
+                    <input type="text" [(ngModel)] = "followup.muac" class="form-control" id="muac" name="muac"/>
                   </div>        
 
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Head Circumference (in cm)</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
+                    <input type="text" class="form-control" id="basic-default-muac"/>
                   </div>
                 </div>
 
@@ -62,145 +61,46 @@ width: 100%"> -->
                     <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Diet Chart</label>
                     <br>
                     <input style="margin-top: 30px;" type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
-                    onchange="console.log(event.target.files)">
-                   
-                      <!-- <app-file-upload></app-file-upload> -->
+                    onchange="console.log(event.target.files)">                   
                   </div>
 
                 
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Diet Adequacy</label>
-                    <select id="defaultSelect" class="form-select">
+                    <select [(ngModel)] = "followup.dietAdequacy" name="dietAdequacy" id="dietAdequacy" class="form-select">
                       <option></option>
                       <option value="1">Yes</option>
                       <option value="2">No</option>
-                    </select>                      
+                  </select>                     
                   </div>  
 
                   <div class="mb-4">
                     <!-- <input type="text" class="form-control" id="basic-default-muac"/> -->
 
                   <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;">Co-morbidities</label>
-                  <select id="defaultSelect" class="form-select">
-                      <option></option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>                        
+                  <select [(ngModel)] = "followup.coMorbidities" name="coMorbidities" id="coMorbidities" class="form-select">
+                    <option></option>
+                    <option value="1">Pneumonia</option>
+                    <option value="2">CHD</option>
+                    <option value="3">Tuberculosis</option>
+                </select>                       
                 </div>
 
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Other Symptoms</label>
-                      <input type="text" class="form-control" id="basic-default-muac"/>
+                    <input type="text" [(ngModel)] = "followup.otherSymptoms" class="form-control" id="otherSymptoms" name="otherSymptoms"/>
                   </div>
 
                   
                 <!-- </div> -->
-                <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: white; float: left; background-color:#008ebe; width: 38%; border-color: white"
+                <button type="submit" class="btn rounded-pill btn-primary" 
+                style="color: white; float: left; background-color:#008ebe; width: 35%; border-color: white"
                 > Save </button>
-
+              
                 <button type="button" class="btn rounded-pill btn-primary" 
-                style="color: #ef0000; float: right; background-color:white; width: 58%; border-color: #ef0000"
+                style="color: #ef0000; float: right; background-color:white; width: 63%; border-color: #ef0000"
                 (click) = "openCancelModal()"> Cancel Followup </button>
-                  <!-- <button type="submit" class="btn btn-primary" style="margin-bottom: 7%; margin-right: 40px; float: right; background-color: #66adf9;">Save</button> -->
-=======
-<div class="container-xxl flex-grow-1 container-p-y"  style="margin-left: 200px;  width: 90%">
-    <h3 style="font-family: 'Mulish'"><strong>Record Follow Up</strong></h3>
-
-    <div class="card"
-         style=" font-family: 'Times New Roman', Times, serif;
-width: 100%">
-
-        <!-- <div class="content-wrapper" style="margin-left: 300px; color: black">
-          <div class="container-xxl flex-grow-1 container-p-y">
-            <div class="card" style="box-shadow: 0 0 5px grey;">
-              <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Record Follow Up</h3> -->
-
-        <!-- <div class="layout-page" style="margin-left: 50%; width: 100%; box-shadow: 0 0 10px grey; font-family: Serif;">
-            <div class="content-wrapper">
-              <div class="container-xl flex-grow-1 container-p-y" style="background-color: #c4ddf8">
-                  <h4 class="fw-bold py-3">Enter Follow Up Details</h4>
-              </div> -->
-
-        <div class="row" style="color: black">
-            <form (ngSubmit)="onSubmit()" #userForm="ngForm" style="color: black">
-                <div class="column">
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-fullname" style="color: black" >Height in cm</label>
-                        <input type="text" [(ngModel)] = "followup.height" class="form-control" id="height" name="height" />
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-company" style="color: black">Weight in kgs</label>
-                        <input type="text" [(ngModel)] = "followup.weight" class="form-control" id="weight" name="weight"/>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-muac" style="color: black">MUAC in cm</label>
-                        <input type="text" [(ngModel)] = "followup.muac" class="form-control" id="muac" name="muac"/>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-muac" style="color: black">Head Circumference in cm</label>
-                        <input type="text" class="form-control" id="basic-default-muac"/>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-muac" style="color: black">SD Range</label>
-                        <input type="text" [(ngModel)] = "followup.sdRange" class="form-control" id="sdRange" name="sdRange"/>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-muac" style="color: black">Diet Chart</label>
-                        <input type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
-                               onchange="console.log(event.target.files)">
-
-                        <!-- <app-file-upload></app-file-upload> -->
-                    </div>
-
-
-                </div>
-
-                <div class="column">
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-muac" style="color: black">Diet Adequacy</label>
-                        <select [(ngModel)] = "followup.dietAdequacy" name="dietAdequacy" id="dietAdequacy" class="form-select">
-                            <option></option>
-                            <option value="1">Yes</option>
-                            <option value="2">No</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-4">
-                        <!-- <input type="text" class="form-control" id="basic-default-muac"/> -->
-
-                        <label class="form-label" for="basic-default-fullname">Co-morbidities</label>
-                        <select [(ngModel)] = "followup.coMorbidities" name="coMorbidities" id="coMorbidities" class="form-select">
-                            <option></option>
-                            <option value="1">Pneumonia</option>
-                            <option value="2">CHD</option>
-                            <option value="3">Tuberculosis</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label" for="basic-default-muac" style="color: black">Other Symptoms</label>
-                        <input type="text" [(ngModel)] = "followup.otherSymptoms" class="form-control" id="otherSymptoms" name="otherSymptoms"/>
-                    </div>
-
-
-                    <!-- </div> -->
-                    <button type="submit" class="btn rounded-pill btn-primary"
-                            style="color: white; float: left; background-color:#008ebe; width: 38%; border-color: white"
-                    > Save </button>
-
-                    <button type="button" class="btn rounded-pill btn-primary"
-                            style="color: #ef0000; float: right; background-color:white; width: 58%; border-color: #ef0000"
-                            (click) = "openCancelModal()"> Cancel Followup </button>
-                    <!-- <button type="submit" class="btn btn-primary" style="margin-bottom: 7%; margin-right: 40px; float: right; background-color: #66adf9;">Save</button> -->
->>>>>>> 56c26827a391759b365793461185abf87b23d573
+                  <!-- <button type="submit" class="btn btn-primary" style="margin-bottom: 7%; margin-right: 40px; float: right; background-color: #66adf9;">Save</button> -->      
                 </div>
             </form>
             <!-- </div> -->
