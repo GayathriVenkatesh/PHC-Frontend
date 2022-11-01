@@ -4,6 +4,7 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ApproveModalComponent } from '../approve-modal/approve-modal.component';
 import { DischargedPatient } from '../model/discharged-patient';
 import { PatientService } from '../service/patient.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-discharged-patients',
@@ -16,7 +17,7 @@ export class DischargedPatientsComponent implements OnInit {
 
   patients: DischargedPatient[];
 
-  constructor(private patientService: PatientService,private modalService: MdbModalService) {}
+  constructor(private router: Router, private patientService: PatientService,private modalService: MdbModalService) {}
 
   ngOnInit(): void {
    this.patientService.getDischargedPatients().subscribe(data => {
@@ -39,6 +40,13 @@ export class DischargedPatientsComponent implements OnInit {
       modalClass: 'modal-lg',
       data: {patient: patient}
     })
+
+    setTimeout(
+    function(){
+    location.reload();
+    },
+    1000);
+
   }
 
 }

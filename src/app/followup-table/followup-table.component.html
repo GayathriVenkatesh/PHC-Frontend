@@ -58,7 +58,7 @@
               <tr class="table-default" *ngFor="let f of followups">
                 <td> <a href="followup/{{ f.caseId }}">{{ f.samNum }} </a></td>
                 <td><a href="followup/{{ f.caseId }}">{{ f.childName }}</a></td>
-                <td><a href="asha-worker"><div class="avatar avatar">
+                <td><a href="asha-worker/{{f.ashaId}}"><div class="avatar avatar">
                   {{ f.ashaName }} <img src="../../assets/avatars/1.png"  alt class="w-px-34 h-auto rounded-circle" />
                 </div></a></td>
                 <td>{{ f.followupsDone }}</td>

@@ -25,7 +25,7 @@ width: 100%">
                     <td>
                       <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>ASHA Worker Name</strong>
                     </td>
-                    <td>Lalitha</td>
+                    <td>{{asha?.name}}</td>
                     
                   </tr>
                   
@@ -33,14 +33,14 @@ width: 100%">
                     <td>
                       <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Contact No</strong>
                     </td>
-                    <td>7411017216</td>          
+                    <td>{{asha?.phoneNumber}}</td>
                   </tr>
 
                   <tr>
                     <td>
                       <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Assigned Anganwadi</strong>
                     </td>
-                    <td>Electronic City</td>                           
+                    <td>Ward: {{asha?.ward}}, Area: {{asha?.area}}, Pincode: {{asha?.pincode}}</td>
                   </tr>    
                   
                   
