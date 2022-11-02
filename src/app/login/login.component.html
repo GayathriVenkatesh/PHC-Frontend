@@ -1,15 +1,15 @@
 <style>
     .column {
-    float: left;
+    /* float: left; */
     align-items: center;
-    width: 20%;
-    padding-left: 21%;
+    width: 40%;
+    /* padding-left: 21%; */
     padding-bottom: 20px;
   }
 
   .circle {
-    width: 110px;
-    height: 110px;
+    width: 100%;
+    height: 100%;
     line-height: 110px;
     border-radius: 110%;
     border-color: black;
@@ -31,7 +31,7 @@
 
 
     <div class="content-wrapper" style=" margin-top: -30px; width: 100vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
-      <div class="container-xl flex-grow-1 container-p-y">   
+      <div class="container-xl flex-grow-1 container-p-y" style="margin-top: 40px;">   
         <img src="../../assets/logo.jpg" style="align: center; align-items: center; width: 15%; margin-left: 42%">
         <h2 style="font-family: Arial, Helvetica, sans-serif; margin-left: 42%; color: white;
         margin-top: 20px; margin-bottom: 20px;">SNEHA PHC</h2>   
@@ -49,27 +49,21 @@
         <h3 class="card-header" style="background-color: rgb(62, 74, 116); color: white; 
         font-family: Arial, Helvetica, sans-serif; margin-left: 38%; font-weight: 600;">Login As</h3>
                 
-            <div class="row" style="color: black; width: 100%; padding-left: 0%;" >
-                <form style="color: black">
-                    <div class="column"> 
-                        <a href="login-doctor">                      
-                            <div class="circle">Doctor</div>  
-                        </a>          
+            <div class="row" style="color: black; width: 100%; padding-left: 20%;" >
+                <!-- <form> -->
+                    <div class="column" style="width: 25%"> 
+                        <div class="circle"><a href="login-doctor">Doctor</a></div>         
                       </div>
                       
-                      <div class="column">                                             
-                        <a href="login-anm">                      
-                            <div class="circle">ANM</div>  
-                        </a>  
+                      <div class="column" style="width: 25%">                                                                                          
+                          <div class="circle"><a href="login-anm">ANM</a></div>  
                       </div>
 
-                      <div class="column">
-                        <a href="login-asha">                      
-                            <div class="circle">ASHA</div>  
-                        </a>  
+                      <div class="column" style="width: 25%">
+                        <div class="circle"><a href="login-asha">ASHA</a></div>  
                       </div>
 
-                </form>
+                <!-- </form> -->
             </div>
         </div>
       

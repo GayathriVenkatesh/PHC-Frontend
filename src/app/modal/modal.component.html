@@ -28,10 +28,19 @@
   <div class="modal-body" style="padding: 1px; margin-top: -30px;">
     <!-- <div class="row"> -->
 <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%;">
-        <table class="table">
-          
+        <table class="table">        
           <tbody class="table-border-bottom-0">
             <div class="column">
+            <tr>
+              <td>Scheduled Date</td>
+              <td>{{followupDate | date : "dd-MM-y"}}</td>
+            </tr>
+  
+            <tr>
+              <td>Actual Date</td>
+              <td>{{followup?.followupDate | date : "dd-MM-y"}}</td>
+            </tr>
+          
           <tr>
             <td>Height</td>
             <td>{{followup?.height}} cm</td>
@@ -43,6 +52,11 @@
           </tr>
 
           <tr>
+            <td>SD Range</td>
+            <td>{{followup?.sdRange}}</td>
+          </tr>
+
+          <tr>
             <td>MUAC</td>
             <td><span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">{{followup?.muac}} mm</span></td>
           </tr>
@@ -51,24 +65,15 @@
             <td>Head Circumference</td>
             <td>{{followup?.headCircumference}} cm</td>
           </tr>
+ 
+        </div>
 
-          <tr>
-            <td>SD Range</td>
-            <td>{{followup?.sdRange}}</td>
-          </tr>
-
+        <div class="column">
           <tr>
             <td>Diet Chart</td>
             <td>{{followup?.dietChart}}</td>
           </tr>
 
-          <tr>
-            <td>Result</td>
-            <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM</span></td>
-          </tr>
-        </div>
-
-        <div class="column">
           <tr>
             <td>Diet Adequacy</td>
             <td><span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;">{{followup?.dietAdequacy}}</span></td>
@@ -90,13 +95,8 @@
           </tr>
 
           <tr>
-            <td>Scheduled Date</td>
-            <td>{{followupDate | date : "dd-MM-y"}}</td>
-          </tr>
-
-          <tr>
-            <td>Actual Date</td>
-            <td>{{followup?.followupDate | date : "dd-MM-y"}}</td>
+            <td>Result</td>
+            <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM</span></td>
           </tr>
 
           <tr>
