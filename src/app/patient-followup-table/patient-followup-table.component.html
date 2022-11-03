@@ -1,7 +1,8 @@
 <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y">
-      <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Follow Up Details: Aanchal (RCH-1234)</h3>
+      <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Follow Up Details:
+        Aanchal (RCH-1234)</h3>
       <br>
     <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px;">    
       <div class="card-header" style="background-color: #d9edf7; font-family: Arial, Helvetica, sans-serif;">
@@ -79,14 +80,14 @@
 
               <ng-template #elseBlock1>
                 <td>
-                  <a href="add-followup/{{this.nrc[i].scheduleId}}">
+<!--                  <a href="add-followup/{{this.nrc[i].scheduleId}}">-->
                     <button type="button" class="btn rounded-pill btn-primary"
                             style="color: #008ebe; background-color:white;
                 width: 70%; border-color: #008ebe; border-width: 1.5px;
                 font-family: Arial, Helvetica, sans-serif;" *ngIf="this.nrc[i]">
-                      {{this.nrc[i].followupDate | date : "dd-MM-y"  }} - Add Followup
+                      {{this.nrc[i].followupDate | date : "dd-MM-y"  }}
                     </button>
-                  </a>
+<!--                  </a>-->
                 </td>
               </ng-template>
             </ng-template>
