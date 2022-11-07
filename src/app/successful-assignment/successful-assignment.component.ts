@@ -21,6 +21,16 @@ export class SuccessfulAssignmentComponent implements OnInit {
     this.asha = data;
   console.log("assigned asha ",data);
   });
+
+
+  }
+
+  close(){
+//   setTimeout(
+//             function(){
+            location.reload();
+//             },
+//             1000);
   }
 
 }

@@ -8,7 +8,8 @@ export class FollowupSchedule {
   followupsDone: number;
   nextCommunity: Date;
   nextNrc: Date;
-  ashaMobileNumber: string;
+  ashaNumber: string;
   followupDate: Date;
  type: String;
+ ashaId: number;
 }

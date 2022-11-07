@@ -120,14 +120,14 @@
             <td></td>
           </tr>
 
-          <tr *ngFor="let p of patients;" style="color: black;">
+        <tr *ngFor="let p of patients;" style="color: black;">
             <td> <a href="track-child/{{p.caseId}}"><strong>{{p.samNum}}</strong></a></td>
             <td><a href="track-child/{{p.caseId}}">{{p.name}}</a></td>
             <td><a href="track-child/{{p.caseId}}">{{p.dischargeDate | date : "dd-MM-y"}}</a></td>
             <td><a href="track-child/{{p.caseId}}">{{p.mobileNumber}}</a></td>
             <td><a href="track-child/{{p.caseId}}">VVH</a></td>
             <td><a href="track-child/{{p.caseId}}">Malini</a></td>
-            <td><a href="track-child/1240"><span class="badge" style="color: white; background-color: #00a141;">Undergoing Followups</span></a></td>                     
+            <td><a href="track-child/1240"><span class="badge-success" style="color: white; background-color: #00a141;">Undergoing Followups</span></a></td>
 <!--            <td><a href="track-child/1240">7</a></td>                     -->
             <!-- <td><i class="fa fa-ellipsis-v"></i></td>                      -->
           </tr>
