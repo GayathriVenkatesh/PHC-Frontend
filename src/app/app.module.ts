@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -47,6 +47,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -73,6 +74,8 @@ import { LoginAshaComponent } from './login-asha/login-asha.component';
 import { LoginAnmComponent } from './login-anm/login-anm.component';
 import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component'; 
 import { EnterFollowupComponent } from './enter-followup/enter-followup.component';
+import { DateRangeComponent } from './date-range/date-range.component';
+import { SortTableComponent } from './sort-table/sort-table.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +112,9 @@ import { EnterFollowupComponent } from './enter-followup/enter-followup.componen
     AshaAddFollowupComponent,
     AssignAshaTableComponent,
     PatientFollowupTableComponent,
-    EnterFollowupComponent
+    EnterFollowupComponent,
+    DateRangeComponent,
+    SortTableComponent
   ],
   imports: [
     BrowserModule,
@@ -148,9 +153,12 @@ import { EnterFollowupComponent } from './enter-followup/enter-followup.componen
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule
     // FontAwesomeModule
   ],
-  providers: [UserService, PatientService, FollowupService, FileUploadService],
+  providers: [UserService, PatientService, FollowupService, FileUploadService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

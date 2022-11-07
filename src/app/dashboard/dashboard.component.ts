@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DateRangeComponent } from '../date-range/date-range.component';
 
 @Component({
   selector: 'app-dashboard',
