@@ -1,8 +1,18 @@
 <style>
     ::ng-deep .mat-form-field-wrapper{
    margin-bottom: -1.25em;
+    }
+
+/* ::ng-deep .mat-calendar-body-selected {
+    background-color: #008ebe;
+    color: #fff;
 }
+
+::ng-deep .mat-calendar-body-in-range {
+  background-color: aliceblue;
+} */
 </style>
+
 <mat-form-field style="background-color: white; size: 200px; color: #bbbbbb">
     <mat-label style="color: #bbbbbb; font-size: 15px; margin-left: 4px; font-family: 'Times New Roman', Times, serif;">Enter a date range</mat-label>
     <mat-date-range-input [rangePicker]="picker">
