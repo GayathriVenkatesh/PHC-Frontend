@@ -32,16 +32,16 @@
                               <div class="column">
                                 <div class="mb-4">
                                   <label class="form-label" for="basic-default-company" style="color: black; font-size: 13px;">Email ID</label>
-                                  <input type="text" class="form-control" id="basic-default-company"><i aria-flowto=""></i>
+                                  <input type="text" class="form-control" id="basic-default-company" [(ngModel)]="username" name="username"><i aria-flowto=""></i>
                                 </div>
                 
                                   <div class="mb-4">
                                     <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 13px;">Password</label>
-                                    <input type="password" class="form-control" id="basic-default-fullname" />
+                                    <input type="password" class="form-control" id="basic-default-fullname" [(ngModel)]="password" name="password"/>
                                   </div>
                                     <button type="button" class="btn rounded-pill btn-primary" 
                                     style="color: white; background-color:#008ebe; float:right; width: 20%; border-color: white;
-                                    margin-left: 50%; margin-bottom: 20px;"> <a href="home" style="color: white">Submit</a></button> 
+                                    margin-left: 50%; margin-bottom: 20px;" (click)="login()">Submit</button>
                                     
                                   
                                 </div>                 

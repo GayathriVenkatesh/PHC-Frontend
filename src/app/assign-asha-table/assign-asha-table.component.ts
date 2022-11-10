@@ -50,7 +50,9 @@ hello(){
 //   //         console.;
           this.patientService.findBySamId(this.samId.toString())
           .subscribe(data1 => {
-              console.log("###", data1[0].address);
+
+//               this.patients[i].address = "hello";
+//               console.log("##!!#", this.patients[i]);
             this.children.push(data1[0]);
           });
         }

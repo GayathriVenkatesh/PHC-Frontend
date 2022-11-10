@@ -12,4 +12,5 @@ export class FollowupSchedule {
   followupDate: Date;
  type: String;
  ashaId: number;
+ rchId: number;
 }

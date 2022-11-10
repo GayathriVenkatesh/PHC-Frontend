@@ -4,4 +4,7 @@ export class DischargedPatient {
     pincode: string;
     mobileNumber: string;
     caseId: number;
+    samId: number;
+    rchId: number;
+    date: Date;
 }
