@@ -12,35 +12,23 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 export class AssignAshaTableComponent implements OnInit {
 
   patients: Patient[];
+  searchText: String;
   children: Patient[];  
   samId: String;
   dischargeId: String;
   modalRef: MdbModalRef<AshaModalComponent> | null = null;
 
   constructor(private patientService: PatientService, private modalService: MdbModalService) {
+    this.searchText = '';
   }
 
   ngOnInit() {
-  this.children=[];
+    this.children = [];
     this.patientService.findAll().subscribe(data => {
       this.patients = data;
-// console.log("wassup2",this.patients);
-this.hello();
-  });
-
-
-//   for(var i=0; i<this.patients.length; i++) {
-//           this.samId = this.patients[i].samId;
-//           console.log("hello",this.samId);
-//   //         console.;
-//           this.patientService.findBySamId(this.samId.toString())
-//           .subscribe(data1 => {
-//               console.log("hiii",data1);
-//             this.children.push(data1);
-//           });
-//         }
-
-}
+      this.hello();
+    });
+  }
 
 hello(){
 // console.log("wassup",this.patients);

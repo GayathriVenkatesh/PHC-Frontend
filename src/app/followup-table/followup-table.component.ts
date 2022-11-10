@@ -13,20 +13,19 @@ import { FollowupSchedule } from '../model/followup-schedule';
 export class FollowupTableComponent implements OnInit {
 
   followup: Followup[];
-    followups: FollowupSchedule[];
+  followups: FollowupSchedule[];
+  searchText: String;
   modalRef: MdbModalRef<WorkerDetailModalComponent> | null = null;
 
   constructor(private followupService: FollowupService, private modalService: MdbModalService) {
   }
 
   ngOnInit() {
-//     this.followupService.findAll().subscribe(data => {
-//       this.followups = data;
-//     });
     this.followupService.findFollowupSchedule().subscribe(data => {
-        this.followups = data;
-        console.log("followups", this.followups);
-        });
+      this.followups = data;
+      console.log("followups", this.followups);
+    });
+    this.searchText = "";
   }
 
   openModal() {

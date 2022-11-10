@@ -16,7 +16,7 @@
 
     <div class="content-wrapper" style="margin-left: 15vw; overflow: auto; height: 100vh; width: 85vw; 
     margin-top: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 17px; 
-    font-weight: 550; background-color: rgb(62, 74, 116); border-radius: 0px;">
+    font-weight: 550; background-color: #3e4a74; border-radius: 0px;">
     
     <!-- <div class="content-wrapper" style="margin-left: 15vw; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);"> -->
 
@@ -27,23 +27,26 @@
         <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; margin-left: 35%; 
         margin-top: 10px; margin-bottom: 5vh;">Welcome to SNEHA PHC</h2>             
         
-
-        <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; 
+        <p style="color: white; text-align: center;">Shown below are the statistics of patients under your jurisdiction, as of today.
+        </p>
+        <div class="card" style="border-radius: 0; color: black; background-color: #3e4a74;
         margin-top: 10px; margin-right: 30px;">    
-            <div class="card-header" style="background-color: #d9edf7; font-family: Arial, Helvetica, sans-serif;">
+            <div class="card-header" style="background-color: #3e4a74; font-family: Arial, Helvetica, sans-serif;">
+                <!-- <h4 style="color: black; font-weight: bold;">PHC Data as of Today -->
               <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse" 
-              style="margin-left: 2%; float: right; margin-top: -18px; margin-bottom: -22px; 
+              style="margin-left: 2%; margin-top: -1.5%; float: right; margin-bottom: -22px; 
               font-size: 13px; font-family: 'Times New Roman', Times, serif;">
               
                   <div class="navbar-nav align-items-center" style="margin-bottom: 5px; margin-bottom: 5px;">
                   <div class="nav-item d-flex align-items-center">
-                      <div style="margin-right: 10px;">  
+                      <div style="margin-right: 60px; width: 130%">  
                         <app-date-range></app-date-range>
                       </div>
                       
                   </div>
                   </div>
               </div>
+                <!-- </h4> -->
             </div>
           
         <!-- <div class="col-lg-6 col-md-4 order-1"> -->
@@ -55,16 +58,16 @@
                     <div class="column">    
                         <div class="mb-4">
                             <a href="discharged-patients" style="color: black">
-                            <div class="card" style="background-color: #ffffff; border-color: #008ebe; border-width: 1.5px;">
+                            <div class="card" style="background-color: #ffffff; border-color: #5bd719; border-width: 1.5px;">
                                 <div class="card-body">
                                     <div class="card-title d-flex align-items-start justify-content-between">
                                     <div class="avatar flex-shrink-0">
-                                        <i class='fa fa-users' style='font-size:36px; color:#008ebe; float: right;'></i>
+                                        <i class='fa fa-users' style='font-size:36px; color:#5bd719; float: right;'></i>
                                     </div>
                                     
                                     </div>
                                     <span>Patients Awaiting PHC Confirmation</span>
-                                    <h4 class="card-title mb-2" style="color:#008ebe">126</h4>
+                                    <h4 class="card-title mb-2" style="color:#5bd719"><strong>126</strong></h4>
                                     <!-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> -->
                                 </div>
                                 </div>
@@ -76,16 +79,16 @@
                     <div class="column">   
                         <div class="mb-4">
                             <a href="assign-asha" style="color: black">
-                            <div class="card" style="background-color: #ffffff; border-color: #008ebe; border-width: 1.5px;">
+                            <div class="card" style="background-color: #ffffff; border-color: #d5452c; border-width: 1.5px;">
                                 <div class="card-body">
                                     <div class="card-title d-flex align-items-start justify-content-between">
                                     <div class="avatar flex-shrink-0">
-                                        <i class='fa fa-clock-o' style='font-size:36px; color:#008ebe;'></i>
+                                        <i class='fa fa-clock-o' style='font-size:36px; color:#d5452c;'></i>
                                     </div>
                                     
                                     </div>
                                     <span>Patients Awaiting ASHA Assignment</span>
-                                    <h4 class="card-title mb-2" style="color:#008ebe;">54</h4>
+                                    <h4 class="card-title mb-2" style="color:#d5452c;"><strong>54</strong></h4>
                                     <!-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> -->
                                 </div>
                                 </div>
@@ -105,7 +108,7 @@
                                     
                                     </div>
                                     <span>Patients Currently Undergoing Follow Ups</span>
-                                    <h4 class="card-title text-nowrap mb-1" style="color:#008ebe;">23</h4>
+                                    <h4 class="card-title text-nowrap mb-1" style="color:#008ebe;"><strong>23</strong></h4>
                                 </div>
                                 </div>
                             </a>

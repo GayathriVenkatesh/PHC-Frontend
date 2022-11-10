@@ -75,7 +75,10 @@ import { LoginAnmComponent } from './login-anm/login-anm.component';
 import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component'; 
 import { EnterFollowupComponent } from './enter-followup/enter-followup.component';
 import { DateRangeComponent } from './date-range/date-range.component';
-import { SortTableComponent } from './sort-table/sort-table.component';
+// import { SortTableComponent } from './sort-table/sort-table.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { AgGridComponent } from './ag-grid/ag-grid.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -114,10 +117,13 @@ import { SortTableComponent } from './sort-table/sort-table.component';
     PatientFollowupTableComponent,
     EnterFollowupComponent,
     DateRangeComponent,
-    SortTableComponent
+    AgGridComponent,
+    SearchPipe,
+    // SortTableComponent
   ],
   imports: [
     BrowserModule,
+    AgGridModule,
     MatTabsModule,
     CommonModule,
     AppRoutingModule,

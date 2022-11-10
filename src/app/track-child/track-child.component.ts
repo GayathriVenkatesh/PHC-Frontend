@@ -12,6 +12,7 @@ export class TrackChildComponent implements OnInit {
 
   patients: Patient[];
   discharge: Patient;
+  searchText: String;
   constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
@@ -19,9 +20,8 @@ export class TrackChildComponent implements OnInit {
       this.patientService.trackChild().subscribe(data => {
       console.log(data);
         this.patients = data;
-  
     });
-
+    this.searchText = "";
 
   }
 

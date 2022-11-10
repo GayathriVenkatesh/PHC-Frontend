@@ -23,6 +23,7 @@ import { LoginAshaComponent } from './login-asha/login-asha.component';
 import { LoginAnmComponent } from './login-anm/login-anm.component';
 import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component';
 import { SortTableComponent } from './sort-table/sort-table.component';
+import { AgGridComponent } from './ag-grid/ag-grid.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'login-anm', component: LoginAnmComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'assign-asha', component: AssignAshaTableComponent },
-  // { path: 'sort', component: SortTableComponent },
+  { path: 'sort', component: AgGridComponent },
   { path: 'discharged-patients', component: DischargedPatientsComponent },
   { path: 'followup-list', component: FollowupTableComponent },
   { path: 'asha-worker/:awId', component: WorkerDetailsComponent },
