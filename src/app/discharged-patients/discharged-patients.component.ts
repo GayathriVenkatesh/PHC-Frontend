@@ -35,9 +35,10 @@ range = new FormGroup({
 
   }
 
-  openModal() {
+  openModal(patient: DischargedPatient) {
     this.modalRef = this.modalService.open(RejectModalComponent, {
-      modalClass: 'modal-md'
+      modalClass: 'modal-md',
+      data : {patient: patient}
     })
   }
 

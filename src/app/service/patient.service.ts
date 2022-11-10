@@ -73,6 +73,13 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
 //        return this.http.post<String>(this.dischargedPatientUrl+"-approve", caseId);
    }
 
+      public reject(patient: Number) {
+      console.log("rejected: ",patient);
+        return this.http.post<Number>(this.dischargedPatientUrl + "-reject", patient);
+   //        return this.http.post<Patient>(this.dischargedPatientUrl+"d-patient", patient);
+   //        return this.http.post<String>(this.dischargedPatientUrl+"-approve", caseId);
+      }
+
    public trackChild(): Observable<Patient[]> {
        return this.http.get<Patient[]>("http://localhost:8080/track-child");
      }

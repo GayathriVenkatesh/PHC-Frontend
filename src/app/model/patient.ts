@@ -19,4 +19,5 @@ export class Patient {
     samNum: string;
     ashaId: number;
     ashaName: string;
+    status: string;
 }

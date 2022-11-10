@@ -76,8 +76,8 @@ import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.
 import { EnterFollowupComponent } from './enter-followup/enter-followup.component';
 import { DateRangeComponent } from './date-range/date-range.component';
 // import { SortTableComponent } from './sort-table/sort-table.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { AgGridComponent } from './ag-grid/ag-grid.component';
+// import { AgGridModule } from 'ag-grid-angular';
+// import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { SearchPipe } from './search.pipe';
 
 @NgModule({
@@ -117,13 +117,13 @@ import { SearchPipe } from './search.pipe';
     PatientFollowupTableComponent,
     EnterFollowupComponent,
     DateRangeComponent,
-    AgGridComponent,
+//     AgGridComponent,
     SearchPipe,
     // SortTableComponent
   ],
   imports: [
     BrowserModule,
-    AgGridModule,
+//     AgGridModule,
     MatTabsModule,
     CommonModule,
     AppRoutingModule,

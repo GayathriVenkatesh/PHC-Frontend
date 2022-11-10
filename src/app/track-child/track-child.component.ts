@@ -13,13 +13,59 @@ export class TrackChildComponent implements OnInit {
   patients: Patient[];
   discharge: Patient;
   searchText: String;
-  constructor(private patientService: PatientService) { }
+  awaitingAsha: Patient[];
+  asha: number[];
+  constructor(private patientService: PatientService) {
+   this.asha = [];
+   }
 
   ngOnInit(): void {
+  this.patientService.findAll().subscribe(data1 => {
+        this.awaitingAsha = data1;
+        console.log("lol",this.awaitingAsha);
+        for(var i=0;i<data1.length;i++){
+        console.log("hi", this.awaitingAsha[i].caseId, "bye", this.asha)
+        this.asha.push(this.awaitingAsha[i].caseId);
+        }
+        console.log("lol",this.asha);
+//         this.hello();
+
+
 //   this.children=[];
       this.patientService.trackChild().subscribe(data => {
       console.log(data);
+      console.log(this.asha);
         this.patients = data;
+        for(var i=0;i<data.length;i++){
+                this.patients[i].address="";
+                }
+        for(var i=0;i<data.length;i=i+5){
+//         this.patients[i].address="";
+        this.patients[i].status="FOLLOWUPS - NORMAL";
+        if(i+1<data.length){
+        this.patients[i+1].status="MISSING FOLLOWUPS";}
+        if(i+2<data.length){
+        this.patients[i+2].status="FOLLOWUPS - SAM";}
+        if(i+3<data.length){
+        this.patients[i+3].status="FOLLOWUPS - MAM";}
+        if(i+4<data.length){
+        this.patients[i+4].status="FOLLOWUPS - NORMAL";}
+        }
+
+        for(var i=0;i<data.length;i++){
+             if(this.asha.indexOf(data[i].caseId)!=-1){
+             console.log("HI YES", data[i].caseId);
+             this.patients[i].status="AWAITING ASHA ASSIGNMENT";
+             }
+             else{
+             console.log("NO", data[i].caseId);
+
+             }
+         }
+
+
+
+    });
     });
     this.searchText = "";
 
