@@ -8,14 +8,14 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
 export class DateRangeComponent implements OnInit {
   range = new FormGroup({
-    start: new FormControl<Date | null>(null),
-    end: new FormControl<Date | null>(null),
+    start: new FormControl<Date | null>(new Date()),
+    end: new FormControl<Date | null>(new Date()),
   });
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log("date range",this.range);
+    console.log("date range",this.range.value);
   }
 
 }

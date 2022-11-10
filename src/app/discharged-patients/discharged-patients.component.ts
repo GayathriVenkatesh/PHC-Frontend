@@ -5,6 +5,7 @@ import { ApproveModalComponent } from '../approve-modal/approve-modal.component'
 import { DischargedPatient } from '../model/discharged-patient';
 import { PatientService } from '../service/patient.service';
 import { Router } from '@angular/router';
+import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-discharged-patients',
@@ -20,7 +21,13 @@ export class DischargedPatientsComponent implements OnInit {
 //   constructor(private patientService: PatientService,private modalService: MdbModalService) {}
 constructor(private router: Router, private patientService: PatientService,private modalService: MdbModalService) {}
 
+range = new FormGroup({
+    start: new FormControl<Date | null>(new Date()),
+    end: new FormControl<Date | null>(new Date()),
+  });
+
   ngOnInit(): void {
+
    this.patientService.getDischargedPatients().subscribe(data => {
    this.patients = data;
    console.log("discharged patients: ",this.patients[0].name);
