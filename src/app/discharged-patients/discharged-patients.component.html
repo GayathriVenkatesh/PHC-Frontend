@@ -38,8 +38,8 @@
           <table class="table">
             <thead style="color: black;">
               <tr style="color: black;">
-                <th style="color: black;">Date</th>
-                <th style="color: black;">SAM ID</th>
+                <th style="color: black;">Assignment Date</th>
+                <th style="color: black;">RCH ID/SAM ID</th>
                 <th style="color: black;">Patient Name</th>
                 <th style="color: black;">Name of NRC</th>
                 <th style="color: black;">Mobile No</th>
@@ -50,8 +50,8 @@
             </thead>
             <tbody class="table-border-bottom-0">
               <tr style="color: black;" *ngFor="let p of patients | search: searchText">
-                <td>23-02-2022</td>
-                <td><strong>1234</strong></td>
+                <td>{{p.date | date : "dd-MM-y"}}</td>
+                <td><strong>{{p.rchId}}/{{p.samId}}</strong></td>
                 <td>{{p.name}}</td>
                 <td>VVH</td>
                 <td>{{p.mobileNumber}}</td>

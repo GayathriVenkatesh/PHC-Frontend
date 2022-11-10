@@ -18,6 +18,7 @@ export class TrackChildComponent implements OnInit {
   ngOnInit(): void {
 //   this.children=[];
       this.patientService.trackChild().subscribe(data => {
+      console.log(data);
         this.patients = data;
     });
     this.searchText = "";

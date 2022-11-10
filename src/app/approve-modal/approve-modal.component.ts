@@ -17,4 +17,15 @@ export class ApproveModalComponent implements OnInit {
 
   }
 
+  close(): void {
+//     cancel(){
+  //       setTimeout(
+  //           function(){
+            location.reload();
+  //           },
+  //           100);
+//     }
+
+  }
+
 }

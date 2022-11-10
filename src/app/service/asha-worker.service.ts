@@ -29,6 +29,10 @@ export class AshaWorkerService {
   return this.http.get<AshaWorker>(this.ashaUrl + '/' + ashaId);
   }
 
+  public getAssigned(): Observable<Number[]>{
+  return this.http.get<Number[]>('http://localhost:8080/assigned-children');
+  }
+
     public save(ashaChild: AshaChild) {
      console.log("hey", ashaChild);
     return this.http.post<Object>(this.ashaChildUrl, ashaChild);

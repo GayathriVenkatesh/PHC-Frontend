@@ -161,7 +161,7 @@ import { SearchPipe } from './search.pipe';
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     // FontAwesomeModule
   ],
   providers: [UserService, PatientService, FollowupService, FileUploadService, MatDatepickerModule],

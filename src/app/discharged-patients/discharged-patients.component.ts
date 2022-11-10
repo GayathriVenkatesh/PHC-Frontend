@@ -42,11 +42,14 @@ constructor(private router: Router, private patientService: PatientService,priva
       modalClass: 'modal-lg',
       data: {patient: patient}
     })
-//     setTimeout(
-//         function(){
-//         location.reload();
-//         },
-//         5000);
+  }
+
+  cancel(){
+//       setTimeout(
+//           function(){
+          location.reload();
+//           },
+//           100);
   }
 
 }

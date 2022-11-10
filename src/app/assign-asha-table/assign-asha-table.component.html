@@ -48,7 +48,7 @@
   <table class="table">
     <thead style="color: black;">
       <tr>
-        <th style="color: black;">RCH ID</th>
+        <th style="color: black;">RCH ID/SAM ID</th>
         <th style="color: black;">Patient Name</th>
         <th style="color: black;">Address</th>
         <th style="color: black;">Pincode</th>
@@ -59,15 +59,16 @@
       </tr>
     </thead>
             <tbody class="table-border-bottom-0">
-              <!-- | search: searchText -->
-              <tr *ngFor="let p of patients; let i of index;" style="color: black;">
-                <td> <a href=""><strong>{{ p.samId }}</strong></a></td>
-                <td><a href="">{{ p.name }}</a></td>
-                <td><a href="">this.children.address</a></td>
-                <td>560075</td>
-                <td>9876543210</td>
-                <td><a href="">{{ p.dischargeDate | date : "dd-MM-y" }}</a></td>
-                <td><a href="">VVH</a></td>
+
+              <tr *ngFor="let p of patients;index as i;" style="color: black;">
+                <td> <a href="patient/{{p.dischargeId}}"><strong>{{p.rchId}}/{{ p.samId }}</strong></a></td>
+                <td><a href="patient/{{p.dischargeId}}">{{ p.name }}</a></td>
+                <td><a href="patient/{{p.dischargeId}}">{{children[i]?.address}}</a></td>
+                <td>{{children[i]?.pincode}}</td>
+                <td>{{children[i]?.mobileNumber}}</td>
+                <td><a href="patient/{{p.dischargeId}}">{{ p.dischargeDate | date : "dd-MM-y" }}</a></td>
+                <td><a href="patient/{{p.dischargeId}}">VVH</a></td>
+
                 <td><button type="button" class="btn rounded-pill btn-primary" 
                   style="color: white; background-color:#008ebe; width: 80%; border-color: white"
                   (click)="openModal(p.caseId)">

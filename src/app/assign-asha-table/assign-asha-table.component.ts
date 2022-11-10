@@ -30,17 +30,21 @@ export class AssignAshaTableComponent implements OnInit {
     });
   }
 
-  hello() {
-    for(var i=0; i<this.patients.length; i++) {
-      this.samId = this.patients[i].samId;
-      console.log("hello",i,this.samId);
-      this.patientService.findBySamId(this.samId.toString())
-      .subscribe(data1 => {
-          console.log("###", data1[0].address);
-        this.children.push(data1[0]);
-      });
-    }
-  }
+hello(){
+// console.log("wassup",this.patients);
+  for(var i=0; i<this.patients.length; i++) {
+          this.samId = this.patients[i].samId;
+          console.log("hello",i,this.samId);
+//   //         console.;
+          this.patientService.findBySamId(this.samId.toString())
+          .subscribe(data1 => {
+
+//               this.patients[i].address = "hello";
+//               console.log("##!!#", this.patients[i]);
+            this.children.push(data1[0]);
+          });
+        }
+}
 
 
   openModal(caseId: number) {

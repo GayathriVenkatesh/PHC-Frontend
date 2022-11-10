@@ -17,4 +17,6 @@ export class Patient {
     pincode: string;
     caseId: number;
     samNum: string;
+    ashaId: number;
+    ashaName: string;
 }
