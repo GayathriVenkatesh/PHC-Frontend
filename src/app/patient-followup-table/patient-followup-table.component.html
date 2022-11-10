@@ -1,5 +1,6 @@
-<div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
-  <!-- Content -->
+<!-- <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);"> -->
+<div class="content-wrapper" style="margin-left: 15vw; overflow: auto; margin-top: 0px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+    <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
       <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Follow Up Details: Aanchal (RCH-1234)</h3>
       <br>
@@ -21,6 +22,7 @@
             <!-- <i class="fa fa-search"></i> -->
         </div>
         </div>
+      </div>
       </div>
 
       <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%">
@@ -108,7 +110,7 @@
                 <button type="button" (click)="openModal(this.general[i].followupId, this.general[i].followupDate)" class="btn rounded-pill btn-primary"
                         style="color: #00a141; background-color:white;
                 width: 50%; border-color: #00a141; border-width: 1.5px;
-                font-family: 'Times New Roman', Times, serif;" *ngIf="this.general[i]">
+                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.general[i]">
                   {{this.general[i].followupDate | date : "dd-MM-y"  }} - View Followup
                 </button>
               </td>
@@ -204,7 +206,7 @@
 
 
     <!--/ Responsive Table -->
-  </div>
+  <!-- </div> -->
   <!-- / Content -->
 
 

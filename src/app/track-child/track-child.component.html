@@ -9,7 +9,8 @@
 
 </style>
 <div style="height: 100%;">
-<div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+<div class="content-wrapper" style="margin-left: 15vw; overflow: auto; margin-top: 0px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+<!-- <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);"> -->
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
       <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Track Child</h3>
@@ -20,14 +21,16 @@
       style="margin-left: 2%; float: right; margin-top: -18px; margin-bottom: -22px; 
       font-size: 13px; font-family: 'Times New Roman', Times, serif;">
       
-          <div class="navbar-nav align-items-center">
+          <div class="navbar-nav align-items-center" style="margin-bottom: 5px; margin-bottom: 5px;">
           <div class="nav-item d-flex align-items-center">
-              
+              <div style="margin-right: 10px;">  
+                <app-date-range></app-date-range>
+              </div>
               <input
-              style="background-color: white;"
+              style="background-color: white; height: 40px; font-size: 15px;"
               type="text"
               class="form-control border-0 shadow-none"
-              placeholder="Search"
+              placeholder="Search by anything"
               aria-label="Search..."
               />
           </div>
@@ -47,52 +50,75 @@
             <th style="color: black;">ASHA Worker</th>
             <th style="color: black;">Status</th>
           </tr>
-        </thead>
+        </thead> 
         <tbody class="table-border-bottom-0">
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>2536</strong></a></td>
+            <td><a href="track-child/1240">Gayathri</a></td>
+            <td><a href="track-child/1240">09-12-2022</a></td>
+            <td><a href="track-child/1240">9845154210</a></td>
+            <td><a href="track-child/1240">IGH</a></td>
+            <td><a href="track-child/1240">Sharon</a></td>
+            <td><span class="badge" style="background-color: #d9ecf3;">
+              <a style="color:#008ebe;" href="track-child/1240"><strong>AWAITING PHC Confirmation</strong></a></span>
+            </td> 
+            <td></td>
+          </tr>
 
-        <tr style="color: black;">
-          <td><a href="track-child/1240"><strong>1234</strong></a></td>
-          <td><a href="track-child/1240">Aanchal</a></td>
-          <td><a href="track-child/1240">08-11-2022</a></td>
-          <td><a href="track-child/1240">9876543210</a></td>
-          <td><a href="track-child/1240">VVH</a></td>
-          <td><a href="track-child/1240">Vaibhavi</a></td>
-          <td><a href="track-child/1240"><span class="badge-warning" style="color: white; ">Awaiting ASHA Assignment</span></a></td>
-          <td></td>
-        </tr>
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>1234</strong></a></td>
+            <td><a href="track-child/1240">Aanchal</a></td>
+            <td><a href="track-child/1240">08-11-2022</a></td>
+            <td><a href="track-child/1240">9876543210</a></td>
+            <td><a href="track-child/1240">VVH</a></td>
+            <td><a href="track-child/1240">Vaibhavi</a></td>
+            <td><span class="badge" style="background-color: #d9ecf3;">
+              <a style="color:#008ebe;" href="track-child/1240"><strong>AWAITING ASHA Assignment</strong></a></span>
+            </td> 
+            <td></td>
+          </tr>
+          
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>5142</strong></a></td>
+            <td><a href="track-child/1240">Aarushi</a></td>
+            <td><a href="track-child/1240">07-01-2022</a></td>
+            <td><a href="track-child/1240">8816297762</a></td>
+            <td><a href="track-child/1240">VVH</a></td>
+            <td><a href="track-child/1240">Shalini</a></td>
+            <td><span class="badge" style="background-color: #ffe0db;">
+              <a style="color:#ff3e1d;" href="track-child/1240"><strong>Followups - SAM</strong></a></span>
+            </td> 
+            <!-- <td><a href="track-child/1240"><span class="badge-danger" style="color: white;">Followups - SAM</span></a></td>                      -->
+            <td></td>
+          </tr>
 
-        <tr style="color: black;">
-          <td><a href="track-child/1240"><strong>2536</strong></a></td>
-          <td><a href="track-child/1240">Gayathri</a></td>
-          <td><a href="track-child/1240">09-12-2022</a></td>
-          <td><a href="track-child/1240">9845154210</a></td>
-          <td><a href="track-child/1240">IGH</a></td>
-          <td><a href="track-child/1240">Sharon</a></td>
-          <td><a href="track-child/1240"><span class="badge-warning" style="color: white; background-color: #fd7e14;">Missing Followups</span></a></td>
-          <td></td>
-        </tr>
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>6879</strong></a></td>
+            <td><a href="track-child/1240">Seema</a></td>
+            <td><a href="track-child/1240">06-05-2022</a></td>
+            <td><a href="track-child/1240">7022029113</a></td>
+            <td><a href="track-child/1240">IGH</a></td>
+            <td><a href="track-child/1240">Malini</a></td>
+            <td><span class="badge badge-warning" style="background-color: #fff2d6;">
+              <a style="color: #e49e11;" href="track-child/1240"><strong>Followups - MAM</strong></a></span>
+            </td>            
+            <td></td>
+          </tr>
 
-        <tr style="color: black;">
-          <td><a href="track-child/1240"><strong>5142</strong></a></td>
-          <td><a href="track-child/1240">Aarushi</a></td>
-          <td><a href="track-child/1240">07-01-2022</a></td>
-          <td><a href="track-child/1240">8816297762</a></td>
-          <td><a href="track-child/1240">VVH</a></td>
-          <td><a href="track-child/1240">Shalini</a></td>
-          <td><a href="track-child/1240"><span class="badge-danger" style="color: white;">Undergoing Followups - Poor Prognosis</span></a></td>
-          <td></td>
-        </tr>
-
-        <tr style="color: black;">
-          <td><a href="track-child/1240"><strong>6879</strong></a></td>
-          <td><a href="track-child/1240">Seema</a></td>
-          <td><a href="track-child/1240">06-05-2022</a></td>
-          <td><a href="track-child/1240">7022029113</a></td>
-          <td><a href="track-child/1240">IGH</a></td>
-          <td><a href="track-child/1240">Malini</a></td>
-          <td><a href="track-child/1240"><span class="badge-success" style="color: white;">Undergoing Followups</span></a></td>
-          <td></td>
-        </tr>
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>6879</strong></a></td>
+            <td><a href="track-child/1240">Meena</a></td>
+            <td><a href="track-child/1240">06-05-2022</a></td>
+            <td><a href="track-child/1240">7022029113</a></td>
+            <td><a href="track-child/1240">IGH</a></td>
+            <td><a href="track-child/1240">Malini</a></td>
+            <td><span class="badge badge-warning" style="background-color: #e8fadf;">
+              <a style="color: #68c536;" href="track-child/1240">
+                <strong>Followups - Normal</strong>
+              </a></span>
+            </td>            
+            <td></td>
+          </tr>
 
         <tr *ngFor="let p of patients;" style="color: black;">
             <td> <a href="track-child/{{p.caseId}}"><strong>{{p.samNum}}</strong></a></td>

@@ -61,7 +61,7 @@ hello(){
 
   openModal(caseId: number) {
     this.modalRef = this.modalService.open(AshaModalComponent, {
-      modalClass: 'modal-md',
+      modalClass: 'modal-lg',
       data: {caseId: caseId}
     })
   }

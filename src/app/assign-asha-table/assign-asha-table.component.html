@@ -10,7 +10,9 @@
   
   </style>
   
-  <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+  <div class="content-wrapper" style="margin-left: 15vw; overflow: auto; margin-top: 0vh; width: 85vw; height: 107vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+
+  <!-- <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 86vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);"> -->
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
         <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">ASHA Assignment</h3>
@@ -22,22 +24,24 @@
         <div class="card-header" style="background-color: #d9edf7; font-family: Arial, Helvetica, sans-serif;">
 
           <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse" 
-          style="margin-left: 2%; float: right; margin-top: -18px; margin-bottom: -22px; width: 100%
-          font-size: 13px; font-family: 'Times New Roman', Times, serif;">
-              
-              <div class="navbar-nav align-items-center">
-              <div class="nav-item d-flex align-items-center">
-                  
-                  <input
-                  type="text"
-                  class="form-control border-0 shadow-none"
-                  placeholder="Search"
-                  aria-label="Search..."
-                  />
-                  <!-- <i class="fa fa-search"></i> -->
+      style="margin-left: 2%; float: right; margin-top: -18px; margin-bottom: -22px; 
+      font-size: 13px; font-family: 'Times New Roman', Times, serif;">
+      
+          <div class="navbar-nav align-items-center" style="margin-bottom: 5px; margin-bottom: 5px;">
+          <div class="nav-item d-flex align-items-center">
+              <div style="margin-right: 10px;">  
+                <app-date-range></app-date-range>
               </div>
-              </div>
+              <input
+              style="background-color: white; height: 40px; font-size: 15px;"
+              type="text"
+              class="form-control border-0 shadow-none"
+              placeholder="Search by anything"
+              aria-label="Search..."
+              />
           </div>
+          </div>
+      </div>
           </div>
   
 <div class="table-responsive text-nowrap" style="font-size: 14px; font-family:Arial, Helvetica, sans-serif; width: 100%">
@@ -55,6 +59,7 @@
       </tr>
     </thead>
             <tbody class="table-border-bottom-0">
+<<<<<<< HEAD
               <tr *ngFor="let p of patients;index as i;" style="color: black;">
                 <td> <a href="patient/{{p.dischargeId}}"><strong>{{p.rchId}}/{{ p.samId }}</strong></a></td>
                 <td><a href="patient/{{p.dischargeId}}">{{ p.name }}</a></td>
@@ -63,9 +68,7 @@
                 <td>{{children[i]?.mobileNumber}}</td>
                 <td><a href="patient/{{p.dischargeId}}">{{ p.dischargeDate | date : "dd-MM-y" }}</a></td>
                 <td><a href="patient/{{p.dischargeId}}">VVH</a></td>
-                <!-- <td><span class="badge" style="background-color: #d9ecf3;">
-                  <a style="color:#008ebe;" href="/discharge-summary/1">Summary</a></span>
-                </td>            -->
+
                 <td><button type="button" class="btn rounded-pill btn-primary" 
                   style="color: white; background-color:#008ebe; width: 80%; border-color: white"
                   (click)="openModal(p.caseId)">

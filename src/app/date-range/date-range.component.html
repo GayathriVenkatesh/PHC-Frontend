@@ -1,0 +1,32 @@
+<style>
+    ::ng-deep .mat-form-field-wrapper{
+   margin-bottom: -1.25em;
+    }
+
+/* ::ng-deep .mat-calendar-body-selected {
+    background-color: #008ebe;
+    color: #fff;
+}
+
+::ng-deep .mat-calendar-body-in-range {
+  background-color: aliceblue;
+} */
+</style>
+
+<mat-form-field style="background-color: white; size: 200px; color: #bbbbbb">
+    <mat-label style="color: #bbbbbb; font-size: 15px; margin-left: 4px; font-family: 'Times New Roman', Times, serif;">Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input style="color: #bbbbbb; font-size: 15px; font-family: 'Times New Roman', Times, serif;" matStartDate formControlName="start" placeholder="">
+      <input style="color: #bbbbbb; font-size: 15px; font-family: 'Times New Roman', Times, serif;" matEndDate formControlName="end" placeholder="Enter a date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker" style="color: #bbbbbb; height: 20px; size: 20px;"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  
+    <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+    <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+  </mat-form-field>
+    
+  
+  <!-- Copyright 2022 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at https://angular.io/license -->
