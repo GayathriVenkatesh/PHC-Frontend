@@ -15,6 +15,7 @@ export class DateRangeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("date range",this.range);
   }
 
 }
