@@ -37,7 +37,7 @@
               type="text"
               class="form-control border-0 shadow-none"
               placeholder="Search by anything"
-              aria-label="Search..."
+              aria-label="Search..." [(ngModel)]="searchText"
               />
           </div>
           </div>
@@ -59,34 +59,21 @@
       </tr>
     </thead>
             <tbody class="table-border-bottom-0">
-              <tr style="color: black;">
-                <td> <a href="bbbbbb"><strong>p.samId</strong></a></td>
-                <td><a href="">p.name</a></td>
-                <td><a href="">this.children</a></td>
+              <!-- | search: searchText -->
+              <tr *ngFor="let p of patients; let i of index;" style="color: black;">
+                <td> <a href=""><strong>{{ p.samId }}</strong></a></td>
+                <td><a href="">{{ p.name }}</a></td>
+                <td><a href="">this.children.address</a></td>
                 <td>560075</td>
                 <td>9876543210</td>
-                <td><a href="">p.dischargeDate | date : "dd-MM-y"</a></td>
-                <td><a href="">VVH</a></td>
-                <td><button type="button" class="btn rounded-pill btn-primary" 
-                  style="color: white; background-color:#008ebe; width: 80%; border-color: white"
-                  (click)="openModal(1)">
-                  Assign
-                </button></td>           
-              </tr>
-              <!-- <tr *ngFor="let p of patients;index as i;" style="color: black;">
-                <td> <a href=""><strong>p.samId</strong></a></td>
-                <td><a href="">p.name</a></td>
-                <td><a href="">{{this.children[i]?.address}}</a></td>
-                <td>560075</td>
-                <td>9876543210</td>
-                <td><a href="">p.dischargeDate | date : "dd-MM-y"</a></td>
+                <td><a href="">{{ p.dischargeDate | date : "dd-MM-y" }}</a></td>
                 <td><a href="">VVH</a></td>
                 <td><button type="button" class="btn rounded-pill btn-primary" 
                   style="color: white; background-color:#008ebe; width: 80%; border-color: white"
                   (click)="openModal(p.caseId)">
                   Assign
                 </button></td>           
-              </tr> -->
+              </tr>
               
             </tbody>
           </table>

@@ -16,14 +16,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PatientFollowupTableComponent implements OnInit {
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
-
+  searchText: String;
 //   followups: FollowupSchedule[];
   followups: FollowupDate[];
   caseId: String;
   community: FollowupDate[] = [];
   nrc: FollowupDate[] = [];
   general: FollowupDate[] = [];
-    name: String;
+  name: String;
+
   constructor(private router: Router, private followupService: FollowupService, private modalService: MdbModalService) {}
 
   openModal(followupId: number, followupDate: Date) {
@@ -43,29 +44,30 @@ export class PatientFollowupTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      console.log("KJBJBJB", this.router.url);
-          this.caseId = this.router.url.split("/")[2];
-  this.followupService.findByCaseId(this.caseId).subscribe(data => {
-    this.followups = data;
-    for(var i=0;i<this.followups.length;i++){
-    console.log(this.followups[i].followupDate);
-      if(this.followups[i].type=="COMMUNITY"){
-      console.log(this.followups[i].followupId)
-        this.community.push(this.followups[i]);
-        }
-        else if(this.followups[i].type=="NRC"){
+    console.log("KJBJBJB", this.router.url);
+    this.caseId = this.router.url.split("/")[2];
+    this.followupService.findByCaseId(this.caseId).subscribe(data => {
+      this.followups = data;
+      for(var i=0;i<this.followups.length;i++){
+      console.log(this.followups[i].followupDate);
+        if(this.followups[i].type=="COMMUNITY"){
         console.log(this.followups[i].followupId)
-        this.nrc.push(this.followups[i]);
-        }
-        else {
-                console.log(this.followups[i].followupId)
-                this.general.push(this.followups[i]);
-        }
-    }
-        console.log("DATE", this.followups[0].followupDate);
-    console.log("followups communtiy", this.community);
-    console.log("followups nrc", this.nrc);
-    });
+          this.community.push(this.followups[i]);
+          }
+          else if(this.followups[i].type=="NRC"){
+          console.log(this.followups[i].followupId)
+          this.nrc.push(this.followups[i]);
+          }
+          else {
+                  console.log(this.followups[i].followupId)
+                  this.general.push(this.followups[i]);
+          }
+      }
+          console.log("DATE", this.followups[0].followupDate);
+      console.log("followups communtiy", this.community);
+      console.log("followups nrc", this.nrc);
+      });
+    this.searchText = "";
   }
 
 }

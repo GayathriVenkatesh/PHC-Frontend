@@ -12,6 +12,7 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 export class AshaPatientFollowupComponent implements OnInit {
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
+  searchText: String;
 
   constructor(private modalService: MdbModalService) {}
 
@@ -28,6 +29,7 @@ export class AshaPatientFollowupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.searchText = "";
   }
 
 }

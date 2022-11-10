@@ -27,7 +27,7 @@
                 type="text"
                 class="form-control border-0 shadow-none"
                 placeholder="Search"
-                aria-label="Search..."
+                aria-label="Search..." [(ngModel)]="searchText"
                 />
                 <!-- <i class="fa fa-search"></i> -->
             </div>
@@ -48,6 +48,7 @@
                     <th style="color: black;">Outcome</th>         
                 </tr>
               </thead>
+              <!-- IN <tr>, YOU NEED TO ADD | search: searchText -->
               <tbody class="table-border-bottom-0" style="color: black;">
                 <tr class="table-default" (click)="openModal()">
                   <td>                 

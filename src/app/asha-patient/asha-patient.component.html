@@ -28,7 +28,7 @@
                   type="text"
                   class="form-control border-0 shadow-none"
                   placeholder="Search"
-                  aria-label="Search..."
+                  aria-label="Search..." [(ngModel)]="searchText"
                   />
                   <!-- <i class="fa fa-search"></i> -->
               </div>
@@ -84,6 +84,10 @@
                   <td><a href="asha-patient-followup/1">15-10-2022</a></td>
                 </tr>
                 
+
+                <!-- HERE WHEN YOU WRITE <tr *ngFor...>, add this:
+                  let a for ashaWorker | search: searchText  
+                -->
               </tbody>
             </table>
           </div>

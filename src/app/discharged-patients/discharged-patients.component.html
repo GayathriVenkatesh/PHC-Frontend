@@ -28,7 +28,7 @@
                   type="text"
                   class="form-control border-0 shadow-none"
                   placeholder="Search by anything"
-                  aria-label="Search..."
+                  aria-label="Search..." [(ngModel)]="searchText"
                   />
               </div>
               </div>
@@ -49,7 +49,7 @@
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-              <tr style="color: black;" *ngFor="let p of patients;">
+              <tr style="color: black;" *ngFor="let p of patients | search: searchText">
                 <td>23-02-2022</td>
                 <td><strong>1234</strong></td>
                 <td>{{p.name}}</td>

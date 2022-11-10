@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asha-patient.component.css']
 })
 export class AshaPatientComponent implements OnInit {
-
+  searchText: String;
+  
   constructor() { }
 
   ngOnInit(): void {
+    this.searchText = "";
   }
 
 }

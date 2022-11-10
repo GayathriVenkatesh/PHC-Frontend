@@ -12,15 +12,15 @@ export class TrackChildComponent implements OnInit {
 
   patients: Patient[];
   discharge: Patient;
+  searchText: String;
   constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
 //   this.children=[];
       this.patientService.trackChild().subscribe(data => {
         this.patients = data;
-  
     });
-
+    this.searchText = "";
 
   }
 

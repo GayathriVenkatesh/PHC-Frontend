@@ -16,15 +16,16 @@ export class DischargedPatientsComponent implements OnInit {
   modalRef: MdbModalRef<RejectModalComponent> | null = null;
 
   patients: DischargedPatient[];
-
+  searchText: String;
 //   constructor(private patientService: PatientService,private modalService: MdbModalService) {}
 constructor(private router: Router, private patientService: PatientService,private modalService: MdbModalService) {}
 
   ngOnInit(): void {
-   this.patientService.getDischargedPatients().subscribe(data => {
-   this.patients = data;
-   console.log("discharged patients: ",this.patients[0].name);
-   });
+    this.patientService.getDischargedPatients().subscribe(data => {
+      this.patients = data;
+      console.log("discharged patients: ",this.patients[0].name);
+    });
+    this.searchText = "";
   }
 
   openModal() {
