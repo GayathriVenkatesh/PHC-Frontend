@@ -14,10 +14,10 @@
 </style>
 
 <mat-form-field style="background-color: white; size: 200px; color: #bbbbbb">
-    <mat-label style="color: #bbbbbb; font-size: 15px; margin-left: 4px; font-family: 'Times New Roman', Times, serif;">Enter a date range</mat-label>
+    <mat-label style="color: #bbbbbb; font-size: 15px; margin-left: 4px; font-family: 'Times New Roman', Times, serif;">Filter by date range</mat-label>
     <mat-date-range-input [rangePicker]="picker">
       <input style="color: #bbbbbb; font-size: 15px; font-family: 'Times New Roman', Times, serif;" matStartDate formControlName="start" placeholder="">
-      <input style="color: #bbbbbb; font-size: 15px; font-family: 'Times New Roman', Times, serif;" matEndDate formControlName="end" placeholder="Enter a date">
+      <input style="color: #bbbbbb; font-size: 15px; font-family: 'Times New Roman', Times, serif;" matEndDate formControlName="end" placeholder="Filter by date">
     </mat-date-range-input>
     <mat-datepicker-toggle matSuffix [for]="picker" style="color: #bbbbbb; height: 20px; size: 20px;"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
