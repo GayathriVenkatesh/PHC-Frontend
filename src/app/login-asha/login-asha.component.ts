@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { AshaService } from '../service/asha.service';
 
 @Component({
   selector: 'app-login-asha',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginAshaComponent implements OnInit {
 
-  constructor() { }
+username: string;
+password: string;
+
+  constructor(private router: Router, private ashaService: AshaService) { }
 
   ngOnInit(): void {
   }
+    login(){
+      this.ashaService.findByUsername(this.username).subscribe(data => {
+          console.log("DOC DETAILS", data);
+          if(this.password==data.password){
+          localStorage.setItem('username', this.username);
+          localStorage.setItem('asha', data.ashaId);
+          this.router.navigate(["asha-followups"]);}
+      });
+    console.log("Username: ", this.username);
+      console.log("Pass: ", this.password);
+    }
 
 }

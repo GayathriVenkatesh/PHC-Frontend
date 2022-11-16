@@ -19,18 +19,18 @@ export class DashboardComponent implements OnInit {
   constructor(private followupService: FollowupService, private patientService: PatientService) { }
 
   ngOnInit(): void {
-  this.patientService.findAll().subscribe(data => {
+  this.patientService.findAllPhc(localStorage.getItem('phc') || '').subscribe(data => {
         this.asha = data.length;
 //         this.hello();
 console.log("awaiting asha", this.asha);
       });
 
-    this.patientService.getDischargedPatients().subscribe(data => {
+    this.patientService.getDischargedPatientsPhc(localStorage.getItem('phc') || '').subscribe(data => {
         this.phc = data.length;
         console.log("discharged patients: ",this.phc);
       });
 
-      this.followupService.findFollowupSchedule().subscribe(data => {
+      this.followupService.findFollowupSchedulePhc(localStorage.getItem('phc') || '').subscribe(data => {
             this.followups = data.length;
             console.log("followups", this.followups);
           });

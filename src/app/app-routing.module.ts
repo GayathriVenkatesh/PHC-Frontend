@@ -43,8 +43,8 @@ const routes: Routes = [
   { path: 'track-child', component: TrackChildComponent },
   { path: 'track-child/:rchId', component: TrackChildDetailsComponent },
   { path: 'asha-followups', component: AshaPatientComponent },
-  { path: 'asha-add-followup', component: AshaAddFollowupComponent },
-  { path: 'asha-patient-followup/:samId', component: AshaPatientFollowupComponent },
+  { path: 'asha-add-followup/:scheduleId', component: AshaAddFollowupComponent },
+  { path: 'asha-patient-followup/:caseId', component: AshaPatientFollowupComponent },
 ];
 
 @NgModule({

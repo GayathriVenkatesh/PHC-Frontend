@@ -24,7 +24,7 @@ export class AssignAshaTableComponent implements OnInit {
 
   ngOnInit() {
     this.children = [];
-    this.patientService.findAll().subscribe(data => {
+    this.patientService.findAllPhc(localStorage.getItem('phc') || '').subscribe(data => {
       this.patients = data;
       this.hello();
     });

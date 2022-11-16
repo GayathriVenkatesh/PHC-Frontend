@@ -17,4 +17,5 @@ export class Followup {
     chiefComplaints: string;
     provisionalDiagnosis: string;
     treatment: string;
+    scheduleId: string;
 }

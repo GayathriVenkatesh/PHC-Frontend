@@ -26,6 +26,10 @@ export class PatientService {
     return this.http.get<Patient[]>(this.patientsUrl + "s");
   }
 
+    public findAllPhc(phcId: String): Observable<Patient[]> {
+      return this.http.get<Patient[]>(this.patientsUrl + "s/"+phcId);
+    }
+
   public findByRchId(rchId: String): Observable<Patient> {
     return this.http.get<Patient>(this.patientsUrl + "/" + rchId);
   }
@@ -63,6 +67,10 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
   public getDischargedPatients(): Observable<DischargedPatient[]> {
      return this.http.get<DischargedPatient[]>(this.dischargedPatientUrl+"d-patient");
    }
+
+   public getDischargedPatientsPhc(phcId: String): Observable<DischargedPatient[]> {
+        return this.http.get<DischargedPatient[]>(this.dischargedPatientUrl+"d-patient/"+phcId);
+      }
 
 
 

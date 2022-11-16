@@ -21,10 +21,12 @@ export class FollowupTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.followupService.findFollowupSchedule().subscribe(data => {
+    console.log("USERNAME", localStorage.getItem('username'));
+    this.followupService.findFollowupSchedulePhc(localStorage.getItem('phc') || '').subscribe(data => {
       this.followups = data;
       console.log("followups", this.followups);
     });
+
     this.searchText = "";
   }
 

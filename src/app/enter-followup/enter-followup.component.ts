@@ -25,6 +25,7 @@ export class EnterFollowupComponent implements OnInit {
   this.followup = new Followup();
   this.followup.followupDate = new Date();
                          }
+
 onSubmit(){
     console.log("NEW Followup ", this.followup);
 

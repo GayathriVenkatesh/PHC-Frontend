@@ -35,25 +35,25 @@
   width: 100%"> -->
   
         <div class="row" style="color: black; font-family: Helvetica;">
-            <form style="color: black">
+            <form (ngSubmit)="onSubmit()" #userForm="ngForm" style="color: black">
                 <div class="column">
                     <div class="mb-4">
                       <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;" >Height (in cm)</label>
-                      <input type="text" class="form-control" id="basic-default-fullname" />
+                      <input type="text" [(ngModel)] = "followup.height" class="form-control" id="height" name="height"  />
                     </div>
                     <div class="mb-4">
                       <label class="form-label" for="basic-default-company" style="color: black; font-size: 12.5px;">Weight (in kgs)</label>
-                      <input type="text" class="form-control" id="basic-default-weight"  />
+                      <input type="text" [(ngModel)] = "followup.weight" class="form-control" id="weight" name="weight" />
                     </div>
   
                     <div class="mb-4">
                       <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">MUAC (in mm)</label>
-                        <input type="text" class="form-control" id="basic-default-muac"/>
+                        <input type="text" [(ngModel)] = "followup.muac" class="form-control" id="muac" name="muac"/>
                     </div>        
   
                     <div class="mb-4">
                       <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Head Circumference (in cm)</label>
-                        <input type="text" class="form-control" id="basic-default-muac"/>
+                        <input type="text" [(ngModel)] = "followup.headCircumference" class="form-control" id="headCircumference" name="headCircumference"/>
                     </div>
                   </div>
   
@@ -70,7 +70,7 @@
                   
                     <div class="mb-4">
                       <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Diet Adequacy</label>
-                      <select id="defaultSelect" class="form-select">
+                      <select [(ngModel)] = "followup.dietAdequacy" name="dietAdequacy" id="dietAdequacy" class="form-select">
                         <option></option>
                         <option value="1">Yes</option>
                         <option value="2">No</option>
@@ -81,22 +81,22 @@
                       <!-- <input type="text" class="form-control" id="basic-default-muac"/> -->
   
                     <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;">Co-morbidities</label>
-                    <select id="defaultSelect" class="form-select">
+                    <select [(ngModel)] = "followup.coMorbidities" name="coMorbidities" id="coMorbidities" class="form-select">
                         <option></option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option value="Pneumonia">Pneumonia</option>
+                        <option value="CHD">CHD</option>
+                        <option value="Tuberculosis">Tuberculosis</option>
                       </select>                        
                   </div>
   
                     <div class="mb-4">
                       <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Other Symptoms</label>
-                        <input type="text" class="form-control" id="basic-default-muac"/>
+                        <input type="text" [(ngModel)] = "followup.otherSymptoms" class="form-control" id="otherSymptoms" name="otherSymptoms"/>
                     </div>
   
                     
                   <!-- </div> -->
-                  <button type="button" class="btn rounded-pill btn-primary" 
+                  <button type="submit" class="btn rounded-pill btn-primary"
                   style="color: white; float: left; background-color:#008ebe; width: 38%; border-color: white"
                   > Save </button>
   

@@ -52,7 +52,7 @@ width: 100%"> -->
 
                   <div class="mb-4">
                     <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Head Circumference (in cm)</label>
-                    <input type="text" class="form-control" id="basic-default-muac"/>
+                    <input type="text" [(ngModel)] = "followup.headCircumference" class="form-control" id="headCircumference" name="headCircumference"/>
                   </div>
                 </div>
 
@@ -80,9 +80,9 @@ width: 100%"> -->
                   <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;">Co-morbidities</label>
                   <select [(ngModel)] = "followup.coMorbidities" name="coMorbidities" id="coMorbidities" class="form-select">
                     <option></option>
-                    <option value="1">Pneumonia</option>
-                    <option value="2">CHD</option>
-                    <option value="3">Tuberculosis</option>
+                    <option value="Pneumonia">Pneumonia</option>
+                    <option value="CHD">CHD</option>
+                    <option value="Tuberculosis">Tuberculosis</option>
                 </select>                       
                 </div>
 

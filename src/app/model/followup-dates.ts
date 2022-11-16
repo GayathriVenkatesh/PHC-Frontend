@@ -4,5 +4,7 @@ export class FollowupDate {
   caseId: number;
   followupDate: Date;
   status: String;
-  type: String
+  type: String;
+  name: String;
+  samNum: Number;
 }

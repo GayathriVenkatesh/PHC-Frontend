@@ -27,7 +27,7 @@ range = new FormGroup({
   });
 
   ngOnInit(): void {
-    this.patientService.getDischargedPatients().subscribe(data => {
+    this.patientService.getDischargedPatientsPhc(localStorage.getItem('phc') || '').subscribe(data => {
       this.patients = data;
       console.log("discharged patients: ",this.patients[0].name);
     });
