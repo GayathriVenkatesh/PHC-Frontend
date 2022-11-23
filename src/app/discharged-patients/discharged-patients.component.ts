@@ -5,7 +5,9 @@ import { ApproveModalComponent } from '../approve-modal/approve-modal.component'
 import { DischargedPatient } from '../model/discharged-patient';
 import { PatientService } from '../service/patient.service';
 import { Router } from '@angular/router';
-import {FormGroup, FormControl} from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-discharged-patients',
@@ -17,9 +19,23 @@ export class DischargedPatientsComponent implements OnInit {
   modalRef: MdbModalRef<RejectModalComponent> | null = null;
 
   patients: DischargedPatient[];
-  searchText: String;
-//   constructor(private patientService: PatientService,private modalService: MdbModalService) {}
-constructor(private router: Router, private patientService: PatientService,private modalService: MdbModalService) {}
+  searchText: String;  
+  pipe: DatePipe;
+  clear: boolean;
+  dataSource = new MatTableDataSource<DischargedPatient>;
+
+  filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  displayedColumns: string[] = ['date', 'id', 'name', 'nrc', 'mobile', 'address', 'pincode', 'action'];
+  get fromDate() { return this.filterForm.get('fromDate')?.value; }
+  get toDate() { return this.filterForm.get('toDate')?.value; }
+
+
+  constructor(private router: Router, private patientService: PatientService,private modalService: MdbModalService) {
+    
+  }
 
 range = new FormGroup({
     start: new FormControl<Date | null>(new Date()),
@@ -31,8 +47,39 @@ range = new FormGroup({
       this.patients = data;
       console.log("discharged patients: ",this.patients[0].name);
     });
+    // this.patients = [
+    //   {name: 'aaru', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 4, date: new Date()},
+    //   {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 2, date: new Date("2019-01-16")}
+    // ]
     this.searchText = "";
+    this.dataSource = new MatTableDataSource(this.patients);
 
+    this.pipe = new DatePipe('en');
+    this.dataSource.filterPredicate = (data: any, filter: any) =>{
+      if (this.fromDate && this.toDate) {
+        return data.date >= this.fromDate && data.date <= this.toDate;
+      }
+      else {
+        return data.name.includes(filter) || 
+        data.samId == filter || data.rchId == filter || data.mobileNumber.includes(filter) || 
+        data.address.includes(filter) || data.pincode.includes(filter);
+      }
+  }
+    console.log(this.dataSource);
+  }
+
+  resetDate() {
+    this.dataSource.filter = '';
+  }
+
+  applyFilterDate() {
+    this.dataSource.filter = '' + Math.random();
+  }
+
+  applyFilterText(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 
   openModal(patient: DischargedPatient) {
@@ -44,20 +91,14 @@ range = new FormGroup({
 
   openApproveModal(patient: DischargedPatient) {
   this.patientService.approve(patient.caseId).subscribe();
-//     location.reload();
-
     this.modalRef = this.modalService.open(ApproveModalComponent, {
       modalClass: 'modal-lg',
       data: {patient: patient}
     })
   }
 
-  cancel(){
-//       setTimeout(
-//           function(){
-          location.reload();
-//           },
-//           100);
+  cancel() {
+    location.reload();
   }
 
 }

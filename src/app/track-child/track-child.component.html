@@ -1,11 +1,12 @@
 <style>
-  tr:hover td {
-    background:#000
-  }
-
+  
   tr:hover {
     background-color: #eee;
-}
+  }
+
+  .mat-row:hover {
+    background-color: #eee;
+  }
 
 </style>
 <div style="height: 100%;">
@@ -22,25 +23,90 @@
       font-size: 13px; font-family: 'Times New Roman', Times, serif;">
       
           <div class="navbar-nav align-items-center" style="margin-bottom: 5px; margin-bottom: 5px;">
-          <div class="nav-item d-flex align-items-center">
-              <div style="margin-right: 10px;">  
-                <app-date-range></app-date-range>
+            <div class="nav-item d-flex align-items-center">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilterText($event.target.value)" placeholder="Search by anything">
+              </mat-form-field>
+              <div style="margin-right: 10px; margin-top: -2px;">                    
+                <form class="date-block" [formGroup]="filterForm">
+                  <div class="date-block__list">
+                    <mat-form-field>                        
+                        <mat-date-range-input [rangePicker]="fromDate">
+                          <input style="color: #bbbbbb; font-size: 15px; width: 120%; font-family: 'Times New Roman', Times, serif;" 
+                          matStartDate formControlName="fromDate" placeholder="Filter by Discharge Date">
+                          <input style="color: #bbbbbb; font-size: 15px; font-family: 'Times New Roman', Times, serif;" 
+                          matEndDate formControlName="toDate" placeholder="" (onChange)="applyFilterDate()">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="fromDate" style="color: #808080; height: 30px; size: 30px;"></mat-datepicker-toggle>
+                        <mat-date-range-picker #fromDate></mat-date-range-picker>
+                    </mat-form-field>
+                    <button type="button" class="btn btn-sm btn-primary" 
+                      style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                      (click)="applyFilterDate()">
+                      Filter
+                    </button>
+  
+                    <button type="button" class="btn btn-sm btn-primary" 
+                      style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                      (click)="resetDate()">
+                      Clear
+                    </button>
+                    <!-- <button mat-button color="primary" class="primary" (click)="applyFilterDate()">Submit</button> -->
+  
+                  </div>
+                </form>
               </div>
-              <input
-              style="background-color: white; height: 40px; font-size: 15px;"
-              type="text"
-              class="form-control border-0 shadow-none"
-              placeholder="Search by anything"
-              aria-label="Search..." [(ngModel)]="searchText"
-              />
-          </div>
+                
+            </div>
           </div>
       </div>
       </div>
 
-    <div class="table-responsive text-nowrap" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; background-color: white;">
-      <table class="table">
-        <thead>
+      <div class="table-responsive text-nowrap" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: black;">   
+        <table class="table" #filteredTable mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> SAM ID </th>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.samNum}} </a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Patient Name </th>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.name}} </a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Discharge Date </th>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.dischargeDate | date : "dd-MM-y"}} </a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="mobile">
+          <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.mobileNumber}} </a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="nrc">
+          <th mat-header-cell *matHeaderCellDef> Name of NRC </th>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> VVH </a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="asha">
+          <th mat-header-cell *matHeaderCellDef> ASHA Worker </th>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> Malini </a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let p"><a href="track-child/{{p.samNum}}">
+            <span class="badge badge-warning" style="background-color: #e8fadf;">
+              <a style="color: #68c536;" href="track-child/1240">
+                <strong>Followups - Normal</strong>
+              </a></span>          
+            </a></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- <thead>
           <tr> 
             <th style="color: black;">RCH ID</th>
             <th style="color: black;">Patient Name</th>
@@ -50,6 +116,7 @@
             <th style="color: black;">ASHA Worker</th>
             <th style="color: black;">Status</th>
           </tr>
+<<<<<<< HEAD
         </thead> 
         <tbody class="table-border-bottom-0">
 <!--          <tr style="color: black;">-->
@@ -91,6 +158,49 @@
 <!--            &lt;!&ndash; <td><a href="track-child/1240"><span class="badge-danger" style="color: white;">Followups - SAM</span></a></td>                      &ndash;&gt;-->
 <!--            <td></td>-->
 <!--          </tr>-->
+=======
+        </thead>  -->
+        <!-- <tbody class="table-border-bottom-0">
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>2536</strong></a></td>
+            <td><a href="track-child/1240">Gayathri</a></td>
+            <td><a href="track-child/1240">09-12-2022</a></td>
+            <td><a href="track-child/1240">9845154210</a></td>
+            <td><a href="track-child/1240">IGH</a></td>
+            <td><a href="track-child/1240">Sharon</a></td>
+            <td><span class="badge" style="background-color: #d9ecf3;">
+              <a style="color:#008ebe;" href="track-child/1240"><strong>AWAITING PHC Confirmation</strong></a></span>
+            </td> 
+            <td></td>
+          </tr>
+
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>1234</strong></a></td>
+            <td><a href="track-child/1240">Aanchal</a></td>
+            <td><a href="track-child/1240">08-11-2022</a></td>
+            <td><a href="track-child/1240">9876543210</a></td>
+            <td><a href="track-child/1240">VVH</a></td>
+            <td><a href="track-child/1240">Vaibhavi</a></td>
+            <td><span class="badge" style="background-color: #d9ecf3;">
+              <a style="color:#008ebe;" href="track-child/1240"><strong>AWAITING ASHA Assignment</strong></a></span>
+            </td> 
+            <td></td>
+          </tr>
+          
+          <tr style="color: black;">
+            <td><a href="track-child/1240"><strong>5142</strong></a></td>
+            <td><a href="track-child/1240">Aarushi</a></td>
+            <td><a href="track-child/1240">07-01-2022</a></td>
+            <td><a href="track-child/1240">8816297762</a></td>
+            <td><a href="track-child/1240">VVH</a></td>
+            <td><a href="track-child/1240">Shalini</a></td>
+            <td><span class="badge" style="background-color: #ffe0db;">
+              <a style="color:#ff3e1d;" href="track-child/1240"><strong>Followups - SAM</strong></a></span>
+            </td> 
+            <td><a href="track-child/1240"><span class="badge-danger" style="color: white;">Followups - SAM</span></a></td>                      
+            <td></td>
+          </tr>
+>>>>>>> b45799c9ad0fc291435e47f27a5cc23daac443e3
 
 <!--          <tr style="color: black;">-->
 <!--            <td><a href="track-child/1240"><strong>6879</strong></a></td>-->
@@ -127,6 +237,7 @@
             <td><a href="track-child/{{p.caseId}}">{{p.mobileNumber}}</a></td>
             <td><a href="track-child/{{p.caseId}}">VVH</a></td>
             <td><a href="track-child/{{p.caseId}}">Malini</a></td>
+<<<<<<< HEAD
 <!--            <td><a href="track-child/1240"><span class="badge" style="color: white; background-color: #00a141;">Undergoing Followups</span></a></td>-->
           <td *ngSwitchCase="'AWAITING ASHA ASSIGNMENT'" ><span class="badge" style="background-color: #d9ecf3;">
               <a style="color:#008ebe;" href="track-child/{{p.caseId}}"><strong>AWAITING ASHA Assignment</strong></a></span>
@@ -154,10 +265,13 @@
 
           <!--            <td><a href="track-child/1240">7</a></td>                     -->
             <!-- <td><i class="fa fa-ellipsis-v"></i></td>                      -->
+=======
+            <td><a href="track-child/1240"><span class="badge-success" style="color: white; background-color: #00a141;">Undergoing Followups</span></a></td>
+>>>>>>> b45799c9ad0fc291435e47f27a5cc23daac443e3
           </tr>
 
           
-        </tbody>
+        </tbody> -->
       </table>
     </div>
   </div>
