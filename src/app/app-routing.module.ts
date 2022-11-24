@@ -24,16 +24,13 @@ import { LoginAnmComponent } from './login-anm/login-anm.component';
 import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component';
 import { SortTableComponent } from './sort-table/sort-table.component';
 // import { AgGridComponent } from './ag-grid/ag-grid.component';
-<<<<<<< HEAD
-import { AgGridComponent } from './ag-grid/ag-grid.component';
-import { AdminComponent } from './admin/admin.component';
-import { LoginNrcComponent } from './login-nrc/login-nrc.component';
-=======
+//import { AgGridComponent } from './ag-grid/ag-grid.component';
+//import { AdminComponent } from './admin/admin.component';
+//import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
 //import { AdminComponent } from './admin/admin.component';
 // import { LoginNrcComponent } from './login-nrc/login-nrc.component';
->>>>>>> asha_interfact
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
@@ -58,12 +55,7 @@ const routes: Routes = [
   { path: 'asha-followups', component: AshaPatientComponent },
   { path: 'asha-add-followup/:scheduleId', component: AshaAddFollowupComponent },
   { path: 'asha-patient-followup/:caseId', component: AshaPatientFollowupComponent },
-<<<<<<< HEAD
-  { path: 'admin', component: AdminComponent },
-
-=======
   //{ path: 'admin', component: AdminComponent },
->>>>>>> asha_interfact
 ];
 
 @NgModule({
