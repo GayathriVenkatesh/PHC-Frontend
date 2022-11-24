@@ -79,6 +79,12 @@ import { DateRangeComponent } from './date-range/date-range.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { SearchPipe } from './search.pipe';
+import { RemarksModalComponent } from './remarks-modal/remarks-modal.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
+import { LoginNrcComponent } from './login-nrc/login-nrc.component';
+// import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -119,9 +125,15 @@ import { SearchPipe } from './search.pipe';
     DateRangeComponent,
     AgGridComponent,
     SearchPipe,
+    RemarksModalComponent,
+    AdminComponent,
+    AdminPanelComponent,
+    AddNrcModalComponent,
+    LoginNrcComponent,
     // SortTableComponent
   ],
   imports: [
+    MatSidenavModule,
     BrowserModule,
     AgGridModule,
     MatTabsModule,
