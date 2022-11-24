@@ -16,12 +16,25 @@ export class TrackChildComponent implements OnInit {
   patients: Patient[];
   discharge: Patient;
   searchText: String;
-<<<<<<< HEAD
   awaitingAsha: Patient[];
   asha: number[];
+
+  pipe: DatePipe;
+    dataSource = new MatTableDataSource<Patient>;
+
+    filterForm = new FormGroup({
+        fromDate: new FormControl(),
+        toDate: new FormControl(),
+    });
+    displayedColumns: string[] = ['id', 'name', 'date', 'mobile', 'nrc', 'asha', 'status'];
+    get fromDate() { return this.filterForm.get('fromDate')?.value; }
+    get toDate() { return this.filterForm.get('toDate')?.value; }
+
   constructor(private patientService: PatientService) {
-   this.asha = [];
-   }
+     this.asha = [];
+     }
+
+
 
   ngOnInit(): void {
   this.patientService.findAll().subscribe(data1 => {
@@ -70,25 +83,6 @@ export class TrackChildComponent implements OnInit {
 
 
     });
-=======
-  pipe: DatePipe;
-  dataSource = new MatTableDataSource<Patient>;
-
-  filterForm = new FormGroup({
-      fromDate: new FormControl(),
-      toDate: new FormControl(),
-  });
-  displayedColumns: string[] = ['id', 'name', 'date', 'mobile', 'nrc', 'asha', 'status'];
-  get fromDate() { return this.filterForm.get('fromDate')?.value; }
-  get toDate() { return this.filterForm.get('toDate')?.value; }
-  
-  constructor(private patientService: PatientService) { }
-
-  ngOnInit(): void {
-    this.patientService.trackChild().subscribe(data => {
-      console.log(data);
-      this.patients = data;
->>>>>>> b45799c9ad0fc291435e47f27a5cc23daac443e3
     });
     this.searchText = "";
 
