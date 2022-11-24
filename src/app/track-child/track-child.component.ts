@@ -5,6 +5,7 @@ import {Sort} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-track-child',
@@ -20,7 +21,7 @@ export class TrackChildComponent implements OnInit {
   asha: number[];
 
   pipe: DatePipe;
-    dataSource = new MatTableDataSource<Patient>;
+  dataSource = new MatTableDataSource<Patient>;
 
     filterForm = new FormGroup({
         fromDate: new FormControl(),
