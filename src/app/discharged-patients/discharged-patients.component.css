@@ -149,7 +149,7 @@ p {
 td, th {
   white-space: normal;
   word-wrap: break-word;
-  max-width: 700px;
+  max-width: 200px;
 }
 
 abbr[title],
