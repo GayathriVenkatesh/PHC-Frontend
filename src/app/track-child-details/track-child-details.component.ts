@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Discharge } from '../model/discharge';
 import { FollowupService } from '../service/followup.service';
 import { FollowupSchedule } from '../model/followup-schedule';
+import { RemarksModalComponent } from '../remarks-modal/remarks-modal.component';
 
 @Component({
   selector: 'app-track-child-details',
@@ -35,6 +36,12 @@ export class TrackChildDetailsComponent implements OnInit {
       modalClass: 'modal-lg',
       data: { followupId: followupId,
                      followupDate: followupDate},
+    });
+  }
+
+  openRemarksModal() {
+    this.modalRef = this.modalService.open(RemarksModalComponent, {
+      modalClass: 'modal-sm',
     });
   }
 

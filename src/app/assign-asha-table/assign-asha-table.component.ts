@@ -3,6 +3,9 @@ import { PatientService } from '../service/patient.service';
 import { Patient } from '../model/patient';
 import { AshaModalComponent } from '../asha-modal/asha-modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { DatePipe } from '@angular/common';
+import { MatTableDataSource } from '@angular/material/table';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-assign-asha-table',
@@ -18,6 +21,17 @@ export class AssignAshaTableComponent implements OnInit {
   dischargeId: String;
   modalRef: MdbModalRef<AshaModalComponent> | null = null;
 
+  pipe: DatePipe;
+  dataSource = new MatTableDataSource<Patient>;
+
+  filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  displayedColumns: string[] = ['id', 'name', 'address', 'pincode', 'contact', 'date', 'nrc', 'asha'];
+  get fromDate() { return this.filterForm.get('fromDate')?.value; }
+  get toDate() { return this.filterForm.get('toDate')?.value; }
+
   constructor(private patientService: PatientService, private modalService: MdbModalService) {
     this.searchText = '';
   }
@@ -27,25 +41,67 @@ export class AssignAshaTableComponent implements OnInit {
     this.patientService.findAllPhc(localStorage.getItem('phc') || '').subscribe(data => {
       this.patients = data;
       this.hello();
+
+    // this.patients = [
+    //   {name: 'aaru', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   dischargeDate: new Date(), admissionDate: new Date(), dischargeSd: -1, dischargeId: "1", samNum: "4987", ashaId: 1, ashaName: ""},
+    //   {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
+    // ]
+
+    // this.hello();
+    // this.children = [
+    //   {name: 'aaru', address: 'jgu', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   dischargeDate: new Date(), admissionDate: new Date(), dischargeSd: -1, dischargeId: "1", samNum: "4987", ashaId: 1, ashaName: ""},
+    //   {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
+    // ]
+
+    this.dataSource = new MatTableDataSource(this.patients);
+
+    this.pipe = new DatePipe('en');
+      this.dataSource.filterPredicate = (data: any, filter: any) =>{
+        if (this.fromDate && this.toDate) {
+          return data.dischargeDate >= this.fromDate && data.dischargeDate <= this.toDate;
+        }
+        else {
+          return data.name.includes(filter) || 
+          data.address.includes(filter) || data.pincode.includes(filter) || 
+          data.mobileNumber.includes(filter) || data.nrcFrom.includes(filter);
+        }
+    }
     });
   }
 
-hello(){
-// console.log("wassup",this.patients);
-  for(var i=0; i<this.patients.length; i++) {
-          this.samId = this.patients[i].samId;
-          console.log("hello",i,this.samId);
-//   //         console.;
-          this.patientService.findBySamId(this.samId.toString())
-          .subscribe(data1 => {
+  
+  hello() {
+    for(var i = 0; i < this.patients.length; i++) {
+        this.samId = this.patients[i].samId;
+        this.patientService.findBySamId(this.samId.toString()).subscribe(data1 => {
+          this.children.push(data1[0]);
+        });
+      }
+    }
 
-//               this.patients[i].address = "hello";
-//               console.log("##!!#", this.patients[i]);
-            this.children.push(data1[0]);
-          });
-        }
-}
+  resetDate() {
+    this.dataSource.filter = '';
+  }
 
+  applyFilterDate() {
+    this.dataSource.filter = '' + Math.random();
+  }
+
+  applyFilterText(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    console.log("FILTER VAL", filterValue)
+    this.dataSource.filter = filterValue;
+    console.log("daar", this.dataSource)
+  }
 
   openModal(caseId: number) {
     this.modalRef = this.modalService.open(AshaModalComponent, {

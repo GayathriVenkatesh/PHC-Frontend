@@ -26,6 +26,8 @@ import { SortTableComponent } from './sort-table/sort-table.component';
 // import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
+//import { AdminComponent } from './admin/admin.component';
+// import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
@@ -50,6 +52,7 @@ const routes: Routes = [
   { path: 'asha-followups', component: AshaPatientComponent },
   { path: 'asha-add-followup/:scheduleId', component: AshaAddFollowupComponent },
   { path: 'asha-patient-followup/:caseId', component: AshaPatientFollowupComponent },
+  //{ path: 'admin', component: AdminComponent },
 ];
 
 @NgModule({

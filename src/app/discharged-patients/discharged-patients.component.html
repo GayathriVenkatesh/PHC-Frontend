@@ -3,9 +3,19 @@
     color: black;
     font-weight: 600;
   }
+
+  .td, .th {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 100px;
+}
+
+   /* .table {border-collapse:collapse; table-layout:fixed; width:1000px;}
+   .td {border:solid 1px #fab; width:100px; word-wrap:break-word;}
+   .mat-cell {border:solid 1px #fab; width:100px; word-wrap:break-word;} */
 </style>
 
-<div class="content-wrapper" style="margin-left: 15vw; overflow: auto; margin-top: 0px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+<div class="content-wrapper" style="margin-left: 0vw; overflow: auto; margin-top: 0px; width: 100vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
 
 <!-- <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 86vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);"> -->
     <!-- Content -->
@@ -19,64 +29,128 @@
           font-size: 13px; font-family: 'Times New Roman', Times, serif;">
           
               <div class="navbar-nav align-items-center" style="margin-bottom: 5px; margin-bottom: 5px;">
-              <div class="nav-item d-flex align-items-center">
-                  <div style="margin-right: 10px;">  
-                    <app-date-range></app-date-range>
+                <div class="nav-item d-flex align-items-center">
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilterText($event.target.value)" placeholder="Search by anything">
+                  </mat-form-field>
+                  <div style="margin-right: 10px; margin-top: -2px;">                    
+                    <form class="date-block" [formGroup]="filterForm">
+                      <div class="date-block__list">
+                        <mat-form-field>                        
+                            <mat-date-range-input [rangePicker]="fromDate">
+                              <input style="color: #bbbbbb; font-size: 15px; width: 120%; font-family: 'Times New Roman', Times, serif;" 
+                              matStartDate formControlName="fromDate" placeholder="Filter by Assignment Date">
+                              <input style="color: #bbbbbb; font-size: 15px; font-family: 'Times New Roman', Times, serif;" 
+                              matEndDate formControlName="toDate" placeholder="" (onChange)="applyFilterDate()">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matSuffix [for]="fromDate" style="color: #808080; height: 30px; size: 30px;"></mat-datepicker-toggle>
+                            <mat-date-range-picker #fromDate></mat-date-range-picker>
+                        </mat-form-field>
+                        <button type="button" class="btn btn-sm btn-primary" 
+                          style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                          (click)="applyFilterDate()">
+                          Filter
+                        </button>
+      
+                        <button type="button" class="btn btn-sm btn-primary" 
+                          style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                          (click)="resetDate()">
+                          Clear
+                        </button>
+                        <!-- <button mat-button color="primary" class="primary" (click)="applyFilterDate()">Submit</button> -->
+      
+                      </div>
+                    </form>
                   </div>
-                  <input
-                  style="background-color: white; height: 40px; font-size: 15px;"
-                  type="text"
-                  class="form-control border-0 shadow-none"
-                  placeholder="Search by anything"
-                  aria-label="Search..." [(ngModel)]="searchText"
-                  />
-              </div>
+                    
+                </div>
               </div>
           </div>
         </div>
-        <div class="table-responsive text-nowrap" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: black;">
-          <table class="table">
-            <thead style="color: black;">
-              <tr style="color: black;">
-                <th style="color: black;">Assignment Date</th>
-                <th style="color: black;">RCH ID/SAM ID</th>
-                <th style="color: black;">Patient Name</th>
-                <th style="color: black;">Name of NRC</th>
-                <th style="color: black;">Mobile No</th>
-                <th style="color: black;">Address</th>
-                <th style="color: black;">Pincode</th>
-                <th style="color: black;">Action</th>
-              </tr>
-            </thead>
-            <tbody class="table-border-bottom-0">
-              <tr style="color: black;" *ngFor="let p of patients | search: searchText">
-                <td>{{p.date | date : "dd-MM-y"}}</td>
-                <td><strong>{{p.rchId}}/{{p.samId}}</strong></td>
-                <td>{{p.name}}</td>
-                <td>VVH</td>
-                <td>{{p.mobileNumber}}</td>
-                <td>{{p.address}}</td>
-                <td>{{p.pincode}}</td>
-                <td style="color: white">
-                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white; padding-bottom: 25px; padding-top: -10px" (click)="openApproveModal(p)">Approve</button></td>           
-                <td style="color:#111">
-                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; 
-                  margin-left:-40px; padding-bottom: 25px; padding-top: -10px" (click)="openModal(p)">Reject</button></td>
-              </tr>
-
-<!--              <tr>-->
-<!--                <td> <strong>Gayathri</strong></td>-->
-<!--                <td>IGH</td>-->
-<!--                <td>98879389829</td>-->
-<!--                <td>4th main, HSR Layout</td>-->
-<!--                <td>560008</td>-->
-<!--                <td style="color: white">-->
-<!--                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white" (click)="openApproveModal()">Approve</button></td>           -->
-<!--                <td style="color:#111">-->
-<!--                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; margin-left:-40px;" (click)="openModal()">Reject</button></td>           -->
+<!--        <div class="table-responsive text-nowrap" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: black;">-->
+<!--          <table class="table">-->
+<!--            <thead style="color: black;">-->
+<!--              <tr style="color: black;">-->
+<!--                <th style="color: black;">Assignment Date</th>-->
+<!--                <th style="color: black;">RCH ID/SAM ID</th>-->
+<!--                <th style="color: black;">Patient Name</th>-->
+<!--                <th style="color: black;">Name of NRC</th>-->
+<!--                <th style="color: black;">Mobile No</th>-->
+<!--                <th style="color: black;">Address</th>-->
+<!--                <th style="color: black;">Pincode</th>-->
+<!--                <th style="color: black;">Action</th>-->
 <!--              </tr>-->
-              
-            </tbody>
+<!--            </thead>-->
+<!--            <tbody class="table-border-bottom-0">-->
+<!--              <tr style="color: black;" *ngFor="let p of patients | search: searchText">-->
+<!--                <td>{{p.date | date : "dd-MM-y"}}</td>-->
+<!--                <td><strong>{{p.rchId}}/{{p.samId}}</strong></td>-->
+<!--                <td>{{p.name}}</td>-->
+<!--                <td>VVH</td>-->
+<!--                <td>{{p.mobileNumber}}</td>-->
+<!--                <td>{{p.address}}</td>-->
+<!--                <td>{{p.pincode}}</td>-->
+<!--                <td style="color: white">-->
+<!--                    <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; border-color: white; color: white; padding-bottom: 25px; padding-top: -10px" (click)="openApproveModal(p)">Approve</button></td>           -->
+<!--                <td style="color:#111">-->
+<!--                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; border-color: #008EBE; color: #008EBE; -->
+<!--                  margin-left:-40px; padding-bottom: 25px; padding-top: -10px" (click)="openModal(p)">Reject</button></td>-->
+<!--              </tr>-->
+
+        <div class="table-responsive text-nowrap" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: black;">   
+          <table class="table" #filteredTable mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Assignment Date </th>
+              <td mat-cell *matCellDef="let p"> {{p.date | date : "dd-MM-y"}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> RCH ID/SAM ID </th>
+              <td mat-cell *matCellDef="let p"> {{p.rchId}}/{{p.samId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Patient Name </th>
+              <td mat-cell *matCellDef="let p"> {{p.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nrc">
+              <th mat-header-cell *matHeaderCellDef> Name of NRC </th>
+              <td mat-cell *matCellDef="let p"> VVH </td>
+            </ng-container>
+
+            <ng-container matColumnDef="mobile">
+              <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+              <td mat-cell *matCellDef="let p"> {{p.mobileNumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef> Address </th>
+              <td mat-cell *matCellDef="let p"> 
+                  {{p.address }}
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="pincode">
+              <th mat-header-cell *matHeaderCellDef> Pincode </th>
+              <td mat-cell *matCellDef="let p"> {{p.pincode}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Approve </th>
+              <!-- <td mat-cell *matCellDef="let p">  -->
+                <td mat-cell *matCellDef="let p" style="color: white">
+                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:#008EBE; 
+                  border-color: white; color: white; padding-bottom: 25px; padding-top: -10px 
+                  margin-right: 10px;" (click)="openApproveModal(p)"><i class="fa fa-check"></i></button>         
+                  <button type="button" class="btn rounded-pill btn-primary" style="background-color:white; 
+                  border-color: #008EBE; color: #008EBE; margin-left: 10px; padding-bottom: 25px; 
+                  padding-top: -10px" (click)="openModal()"><i class="fa fa-times"></i></button>     
+                </td>                  
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
       </div>

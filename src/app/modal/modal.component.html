@@ -40,6 +40,11 @@
               <td>Actual Date</td>
               <td>{{followup?.followupDate | date : "dd-MM-y"}}</td>
             </tr>
+
+            <tr>
+              <td>Place of Follow Up</td>
+              <td>Doddathoguru</td>
+            </tr>
           
           <tr>
             <td>Height</td>
@@ -60,15 +65,14 @@
             <td>MUAC</td>
             <td><span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">{{followup?.muac}} mm</span></td>
           </tr>
+        </div>
 
+        <div class="column">
           <tr>
             <td>Head Circumference</td>
             <td>{{followup?.headCircumference}} cm</td>
           </tr>
- 
-        </div>
 
-        <div class="column">
           <tr>
             <td>Diet Chart</td>
             <td>{{followup?.dietChart}}</td>
