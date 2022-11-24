@@ -1,0 +1,61 @@
+<style>
+    .column {
+    float: left;
+    align-items: center;
+    width: 80%;
+    padding-left: 4%;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  </style>
+
+
+<div class="content-wrapper" style="margin-top: -7vh; width: 100vw; height: 107vh; 
+border-radius: 0; background-color: rgb(62, 74, 116); overflow: auto;">  
+<div class="container-xl flex-grow-1 container-p-y" style="margin-top: 40px;">   
+        <img src="../../assets/logo.jpg" style="align: center; align-items: center; width: 10%; margin-left: 45%">
+        <h2 style="font-family: Arial, Helvetica, sans-serif; margin-left: 42%; margin-top: 20px; margin-bottom: 20px; color: white;">SNEHA PHC</h2>             
+        <!-- <div class="col-lg-6 col-md-4 order-1"> -->
+            <!-- <div class="card">
+                <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Welcome</h3> -->
+                <div class="card" 
+                style=" font-family: Arial, Helvetica, sans-serif; margin-left: 20%;
+                width: 60%; border-radius: 0;">
+                
+                      <h3 class="card-header" style="background-color: #ffffff; margin-bottom: 20px; font-family: Arial, Helvetica, sans-serif; margin-left: 34%;">Login As Admin</h3>
+                
+                      <div class="row" style="color: black; font-size: 13px;">
+                          <form style="color: black; font-size: 13px;">
+                              <div class="column">
+                                <div class="mb-4">
+                                  <label class="form-label" for="basic-default-company" style="color: black; font-size: 13px;">Email ID</label>
+                                  <input type="text" class="form-control" id="basic-default-company" [(ngModel)]="username" name="username"><i aria-flowto=""></i>
+                                </div>
+                
+                                  <div class="mb-4">
+                                    <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 13px;">Password</label>
+                                    <input type="password" class="form-control" id="basic-default-fullname" [(ngModel)]="password" name="password"/>
+                                  </div>
+                                    <button type="button" class="btn rounded-pill btn-primary" 
+                                    style="color: white; background-color:#008ebe; float:right; width: 20%; border-color: white;
+                                    margin-left: 50%; margin-bottom: 20px;" (click)="login()">Submit</button>
+                                    
+                                  
+                                </div>                 
+                                </form>
+                              <!-- </div> -->
+                            </div>
+                          <!-- </div> -->
+                          
+                        <!-- </div> -->
+                
+                      
+                
+                      <div class="content-backdrop fade"></div>
+                    </div>
+           
+                      

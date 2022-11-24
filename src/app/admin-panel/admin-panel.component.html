@@ -1,0 +1,51 @@
+  <style>
+    .w3-button:hover {
+      background-color: #00ff00;
+    }
+  
+    .active{
+      background-color: #d9edf7;
+  }
+  </style>
+  
+  <script>
+    function openNav() {
+      document.getElementById("sidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+    
+    function closeNav() {
+      console.log("here")
+      document.getElementById("sidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+  </script>
+  
+  <html>
+  <title>W3.CSS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <body>
+  
+  <div #sidebar class="w3-sidebar w3-light-grey w3-bar-block" style="width: 8vw; min-width:8vw; max-width: 8vw; height:100%; 
+  font-family: Arial, Helvetica, sans-serif; margin-top: -50px; position: fixed; margin-top: 10px;
+  font-size: 14.5px; font-weight:600; color: black">
+    <h3 class="w3-bar-item"></h3>
+    
+    <a routerLink="/admin" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
+      <i class="fa fa-home" style="color: black; padding-right: 10px"></i>
+      NRC 
+    </a>
+  
+    <a routerLink="/admin" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
+      <i class="fa fa-plus" style="color: black; padding-right: 10px"></i>
+      PHC 
+    </a>
+  
+    <a routerLink="/admin" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
+      <i class="fa fa-pencil" style="color: black; padding-right: 10px"></i>
+      ASHA 
+    </a>
+  </div>
+  

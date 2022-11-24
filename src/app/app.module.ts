@@ -84,6 +84,11 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
 import { LoginNrcComponent } from './login-nrc/login-nrc.component';
+import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SidePanelNrcComponent } from './side-panel-nrc/side-panel-nrc.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-nrc.component';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
@@ -130,9 +135,14 @@ import { LoginNrcComponent } from './login-nrc/login-nrc.component';
     AdminPanelComponent,
     AddNrcModalComponent,
     LoginNrcComponent,
+    TrackChildNrcComponent,
+    SidePanelNrcComponent,
+    LoginAdminComponent,
+    FollowupTableNrcComponent,
     // SortTableComponent
   ],
   imports: [
+    MatFormFieldModule,
     MatSidenavModule,
     BrowserModule,
     AgGridModule,

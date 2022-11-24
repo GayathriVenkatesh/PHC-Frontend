@@ -1,0 +1,215 @@
+<!-- <div class="content-wrapper" style="margin-left: 190px; margin-top: -30px; width: 85vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);"> -->
+<div class="content-wrapper" style="margin-left: 0vw; overflow: auto; margin-top: 0px; width: 100vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);">
+    <!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
+        <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Follow Up Details: Aanchal (RCH-1234)</h3>
+        <br>
+        <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px;">
+            <div class="card-header" style="background-color: #d9edf7; font-family: Arial, Helvetica, sans-serif;">
+                <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse"
+                     style="margin-left: 2%; float: right; margin-top: -18px; margin-bottom: -22px;
+      font-size: 13px; font-family: 'Times New Roman', Times, serif;">
+
+                    <div class="navbar-nav align-items-center">
+                        <div class="nav-item d-flex align-items-center">
+
+                            <!-- <input
+                                    type="text"
+                                    class="form-control border-0 shadow-none"
+                                    placeholder="Search"
+                                    aria-label="Search..." [(ngModel)]="searchText"
+                            /> -->
+                            <!-- <i class="fa fa-search"></i> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; width: 100%">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="color: black;">Community Followups</th>
+                        <th style="color: black;">NRC Followups</th>
+                        <th style="color: black;">General Visits</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    <tr class="table-default"  *ngFor="let f of community; index as i;">
+                        <!--                <div *ngIf="this.community[i]">-->
+                        <div *ngIf="this.community[i]; then thenCommunity"></div>
+                        <ng-template #thenCommunity>
+                            <div *ngIf="this.community[i].followupId; then thenBlock else elseBlock"></div>
+                            <ng-template #thenBlock>
+                                <td>
+                                    <button type="button" (click)="openModal(this.community[i].followupId, this.community[i].followupDate)" class="btn rounded-pill btn-primary"
+                                            style="color: #00a141; background-color:white;
+                width: 70%; border-color: #00a141; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.community[i]">
+                                        {{this.community[i].followupDate | date : "dd-MM-y"  }} - View Followup
+                                    </button>
+                                </td>
+                            </ng-template>
+
+<!--                            <ng-template #elseBlock>-->
+<!--                                <td>-->
+<!--                                    <a href="add-followup/{{this.community[i].scheduleId}}">-->
+<!--                                        <button type="button" class="btn rounded-pill btn-primary"-->
+<!--                                                style="color: #008ebe; background-color:white;-->
+<!--                width: 70%; border-color: #008ebe; border-width: 1.5px;-->
+<!--                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.community[i]">-->
+<!--                                            {{this.community[i].followupDate | date : "dd-MM-y"  }} - Add Followup-->
+<!--                                        </button>-->
+<!--                                    </a>-->
+<!--                                </td>-->
+<!--                            </ng-template>-->
+                        </ng-template>
+
+                        <div *ngIf="this.nrc[i]; then thenNrc"></div>
+                        <ng-template #thenNrc>
+                            <div *ngIf="this.nrc[i].followupId; then thenBlock1 else elseBlock1"></div>
+                            <ng-template #thenBlock1>
+                                <td>
+                                    <button type="button" (click)="openModal(this.nrc[i].followupId, this.nrc[i].followupDate)" class="btn rounded-pill btn-primary"
+                                            style="color: #00a141; background-color:white;
+                width: 70%; border-color: #00a141; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif" *ngIf="this.nrc[i]">
+                                        {{this.nrc[i].followupDate | date : "dd-MM-y"  }} - View Followup
+                                    </button>
+                                </td>
+                            </ng-template>
+
+                            <ng-template #elseBlock>
+                                <td>
+                                    <a href="add-followup/{{this.nrc[i].scheduleId}}">
+                                        <button type="button" class="btn rounded-pill btn-primary"
+                                                style="color: #008ebe; background-color:white;
+                width: 70%; border-color: #008ebe; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.nrc[i]">
+                                            {{this.nrc[i].followupDate | date : "dd-MM-y"  }} - Add Followup
+                                        </button>
+                                    </a>
+                                </td>
+                            </ng-template>
+                        </ng-template>
+
+                        <div *ngIf="!this.general[i] && this.general.length==i; then thenGeneral else elseGeneral"></div>
+                        <ng-template #thenGeneral>
+                            <td><a href="record-visit/{{this.caseId}}">
+                                <button type="button" class="btn btn-primary"
+                                        style="color: white; background-color: #008ebe;
+                  width: 50%; border-color: #008ebe;
+                  font-family: Arial, Helvetica, sans-serif;">
+
+                                    <i class='fa fa-plus' style='font-size:15px;'></i>
+                                </button></a>
+                            </td>
+                        </ng-template>
+                        <ng-template #elseGeneral>
+                            <td>
+                                <button type="button" (click)="openModal(this.general[i].followupId, this.general[i].followupDate)" class="btn rounded-pill btn-primary"
+                                        style="color: #00a141; background-color:white;
+                width: 50%; border-color: #00a141; border-width: 1.5px;
+                font-family: Arial, Helvetica, sans-serif;" *ngIf="this.general[i]">
+                                    {{this.general[i].followupDate | date : "dd-MM-y"  }} - View Followup
+                                </button>
+                            </td>
+                        </ng-template>
+
+                    </tr>
+
+                    <!--              <tr class="table-default">-->
+                    <!--                <td>-->
+                    <!--                  <button type="button" (click)="openModal()" class="btn rounded-pill btn-primary" -->
+                    <!--                style="color: #00a141; background-color:white; -->
+                    <!--                width: 40%; border-color: #00a141; border-width: 1.5px;-->
+                    <!--                font-family: 'Times New Roman', Times, serif;">-->
+                    <!--                07-08-2022-->
+                    <!--              </button>                 -->
+                    <!--                </td>-->
+                    <!--                -->
+                    <!--                <td>-->
+                    <!--                  <a href="add-followup">-->
+                    <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+                    <!--                style="color: #008ebe; background-color:white; -->
+                    <!--                width: 50%; border-color: #008ebe; -->
+                    <!--                font-family: 'Times New Roman', Times, serif;">-->
+                    <!--                17-08-2022-->
+                    <!--              </button>    -->
+                    <!--                  </a>             -->
+                    <!--                </td>-->
+                    <!--                -->
+                    <!--                <td><a href="record-visit">-->
+                    <!--                  -->
+                    <!--                  <button type="button" class="btn btn-primary" -->
+                    <!--                  style="color: white; background-color: #008ebe; -->
+                    <!--                  width: 50%; border-color: #008ebe; -->
+                    <!--                  font-family: 'Times New Roman', Times, serif;">-->
+                    <!--                      -->
+                    <!--                <i class='fa fa-plus' style='font-size:15px;'></i>-->
+                    <!--                </button></a>-->
+                    <!--                </td>-->
+                    <!--      -->
+                    <!--              </tr>-->
+
+                    <!--              <tr class="table-default">-->
+                    <!--                <td>-->
+                    <!--                  <a href="add-followup">-->
+                    <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+                    <!--                style="color: #008ebe; background-color:white; -->
+                    <!--                width: 40%; border-color: #008ebe; -->
+                    <!--                font-family: 'Times New Roman', Times, serif;">-->
+                    <!--                14-08-2022-->
+                    <!--                -->
+                    <!--              </button> -->
+                    <!--                  </a>                -->
+                    <!--                </td>-->
+                    <!--                <td>-->
+                    <!--                  <a href="add-followup">-->
+                    <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+                    <!--                style="color: #008ebe; background-color:white; -->
+                    <!--                width: 50%; border-color: #008ebe; -->
+                    <!--                font-family: 'Times New Roman', Times, serif;">-->
+                    <!--                25-08-2022-->
+                    <!--              </button>   -->
+                    <!--                  </a>              -->
+                    <!--                </td>-->
+                    <!--            </tr>-->
+
+                    <!--              <tr class="table-default">-->
+                    <!--                <td>-->
+                    <!--                  <a href="add-followup">-->
+                    <!--                  <button type="button" class="btn rounded-pill btn-primary" -->
+                    <!--                style="color: #008ebe; background-color:white; -->
+                    <!--                width: 40%; border-color: #008ebe; -->
+                    <!--                font-family: 'Times New Roman', Times, serif;">-->
+                    <!--                21-08-2022-->
+                    <!--              </button>   -->
+                    <!--                  </a>              -->
+                    <!--                </td>-->
+                    <!--              </tr>-->
+
+
+                    <tr class="table-default">
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <!--/ Contextual Classes -->
+
+
+        <!--/ Responsive Table -->
+        <!-- </div> -->
+        <!-- / Content -->
+
+
+
+        <div class="content-backdrop fade"></div>
+    </div>

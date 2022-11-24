@@ -26,24 +26,33 @@ import { SortTableComponent } from './sort-table/sort-table.component';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginNrcComponent } from './login-nrc/login-nrc.component';
+import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { PatientFollowupTableNrcComponent } from './patient-followup-table-nrc/patient-followup-table-nrc.component';
+import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-nrc.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
+  { path: 'nrc-home', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'login-doctor', component: LoginFormComponent },
   { path: 'login-nrc', component: LoginNrcComponent },
   { path: 'login-asha', component: LoginAshaComponent },
   { path: 'login-anm', component: LoginAnmComponent },
+  { path: 'login-admin', component: LoginAdminComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'assign-asha', component: AssignAshaTableComponent },
   { path: 'sort', component: AgGridComponent },
   { path: 'discharged-patients', component: DischargedPatientsComponent },
   { path: 'followup-list', component: FollowupTableComponent },
+  { path: 'nrc-followup-list', component: FollowupTableNrcComponent },
   { path: 'asha-worker/:awId', component: WorkerDetailsComponent },
   { path: 'followup/:samId', component: PatientFollowupTableComponent },
+  { path: 'nrc-followup/:samId', component: PatientFollowupTableNrcComponent },
   { path: 'add-followup/:caseId', component: EnterFollowupComponent },
   { path: 'record-visit/:caseId', component: RecordVisitComponent },
   { path: 'track-child', component: TrackChildComponent },
+  { path: 'nrc-track-child', component: TrackChildNrcComponent },
   { path: 'track-child/:rchId', component: TrackChildDetailsComponent },
   { path: 'asha-followups', component: AshaPatientComponent },
   { path: 'asha-add-followup', component: AshaAddFollowupComponent },

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-nrc',
-  templateUrl: './login-nrc.component.html',
-  styleUrls: ['./login-nrc.component.css']
+  selector: 'app-login-admin',
+  templateUrl: './login-admin.component.html',
+  styleUrls: ['./login-admin.component.css']
 })
-export class LoginNrcComponent implements OnInit {
+
+export class LoginAdminComponent implements OnInit {
 
   username: string;
   password: string;
@@ -16,8 +17,8 @@ export class LoginNrcComponent implements OnInit {
   }
 
   login() {
-    if(this.username=="nrc" && this.password=="password"){
-    this.router.navigate(["nrc-home"]);
+    if(this.username=="admin" && this.password=="password"){
+    this.router.navigate(["admin"]);
     }
   console.log("Username: ", this.username);
     console.log("Pass: ", this.password);
