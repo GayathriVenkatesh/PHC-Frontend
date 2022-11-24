@@ -24,11 +24,14 @@ import { LoginAnmComponent } from './login-anm/login-anm.component';
 import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component';
 import { SortTableComponent } from './sort-table/sort-table.component';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'login-doctor', component: LoginFormComponent },
+  { path: 'login-nrc', component: LoginNrcComponent },
   { path: 'login-asha', component: LoginAshaComponent },
   { path: 'login-anm', component: LoginAnmComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -45,6 +48,7 @@ const routes: Routes = [
   { path: 'asha-followups', component: AshaPatientComponent },
   { path: 'asha-add-followup', component: AshaAddFollowupComponent },
   { path: 'asha-patient-followup/:samId', component: AshaPatientFollowupComponent },
+  { path: 'admin', component: AdminComponent },
 ];
 
 @NgModule({
