@@ -146,6 +146,12 @@ p {
   margin-bottom: 1rem;
 }
 
+td, th {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 700px;
+}
+
 abbr[title],
 abbr[data-bs-original-title] {
   -webkit-text-decoration: underline dotted;
