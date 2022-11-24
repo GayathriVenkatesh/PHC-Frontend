@@ -24,6 +24,7 @@ export class PatientFollowupTableComponent implements OnInit {
   nrc: FollowupDate[] = [];
   general: FollowupDate[] = [];
   name: String;
+  samNum: Number;
 
   constructor(private router: Router, private followupService: FollowupService, private modalService: MdbModalService) {}
 
@@ -44,10 +45,13 @@ export class PatientFollowupTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     console.log("KJBJBJB", this.router.url);
     this.caseId = this.router.url.split("/")[2];
     this.followupService.findByCaseId(this.caseId).subscribe(data => {
       this.followups = data;
+      this.samNum = this.followups[0].samNum;
+      this.name = this.followups[0].name;
       for(var i=0;i<this.followups.length;i++){
       console.log(this.followups[i].followupDate);
         if(this.followups[i].type=="COMMUNITY"){

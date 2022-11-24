@@ -13,4 +13,6 @@ export class FollowupSchedule {
  type: String;
  ashaId: number;
  rchId: number;
+ mobileNumber: String;
+
 }

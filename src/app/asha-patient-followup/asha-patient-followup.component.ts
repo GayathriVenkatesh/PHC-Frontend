@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 import { SmallModalComponent } from '../small-modal/small-modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-
+import { AshaFollowupsService } from '../service/asha-followups.service';
+import { Followup } from '../model/followup';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PatientService } from '../service/patient.service';
+import { Patient } from '../model/patient';
 @Component({
   selector: 'app-asha-patient-followup',
   templateUrl: './asha-patient-followup.component.html',
@@ -11,14 +15,19 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 export class AshaPatientFollowupComponent implements OnInit {
 
+  followups: Followup[];
+  caseId: String;
   modalRef: MdbModalRef<ModalComponent> | null = null;
   searchText: String;
+  patient: Patient;
 
-  constructor(private modalService: MdbModalService) {}
+  constructor(private router: Router, private modalService: MdbModalService, private ashaFollowupsService: AshaFollowupsService, private patientService: PatientService) {}
 
-  openModal() {
+  openModal(followupId: number, followupDate: Date) {
     this.modalRef = this.modalService.open(ModalComponent, {
-      modalClass: 'modal-lg'
+      modalClass: 'modal-lg',
+      data: { followupId: followupId,
+              followupDate: followupDate},
     })
   }
 
@@ -29,6 +38,15 @@ export class AshaPatientFollowupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      this.caseId = this.router.url.split("/")[2];
+   this.ashaFollowupsService.getFollowups(this.caseId).subscribe(data => {
+      this.followups = data;
+      console.log(data);
+      });
+      this.patientService.findByCaseId(this.caseId).subscribe(data => {
+      this.patient = data;
+
+      });
     this.searchText = "";
   }
 

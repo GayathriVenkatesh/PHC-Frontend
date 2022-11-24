@@ -37,30 +37,30 @@ export class DischargedPatientsComponent implements OnInit {
     
   }
 
+  range = new FormGroup({
+    start: new FormControl<Date | null>(new Date()),
+    end: new FormControl<Date | null>(new Date()),
+  });
+
   ngOnInit(): void {
+    this.searchText = ""; 
+    this.pipe = new DatePipe('en');
+
     this.patientService.getDischargedPatients().subscribe(data => {
       this.patients = data;
-      console.log("discharged patients: ",this.patients[0].name);
-    });
-    this.patients = [
-      {name: 'aaru', address: 'ytfghjgfc vbnkjjfd xcvbnkdu iut fghj iugjhki iughkjiuygh uighuuifhg uifghgh uyghkiuyh iugyhiuyhg', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 4, date: new Date()},
-      {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 2, date: new Date("2019-01-16")}
-    ]
-    this.searchText = "";
-    this.dataSource = new MatTableDataSource(this.patients);
-
-    this.pipe = new DatePipe('en');
-    this.dataSource.filterPredicate = (data: any, filter: any) =>{
-      if (this.fromDate && this.toDate) {
-        return data.date >= this.fromDate && data.date <= this.toDate;
+      this.dataSource = new MatTableDataSource(this.patients);
+      
+      this.dataSource.filterPredicate = (data: any, filter: any) =>{
+        if (this.fromDate && this.toDate) {
+          return data.date >= this.fromDate && data.date <= this.toDate;
+        }
+        else {
+          return data.name.includes(filter) ||
+          data.samId == filter || data.rchId == filter || data.mobileNumber.includes(filter) ||
+          data.address.includes(filter) || data.pincode.includes(filter);
+        }
       }
-      else {
-        return data.name.includes(filter) || 
-        data.samId == filter || data.rchId == filter || data.mobileNumber.includes(filter) || 
-        data.address.includes(filter) || data.pincode.includes(filter);
-      }
-  }
-    console.log(this.dataSource);
+    }) 
   }
 
   resetDate() {
@@ -77,9 +77,10 @@ export class DischargedPatientsComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  openModal() {
+  openModal(patient: DischargedPatient) {
     this.modalRef = this.modalService.open(RejectModalComponent, {
-      modalClass: 'modal-md'
+      modalClass: 'modal-md',
+      data : {patient: patient}
     })
   }
 
@@ -94,7 +95,6 @@ export class DischargedPatientsComponent implements OnInit {
   cancel() {
     location.reload();
   }
-
 }
 
 

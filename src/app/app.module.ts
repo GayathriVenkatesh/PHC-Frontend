@@ -28,6 +28,7 @@ import { AshaModalComponent } from './asha-modal/asha-modal.component';
 import { SuccessfulAssignmentComponent } from './successful-assignment/successful-assignment.component';
 import { WorkerDetailModalComponent } from './worker-detail-modal/worker-detail-modal.component';
 import { TrackChildComponent } from './track-child/track-child.component';
+import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
 import { TrackChildDetailsComponent } from './track-child-details/track-child-details.component';
 import { ApproveModalComponent } from './approve-modal/approve-modal.component';
 import { CancelModalComponent } from './cancel-modal/cancel-modal.component';
@@ -76,19 +77,22 @@ import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.
 import { EnterFollowupComponent } from './enter-followup/enter-followup.component';
 import { DateRangeComponent } from './date-range/date-range.component';
 // import { SortTableComponent } from './sort-table/sort-table.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { AgGridComponent } from './ag-grid/ag-grid.component';
+// import { AgGridModule } from 'ag-grid-angular';
+// import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { SearchPipe } from './search.pipe';
 import { RemarksModalComponent } from './remarks-modal/remarks-modal.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
+//import { AdminComponent } from './admin/admin.component';
+//import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+//import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
 import { LoginNrcComponent } from './login-nrc/login-nrc.component';
-import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
+// import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SidePanelNrcComponent } from './side-panel-nrc/side-panel-nrc.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-nrc.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
@@ -113,6 +117,7 @@ import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-n
     SuccessfulAssignmentComponent,
     WorkerDetailModalComponent,
     TrackChildComponent,
+    TrackChildNrcComponent,
     TrackChildDetailsComponent,
     ApproveModalComponent,
     CancelModalComponent,
@@ -128,7 +133,7 @@ import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-n
     PatientFollowupTableComponent,
     EnterFollowupComponent,
     DateRangeComponent,
-    AgGridComponent,
+//     AgGridComponent,
     SearchPipe,
     RemarksModalComponent,
     AdminComponent,
@@ -145,7 +150,7 @@ import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-n
     MatFormFieldModule,
     MatSidenavModule,
     BrowserModule,
-    AgGridModule,
+//     AgGridModule,
     MatTabsModule,
     CommonModule,
     AppRoutingModule,
@@ -184,6 +189,7 @@ import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-n
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+        MatSidenavModule,
     // FontAwesomeModule
   ],
   providers: [UserService, PatientService, FollowupService, FileUploadService, MatDatepickerModule],

@@ -23,13 +23,16 @@ import { LoginAshaComponent } from './login-asha/login-asha.component';
 import { LoginAnmComponent } from './login-anm/login-anm.component';
 import { AshaAddFollowupComponent } from './asha-add-followup/asha-add-followup.component';
 import { SortTableComponent } from './sort-table/sort-table.component';
-import { AgGridComponent } from './ag-grid/ag-grid.component';
-import { AdminComponent } from './admin/admin.component';
+// import { AgGridComponent } from './ag-grid/ag-grid.component';
+//import { AgGridComponent } from './ag-grid/ag-grid.component';
+//import { AdminComponent } from './admin/admin.component';
+//import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { PatientFollowupTableNrcComponent } from './patient-followup-table-nrc/patient-followup-table-nrc.component';
 import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-nrc.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
@@ -42,7 +45,7 @@ const routes: Routes = [
   { path: 'login-admin', component: LoginAdminComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'assign-asha', component: AssignAshaTableComponent },
-  { path: 'sort', component: AgGridComponent },
+//   { path: 'sort', component: AgGridComponent },
   { path: 'discharged-patients', component: DischargedPatientsComponent },
   { path: 'followup-list', component: FollowupTableComponent },
   { path: 'nrc-followup-list', component: FollowupTableNrcComponent },
@@ -55,9 +58,9 @@ const routes: Routes = [
   { path: 'nrc-track-child', component: TrackChildNrcComponent },
   { path: 'track-child/:rchId', component: TrackChildDetailsComponent },
   { path: 'asha-followups', component: AshaPatientComponent },
-  { path: 'asha-add-followup', component: AshaAddFollowupComponent },
-  { path: 'asha-patient-followup/:samId', component: AshaPatientFollowupComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'asha-add-followup/:scheduleId', component: AshaAddFollowupComponent },
+  { path: 'asha-patient-followup/:caseId', component: AshaPatientFollowupComponent },
+  { path: 'admin-nrc', component: AdminComponent },
 ];
 
 @NgModule({

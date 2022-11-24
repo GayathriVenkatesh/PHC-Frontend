@@ -18,7 +18,7 @@ export class LoginAdminComponent implements OnInit {
 
   login() {
     if(this.username=="admin" && this.password=="password"){
-    this.router.navigate(["admin"]);
+    this.router.navigate(["admin-nrc"]);
     }
   console.log("Username: ", this.username);
     console.log("Pass: ", this.password);

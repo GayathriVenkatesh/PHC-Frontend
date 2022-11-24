@@ -32,6 +32,10 @@ export class FollowupService {
     return this.http.get<FollowupSchedule[]>(this.followupsUrl + "-schedule");
   }
 
+  public findFollowupSchedulePhc(phcId: String): Observable<FollowupSchedule[]> {
+      return this.http.get<FollowupSchedule[]>(this.followupsUrl + "-schedule/"+phcId);
+    }
+
   public getFollowupScheduleById(caseId: String): Observable<FollowupSchedule[]> {
       return this.http.get<FollowupSchedule[]>(this.followupsUrl + "s-schedule/" + caseId);
     }

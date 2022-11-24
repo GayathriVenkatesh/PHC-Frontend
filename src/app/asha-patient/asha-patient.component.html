@@ -39,7 +39,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th style="color: black;">RCH ID</th>
+                  <th style="color: black;">RCH ID/SAM ID</th>
                   <th style="color: black;">Patient Name</th>
                   <th style="color: black;">Contact No</th>
                   <th style="color: black;">NRC Name</th>
@@ -48,41 +48,41 @@
                 </tr>
               </thead>
               <tbody class="table-border-bottom-0" >
-                <tr class="table-default">
-                  <td> <strong>KR2038</strong> </td>
-                  <td><a href="asha-patient-followup/1">Kalyani</a></td>
-                  <td><a href="asha-patient-followup/1">9845154210</a></td>
-                  <td><a href="asha-patient-followup/1">VVH</a></td>
-                  <td><a href="asha-patient-followup/1">3 / 8</a></td>
-                  <td><a href="asha-patient-followup/1">17-10-2022</a></td>                 
+                <tr class="table-default" *ngFor="let p of followups | search: searchText">
+                  <td> <strong>{{p.rchId}}/{{p.samNum}}</strong> </td>
+                  <td><a href="asha-patient-followup/{{p.caseId}}">{{p.childName}}</a></td>
+                  <td><a href="asha-patient-followup/{{p.caseId}}">{{p.mobileNumber}}</a></td>
+                  <td><a href="asha-patient-followup/{{p.caseId}}">VVH</a></td>
+                  <td><a href="asha-patient-followup/{{p.caseId}}">{{p.followupsDone}}</a></td>
+                  <td><a href="asha-patient-followup/{{p.caseId}}">{{p.nextCommunity | date : "dd-MM-y"}}</a></td>
                 </tr>
   
-                <tr class="table-default">
-                  <td> <strong>KR2038</strong> </td>
-                  <td><a href="asha-patient-followup/1">Madhumitha</a></td>
-                  <td><a href="asha-patient-followup/1">9845154210</a></td>
-                  <td><a href="asha-patient-followup/1">IGH</a></td>
-                  <td><a href="asha-patient-followup/1">4 / 9</a></td>
-                  <td><a href="asha-patient-followup/1">28-10-2022</a></td>
-                </tr>
-  
-                <tr class="table-default">
-                  <td> <strong>KR2038</strong> </td>
-                  <td><a href="asha-patient-followup/1">Raman</a></td>
-                  <td><a href="asha-patient-followup/1">9845154210</a></td>
-                  <td><a href="asha-patient-followup/1">IGH</a></td>
-                  <td><a href="asha-patient-followup/1">5 / 7</a></td>
-                  <td><a href="asha-patient-followup/1">25-10-2022</a></td>
-                </tr>
-  
-                <tr class="table-default">
-                  <td> <strong>KR2038</strong> </td>
-                  <td><a href="asha-patient-followup/1">Ranjani</a></td>
-                  <td><a href="asha-patient-followup/1">9845154210</a></td>
-                  <td><a href="asha-patient-followup/1">VVH</a></td>
-                  <td><a href="asha-patient-followup/1">6 / 11</a></td>
-                  <td><a href="asha-patient-followup/1">15-10-2022</a></td>
-                </tr>
+<!--                <tr class="table-default">-->
+<!--                  <td> <strong>KR2038</strong> </td>-->
+<!--                  <td><a href="asha-patient-followup/1">Madhumitha</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">9845154210</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">IGH</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">4 / 9</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">28-10-2022</a></td>-->
+<!--                </tr>-->
+<!--  -->
+<!--                <tr class="table-default">-->
+<!--                  <td> <strong>KR2038</strong> </td>-->
+<!--                  <td><a href="asha-patient-followup/1">Raman</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">9845154210</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">IGH</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">5 / 7</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">25-10-2022</a></td>-->
+<!--                </tr>-->
+<!--  -->
+<!--                <tr class="table-default">-->
+<!--                  <td> <strong>KR2038</strong> </td>-->
+<!--                  <td><a href="asha-patient-followup/1">Ranjani</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">9845154210</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">VVH</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">6 / 11</a></td>-->
+<!--                  <td><a href="asha-patient-followup/1">15-10-2022</a></td>-->
+<!--                </tr>-->
                 
 
                 <!-- HERE WHEN YOU WRITE <tr *ngFor...>, add this:

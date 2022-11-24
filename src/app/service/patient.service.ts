@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patient } from '../model/patient';
 import { Discharge } from '../model/discharge';
 import { Observable } from 'rxjs';
-import { map, filter, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { map, filter, switchMap, delay } from 'rxjs/operators';
 import { DischargedPatient } from '../model/discharged-patient';
 
 
@@ -25,6 +26,10 @@ export class PatientService {
   public findAll(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.patientsUrl + "s");
   }
+
+    public findAllPhc(phcId: String): Observable<Patient[]> {
+      return this.http.get<Patient[]>(this.patientsUrl + "s/"+phcId);
+    }
 
   public findByRchId(rchId: String): Observable<Patient> {
     return this.http.get<Patient>(this.patientsUrl + "/" + rchId);
@@ -61,8 +66,18 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
   }
 
   public getDischargedPatients(): Observable<DischargedPatient[]> {
-     return this.http.get<DischargedPatient[]>(this.dischargedPatientUrl+"d-patient");
+    //  return this.http.get<DischargedPatient[]>(this.dischargedPatientUrl+"d-patient");
+    delay(7000);
+    let l: DischargedPatient[] = [
+      {name: 'aaru', address: 'ytfghjgfc vbnkjjfd xcvbnkdu iut fghj iugjhki iughkjiuygh uighuuifhg uifghgh uyghkiuyh iugyhiuyhg', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 4, date: new Date()},
+      {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 2, date: new Date("2019-01-16")}
+     ]
+     return of(l);
    }
+
+   public getDischargedPatientsPhc(phcId: String): Observable<DischargedPatient[]> {
+      return this.http.get<DischargedPatient[]>(this.dischargedPatientUrl+"d-patient/"+phcId);
+    }
 
 
 
@@ -72,6 +87,13 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
 //        return this.http.post<Patient>(this.dischargedPatientUrl+"d-patient", patient);
 //        return this.http.post<String>(this.dischargedPatientUrl+"-approve", caseId);
    }
+
+      public reject(patient: Number) {
+      console.log("rejected: ",patient);
+        return this.http.post<Number>(this.dischargedPatientUrl + "-reject", patient);
+   //        return this.http.post<Patient>(this.dischargedPatientUrl+"d-patient", patient);
+   //        return this.http.post<String>(this.dischargedPatientUrl+"-approve", caseId);
+      }
 
    public trackChild(): Observable<Patient[]> {
        return this.http.get<Patient[]>("http://localhost:8080/track-child");
