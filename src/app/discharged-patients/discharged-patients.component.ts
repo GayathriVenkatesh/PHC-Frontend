@@ -33,7 +33,7 @@ export class DischargedPatientsComponent implements OnInit {
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
 
-  constructor(private router: Router, private patientService: PatientService,private modalService: MdbModalService) {
+  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService) {
     
   }
 
