@@ -16,10 +16,17 @@ export class TrackChildComponent implements OnInit {
   patients: Patient[];
   discharge: Patient;
   searchText: String;
+<<<<<<< HEAD
   awaitingAsha: Patient[];
   asha: number[];
 
   pipe: DatePipe;
+=======
+
+  awaitingAsha: Patient[];
+  asha: number[];
+    pipe: DatePipe;
+>>>>>>> asha_interfact
     dataSource = new MatTableDataSource<Patient>;
 
     filterForm = new FormGroup({
@@ -30,6 +37,10 @@ export class TrackChildComponent implements OnInit {
     get fromDate() { return this.filterForm.get('fromDate')?.value; }
     get toDate() { return this.filterForm.get('toDate')?.value; }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> asha_interfact
   constructor(private patientService: PatientService) {
      this.asha = [];
      }
@@ -84,6 +95,7 @@ export class TrackChildComponent implements OnInit {
 
     });
     });
+
     this.searchText = "";
 
     // this.patients = [
@@ -107,6 +119,8 @@ export class TrackChildComponent implements OnInit {
           data.ashaName.includes(filter) || data.samNum.includes(filter);
         }
     }
+    });
+        });
   }
 
   resetDate() {

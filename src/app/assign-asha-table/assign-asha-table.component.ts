@@ -41,7 +41,7 @@ export class AssignAshaTableComponent implements OnInit {
     this.patientService.findAllPhc(localStorage.getItem('phc') || '').subscribe(data => {
       this.patients = data;
       this.hello();
-    });
+
     // this.patients = [
     //   {name: 'aaru', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
     //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
@@ -74,6 +74,7 @@ export class AssignAshaTableComponent implements OnInit {
           data.mobileNumber.includes(filter) || data.nrcFrom.includes(filter);
         }
     }
+    });
   }
 
   

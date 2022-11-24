@@ -17,7 +17,7 @@ export class LoginNrcComponent implements OnInit {
 
   login() {
     if(this.username=="nrc" && this.password=="password"){
-    this.router.navigate(["home"]);
+    this.router.navigate(["nrc-home"]);
     }
   console.log("Username: ", this.username);
     console.log("Pass: ", this.password);
