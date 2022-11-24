@@ -47,10 +47,10 @@ range = new FormGroup({
       this.patients = data;
       console.log("discharged patients: ",this.patients[0].name);
     });
-    // this.patients = [
-    //   {name: 'aaru', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 4, date: new Date()},
-    //   {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 2, date: new Date("2019-01-16")}
-    // ]
+    this.patients = [
+      {name: 'aaru', address: 'ytfghjgfc vbnkjjfd xcvbnkdu iut fghj iugjhki iughkjiuygh uighuuifhg uifghgh uyghkiuyh iugyhiuyhg', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 4, date: new Date()},
+      {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 2, date: new Date("2019-01-16")}
+    ]
     this.searchText = "";
     this.dataSource = new MatTableDataSource(this.patients);
 
