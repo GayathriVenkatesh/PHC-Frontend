@@ -1,5 +1,7 @@
 <app-top-bar *ngIf="! _router.url.startsWith('/login')"></app-top-bar>
 <div style="display: flex; flex-grow: grow; margin-top: 2%;">
-  <app-side-panel *ngIf="! _router.url.startsWith('/asha-') && ! _router.url.startsWith('/login')"></app-side-panel>
-  <router-outlet></router-outlet>
+  <app-side-panel *ngIf="! _router.url.startsWith('/asha-') && ! _router.url.startsWith('/login') && ! _router.url.startsWith('/admin') && ! _router.url.startsWith('/nrc')"></app-side-panel>
+  <app-side-panel-nrc *ngIf="_router.url.startsWith('/nrc')"></app-side-panel-nrc>
+  <app-admin-panel *ngIf="_router.url.startsWith('/admin')"></app-admin-panel>
+  <router-outlet *ngIf="_router.url.startsWith('/login') || _router.url.startsWith('/admin')"></router-outlet>
 </div>

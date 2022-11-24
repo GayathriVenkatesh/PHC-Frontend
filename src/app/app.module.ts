@@ -28,6 +28,7 @@ import { AshaModalComponent } from './asha-modal/asha-modal.component';
 import { SuccessfulAssignmentComponent } from './successful-assignment/successful-assignment.component';
 import { WorkerDetailModalComponent } from './worker-detail-modal/worker-detail-modal.component';
 import { TrackChildComponent } from './track-child/track-child.component';
+import { TrackChildNrcComponent } from './track-child-nrc/track-child-nrc.component';
 import { TrackChildDetailsComponent } from './track-child-details/track-child-details.component';
 import { ApproveModalComponent } from './approve-modal/approve-modal.component';
 import { CancelModalComponent } from './cancel-modal/cancel-modal.component';
@@ -79,6 +80,7 @@ import { DateRangeComponent } from './date-range/date-range.component';
 // import { AgGridModule } from 'ag-grid-angular';
 // import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { SearchPipe } from './search.pipe';
+import { LoginNrcComponent } from './login-nrc/login-nrc.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +104,7 @@ import { SearchPipe } from './search.pipe';
     SuccessfulAssignmentComponent,
     WorkerDetailModalComponent,
     TrackChildComponent,
+    TrackChildNrcComponent,
     TrackChildDetailsComponent,
     ApproveModalComponent,
     CancelModalComponent,
@@ -119,6 +122,7 @@ import { SearchPipe } from './search.pipe';
     DateRangeComponent,
 //     AgGridComponent,
     SearchPipe,
+    LoginNrcComponent,
     // SortTableComponent
   ],
   imports: [
@@ -162,6 +166,7 @@ import { SearchPipe } from './search.pipe';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+        MatSidenavModule,
     // FontAwesomeModule
   ],
   providers: [UserService, PatientService, FollowupService, FileUploadService, MatDatepickerModule],

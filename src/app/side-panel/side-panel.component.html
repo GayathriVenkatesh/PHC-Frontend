@@ -1,4 +1,74 @@
 <style>
+  ::ng-deep .mat-sidenav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: black;
+  }
+
+  ::ng-deep .mat-menu-item  {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 8%;
+    margin-left: 5%;
+  }
+</style>
+
+<mat-sidenav-container class="full-height" autosize="true">
+  <mat-sidenav mode="side" opened (click)="toggleSidebar()" style="height:100%; 
+  font-family: Arial, Helvetica, sans-serif; margin-top: -50px;  margin-top: 10px;
+  font-size: 14.5px; font-weight:600; color: black">
+      
+      <!-- <div mat-menu-item (click)="toggleSidebar()" class="with-icon padded">
+          <mat-icon matTooltip="toggle side menu">menu</mat-icon>&nbsp;
+      </div> -->
+
+      <!-- <div mat-menu-item *ngFor="let i of sideMenu" [routerLink]="['/', i.route]" class="with-icon padded" (click)="$event.stopPropagation()">
+          <mat-icon [matTooltip]="i.toolTip">{{ i.icon }}</mat-icon>&nbsp;
+          <span [hidden]="collapse">{{ i.name }}</span>
+      </div> -->
+      <br><br>
+      <div mat-menu-item  class="with-icon padded" (click)="$event.stopPropagation()">
+        <i style="padding-right: 10px; margin-bottom: 8%; margin-left: 2%;"></i>
+        <span [hidden]="collapse"></span>
+      </div>
+
+      <div mat-menu-item  class="with-icon padded" [routerLink]="['/home']" routerLinkActive="active" (click)="$event.stopPropagation()">
+        <i class="fa fa-home" style="color: black; font-size: 20px; padding-right: 10px; margin-bottom: 10px; margin-left: 10px;"></i>
+        <span [hidden]="collapse">Home</span>
+      </div>
+
+    <div mat-menu-item  class="with-icon padded" [routerLink]="['/discharged-patients']" routerLinkActive="active" (click)="$event.stopPropagation()">
+      <!-- <mat-icon fontIcon="home"></mat-icon>&nbsp; -->
+      <i class="fa fa-plus" style="color: black; font-size: 20px; padding-right: 10px; margin-bottom: 10px; margin-left: 10px;"></i>
+      <span [hidden]="collapse">PHC Confirmation</span>
+    </div>
+
+    <div mat-menu-item  class="with-icon padded" [routerLink]="['/assign-asha']" routerLinkActive="active" (click)="$event.stopPropagation()">
+      <i class="fa fa-pencil" style="color: black; font-size: 20px; padding-right: 10px; margin-bottom: 10px; margin-left: 10px;"></i>
+      <span [hidden]="collapse">ASHA Assignment</span>
+    </div>
+
+    <div mat-menu-item  class="with-icon padded" [routerLink]="['/followup-list']" routerLinkActive="active" (click)="$event.stopPropagation()">
+      <i class="fa fa-medkit" style="color: black; font-size: 20px; padding-right: 10px; margin-bottom: 10px; margin-left: 10px;"></i>
+      <span [hidden]="collapse">Follow Ups</span>
+    </div>
+
+    <div mat-menu-item  class="with-icon padded" [routerLink]="['/track-child']" routerLinkActive="active" (click)="$event.stopPropagation()">
+      <i class="fa fa-search" style="color: black; font-size: 20px; padding-right: 10px; margin-bottom: 10px; margin-left: 10px;"></i>
+      <span [hidden]="collapse">Track Child</span>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="padded">
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<!-- <style>
   .w3-button:hover {
     background-color: #00ff00;
   }
@@ -8,6 +78,19 @@
 }
 </style>
 
+<script>
+  function openNav() {
+    document.getElementById("sidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    console.log("here")
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+</script>
+
 <html>
 <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,14 +98,11 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
 
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width: 15vw; min-width: 15vw; max-width: 15vw; height:100%; 
+<div #sidebar class="w3-sidebar w3-light-grey w3-bar-block" style="width: 15vw; min-width: 15vw; max-width: 15vw; height:100%; 
 font-family: Arial, Helvetica, sans-serif; margin-top: -50px; position: fixed; margin-top: 10px;
 font-size: 14.5px; font-weight:600; color: black">
   <h3 class="w3-bar-item"></h3>
-  <!-- <a href="home" class="w3-bar-item w3-button" style="color: black">
-    <i class="fa fa-home" style="color: black; padding-right: 10px"></i>
-    HOME 
-  </a> -->
+  
   <a routerLink="/home" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
     <i class="fa fa-home" style="color: black; padding-right: 10px"></i>
     Home 
@@ -38,11 +118,6 @@ font-size: 14.5px; font-weight:600; color: black">
     ASHA Assignment 
   </a>
 
-  <!-- <a routerLink="/patients" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
-    <i class="fa fa-users" style="color: black; padding-right: 10px"></i>
-    Discharge Details 
-  </a> -->
-
   <a routerLink="/followup-list" routerLinkActive="active" class="w3-bar-item w3-button" style="color: black">
     <i class="fa fa-medkit" style="color: black; padding-right: 10px"></i>
     Follow Ups
@@ -53,4 +128,4 @@ font-size: 14.5px; font-weight:600; color: black">
     Track Child
   </a>
 </div>
-
+ -->
