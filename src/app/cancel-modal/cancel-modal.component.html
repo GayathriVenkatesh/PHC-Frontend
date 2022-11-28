@@ -16,19 +16,19 @@
   <div style="box-shadow: 0px 8px 10px gray, 
   -10px 8px 15px gray, 10px 8px 15px gray;">
   <div class="modal-header" style="width: 100% ">
-    <h3 style="font-family: 'Mulish'; color: #566a7f"><strong>Cancel Follow Up</strong></h3>
+    <h2 style="font-family: 'Mulish'; color: #566a7f"><strong>Cancel Follow Up</strong></h2>
     <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
       (click)="modalRef.close()"></i>
       
     </div>
-    <div class="modal-body" style="font-family:'Times New Roman', Times, serif">
+    <div class="modal-body" style="font-family:'Helvetica'">
       <div class="row">
         <form>
             <div class="column">
                <div class="mb-6">
                    <label class="form-label" for="basic-default-age">Reason for Cancellation</label>
                    <!-- <textarea type="text" class="form-control" id="basic-default-company"></textarea> -->
-                   <select id="defaultSelect" class="form-select" style="margin-left: 10%">
+                   <select id="defaultSelect" class="form-select" style="margin-left: 10%; height: 40px; border: 1px solid #ced4da">
                     <option>Choose</option>
                     <option value="1">Relocated</option>
                     <option value="2">Commute Issues</option>
@@ -45,7 +45,7 @@
             </div>
 
 
-          <button type="submit" class="btn rounded-pill btn-primary" 
+          <button type="submit" class="btn rounded-pill btn-primary" (click)="modalRef.close()"
           style="background-color: #008eBe; float: right; width: 30%">Save</button>
       </form>
       </div>

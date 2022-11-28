@@ -14,17 +14,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AshaAddFollowupComponent implements OnInit {
 
-  modalRef: MdbModalRef<CancelModalComponent> | null = null;
-followup: Followup;
+    modalRef: MdbModalRef<CancelModalComponent> | null = null;
+    followup: Followup;
+    date: Date;
     caseId: string;
     followupSchedule: FollowupSched;
     lastFollowup: Followup;
     scheduleId: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private modalService: MdbModalService, private followupService: FollowupService ) {
-  this.followup = new Followup();
+    this.followup = new Followup();
     this.followup.followupDate = new Date();
-    }
+    this.date = new Date();
+  }
 
     onSubmit(){
     console.log("NEW Followup ", this.followup);

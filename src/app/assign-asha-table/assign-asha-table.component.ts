@@ -43,21 +43,21 @@ export class AssignAshaTableComponent implements OnInit {
       this.hello();
 
     // this.patients = [
-    //   {name: 'aaru', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   {name: 'aaru', address: 'hsr khakdjfn kleajfkajn kihefkajn kiehfjkesnf kiuhfekdnvm kihekasjb kuhefkhsf', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", status: "SAM",
     //   dischargeDate: new Date(), admissionDate: new Date(), dischargeSd: -1, dischargeId: "1", samNum: "4987", ashaId: 1, ashaName: ""},
-    //   {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   {name: 'gayu', address: 'hsr khakdjfn kleajfkajn kihefkajn kiehfjkesnf kiuhfekdnvm kihekasjb kuhefkhsf gvg', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", status: "MAM",
     //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
     // ]
 
-    // this.hello();
+    this.hello();
     // this.children = [
-    //   {name: 'aaru', address: 'jgu', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   {name: 'aaru', address: 'hsr khakdjfn kleajfkajn kihefkajn kiehfjkesnf kiuhfekdnvm kihekasjb kuhefkhsf', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", status: "SAM",
     //   dischargeDate: new Date(), admissionDate: new Date(), dischargeSd: -1, dischargeId: "1", samNum: "4987", ashaId: 1, ashaName: ""},
-    //   {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+    //   {name: 'gayu', address: 'hsr khakdjfn kleajfkajn kihefkajn kiehfjkesnf kiuhfekdnvm kihekasjb kuhefkhsf gvg', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", status: "MAM",
     //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
     // ]
 
@@ -105,7 +105,7 @@ export class AssignAshaTableComponent implements OnInit {
 
   openModal(caseId: number) {
     this.modalRef = this.modalService.open(AshaModalComponent, {
-      modalClass: 'modal-lg',
+      // modalClass: 'modal-lg',
       data: {caseId: caseId}
     })
   }

@@ -106,16 +106,6 @@ h1, .h1 {
   }
 }
 
-td, th {
-  white-space: normal;
-  word-wrap: break-word;
-  max-width: 200px;
-}
-
-.modal-dialog {
-  width: 4000px;
-}
-
 h2, .h2 {
   font-size: calc(1.325rem + 0.9vw);
 }
@@ -305,11 +295,6 @@ table {
   border-collapse: collapse;
 }
 
-.mytable {
-    table-layout: auto;
-    width: 10%;
-}
-
 caption {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
@@ -332,8 +317,6 @@ th {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 label {
@@ -4755,10 +4738,10 @@ textarea.form-control-lg {
     max-width: 22.5rem;
   }
 }
-@media (min-width: 892px) {
+@media (min-width: 992px) {
   .modal-lg,
 .modal-xl {
-    max-width: 40rem;
+    max-width: 50rem;
   }
 }
 @media (min-width: 1200px) {
@@ -5792,9 +5775,7 @@ textarea.form-control-lg {
 td a {
   display:block;
   width:100%;
-  color:rgba(0, 0, 0, 0.8);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  color:rgba(0, 0, 0, 0.8)
   
 }
 
@@ -10216,8 +10197,6 @@ button.list-group-item-gray.active {
 
 .rounded-pill {
   border-radius: 50rem !important;
-  height: 30px;
-  padding-bottom: 25px;
 }
 
 .rounded-top {
@@ -14669,7 +14648,6 @@ body {
 .container-xxl {
     padding-right: 1.625rem;
     padding-left: 1.625rem;
-
   }
 }
 
@@ -15278,6 +15256,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 
 .content-wrapper {
   display: flex;
+  border-radius: 10%;
   align-items: stretch;
   flex: 1 1 auto;
   flex-direction: column;
@@ -16793,8 +16772,8 @@ a.bg-primary:hover, a.bg-primary:focus {
 }
 
 .bg-label-primary {
-  background-color: #c4ddf8 !important;
-  color: #007bff !important;
+  background-color: #e7e7ff !important;
+  color: #696cff !important;
 }
 
 .border-label-primary {
@@ -16884,7 +16863,7 @@ button.list-group-item-primary.active {
 
 .btn-primary {
   color: #fff;
-  background-color: #696cff;
+  background-color: #007bff;
   border-color: #696cff;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
 }

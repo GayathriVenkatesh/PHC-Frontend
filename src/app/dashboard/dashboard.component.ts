@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   this.patientService.findAllPhc(localStorage.getItem('phc') || '').subscribe(data => {
         this.asha = data.length;
 //         this.hello();
-console.log("awaiting asha", this.asha);
+        console.log("awaiting asha", this.asha);
       });
 
     this.patientService.getDischargedPatientsPhc(localStorage.getItem('phc') || '').subscribe(data => {

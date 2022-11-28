@@ -93,6 +93,7 @@ import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-n
 import { AdminComponent } from './admin/admin.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
+import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
@@ -144,6 +145,7 @@ import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
     SidePanelNrcComponent,
     LoginAdminComponent,
     FollowupTableNrcComponent,
+    NrcDashboardComponent,
     // SortTableComponent
   ],
   imports: [

@@ -81,7 +81,7 @@
 
                             <ng-template #elseBlock>
                                 <td>
-                                    <a href="add-followup/{{this.nrc[i].scheduleId}}">
+                                    <a href="nrc-add-followup/{{this.nrc[i].scheduleId}}">
                                         <button type="button" class="btn rounded-pill btn-primary"
                                                 style="color: #008ebe; background-color:white;
                 width: 70%; border-color: #008ebe; border-width: 1.5px;
@@ -95,7 +95,7 @@
 
                         <div *ngIf="!this.general[i] && this.general.length==i; then thenGeneral else elseGeneral"></div>
                         <ng-template #thenGeneral>
-                            <td><a href="record-visit/{{this.caseId}}">
+                            <td><a href="nrc-record-visit/{{this.caseId}}">
                                 <button type="button" class="btn btn-primary"
                                         style="color: white; background-color: #008ebe;
                   width: 50%; border-color: #008ebe;

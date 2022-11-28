@@ -32,14 +32,14 @@
 <!--              style="background-color: white; height: 40px; font-size: 15px;"-->
 <!--              type="text"-->
 <!--              class="form-control border-0 shadow-none"-->
-<!--              placeholder="Search by anything"-->
+<!--              placeholder="Search"-->
 <!--              aria-label="Search..." [(ngModel)]="searchText"-->
 <!--              />-->
 <!--          </div>-->
 <!--=======-->
             <div class="nav-item d-flex align-items-center">
               <mat-form-field>
-                <input matInput (keyup)="applyFilterText($event.target.value)" placeholder="Search by anything">
+                <input matInput (keyup)="applyFilterText($event.target.value)" placeholder="Search">
               </mat-form-field>
               <div style="margin-right: 10px; margin-top: -2px;">                    
                 <form class="date-block" [formGroup]="filterForm">
@@ -55,13 +55,15 @@
                         <mat-date-range-picker #fromDate></mat-date-range-picker>
                     </mat-form-field>
                     <button type="button" class="btn btn-sm btn-primary" 
-                      style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                      style="color: white; background-color:grey; border-color: white; font-family: 'Helvetica';
+                      margin-left: 10px;"
                       (click)="applyFilterDate()">
                       Filter
                     </button>
   
                     <button type="button" class="btn btn-sm btn-primary" 
-                      style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                      style="color: white; background-color:grey; border-color: white; font-family: 'Helvetica';
+                      margin-left: 10px;"
                       (click)="resetDate()">
                       Clear
                     </button>
@@ -81,32 +83,32 @@
         <table class="table" #filteredTable mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> RCH ID/SAM ID </th>
-          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.rchId}}/{{p.samNum}} </a></td>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}}"> {{p.rchId}}/{{p.samNum}} </a></td>
         </ng-container>
 
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Patient Name </th>
-          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.name}} </a></td>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}}"> {{p.name}} </a></td>
         </ng-container>
 
         <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef> Discharge Date </th>
-          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.dischargeDate | date : "dd-MM-y"}} </a></td>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}}"> {{p.dischargeDate | date : "dd-MM-y"}} </a></td>
         </ng-container>
 
         <ng-container matColumnDef="mobile">
           <th mat-header-cell *matHeaderCellDef> Mobile No </th>
-          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> {{p.mobileNumber}} </a></td>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}}"> {{p.mobileNumber}} </a></td>
         </ng-container>
 
         <ng-container matColumnDef="nrc">
           <th mat-header-cell *matHeaderCellDef> Name of NRC </th>
-          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> VVH </a></td>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}}"> VVH </a></td>
         </ng-container>
 
         <ng-container matColumnDef="asha">
           <th mat-header-cell *matHeaderCellDef> ASHA Worker </th>
-          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}"> Malini </a></td>
+          <td mat-cell *matCellDef="let p"> <a href="track-child/{{p.caseId}}"> Malini </a></td>
         </ng-container>
 
         <ng-container matColumnDef="status">

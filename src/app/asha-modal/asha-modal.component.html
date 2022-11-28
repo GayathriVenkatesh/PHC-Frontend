@@ -17,10 +17,15 @@
   }
     
   .input-icons {
-      width: 100%;
-      margin-bottom: 10px;
+      /* width: 100%;
+      margin-bottom: 10px; */
   }
     
+  input,
+input::placeholder {
+    font: 13px/3 sans-serif;
+}
+
   .icon {
       padding: 10px;
       padding-left: 25%;
@@ -48,33 +53,25 @@
         <form #userForm="ngForm" (ngSubmit)="onSubmit()" style="color: black;">
             <div class="column" style="color: black;">
                  <div class="mb-3">
-                     <label class="form-label" for="basic-default-age" style="color: black;">Pin Code</label>
-                     <!-- <input type="text" (keyup)="onKeyPincode($event)" class="form-control" id="basic-default-company" /> -->
-                     <!-- <i class="fa fa-filter"></i> -->
-                     <div class="input-icons">
-                      <i class="fa fa-filter icon"></i>
-                      <input type="text" (keyup)="onKeyPincode($event)" class="form-control" id="basic-default-company" />
-                    </div>
+                     <label class="form-label" for="basic-default-age" style="color: black;" >Pin Code 
+                    </label>
+                     <input type="text" (keyup)="onKeyPincode($event)" class="form-control" id="basic-default-company" placeholder="Filter by pincode"/>
+                     
+                      
                  </div>
             </div>
 
             <div class="column" style="color: black;">
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-age" style="color: black;">Area / Location</label>
-                    <div class="input-icons">
-                      <i class="fa fa-filter icon"></i>
-                      <input id="area" (keyup)="onKeyArea($event)" type="text" class="form-control" id="basic-default-company" />
-                    </div>
+                      <input id="area" (keyup)="onKeyArea($event)" type="text" class="form-control" id="basic-default-company" placeholder="Filter by area"/>
                 </div>              
             </div>
 
             <div class="column">  
               <div class="mb-3">
-                <label class="form-label" for="basic-default-age" style="color: black;">Ward / Village</label>
-                <div class="input-icons">
-                  <i class="fa fa-filter icon"></i>
-                  <input type="text" (keyup)="onKeyWard($event)" class="form-control" id="basic-default-company"  />
-                </div>
+                <label class="form-label" for="basic-default-age" style="color: black;">Ward / Village</label>            
+                  <input type="text" (keyup)="onKeyWard($event)" class="form-control" id="basic-default-company" placeholder="Filter by ward"/>
             </div>
             </div>
 
