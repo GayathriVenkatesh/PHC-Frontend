@@ -66,7 +66,13 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
   }
 
   public getDischargedPatients(): Observable<DischargedPatient[]> {
-    return this.http.get<DischargedPatient[]>(this.dischargedPatientUrl+"d-patient");
+      return this.http.get<DischargedPatient[]>(this.dischargedPatientUrl+"d-patient");
+    //delay(7000);
+    //let l: DischargedPatient[] = [
+      //{name: 'aaru', address: 'ytfghjgfc vbnkjjfd xcvbnkdu iut fghj iugjhki iughkjiuygh uighuuifhg uifghgh uyghkiuyh iugyhiuyhg', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 4, date: new Date()},
+      //{name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: 1, rchId: 2, date: new Date("2019-01-16")}
+     //]
+     //return of(l);
    }
 
    public getDischargedPatientsPhc(phcId: String): Observable<DischargedPatient[]> {
