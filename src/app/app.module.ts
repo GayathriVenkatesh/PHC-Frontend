@@ -94,6 +94,9 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddNrcModalComponent } from './add-nrc-modal/add-nrc-modal.component';
 import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
+import { AdminAshaComponent } from './admin-asha/admin-asha.component';
+import { AddPhcModalComponent } from './add-phc-modal/add-phc-modal.component';
+import { AdminPhcComponent } from './admin-phc/admin-phc.component';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
@@ -146,6 +149,9 @@ import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
     LoginAdminComponent,
     FollowupTableNrcComponent,
     NrcDashboardComponent,
+    AdminAshaComponent,
+    AddPhcModalComponent,
+    AdminPhcComponent,
     // SortTableComponent
   ],
   imports: [
@@ -191,7 +197,7 @@ import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-        MatSidenavModule,
+    MatSidenavModule,
     // FontAwesomeModule
   ],
   providers: [UserService, PatientService, FollowupService, FileUploadService, MatDatepickerModule],

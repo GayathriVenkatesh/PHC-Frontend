@@ -34,6 +34,8 @@ import { PatientFollowupTableNrcComponent } from './patient-followup-table-nrc/p
 import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-nrc.component';
 import { AdminComponent } from './admin/admin.component';
 import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
+import { AdminAshaComponent } from './admin-asha/admin-asha.component';
+import { AdminPhcComponent } from './admin-phc/admin-phc.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
@@ -65,6 +67,8 @@ const routes: Routes = [
   { path: 'asha-add-followup/:scheduleId', component: AshaAddFollowupComponent },
   { path: 'asha-patient-followup/:caseId', component: AshaPatientFollowupComponent },
   { path: 'admin-nrc', component: AdminComponent },
+  { path: 'admin-phc', component: AdminPhcComponent },
+  { path: 'admin-asha', component: AdminAshaComponent },
 ];
 
 @NgModule({

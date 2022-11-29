@@ -4,29 +4,29 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { AddNrcModalComponent } from '../add-nrc-modal/add-nrc-modal.component';
+import { AddPhcModalComponent } from '../add-phc-modal/add-phc-modal.component';
 import { DischargedPatient } from '../model/discharged-patient';
-import { NRC } from '../model/nrc';
+import { PHC } from '../model/phc';
 import { PatientService } from '../service/patient.service';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-admin-phc',
+  templateUrl: './admin-phc.component.html',
+  styleUrls: ['./admin-phc.component.css']
 })
-export class AdminComponent implements OnInit {
-  modalRef: MdbModalRef<AddNrcModalComponent> | null = null;
-  patients: NRC[];
+export class AdminPhcComponent implements OnInit {
+  modalRef: MdbModalRef<AddPhcModalComponent> | null = null;
+  phc: PHC[];
   searchText: String;  
   pipe: DatePipe;
   clear: boolean;
-  dataSource = new MatTableDataSource<NRC>;
+  dataSource = new MatTableDataSource<PHC>;
 
   filterForm = new FormGroup({
       fromDate: new FormControl(),
       toDate: new FormControl(),
   });
-  displayedColumns: string[] = ['name', 'address', 'pincode', 'contact', 'action'];
+  displayedColumns: string[] = ['name', 'parentName', 'address', 'pincode', 'contact', 'action'];
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
@@ -35,15 +35,12 @@ export class AdminComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this.patients = [
-      {name: "Gayathri", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-      {name: "Aanchal", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
+    this.phc = [
+      {name: "GYA", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726", parentName: "VVH"},
+      {name: "ARN", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726", parentName: "IGH"},
+      {name: "CHL", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726", parentName: "VVH"},
     ]
-    this.dataSource = new MatTableDataSource(this.patients);
+    this.dataSource = new MatTableDataSource(this.phc);
   }
 
   resetDate() {
@@ -60,15 +57,19 @@ export class AdminComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  openModal(name: String, address: String, pincode: String, contact: String, title: String) {
-    this.modalRef = this.modalService.open(AddNrcModalComponent, {
+  openModal(name: String, address: String, pincode: String, contact: String, title: 
+    String, parentName: String, entity: String, parent: String) {
+    this.modalRef = this.modalService.open(AddPhcModalComponent, {
       modalClass: 'modal-md',
       data: {
         name: name,
         address: address,
         pincode: pincode,
         contact: contact,
-        title: title
+        parentName: parentName,
+        title: title,
+        entity: entity,
+        parent: parent,
       }
     })
   }
