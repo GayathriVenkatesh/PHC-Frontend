@@ -62,7 +62,7 @@
                 <th mat-header-cell *matHeaderCellDef> Actions </th>
                 <td mat-cell *matCellDef="let p"> 
                     <i class="fa fa-pencil" style="font-size: 15px;" (click)="openModal(p.name, p.address, p.pincode, p.contact, 'Edit PHC Details', p.parentName, 'PHC', 'NRC')"></i> 
-                    <i class="fa fa-trash" style="font-size: 15px; margin-left: 15px;"></i> 
+                    <i class="fa fa-trash" style="font-size: 15px; margin-left: 15px;" (click)="openConfirm()"></i> 
                 </td>
                 <!-- <td mat-cell><i class="fa fa-home"></i></td> -->
               </ng-container>

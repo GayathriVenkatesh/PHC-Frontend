@@ -8,6 +8,7 @@ import { AddPhcModalComponent } from '../add-phc-modal/add-phc-modal.component';
 import { DischargedPatient } from '../model/discharged-patient';
 import { ASHA } from '../model/asha-details';
 import { PatientService } from '../service/patient.service';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-admin-asha',
@@ -60,6 +61,12 @@ export class AdminAshaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  openConfirm() {
+    this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
+      modalClass: 'modal-sm',
+    })
+  }
+  
   openModal(name: String, address: String, pincode: String, contact: String, parentName: String, 
     title: String, entity: String, parent: String) {
     this.modalRef = this.modalService.open(AddPhcModalComponent, {

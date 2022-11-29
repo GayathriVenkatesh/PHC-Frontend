@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { AddPhcModalComponent } from '../add-phc-modal/add-phc-modal.component';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 import { DischargedPatient } from '../model/discharged-patient';
 import { PHC } from '../model/phc';
 import { PatientService } from '../service/patient.service';
@@ -57,6 +58,12 @@ export class AdminPhcComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  openConfirm() {
+    this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
+      modalClass: 'modal-sm',
+    })
+  }
+
   openModal(name: String, address: String, pincode: String, contact: String, title: 
     String, parentName: String, entity: String, parent: String) {
     this.modalRef = this.modalService.open(AddPhcModalComponent, {
@@ -73,5 +80,7 @@ export class AdminPhcComponent implements OnInit {
       }
     })
   }
+
+
 
 }

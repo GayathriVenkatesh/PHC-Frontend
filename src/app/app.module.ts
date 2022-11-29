@@ -97,6 +97,7 @@ import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
 import { AdminAshaComponent } from './admin-asha/admin-asha.component';
 import { AddPhcModalComponent } from './add-phc-modal/add-phc-modal.component';
 import { AdminPhcComponent } from './admin-phc/admin-phc.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
@@ -152,6 +153,7 @@ import { AdminPhcComponent } from './admin-phc/admin-phc.component';
     AdminAshaComponent,
     AddPhcModalComponent,
     AdminPhcComponent,
+    ConfirmDeleteComponent,
     // SortTableComponent
   ],
   imports: [
