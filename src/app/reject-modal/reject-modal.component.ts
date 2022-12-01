@@ -19,6 +19,6 @@ export class RejectModalComponent implements OnInit {
 reject(): void {
 console.log("HIIII", this.patient);
   this.patientService.reject(this.patient.caseId).subscribe();
-//   location.reload();
+   location.reload();
 }
 }

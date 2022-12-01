@@ -78,6 +78,7 @@ export class DischargedPatientsComponent implements OnInit {
   }
 
   openModal(patient: DischargedPatient) {
+  console.log("HELLO", patient);
     this.modalRef = this.modalService.open(RejectModalComponent, {
       modalClass: 'modal-md',
       data : {patient: patient}

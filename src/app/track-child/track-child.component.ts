@@ -95,17 +95,7 @@ export class TrackChildComponent implements OnInit {
     // ]
     this.dataSource = new MatTableDataSource(this.patients);
 
-    this.pipe = new DatePipe('en');
-      this.dataSource.filterPredicate = (data: any, filter: any) =>{
-        if (this.fromDate && this.toDate) {
-          return data.dischargeDate >= this.fromDate && data.dischargeDate <= this.toDate;
-        }
-        else {
-          return data.name.includes(filter) || 
-          data.nrcFrom.includes(filter) || data.mobileNumber.includes(filter) || 
-          data.ashaName.includes(filter) || data.samNum.includes(filter);
-        }
-    }
+
     });
         });
   }
@@ -115,7 +105,18 @@ export class TrackChildComponent implements OnInit {
   }
 
   applyFilterDate() {
-    this.dataSource.filter = '' + Math.random();
+  this.pipe = new DatePipe('en');
+        this.dataSource.filterPredicate = (data: any, filter: any) =>{
+          if (this.fromDate && this.toDate) {
+            return data.dischargeDate >= this.fromDate && data.dischargeDate <= this.toDate;
+          }
+          else {
+            return data.name.includes(filter) ||
+            data.nrcFrom.includes(filter) || data.mobileNumber.includes(filter) ||
+            data.ashaName.includes(filter) || data.samNum.includes(filter);
+          }
+      }
+//    this.dataSource.filter = '' + Math.random();
   }
 
   applyFilterText(filterValue: string) {

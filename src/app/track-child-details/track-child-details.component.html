@@ -8,7 +8,7 @@
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
       <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">
-        Track Child: patient.name (SAM- this.patient?.samNum)
+        Track Child: {{patient.name}} (RCH ID/SAM ID- {{this.patient?.rchId}}/{{this.patient?.samNum}})
         <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span>
         <button type="button" class="btn rounded-pill btn-primary" style="background-color: #008ebe; 
         float: right; width: 12%; margin-right: 8%;" (click)="openRemarksModal()">Add Remarks</button>
@@ -34,58 +34,58 @@
             <td>
               <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Name</strong>
             </td>
-            <td>patient.name</td>
+            <td>{{patient.name}}</td>
           </tr>
           <tr style="color: black;">
               <td>
                 <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>SAM ID</strong>
               </td>
-              <td>patient.samNum</td>
+              <td>{{patient.samNum}}</td>
             </tr>                
           <tr style="color: black;">
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>RCH ID</strong>
               </td>
-              <td>patient.rchId</td>
+              <td>{{patient.rchId}}</td>
           </tr>
           <tr style="color: black;">
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Gender</strong>
             </td>
-            <td>patient.gender</td>
+            <td>{{patient.gender}}</td>
         </tr>
           <tr style="color: black;">
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Aadhar No</strong>
               </td>
-              <td>patient?.aadharId</td>
+              <td>{{patient?.aadharId}}</td>
           </tr>
           <tr style="color: black;">
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>ABHA No</strong>
               </td>
-              <td>patient?.abhaId</td>
+              <td>{{patient?.abhaId}}</td>
           </tr>
     
           <tr style="color: black;">
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Contact No</strong>
             </td>
-            <td>patient?.mobileNumber</td>
+            <td>{{patient?.mobileNumber}}</td>
           </tr>
 
           <tr style="color: black;">
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Address</strong>
             </td>
-            <td>patient.address</td>
+            <td>{{patient.address}}</td>
           </tr>
 
           <tr style="color: black;">
             <td>
               <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Pincode</strong>
             </td>
-            <td>patient.pincode</td>
+            <td>{{patient.pincode}}</td>
           </tr>
 
           <tr style="color: black;">
@@ -99,7 +99,7 @@
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Discharge Date</strong>
               </td>
-              <td>patient.dischargeDate | date  : "dd-MM-y" </td>
+              <td>{{patient.dischargeDate | date : "dd-MM-y"}} </td>
           </tr>
         </tbody>
       </table>
@@ -111,22 +111,22 @@
         <tbody style="font-family:Arial, Helvetica, sans-serif">
           <tr style="color: black;">
             <td><strong>Name</strong></td>
-            <td>patient?.name</td>
+            <td>{{patient?.name}}</td>
           </tr>
 
           <tr style="color: black;">
               <td><strong>RCH-ID</strong></td>
-              <td>patient?.rchId</td>
+              <td>{{patient?.rchId}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Age in months</strong></td>
-              <td>patient?.ageInMonths</td>
+              <td>{{patient?.ageInMonths}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Gender</strong></td>
-              <td>patient?.gender</td>
+              <td>{{patient?.gender}}</td>
             </tr>
 
             <tr style="color: black;">
@@ -136,17 +136,17 @@
 
             <tr style="color: black;">
               <td><strong>SAM ID</strong></td>
-              <td>patient?.samNum</td>
+              <td>{{patient?.samNum}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Discharge Weight in Kg</strong></td>
-              <td>discharge?.weightKg kg</td>
+              <td>{{discharge?.weightKg}} kg</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Discharge Height in Cm</strong></td>
-              <td>discharge?.heightCm cm</td>
+              <td>{{discharge?.heightCm}} cm</td>
             </tr>
             
             <tr style="color: black;">
@@ -161,48 +161,48 @@
 
             <tr style="color: black;">
               <td><strong>Co-morbidities (if any)</strong></td>
-              <td>comorbid</td>
+              <td>{{comorbid}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Duration of Stay</strong></td>
-              <td>dur</td>
+              <td>{{dur}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Average Weight Gain</strong></td>
-              <td>discharge?.avgWeightGainKg g/kg per day</td>
+              <td>{{discharge?.avgWeightGainKg}} g/kg per day</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Clinical Impression</strong></td>
-              <td>discharge?.clinicalImpression</td>
+              <td>{{discharge?.clinicalImpression}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Outcome</strong></td>
-              <td>discharge?.outcome</td>
+              <td>{{discharge?.outcome}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Medical Prescription</strong></td>
-              <td>discharge?.treatmentGiven</td>
+              <td>{{discharge?.treatmentGiven}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Post-discharge Advice</strong></td>
-              <td>discharge?.medicalAdvice</td>
+              <td>{{discharge?.medicalAdvice}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Dietary Advice</strong></td>
-              <td>discharge?.dietaryAdvice</td>
+              <td>{{discharge?.dietaryAdvice}}</td>
             </tr>
 
-            <tr style="color: black;">
-              <td><strong>Community Follow Up Calendar</strong></td>
-              <!-- <td>-</td> -->
-            </tr>
+<!--            <tr style="color: black;">-->
+<!--              <td><strong>Community Follow Up Calendar</strong></td>-->
+<!--              &lt;!&ndash; <td>-</td> &ndash;&gt;-->
+<!--            </tr>-->
       
     </tbody>
   </table>
@@ -224,11 +224,11 @@
         </thead>
         <tbody class="table-border-bottom-0">
           <tr *ngFor="let f of followups;" (click)="openModal(f.followupId, f.followupDate)">
-            <td >f.followupDate | date  : "dd-MM-y" </td>
-            <td>f.type</td>
-            <td>f.ashaName</td>
+            <td >{{f.followupDate | date : "dd-MM-y"}} </td>
+            <td>{{f.type}}</td>
+            <td>{{f.ashaName}}</td>
             <td>Bangalore</td>
-            <td>f.ashaNumber</td>
+            <td>{{f.ashaNumber}}</td>
           </tr>
           
 <!--          <tr (click)="openModal()">-->

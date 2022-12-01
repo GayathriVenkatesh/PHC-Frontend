@@ -39,6 +39,7 @@ export class FollowupTableNrcComponent implements OnInit {
     this.followupService.findFollowupSchedule().subscribe(data => {
       this.followups = data;
       console.log("followups", this.followups);
+          this.dataSource = new MatTableDataSource(this.followups);
     });
 
     // this.followups = [
@@ -50,7 +51,7 @@ export class FollowupTableNrcComponent implements OnInit {
     //     ashaId: 1, type: "community", rchId: 1},
     // ]
     this.searchText = "";
-    this.dataSource = new MatTableDataSource(this.followups);
+
 
     this.pipe = new DatePipe('en');
     this.dataSource.filterPredicate = (data: any, filter: any) =>{
