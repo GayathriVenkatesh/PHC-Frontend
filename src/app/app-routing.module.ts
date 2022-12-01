@@ -33,10 +33,13 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { PatientFollowupTableNrcComponent } from './patient-followup-table-nrc/patient-followup-table-nrc.component';
 import { FollowupTableNrcComponent } from './followup-table-nrc/followup-table-nrc.component';
 import { AdminComponent } from './admin/admin.component';
+import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
+import { AdminAshaComponent } from './admin-asha/admin-asha.component';
+import { AdminPhcComponent } from './admin-phc/admin-phc.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
-  { path: 'nrc-home', component: DashboardComponent },
+  { path: 'nrc-home', component: NrcDashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'login-doctor', component: LoginFormComponent },
   { path: 'login-nrc', component: LoginNrcComponent },
@@ -53,14 +56,19 @@ const routes: Routes = [
   { path: 'followup/:samId', component: PatientFollowupTableComponent },
   { path: 'nrc-followup/:samId', component: PatientFollowupTableNrcComponent },
   { path: 'add-followup/:caseId', component: EnterFollowupComponent },
+  { path: 'nrc-add-followup/:caseId', component: EnterFollowupComponent },
   { path: 'record-visit/:caseId', component: RecordVisitComponent },
+  { path: 'nrc-record-visit/:caseId', component: RecordVisitComponent },
   { path: 'track-child', component: TrackChildComponent },
   { path: 'nrc-track-child', component: TrackChildNrcComponent },
   { path: 'track-child/:rchId', component: TrackChildDetailsComponent },
+  { path: 'nrc-track-child/:rchId', component: TrackChildDetailsComponent },
   { path: 'asha-followups', component: AshaPatientComponent },
   { path: 'asha-add-followup/:scheduleId', component: AshaAddFollowupComponent },
   { path: 'asha-patient-followup/:caseId', component: AshaPatientFollowupComponent },
   { path: 'admin-nrc', component: AdminComponent },
+  { path: 'admin-phc', component: AdminPhcComponent },
+  { path: 'admin-asha', component: AdminAshaComponent },
 ];
 
 @NgModule({

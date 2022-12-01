@@ -106,6 +106,16 @@ h1, .h1 {
   }
 }
 
+td, th {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 200px;
+}
+
+.modal-dialog {
+  width: 4000px;
+}
+
 h2, .h2 {
   font-size: calc(1.325rem + 0.9vw);
 }
@@ -4745,10 +4755,10 @@ textarea.form-control-lg {
     max-width: 22.5rem;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 892px) {
   .modal-lg,
 .modal-xl {
-    max-width: 50rem;
+    max-width: 40rem;
   }
 }
 @media (min-width: 1200px) {

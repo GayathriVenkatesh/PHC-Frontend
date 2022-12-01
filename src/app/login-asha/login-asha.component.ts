@@ -25,7 +25,7 @@ export class LoginAshaComponent implements OnInit {
           localStorage.setItem('asha', data.ashaId);
           this.router.navigate(["asha-followups"]);}
       });
-    console.log("Username: ", this.username);
+      console.log("Username: ", this.username);
       console.log("Pass: ", this.password);
     }
 

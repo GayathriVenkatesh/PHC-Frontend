@@ -1,0 +1,72 @@
+<style>
+    .column {
+     float: left;
+     width: 100%;
+     padding: 20px;
+   }
+   
+   /* Clear floats after the columns */
+   .row:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+   </style>
+  
+  <div style="box-shadow: 0px 8px 10px gray, 
+  -10px 8px 15px gray, 10px 8px 15px gray;">
+  <div class="modal-header" style="width: 100% ">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: #566a7f; margin-bottom: -20px;"><strong>{{this.title}}</strong></h2>
+    <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+      (click)="modalRef.close()"></i>      
+    </div>
+    <div class="modal-body" style="font-family:Arial, Helvetica, sans-serif">
+      <div class="row">
+        <form>
+          <div class="column">
+               <div class="mb-3">
+                   <label class="form-label" for="basic-default-age">{{this.entity}} Name*</label>
+                   <input type="text" class="form-control" id="basic-default-company" value={{this.name}}/>
+               </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-age">{{this.parent}} it belongs to</label>
+                    <br>
+
+                    <select id="parents" class="form-select" value={{this.parentName}} style="height: calc(1.5em + 0.75rem + 2px); width: 100%; border: 1px solid #ced4da">
+                      <!-- <option></option> -->
+                      <option value="Pneumonia">Option 1</option>
+                      <option value="CHD">Option 2</option>
+                      <option value="Tuberculosis">Option 3</option>
+                    </select>  
+                    <!-- <input type="text" class="form-control" id="basic-default-company" value={{this.parentName}}/> -->
+                </div>
+
+               <div class="mb-3">
+                <label class="form-label" for="basic-default-age">Address</label>
+                <input type="text" class="form-control" id="basic-default-company" value={{this.address}}/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-age">Pincode</label>
+                <input type="text" class="form-control" id="basic-default-company" value={{this.pincode}}/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="basic-default-age">Contact No</label>
+                <input type="text" class="form-control" id="basic-default-company" value={{this.contact}} />
+            </div>
+          </div>
+
+          <button type="submit" class="btn rounded-pill btn-primary" 
+          style="background-color: #008eBe; float: right; margin-right: 0px; width: 25%">Save</button>
+      </form>
+      </div>
+    </div>
+  </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div> -->

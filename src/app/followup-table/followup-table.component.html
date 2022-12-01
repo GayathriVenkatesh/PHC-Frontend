@@ -23,7 +23,7 @@
             <div class="navbar-nav align-items-center" style="margin-bottom: 5px; margin-bottom: 5px;">
               <div class="nav-item d-flex align-items-center">
                 <mat-form-field>
-                  <input matInput (keyup)="applyFilterText($event.target.value)" placeholder="Search by anything">
+                  <input matInput (keyup)="applyFilterText($event.target.value)" placeholder="Search">
                 </mat-form-field>
                 <div style="margin-right: 10px; margin-top: -2px;">                    
                   <form class="date-block" [formGroup]="filterForm">
@@ -39,13 +39,15 @@
                           <mat-date-range-picker #fromDate></mat-date-range-picker>
                       </mat-form-field>
                       <button type="button" class="btn btn-sm btn-primary" 
-                        style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                        style="color: white; background-color:grey; border-color: white; font-family: 'Helvetica';
+                        margin-left: 10px;"
                         (click)="applyFilterDate()">
                         Filter
                       </button>
     
                       <button type="button" class="btn btn-sm btn-primary" 
-                        style="color: white; background-color:grey; border-color: white; margin-left: 10px;"
+                        style="color: white; background-color:grey; border-color: white; font-family: 'Helvetica';
+                        margin-left: 10px;"
                         (click)="resetDate()">
                         Clear
                       </button>

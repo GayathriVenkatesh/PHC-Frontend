@@ -45,10 +45,10 @@ export class FollowupTableNrcComponent implements OnInit {
     // this.followups = [
     //   {nextCommunity: new Date(), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
     //     childName: "gayu", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
-    //     ashaId: 1, type: "community", rchId: 1},
+    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: ""},
     //   {nextCommunity: new Date("01-11-2022"), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
     //     childName: "aaru", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
-    //     ashaId: 1, type: "community", rchId: 1},
+    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: ""},
     // ]
     this.searchText = "";
 
@@ -65,6 +65,7 @@ export class FollowupTableNrcComponent implements OnInit {
       }
   }
     console.log(this.dataSource);
+  });
   }
 
   resetDate() {

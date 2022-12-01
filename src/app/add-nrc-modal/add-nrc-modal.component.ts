@@ -8,6 +8,12 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 })
 export class AddNrcModalComponent implements OnInit {
 
+  name: String;
+  address: String;
+  pincode: String;
+  contact: String;
+  title: String;
+
   constructor(public modalRef: MdbModalRef<AddNrcModalComponent>) { }
 
   ngOnInit(): void {
