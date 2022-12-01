@@ -34,13 +34,13 @@
             <td>
               <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Name</strong>
             </td>
-            <td>{{patient.name}}</td>
+            <td>{{patient?.name}}</td>
           </tr>
           <tr style="color: black;">
               <td>
                 <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>SAM ID</strong>
               </td>
-              <td>{{patient.samNum}}</td>
+              <td>{{patient?.samNum}}</td>
             </tr>                
           <tr style="color: black;">
               <td>
@@ -216,19 +216,19 @@
           <tr style="color: black;">
             <th style="color: black;">Date</th>
             <th style="color: black;">Follow Up Type</th>
-            <th style="color: black;">ASHA Worker</th>
-            <th style="color: black;">Location</th>
-            <th style="color: black;">ASHA Contact</th>
+            <th style="color: black;">Follow Up Done By</th>
+            <th style="color: black;">Place of Followup</th>
+            <th style="color: black;">Contact</th>
             <!-- <th style="color: black;">ASHA Worker</th> -->
           </tr>
         </thead>
         <tbody class="table-border-bottom-0">
           <tr *ngFor="let f of followups;" (click)="openModal(f.followupId, f.followupDate)">
-            <td >{{f.followupDate | date : "dd-MM-y"}} </td>
-            <td>{{f.type}}</td>
-            <td>{{f.ashaName}}</td>
-            <td>Bangalore</td>
-            <td>{{f.ashaNumber}}</td>
+            <td >{{f?.followupDate | date : "dd-MM-y"}} </td>
+            <td>{{f?.type}}</td>
+            <td>{{f?.ashaName}}</td>
+            <td>{{f?.place}}</td>
+            <td>{{f?.ashaNumber}}</td>
           </tr>
           
 <!--          <tr (click)="openModal()">-->

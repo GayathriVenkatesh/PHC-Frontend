@@ -37,4 +37,12 @@ export class AshaWorkerService {
      console.log("hey", ashaChild);
     return this.http.post<Object>(this.ashaChildUrl, ashaChild);
   }
+
+  public ashaSave(asha: AshaWorker){
+  return this.http.post<AshaWorker>(this.ashaUrl, asha);
+  }
+
+  public delete(ashaId: number){
+  return this.http.delete(this.ashaUrl + "/" + ashaId);
+  }
 }

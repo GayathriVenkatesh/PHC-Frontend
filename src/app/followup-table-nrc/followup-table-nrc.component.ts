@@ -28,6 +28,7 @@ export class FollowupTableNrcComponent implements OnInit {
       fromDate: new FormControl(),
       toDate: new FormControl(),
   });
+
   displayedColumns: string[] = ['id', 'name', 'asha', 'followups', 'nextCommunity', 'nextNrc'];
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
@@ -65,7 +66,7 @@ export class FollowupTableNrcComponent implements OnInit {
       }
   }
     console.log(this.dataSource);
-  });
+  //});
   }
 
   resetDate() {

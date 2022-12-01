@@ -1,8 +1,9 @@
 export class AshaWorker {
-    name: number;
-    ward: string;
-    area: string;
-    pincode: string;
-    ashaId: number;
-    phoneNumber: string;
+    name: String;
+    ward: String;
+    area: String;
+    pincode: String;
+    ashaId: number | null;
+    phoneNumber: String;
+    phcName: String;
 }

@@ -10,6 +10,7 @@ export class AssignAshaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
