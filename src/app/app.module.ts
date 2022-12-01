@@ -99,6 +99,10 @@ import { AdminAshaComponent } from './admin-asha/admin-asha.component';
 import { AddPhcModalComponent } from './add-phc-modal/add-phc-modal.component';
 import { AdminPhcComponent } from './admin-phc/admin-phc.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import { AdminPhcDoctorComponent } from './admin-phc-doctor/admin-phc-doctor.component';
+import { AddDoctorModalComponent } from './add-doctor-modal/add-doctor-modal.component';
+import { AdminNrcDoctorComponent } from './admin-nrc-doctor/admin-nrc-doctor.component';
+import { AdminAnmComponent } from './admin-anm/admin-anm.component';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
@@ -156,6 +160,10 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
     AddPhcModalComponent,
     AdminPhcComponent,
     ConfirmDeleteComponent,
+    AdminPhcDoctorComponent,
+    AddDoctorModalComponent,
+    AdminNrcDoctorComponent,
+    AdminAnmComponent,
     // SortTableComponent
   ],
   imports: [

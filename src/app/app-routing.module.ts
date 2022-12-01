@@ -36,6 +36,9 @@ import { AdminComponent } from './admin/admin.component';
 import { NrcDashboardComponent } from './nrc-dashboard/nrc-dashboard.component';
 import { AdminAshaComponent } from './admin-asha/admin-asha.component';
 import { AdminPhcComponent } from './admin-phc/admin-phc.component';
+import { AdminPhcDoctorComponent } from './admin-phc-doctor/admin-phc-doctor.component';
+import { AdminNrcDoctorComponent } from './admin-nrc-doctor/admin-nrc-doctor.component';
+import { AdminAnmComponent } from './admin-anm/admin-anm.component';
 
 const routes: Routes = [
   { path: 'home', component: DashboardComponent },
@@ -68,7 +71,10 @@ const routes: Routes = [
   { path: 'asha-patient-followup/:caseId', component: AshaPatientFollowupComponent },
   { path: 'admin-nrc', component: AdminComponent },
   { path: 'admin-phc', component: AdminPhcComponent },
+  { path: 'admin-phc-doctor', component: AdminPhcDoctorComponent },
+  { path: 'admin-nrc-doctor', component: AdminNrcDoctorComponent },
   { path: 'admin-asha', component: AdminAshaComponent },
+  { path: 'admin-anm', component: AdminAnmComponent },
 ];
 
 @NgModule({
