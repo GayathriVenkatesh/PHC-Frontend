@@ -34,15 +34,15 @@ export class TrackChildComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.patients = [
-    //   {name: 'aaru', status: "complete", address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
-    //   dischargeDate: new Date(), admissionDate: new Date(), dischargeSd: -1, dischargeId: "1", samNum: "4987", ashaId: 1, ashaName: ""},
-    //   {name: 'gayu', status: "complete", address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
-    //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
-    // ]
-    // this.dataSource = new MatTableDataSource(this.patients);
+    this.patients = [
+      {name: 'aaru', status: "complete", address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+      rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+      dischargeDate: new Date(), admissionDate: new Date(), dischargeSd: -1, dischargeId: "1", samNum: "4987", ashaId: 1, ashaName: ""},
+      {name: 'gayu', status: "complete", address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
+      rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
+      dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
+    ]
+    this.dataSource = new MatTableDataSource(this.patients);
     this.patientService.findAll().subscribe(data1 => {
       this.awaitingAsha = data1;
       for(var i = 0; i < data1.length; i++) {

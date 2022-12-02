@@ -11,9 +11,9 @@ import { AshaWorker } from '../model/asha-worker';
 export class WorkerDetailsComponent implements OnInit {
 
   ashaId: String;
-      asha: AshaWorker;
+  asha: AshaWorker;
 
-    constructor(private router: Router, private ashaWorkerService: AshaWorkerService) { }
+  constructor(private router: Router, private ashaWorkerService: AshaWorkerService) { }
 
   ngOnInit(): void {
   this.ashaId = this.router.url.split("/")[2];

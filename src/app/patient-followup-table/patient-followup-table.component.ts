@@ -38,7 +38,7 @@ export class PatientFollowupTableComponent implements OnInit {
 //     modalRef.componentInstance.followupId=followupId;
   }
 
-  openSmallModal() {
+  openCancelledModal() {
     this.modalRef = this.modalService.open(SmallModalComponent, {
       modalClass: 'modal-sm'
     })
@@ -51,7 +51,7 @@ export class PatientFollowupTableComponent implements OnInit {
     // this.followupService.findByCaseId(this.caseId).subscribe(data => {
       // this.followups = data;
       this.followups = [
-        {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date(), status: "pending", type: "COMMUNITY", name: "", samNum: 1},
+        {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date(), status: "cancelled", type: "COMMUNITY", name: "", samNum: 1},
         {scheduleId: 1, followupId: 0, caseId: 1, followupDate: new Date("27-10-2022"), status: "pending", type: "NRC", name: "", samNum: 1},
         {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date(), status: "pending", type: "COMMUNITY", name: "", samNum: 1},
         {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date(), status: "pending", type: "COMMUNITY", name: "", samNum: 1},
@@ -79,6 +79,6 @@ export class PatientFollowupTableComponent implements OnInit {
       console.log("followups communtiy", this.community);
       console.log("followups nrc", this.nrc);
       // });
-    this.searchText = "";
+    // this.searchText = "";
   }
 }

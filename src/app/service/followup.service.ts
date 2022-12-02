@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { FollowupDate } from '../model/followup-dates';
 import { FollowupSched } from '../model/followup-sched';
 import { FollowupSchedule } from '../model/followup-schedule';
+import { url } from './url';
 
 
 @Injectable()
@@ -13,7 +14,7 @@ export class FollowupService {
   private followupsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.followupsUrl = 'http://localhost:8080/followup';
+    this.followupsUrl = url + '/followup';
   }
 
   public findAll(): Observable<Followup[]> {

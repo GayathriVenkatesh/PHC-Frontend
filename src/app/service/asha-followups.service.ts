@@ -5,6 +5,7 @@ import { AshaWorker } from '../model/asha-worker';
 import { AshaChild } from '../model/asha-child';
 import { FollowupSchedule } from '../model/followup-schedule';
 import { Followup } from '../model/followup';
+import { url } from '../service/url';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AshaFollowupsService {
   private ashaChildUrl: string;
 
   constructor(private http: HttpClient) {
-    this.ashaUrl = 'http://localhost:8080/asha-followup';
+    this.ashaUrl = url + '/asha-followup';
 
   }
 
@@ -23,7 +24,7 @@ export class AshaFollowupsService {
   }
 
   public getFollowups(caseId: String): Observable<Followup[]>{
-  return this.http.get<Followup[]>('http://localhost:8080/asha-patient-followup/' + caseId);
+  return this.http.get<Followup[]>(url + '/asha-patient-followup/' + caseId);
   }
 
 

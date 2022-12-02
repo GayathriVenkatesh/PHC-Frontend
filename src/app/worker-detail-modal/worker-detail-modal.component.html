@@ -30,18 +30,20 @@
               <!-- <div class="column"> -->
               <tr>
                   <td>ASHA Name</td>
-                  <td>Nilam Patel</td>
+                  <td>{{asha?.name}}</td>
               </tr>
-  
+              
               <tr>
-                  <td>Assigned Anganwadi</td>
-                  <td>HSR Layout, Bengaluru</td>
-                </tr>
+                <td>Contact No</td>
+                <td>{{asha?.phoneNumber}}</td>
+              </tr>
+
+              <tr>
+                <td>Assigned Anganwadi</td>
+                <td>Ward: {{asha?.ward}}, Area: {{asha?.area}}, Pincode: {{asha?.pincode}}</td>
+              </tr>
             
-                <tr>
-                    <td>Contact No</td>
-                    <td>9838573818</td>
-                  </tr>
+                
               <!-- </div> -->
               
             </tbody>

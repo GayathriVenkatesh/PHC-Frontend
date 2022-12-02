@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AshaWorker } from '../model/asha-worker';
 import { AshaChild } from '../model/asha-child';
+import { url } from './url';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class AshaWorkerService {
   private ashaChildUrl: string;
 
   constructor(private http: HttpClient) {
-    this.ashaUrl = 'http://localhost:8080/asha-worker';
-    this.ashaChildUrl = 'http://localhost:8080/Asha-child';
+    this.ashaUrl = url + '/asha-worker';
+    this.ashaChildUrl = url + '/Asha-child';
   }
 
   public findAll(): Observable<AshaWorker[]> {
@@ -30,7 +31,7 @@ export class AshaWorkerService {
   }
 
   public getAssigned(): Observable<Number[]>{
-  return this.http.get<Number[]>('http://localhost:8080/assigned-children');
+  return this.http.get<Number[]>(url + '/assigned-children');
   }
 
     public save(ashaChild: AshaChild) {

@@ -1,6 +1,7 @@
 export class Followup {
     followupId: number;
     followupDate: Date;
+    place: String;
     height: number;
     weight: number;
     muac: number;

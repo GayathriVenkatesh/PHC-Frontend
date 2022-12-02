@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { map, filter, switchMap, delay } from 'rxjs/operators';
 import { DischargedPatient } from '../model/discharged-patient';
+import { url } from './url';
 
 
 @Injectable()
@@ -17,10 +18,10 @@ export class PatientService {
   private dischargedPatientUrl: string;
 
   constructor(private http: HttpClient) {
-    this.patientsUrl = 'http://localhost:8080/patient';
-    this.dischargeUrl = 'http://localhost:8080/get-discharge';
-    this.childUrl = 'http://localhost:8080/child-details';
-    this.dischargedPatientUrl = 'http://localhost:8080/discharge';
+    this.patientsUrl = url + '/patient';
+    this.dischargeUrl = url + '/get-discharge';
+    this.childUrl = url + '/child-details';
+    this.dischargedPatientUrl = url + '/discharge';
   }
 
   public findAll(): Observable<Patient[]> {
@@ -42,7 +43,7 @@ export class PatientService {
 
   public findByCaseId(caseId: String): Observable<Patient> {
   //   console.log("SAMID: ", samId);
-      return this.http.get<Patient>("http://localhost:8080/child/" + caseId);
+      return this.http.get<Patient>(url + "/child/" + caseId);
     }
 
   public findByDischargeId(dischargeId: String): Observable<Patient> {
@@ -96,7 +97,7 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
       }
 
    public trackChild(): Observable<Patient[]> {
-       return this.http.get<Patient[]>("http://localhost:8080/track-child");
+       return this.http.get<Patient[]>(url + "/track-child");
      }
 
 }

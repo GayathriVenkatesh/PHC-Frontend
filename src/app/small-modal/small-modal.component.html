@@ -1,29 +1,35 @@
 <style>
-    .column {
-     float: left;
-     width: 50%;
-     padding: 50px;
-   }
-   
-   /* Clear floats after the columns */
-   .row:after {
-     content: "";
-     display: table;
-     clear: both;
-   }
-   </style>
-  
-  <div style="box-shadow: 0px 8px 10px gray, 
-  -10px 8px 15px gray, 10px 8px 15px gray;">
-  <div class="modal-header" style="width: 200px">
-      <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
-      (click)="modalRef.close()"></i>
-  
-    </div>
-    <div class="modal-body">
-      <div class="table-responsive text-nowrap" style="font-family: Serif; width: 100%;">
-          Completed
-        
-    </div>
-    </div>
+  .column {
+   float: left;
+   width: 100%;
+   padding: 20px;
+ }
+ 
+ /* Clear floats after the columns */
+ .row:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+ </style>
+
+<div style="box-shadow: 0px 8px 10px gray, 
+-10px 8px 15px gray, 10px 8px 15px gray;">
+<div class="modal-header" style="width: 100% ">
+  <h2 style="font-family: Arial, Helvetica, sans-serif; color: #566a7f; margin-bottom: -20px;">
+    <strong>Follow Up Cancelled</strong></h2>
+  <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
+    (click)="modalRef.close()"></i>      
   </div>
+  <div class="modal-body" style="font-family:Arial, Helvetica, sans-serif">
+    <div class="row">
+      <h3 style="padding-left: 20px; padding-right: 20px;">Reason for Cancellation: <br> Commute issues</h3>
+  </div>
+  </div>
+</div>
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+      Close
+    </button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div> -->
