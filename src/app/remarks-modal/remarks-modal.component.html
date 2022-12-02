@@ -16,7 +16,7 @@
   <div style="box-shadow: 0px 8px 10px gray, 
   -10px 8px 15px gray, 10px 8px 15px gray;">
   <div class="modal-header" style="width: 100% ">
-    <h2 style="font-family: Arial, Helvetica, sans-serif; color: #566a7f; margin-bottom: -20px;"><strong>Enter Remarks</strong></h2>
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: #566a7f; margin-bottom: -20px;"><strong>Clinical Remarks</strong></h2>
     <i class='fa fa-times' style='font-size:24px; color:rgb(70, 68, 68);' aria-label="Close"
       (click)="modalRef.close()"></i>      
     </div>
@@ -25,9 +25,19 @@
         <form>
           <div class="column">
                <div class="mb-3">
-                   <!-- <label class="form-label" for="basic-default-age">Reason for Rejection*</label> -->
+                   <label class="form-label" for="basic-default-age">Enter remarks*</label>
                    <textarea class="form-control" id="basic-default-company"></textarea>
                </div>
+
+               <div class="mb-3">
+                <label class="form-label" for="basic-default-age">Doctor name*</label>
+                <input class="form-control" id="basic-default-company">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="basic-default-age">Doctor Contact No*</label>
+              <input class="form-control" id="basic-default-company">
+          </div>
           </div>
 
           <button type="submit" class="btn rounded-pill btn-primary" 

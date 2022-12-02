@@ -50,7 +50,14 @@ export class PatientFollowupTableNrcComponent implements OnInit {
     this.caseId = this.router.url.split("/")[2];
      this.followupService.findByCaseId(this.caseId).subscribe(data => {
        this.followups = data;
-
+      //this.followups = [
+      //  {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date(), status: "pending", type: "COMMUNITY", name: "", samNum: 1},
+      //  {scheduleId: 1, followupId: 0, caseId: 1, followupDate: new Date("27-10-2022"), status: "pending", type: "NRC", name: "", samNum: 1},
+      //  {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date(), status: "pending", type: "COMMUNITY", name: "", samNum: 1},
+      //  {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date(), status: "pending", type: "COMMUNITY", name: "", samNum: 1},
+      //  {scheduleId: 1, followupId: 0, caseId: 1, followupDate: new Date(), status: "pending", type: "COMMUNITY", name: "", samNum: 1},
+      //  {scheduleId: 1, followupId: 1, caseId: 1, followupDate: new Date("27-10-2022"), status: "pending", type: "NRC", name: "", samNum: 1}
+      //]
       this.samNum = this.followups[0].samNum;
       this.name = this.followups[0].name;
       for(var i=0; i<this.followups.length; i++){
