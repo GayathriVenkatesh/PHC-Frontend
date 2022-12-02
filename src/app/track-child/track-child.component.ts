@@ -89,20 +89,26 @@ export class TrackChildComponent implements OnInit {
     //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
     // ]
     this.dataSource = new MatTableDataSource(this.patients);
+    //this.dataSource.filterPredicate = this.dateFilter();
+this.pipe = new DatePipe('en');
+        this.dataSource.filterPredicate = (data: any, filter: any) =>{
+          if (this.fromDate && this.toDate) {
+          console.log("DATE IS THERE: ", this.fromDate,this.toDate);
+          var x = (new Date(data.dischargeDate) >= this.fromDate) && (new Date(data.dischargeDate) <= this.toDate);
+            //console.log("X ", x, typeof new Date(data.dischargeDate), typeof this.fromDate);
+            return x;
+          }
+          else {
+          console.log("no date");
+            return data.name.includes(filter) ||
+            data.nrcFrom.includes(filter) || data.mobileNumber.includes(filter) ||
+            data.ashaName.includes(filter) || data.samNum.includes(filter);
+         }
+      }
 
-    this.pipe = new DatePipe('en');
-      this.dataSource.filterPredicate = (data: any, filter: any) =>{
-        if (this.fromDate && this.toDate) {
-          return data.dischargeDate >= this.fromDate && data.dischargeDate <= this.toDate;
-        }
-        else {
-          return data.name.includes(filter) || 
-          data.nrcFrom.includes(filter) || data.mobileNumber.includes(filter) || 
-          data.ashaName.includes(filter) || data.samNum.includes(filter);
-        }
-    }
     });
     });
+
   }
 
   resetDate() {
@@ -110,6 +116,8 @@ export class TrackChildComponent implements OnInit {
   }
 
   applyFilterDate() {
+  console.log("HELLO", this.fromDate,this.toDate)
+      //  console.log(this.dataSource);
     this.dataSource.filter = '' + Math.random();
   }
 

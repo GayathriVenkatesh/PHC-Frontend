@@ -14,5 +14,5 @@ export class FollowupSchedule {
  ashaId: number;
  rchId: number;
  mobileNumber: String;
-
+place: String;
 }

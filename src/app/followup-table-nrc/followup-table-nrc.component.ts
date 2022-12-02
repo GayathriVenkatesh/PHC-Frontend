@@ -28,6 +28,7 @@ export class FollowupTableNrcComponent implements OnInit {
       fromDate: new FormControl(),
       toDate: new FormControl(),
   });
+
   displayedColumns: string[] = ['id', 'name', 'asha', 'followups', 'nextCommunity', 'nextNrc'];
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
@@ -39,7 +40,8 @@ export class FollowupTableNrcComponent implements OnInit {
     this.followupService.findFollowupSchedule().subscribe(data => {
       this.followups = data;
       console.log("followups", this.followups);
-    
+          this.dataSource = new MatTableDataSource(this.followups);
+    });
 
     // this.followups = [
     //   {nextCommunity: new Date(), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
@@ -50,7 +52,7 @@ export class FollowupTableNrcComponent implements OnInit {
     //     ashaId: 1, type: "community", rchId: 1, mobileNumber: ""},
     // ]
     this.searchText = "";
-    this.dataSource = new MatTableDataSource(this.followups);
+
 
     this.pipe = new DatePipe('en');
     this.dataSource.filterPredicate = (data: any, filter: any) =>{
@@ -64,7 +66,7 @@ export class FollowupTableNrcComponent implements OnInit {
       }
   }
     console.log(this.dataSource);
-  });
+  //});
   }
 
   resetDate() {

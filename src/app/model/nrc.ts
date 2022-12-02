@@ -1,6 +1,7 @@
 export class NRC {
-    name: string;
-    address: string;
-    pincode: string;
-    contact: string;
+nrcId: number | null;
+    name: String;
+    address: String;
+    pincode: String;
+    contactNumber: String;
 }

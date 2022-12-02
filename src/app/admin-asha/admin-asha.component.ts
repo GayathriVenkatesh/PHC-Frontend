@@ -9,6 +9,8 @@ import { DischargedPatient } from '../model/discharged-patient';
 import { ASHA } from '../model/asha-details';
 import { PatientService } from '../service/patient.service';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+import { AshaWorker } from '../model/asha-worker';
+import { AshaWorkerService } from '../service/asha-worker.service';
 
 @Component({
   selector: 'app-admin-asha',
@@ -17,34 +19,42 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 })
 export class AdminAshaComponent implements OnInit {
   modalRef: MdbModalRef<AddPhcModalComponent> | null = null;
-  asha: ASHA[];
+  //asha: ASHA[];
   searchText: String;  
   pipe: DatePipe;
   clear: boolean;
-  dataSource = new MatTableDataSource<ASHA>;
+  dataSource = new MatTableDataSource<AshaWorker>;
+  asha: AshaWorker[];
 
   filterForm = new FormGroup({
       fromDate: new FormControl(),
       toDate: new FormControl(),
   });
-  displayedColumns: string[] = ['name', 'parentName', 'address', 'pincode', 'contact', 'action'];
+  //displayedColumns: string[] = ['name', 'parentName', 'address', 'pincode', 'contact', 'action'];
+  displayedColumns: string[] = ['name', 'phcName', 'area', 'pincode', 'phoneNumber', 'action'];
+
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
 
-  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService) {
+  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService, private ashaWorkerService: AshaWorkerService) {
     
   }
   ngOnInit(): void {
-    this.asha = [
-      {name: "Gayathri", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726", parentName: "Phc1"},
-      {name: "Aarushi", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726", parentName: "Phc2"},
-      {name: "Aanchal", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726", parentName: "Phc3"},
+    //this.asha = [
+      //{name: "Gayathri", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726", parentName: "Phc1"},
+      //{name: "Aarushi", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726", parentName: "Phc2"},
+      //{name: "Aanchal", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726", parentName: "Phc3"},
       // {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
       // {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
       // {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-    ]
-    this.dataSource = new MatTableDataSource(this.asha);
+    //]
+    this.ashaWorkerService.findAll().subscribe(data => {
+          this.asha = data;
+          console.log("WORKERS", data);
+              this.dataSource = new MatTableDataSource(this.asha);
+        });
+
   }
 
   resetDate() {
@@ -61,17 +71,21 @@ export class AdminAshaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  openConfirm() {
+  openConfirm(ashaId: number) {
     this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
       modalClass: 'modal-sm',
+      data: {
+      entity: 'ASHA',
+      id: ashaId}
     })
   }
   
-  openModal(name: String, address: String, pincode: String, contact: String, parentName: String, 
+  openModal(ashaId: number | null, name: String, address: String, pincode: String, contact: String, parentName: String,
     title: String, entity: String, parent: String) {
     this.modalRef = this.modalService.open(AddPhcModalComponent, {
       modalClass: 'modal-md',
       data: {
+        ashaId: ashaId,
         name: name,
         address: address,
         pincode: pincode,

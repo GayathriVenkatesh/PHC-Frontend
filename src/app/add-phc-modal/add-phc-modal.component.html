@@ -22,39 +22,59 @@
     </div>
     <div class="modal-body" style="font-family:Arial, Helvetica, sans-serif">
       <div class="row">
-        <form>
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm" >
           <div class="column">
                <div class="mb-3">
                    <label class="form-label" for="basic-default-age">{{this.entity}} Name*</label>
-                   <input type="text" class="form-control" id="basic-default-company" value={{this.name}}/>
+                   <input type="text" class="form-control" [(ngModel)] = "name" id="name" name="name" value={{this.name}}/>
                </div>
 
-                <div class="mb-3">
-                    <label class="form-label" for="basic-default-age">{{this.parent}} they belongs to</label>
+              <div *ngIf = "this.entity=='ASHA'" class="mb-3">
+                  <label class="form-label" for="basic-default-age">Username</label>
+                  <input type="text" class="form-control" [(ngModel)] = "username" id="username" name="username" value={{this.username}}/>
+              </div>
+
+              <div *ngIf = "this.entity=='ASHA'" class="mb-3">
+                  <label class="form-label" for="basic-default-age">Password</label>
+                  <input type="text" class="form-control" [(ngModel)] = "password" id="password" name="password" value={{this.password}}/>
+              </div>
+
+                <div *ngIf = "this.entity=='ASHA'" class="mb-3">
+                    <label class="form-label" for="basic-default-age">{{this.parent}} they belong to</label>
                     <br>
 
-                    <select id="parents" class="form-select" value={{this.parentName}} style="height: calc(1.5em + 0.75rem + 2px); width: 100%; border: 1px solid #ced4da">
+                    <select [(ngModel)] = "parentName" name="parentName" id="parentName" class="form-select" value={{this.parentName}} style="height: calc(1.5em + 0.75rem + 2px); width: 100%; border: 1px solid #ced4da">
                       <!-- <option></option> -->
-                      <option value="Pneumonia">Option 1</option>
-                      <option value="CHD">Option 2</option>
-                      <option value="Tuberculosis">Option 3</option>
+                        <option value="Agara">34 - Agara PHC - 560102</option>
+                        <option value="Anjanapura"> 35 - Anjanapura PHC - 560108</option>
+                        <option value="Arakere"> 36 - Arakere PHC - 572106</option>
+                        <option value="Begur"> 37 - Begur PHC - 560068</option>
+                        <option value="38"> 38 - Bommanahalli PHC - 560068</option>
+                        <option value="39"> 39 - Gottigere PHC - 560083</option>
+                        <option value="40">  40 - Kodichikkanahalli PHC - 560076</option>
+                        <option value="41">  41 - Konanakunte PHC - 560062</option>
+                        <option value="42"> 42 - RoopenaAgrahara PHC - 560068</option>
+                        <option value="43"> 43 - Singasandra PHC - 560100</option>
+                        <option value="44"> 44 - Uttarahalli PHC - 560061</option>
+                        <option value="45"> 45 - Vasanthpura PHC - 560061</option>
+                        <option value="46"> 46 - Yalachenahalli PHC - 560078</option>
                     </select>  
                     <!-- <input type="text" class="form-control" id="basic-default-company" value={{this.parentName}}/> -->
                 </div>
 
                <div class="mb-3">
                 <label class="form-label" for="basic-default-age">Address</label>
-                <input type="text" class="form-control" id="basic-default-company" value={{this.address}}/>
+                <input type="text" class="form-control" [(ngModel)] = "address" id="address" name="address" value={{this.address}}/>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-age">Pincode</label>
-                <input type="text" class="form-control" id="basic-default-company" value={{this.pincode}}/>
+                <input type="text" class="form-control" [(ngModel)] = "pincode" id="pincode" name="pincode" value={{this.pincode}}/>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="basic-default-age">Contact No</label>
-                <input type="text" class="form-control" id="basic-default-company" value={{this.contact}} />
+                <input type="text" class="form-control" [(ngModel)] = "contact" id="contact" name="contact" value={{this.contact}} />
             </div>
           </div>
 

@@ -8,7 +8,7 @@
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
       <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">
-        Track Child: {{this.patient?.name}} (SAM- {{this.patient?.samNum}})
+        Track Child: {{patient.name}} (RCH ID/SAM ID- {{this.patient?.rchId}}/{{this.patient?.samNum}})
         <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span>
         <button type="button" class="btn rounded-pill btn-primary" style="background-color: #008ebe; 
         float: right; width: 12%; margin-right: 8%;" (click)="openRemarksModal()">Add Remarks</button>
@@ -34,13 +34,13 @@
             <td>
               <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Name</strong>
             </td>
-            <td>{{patient.name}}</td>
+            <td>{{patient?.name}}</td>
           </tr>
           <tr style="color: black;">
               <td>
                 <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>SAM ID</strong>
               </td>
-              <td>{{patient.samNum}}</td>
+              <td>{{patient?.samNum}}</td>
             </tr>                
           <tr style="color: black;">
               <td>
@@ -99,7 +99,7 @@
               <td>
                 <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Discharge Date</strong>
               </td>
-              <td>{{patient.dischargeDate | date  : "dd-MM-y"}} </td>
+              <td>{{patient.dischargeDate | date : "dd-MM-y"}} </td>
           </tr>
         </tbody>
       </table>
@@ -161,12 +161,12 @@
 
             <tr style="color: black;">
               <td><strong>Co-morbidities (if any)</strong></td>
-              <td>comorbid</td>
+              <td>{{comorbid}}</td>
             </tr>
 
             <tr style="color: black;">
               <td><strong>Duration of Stay</strong></td>
-              <td>dur</td>
+              <td>{{dur}}</td>
             </tr>
 
             <tr style="color: black;">
@@ -199,10 +199,10 @@
               <td>{{discharge?.dietaryAdvice}}</td>
             </tr>
 
-            <tr style="color: black;">
-              <td><strong>Community Follow Up Calendar</strong></td>
-              <!-- <td>-</td> -->
-            </tr>
+<!--            <tr style="color: black;">-->
+<!--              <td><strong>Community Follow Up Calendar</strong></td>-->
+<!--              &lt;!&ndash; <td>-</td> &ndash;&gt;-->
+<!--            </tr>-->
       
     </tbody>
   </table>
@@ -216,19 +216,19 @@
           <tr style="color: black;">
             <th style="color: black;">Date</th>
             <th style="color: black;">Follow Up Type</th>
-            <th style="color: black;">ASHA Worker</th>
-            <th style="color: black;">Location</th>
-            <th style="color: black;">ASHA Contact</th>
+            <th style="color: black;">Follow Up Done By</th>
+            <th style="color: black;">Place of Followup</th>
+            <th style="color: black;">Contact</th>
             <!-- <th style="color: black;">ASHA Worker</th> -->
           </tr>
         </thead>
         <tbody class="table-border-bottom-0">
           <tr *ngFor="let f of followups;" (click)="openModal(f.followupId, f.followupDate)">
-            <td >{{f.followupDate | date  : "dd-MM-y" }}</td>
-            <td>{{f.type}}</td>
-            <td>{{f.ashaName}}</td>
-            <td>Bangalore</td>
-            <td>{{f.ashaNumber}}</td>
+            <td >{{f?.followupDate | date : "dd-MM-y"}} </td>
+            <td>{{f?.type}}</td>
+            <td>{{f?.ashaName}}</td>
+            <td>{{f?.place}}</td>
+            <td>{{f?.ashaNumber}}</td>
           </tr>
           
 <!--          <tr (click)="openModal()">-->

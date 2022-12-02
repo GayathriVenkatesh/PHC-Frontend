@@ -39,6 +39,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { AssignAshaTableComponent } from './assign-asha-table/assign-asha-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PatientFollowupTableComponent } from './patient-followup-table/patient-followup-table.component';
+import { PatientFollowupTableNrcComponent } from './patient-followup-table-nrc/patient-followup-table-nrc.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -140,6 +141,7 @@ import { AdminAnmComponent } from './admin-anm/admin-anm.component';
     AshaAddFollowupComponent,
     AssignAshaTableComponent,
     PatientFollowupTableComponent,
+    PatientFollowupTableNrcComponent,
     EnterFollowupComponent,
     DateRangeComponent,
 //     AgGridComponent,

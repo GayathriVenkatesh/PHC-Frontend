@@ -1,7 +1,8 @@
 export class PHC {
-    name: string;
-    address: string;
-    pincode: string;
-    contact: string;
+    phcId: number | null;
+    name: String;
+    address: String;
+    pincode: String;
+    contactNumber: String;
     parentName: String;
 }
