@@ -36,19 +36,19 @@ export class FollowupTableComponent implements OnInit {
 
   ngOnInit() {
     console.log("USERNAME", localStorage.getItem('username'));
-    // this.followupService.findFollowupSchedulePhc(localStorage.getItem('phc') || '').subscribe(data => {
-      // this.followups = data;
+    this.followupService.findFollowupSchedulePhc(localStorage.getItem('phc') || '').subscribe(data => {
+      this.followups = data;
       console.log("followups", this.followups);
 
 
-    this.followups = [
-      {nextCommunity: new Date(), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
-        childName: "gayu", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
-        ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675"},
-      {nextCommunity: new Date("01-11-2022"), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
-        childName: "aaru", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
-        ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675"},
-    ]
+    // this.followups = [
+    //   {nextCommunity: new Date(), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
+    //     childName: "gayu", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
+    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675"},
+    //   {nextCommunity: new Date("01-11-2022"), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
+    //     childName: "aaru", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
+    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675"},
+    // ]
 
     this.searchText = "";
     this.dataSource = new MatTableDataSource(this.followups);
@@ -65,7 +65,7 @@ export class FollowupTableComponent implements OnInit {
       }
   }
     console.log(this.dataSource);
-    // });
+    });
   }
 
   resetDate() {
