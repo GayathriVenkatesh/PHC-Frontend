@@ -8,7 +8,7 @@ import { AddNrcModalComponent } from '../add-nrc-modal/add-nrc-modal.component';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 import { DischargedPatient } from '../model/discharged-patient';
 import { NRC } from '../model/nrc';
-import { PatientService } from '../service/patient.service';
+import { NrcService } from '../service/nrc.service';
 
 @Component({
   selector: 'app-admin',
@@ -17,11 +17,12 @@ import { PatientService } from '../service/patient.service';
 })
 export class AdminComponent implements OnInit {
   modalRef: MdbModalRef<AddNrcModalComponent> | null = null;
-  patients: NRC[];
+  nrc: NRC[];
   searchText: String;  
   pipe: DatePipe;
   clear: boolean;
   dataSource = new MatTableDataSource<NRC>;
+
 
   filterForm = new FormGroup({
       fromDate: new FormControl(),
@@ -32,19 +33,25 @@ export class AdminComponent implements OnInit {
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
 
-  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService) {
+  constructor(private router: Router, private nrcService: NrcService, private modalService: MdbModalService) {
     
   }
   ngOnInit(): void {
-    this.patients = [
-      {name: "Gayathri", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-      {name: "Aanchal", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-      {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
-    ]
-    this.dataSource = new MatTableDataSource(this.patients);
+    //this.patients = [
+    //  {name: "Gayathri", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726"},
+    //  {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
+    //  {name: "Aanchal", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726"},
+    //  {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
+    //  {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
+    //  {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
+    //]
+    this.nrcService.findAll().subscribe(data => {
+        this.nrc = data;
+        console.log("nrcs: ", this.nrc);
+            this.dataSource = new MatTableDataSource(this.nrc);
+        });
+
+    this.dataSource = new MatTableDataSource(this.nrc);
   }
 
   resetDate() {
@@ -61,16 +68,21 @@ export class AdminComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  openConfirm() {
+  openConfirm(nrcId: number) {
     this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
       modalClass: 'modal-sm',
+      data: {
+            entity: 'NRC',
+            id: nrcId
+            }
     })
   }
   
-  openModal(name: String, address: String, pincode: String, contact: String, title: String) {
+  openModal(nrcId: number | null, name: String, address: String, pincode: String, contact: String, title: String) {
     this.modalRef = this.modalService.open(AddNrcModalComponent, {
       modalClass: 'modal-md',
       data: {
+        nrcId: nrcId,
         name: name,
         address: address,
         pincode: pincode,

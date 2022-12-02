@@ -74,7 +74,9 @@ export class AdminAshaComponent implements OnInit {
   openConfirm(ashaId: number) {
     this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
       modalClass: 'modal-sm',
-      data: {ashaId: ashaId}
+      data: {
+      entity: 'ASHA',
+      id: ashaId}
     })
   }
   

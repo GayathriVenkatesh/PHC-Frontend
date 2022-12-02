@@ -39,10 +39,10 @@ export class AdminPhcDoctorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.doctor = [
-      {username: "Gayathri", password: "1234", phcId: "VVH"},
-      {username: "Aarushi", password: "5678", phcId: "VVH"},
-      {username: "Aanchal", password: "1234", phcId: "VVH"},
-      {username: "Manasa", password: "5678", phcId: "VVH"},
+      {username: "Gayathri", password: "1234", phcId: "Agara PHC"},
+            {username: "Aarushi", password: "5678", phcId: "Anjanapura PHC"},
+            {username: "Aanchal", password: "1234", phcId: "Arakere PHC"},
+            {username: "Manasa", password: "5678", phcId: "Begur PHC"},
        
     ]
     this.dataSource = new MatTableDataSource(this.doctor);

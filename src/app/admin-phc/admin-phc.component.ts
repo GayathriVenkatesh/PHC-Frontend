@@ -9,6 +9,8 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 import { DischargedPatient } from '../model/discharged-patient';
 import { PHC } from '../model/phc';
 import { PatientService } from '../service/patient.service';
+//import { AshaWorker } from '../model/asha-worker';
+import { PhcService } from '../service/phc.service';
 
 @Component({
   selector: 'app-admin-phc',
@@ -32,16 +34,21 @@ export class AdminPhcComponent implements OnInit {
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
 
-  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService) {
+  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService, private phcService: PhcService) {
     
   }
   ngOnInit(): void {
-    this.phc = [
-      {name: "GYA", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726", parentName: "VVH"},
-      {name: "ARN", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726", parentName: "IGH"},
-      {name: "CHL", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726", parentName: "VVH"},
-    ]
-    this.dataSource = new MatTableDataSource(this.phc);
+    //this.phc = [
+      //{name: "GYA", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726", parentName: "VVH"},
+      //{name: "ARN", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726", parentName: "IGH"},
+      //{name: "CHL", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726", parentName: "VVH"},
+    //]
+    this.phcService.findAll().subscribe(data => {
+    this.phc = data;
+    console.log("phcs: ", this.phc);
+        this.dataSource = new MatTableDataSource(this.phc);
+    });
+
   }
 
   resetDate() {
@@ -58,17 +65,22 @@ export class AdminPhcComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  openConfirm() {
+  openConfirm(phcId: number) {
     this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
       modalClass: 'modal-sm',
+      data: {
+      entity: 'PHC',
+      id: phcId
+      }
     })
   }
 
-  openModal(name: String, address: String, pincode: String, contact: String, title: 
+  openModal(phcId: number | null, name: String, address: String, pincode: String, contact: String, title:
     String, parentName: String, entity: String, parent: String) {
     this.modalRef = this.modalService.open(AddPhcModalComponent, {
       modalClass: 'modal-md',
       data: {
+       phcId: phcId,
         name: name,
         address: address,
         pincode: pincode,

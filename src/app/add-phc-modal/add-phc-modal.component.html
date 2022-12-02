@@ -31,24 +31,24 @@
 
               <div *ngIf = "this.entity=='ASHA'" class="mb-3">
                   <label class="form-label" for="basic-default-age">Username</label>
-                  <input type="text" class="form-control" [(ngModel)] = "username" id="username" name="username" value={{this.name}}/>
+                  <input type="text" class="form-control" [(ngModel)] = "username" id="username" name="username" value={{this.username}}/>
               </div>
 
               <div *ngIf = "this.entity=='ASHA'" class="mb-3">
                   <label class="form-label" for="basic-default-age">Password</label>
-                  <input type="text" class="form-control" [(ngModel)] = "password" id="password" name="password" value={{this.name}}/>
+                  <input type="text" class="form-control" [(ngModel)] = "password" id="password" name="password" value={{this.password}}/>
               </div>
 
-                <div class="mb-3">
+                <div *ngIf = "this.entity=='ASHA'" class="mb-3">
                     <label class="form-label" for="basic-default-age">{{this.parent}} it belongs to</label>
                     <br>
 
                     <select [(ngModel)] = "parentName" name="parentName" id="parentName" class="form-select" value={{this.parentName}} style="height: calc(1.5em + 0.75rem + 2px); width: 100%; border: 1px solid #ced4da">
                       <!-- <option></option> -->
-                        <option value="34">34 - Agara PHC - 560102</option>
-                        <option value="35"> 35 - Anjanapura PHC - 560108</option>
-                        <option value="36"> 36 - Arakere PHC - 572106</option>
-                        <option value="37"> 37 - Begur PHC - 560068</option>
+                        <option value="Agara">34 - Agara PHC - 560102</option>
+                        <option value="Anjanapura"> 35 - Anjanapura PHC - 560108</option>
+                        <option value="Arakere"> 36 - Arakere PHC - 572106</option>
+                        <option value="Begur"> 37 - Begur PHC - 560068</option>
                         <option value="38"> 38 - Bommanahalli PHC - 560068</option>
                         <option value="39"> 39 - Gottigere PHC - 560083</option>
                         <option value="40">  40 - Kodichikkanahalli PHC - 560076</option>

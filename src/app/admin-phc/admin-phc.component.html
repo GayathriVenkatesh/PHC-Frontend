@@ -25,7 +25,7 @@
                     </mat-form-field>
                     
                     <button type="button" class="btn rounded-pill btn-primary" style="background-color: #008ebe; 
-                    float: right; margin-left: 4%; width: 50%; font-family: Arial, Helvetica, sans-serif;" (click)="openModal('', '', '', '', 'Add a New PHC', '', 'PHC', 'NRC')"
+                    float: right; margin-left: 4%; width: 50%; font-family: Arial, Helvetica, sans-serif;" (click)="openModal(null, '', '', '', '', 'Add a New PHC', '', 'PHC', 'NRC')"
                     >Add New PHC</button>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
 
               <ng-container matColumnDef="parentName">
                 <th mat-header-cell *matHeaderCellDef> NRC Name </th>
-                <td mat-cell *matCellDef="let p"> {{ p.parentName }} </td>
+                <td mat-cell *matCellDef="let p"> VVN </td>
               </ng-container>
   
               <ng-container matColumnDef="address">
@@ -55,14 +55,14 @@
   
               <ng-container matColumnDef="contact">
                 <th mat-header-cell *matHeaderCellDef> Contact No </th>
-                <td mat-cell *matCellDef="let p"> {{ p.contact }} </td>
+                <td mat-cell *matCellDef="let p"> {{ p.contactNumber }} </td>
               </ng-container>
               
               <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Actions </th>
                 <td mat-cell *matCellDef="let p"> 
-                    <i class="fa fa-pencil" style="font-size: 15px;" (click)="openModal(p.name, p.address, p.pincode, p.contact, 'Edit PHC Details', p.parentName, 'PHC', 'NRC')"></i> 
-                    <i class="fa fa-trash" style="font-size: 15px; margin-left: 15px;" (click)="openConfirm()"></i> 
+                    <i class="fa fa-pencil" style="font-size: 15px;" (click)="openModal(p.phcId, p.name, p.address, p.pincode, p.contactNumber, 'Edit PHC Details', p.parentName, 'PHC', 'NRC')"></i>
+                    <i class="fa fa-trash" style="font-size: 15px; margin-left: 15px;" (click)="openConfirm(p.phcId)"></i>
                 </td>
                 <!-- <td mat-cell><i class="fa fa-home"></i></td> -->
               </ng-container>

@@ -4,7 +4,8 @@ import { DischargedPatient } from '../model/discharged-patient';
 import { PatientService } from '../service/patient.service';
 import { AshaWorker } from '../model/asha-worker';
 import { AshaWorkerService } from '../service/asha-worker.service';
-
+import { PhcService } from '../service/phc.service';
+import { NrcService } from '../service/nrc.service';
 
 @Component({
   selector: 'app-confirm-delete',
@@ -13,14 +14,25 @@ import { AshaWorkerService } from '../service/asha-worker.service';
 })
 export class ConfirmDeleteComponent implements OnInit {
 
-  constructor(public modalRef: MdbModalRef<ConfirmDeleteComponent>, private ashaWorkerService: AshaWorkerService) { }
+  constructor(public modalRef: MdbModalRef<ConfirmDeleteComponent>, private ashaWorkerService: AshaWorkerService, private nrcService: NrcService, private phcService: PhcService) { }
 
-  ashaId: number;
+  entity: String;
+  id: number;
   ngOnInit(): void {
   }
 
     delete(): void{
-    this.ashaWorkerService.delete(this.ashaId).subscribe();
+    if(this.entity=='ASHA'){
+    console.log(this.id);
+    this.ashaWorkerService.delete(this.id).subscribe();}
+    else if(this.entity=='NRC'){
+        console.log(this.id);
+        this.nrcService.delete(this.id).subscribe();
+        }
+    else{
+    console.log(this.id);
+    this.phcService.delete(this.id).subscribe();
+    }
     location.reload();
     }
 

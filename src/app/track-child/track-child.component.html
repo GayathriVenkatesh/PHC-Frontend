@@ -169,12 +169,31 @@
 
         <ng-container matColumnDef="status">
           <th mat-header-cell *matHeaderCellDef> Status </th>
-          <td mat-cell *matCellDef="let p">
+
+            <td mat-cell *matCellDef="let p">
             <span class="badge badge-warning" style="background-color: #e8fadf;">
               <a style="color: #68c536;" href="track-child/{{p.caseId}}">
-                <strong>Followups - Normal</strong>
+                <strong>{{p.status}}</strong>
               </a></span>          
             </td>
+
+<!--            <div *ngIf = "p.status=='Followups - SAM'">-->
+<!--            <td mat-cell *matCellDef="let p">-->
+<!--            <span class="badge badge-warning" style="background-color: #ffe0db;">-->
+<!--              <a style="color: #68c536;" href="track-child/{{p.caseId}}">-->
+<!--                <strong>Followups - SAM</strong>-->
+<!--              </a></span>-->
+<!--            </td>-->
+<!--            </div>-->
+
+
+<!--            <div *ngIf = "p.status=='Followups - MAM'">-->
+<!--            <td *ngIf = "p.status=='Followups - MAM'" mat-cell *matCellDef="let p">-->
+<!--            <span class="badge badge-warning" style="background-color: #fff2d6;">-->
+<!--              <a style="color: #68c536;" href="track-child/{{p.caseId}}">-->
+<!--                <strong>Followups - MAM</strong>-->
+<!--              </a></span>-->
+<!--            </td>-->
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
