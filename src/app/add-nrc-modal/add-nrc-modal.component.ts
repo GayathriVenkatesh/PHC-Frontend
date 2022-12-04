@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { NRC } from '../model/nrc';
+import { CustomvalidationService } from '../service/customvalidation.service';
 import { NrcService } from '../service/nrc.service';
 
 @Component({
@@ -17,12 +19,24 @@ export class AddNrcModalComponent implements OnInit {
   contact: String;
   title: String;
   nrc: NRC;
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor(public modalRef: MdbModalRef<AddNrcModalComponent>, private nrcService: NrcService) { }
+  constructor(public modalRef: MdbModalRef<AddNrcModalComponent>, private nrcService: NrcService, 
+    private fb: FormBuilder, private customValidator: CustomvalidationService) { }
 
   ngOnInit(): void {
+    this.registerForm = this.fb.group({
+      nrc: ['', Validators.required],
+      address: ['', Validators.required],
+      pincode: ['', Validators.required],
+      contactNo: ['', Validators.required],
+    });
   }
 
+  get registerFormControl() {
+    return this.registerForm.controls;
+  }
     onSubmit() {
     //this.asha = {name: this.name, ward: this.ward, area: this.address, pincode: this.pincode, phoneNumber: this.contact, phcName: this.parentName, ashaId: this.ashaId };
     this.nrc = {nrcId: this.nrcId, name: this.name,address: this.address, pincode: this.pincode, contactNumber: this.contact };
@@ -36,6 +50,11 @@ export class AddNrcModalComponent implements OnInit {
       this.nrcService.save(this.nrc).subscribe();
       //}
       //location.reload();
+      this.submitted = true;
+      if (this.registerForm.valid) {
+        alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+        console.table(this.registerForm.value);
+      }
     }
 
 }

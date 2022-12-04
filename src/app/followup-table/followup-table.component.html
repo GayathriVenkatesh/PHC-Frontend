@@ -80,7 +80,7 @@
         </div>
         </div>
         <div class="table-responsive text-nowrap" style="font-family: Arial, Helvetica, sans-serif; color: black; width: 100%;">
-          <table class="table" #filteredTable mat-table [dataSource]="dataSource">
+          <table class="table" #filteredTable mat-table [dataSource]="dataSource" *ngIf="dataSource.filteredData.length > 0">
             <ng-container matColumnDef="id">
               <th mat-header-cell *matHeaderCellDef> RCH ID/SAM ID </th>
               <td mat-cell *matCellDef="let f"> <a href="followup/{{ f.caseId }}"><strong>{{f.rchId}}/{{ f.samNum }}</strong></a> </td>
@@ -126,6 +126,10 @@
               </tr>             
             </tbody> -->
           </table>
+
+          <div *ngIf="dataSource.filteredData.length === 0" style="text-align: center; padding: 15px;">
+            No records found
+          </div>
         </div>
       </div>
       <!--/ Contextual Classes -->

@@ -33,8 +33,104 @@
   <div class="card" 
   style="font-size: 20px; font-family: 'Times New Roman', Times, serif; box-shadow: 0 0 0px grey;
   width: 100%"> -->
-  
-        <div class="row" style="color: black; font-family: Helvetica;">
+  <div class="row" style="color: black; font-family: Helvetica;">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" #userForm="ngForm" style="color: black">
+        <div class="column">
+          <div class="form-group">
+              <label>Height (in cm)*</label>
+              <input type="text" class="form-control" formControlName="height">
+              <span style="color: #ef0000;"
+                  *ngIf="(registerFormControl['height'].touched || submitted) && registerFormControl['height'].errors && registerFormControl['height'].errors['required']">
+                  Height is required
+              </span>
+          </div>
+
+          <div class="form-group">
+            <label>Weight (in kg)*</label>
+            <input type="text" class="form-control" formControlName="weight">
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['weight'].touched || submitted) && registerFormControl['weight'].errors && registerFormControl['weight'].errors['required']">
+                Weight is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>MUAC (in mm)*</label>
+            <input type="text" class="form-control" formControlName="muac">
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['muac'].touched || submitted) && registerFormControl['muac'].errors && registerFormControl['muac'].errors['required']">
+                MUAC is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Head Circumference (in cm)*</label>
+            <input type="text" class="form-control" formControlName="headCircumference">
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['headCircumference'].touched || submitted) && registerFormControl['headCircumference'].errors && registerFormControl['headCircumference'].errors['required']">
+                Head Circumference is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Place of Follow Up*</label>
+            <input type="text" class="form-control" formControlName="place">
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['place'].touched || submitted) && registerFormControl['place'].errors && registerFormControl['place'].errors['required']">
+                Place of Follow Up is required
+            </span>
+        </div>
+        </div>
+        
+        <div class="column">
+          <div class="form-group">
+            <label style="margin-right: 20px;">Diet Chart</label>
+            <input style="margin-top: 30px; margin-left: 20px;" type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
+            onchange="console.log(event.target.files)" formControlName="">  
+            <!-- <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['height'].touched || submitted) && registerFormControl['height'].errors && registerFormControl['height'].errors['required']">
+                Diet chart is required
+            </span> -->
+          </div>
+
+          <div class="form-group">
+            <label>Diet Adequacy*</label>
+            <select formControlName="dietAdequacy" id="dietAdequacy" class="form-select">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+          </select>  
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['dietAdequacy'].touched || submitted) && registerFormControl['dietAdequacy'].errors && registerFormControl['dietAdequacy'].errors['required']">
+                Diet Adequacy is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Co-morbidities*</label>
+            <select formControlName="coMorbidities" id="coMorbidities" class="form-select">
+              <option value="Pneumonia">Pneumonia</option>
+              <option value="CHD">CHD</option>
+              <option value="Tuberculosis">Tuberculosis</option>
+              <option value="None">None</option>
+          </select>  
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['coMorbidities'].touched || submitted) && registerFormControl['coMorbidities'].errors && registerFormControl['coMorbidities'].errors['required']">
+                Co-morbidities is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Other Symptoms</label>
+            <input type="text" class="form-control" formControlName="otherSymptoms">             
+          </div>
+        
+            <button type="submit" class="btn rounded-pill btn-primary" 
+            style="color: white; float: left; background-color:#008ebe; width: 35%; 
+            border-color: white"> Save </button> 
+            </div>
+        </form>
+      </div>
+        <!-- <div class="row" style="color: black; font-family: Helvetica;">
             <form (ngSubmit)="onSubmit()" #userForm="ngForm" style="color: black">
                 <div class="column">
                     <div class="mb-4">
@@ -62,9 +158,7 @@
                       <label class="form-label" for="basic-default-muac" style="color: black; font-size: 12.5px;">Diet Chart</label>
                       <br>
                       <input style="margin-top: 30px;" type="file" class="file-upload" style="font-family:'Times New Roman', Times, serif; color: #222; font-size: 14px"
-                      onchange="console.log(event.target.files)">
-                     
-                        <!-- <app-file-upload></app-file-upload> -->
+                      onchange="console.log(event.target.files)">                     
                     </div>
   
                   
@@ -77,9 +171,7 @@
                       </select>                      
                     </div>  
   
-                    <div class="mb-4">
-                      <!-- <input type="text" class="form-control" id="basic-default-muac"/> -->
-  
+                    <div class="mb-4">  
                     <label class="form-label" for="basic-default-fullname" style="color: black; font-size: 12.5px;">Co-morbidities</label>
                     <select [(ngModel)] = "followup.coMorbidities" name="coMorbidities" id="coMorbidities" class="form-select">
                         <option></option>
@@ -95,7 +187,6 @@
                     </div>
   
                     
-                  <!-- </div> -->
                   <button type="submit" class="btn rounded-pill btn-primary"
                   style="color: white; float: left; background-color:#008ebe; width: 38%; border-color: white"
                   > Save </button>
@@ -103,16 +194,9 @@
                   <button type="button" class="btn rounded-pill btn-primary" 
                   style="color: #ef0000; float: right; background-color:white; width: 58%; border-color: #ef0000"
                   (click) = "openCancelModal()"> Cancel Followup </button>
-                    <!-- <button type="submit" class="btn btn-primary" style="margin-bottom: 7%; margin-right: 40px; float: right; background-color: #66adf9;">Save</button> -->
                   </div>
                   </form>
-                <!-- </div> -->
-              </div>
-            <!-- </div> -->
-            
-          <!-- </div> -->
-  
-        
+              </div> -->
   
         <div class="content-backdrop fade"></div>
       </div>
