@@ -16,7 +16,7 @@ export class WorkerDetailModalComponent implements OnInit {
   constructor(public modalRef: MdbModalRef<WorkerDetailModalComponent>, private router: Router, private ashaWorkerService: AshaWorkerService) { }
 
   ngOnInit(): void {
-    this.ashaId = this.router.url.split("/")[2];
+    //this.ashaId = this.router.url.split("/")[2];
     console.log("ASHA", this.ashaId);
       this.ashaWorkerService.findById(this.ashaId).subscribe(data => {
         this.asha = data;

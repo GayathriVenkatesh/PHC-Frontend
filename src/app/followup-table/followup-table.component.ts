@@ -83,9 +83,11 @@ export class FollowupTableComponent implements OnInit {
     console.log("jhbhjbm", filterValue);
   }
 
-  openModal() {
+  openModal(ashaId: string) {
+  console.log("HELLO", ashaId);
     this.modalRef = this.modalService.open(WorkerDetailModalComponent, {
-      modalClass: 'modal-md'
+      modalClass: 'modal-md',
+      data: {ashaId: ashaId}
     })
   }
 
