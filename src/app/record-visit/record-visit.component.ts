@@ -4,6 +4,8 @@ import { FollowupService } from '../service/followup.service';
 import { Followup } from '../model/followup';
 import { FollowupSchedule } from '../model/followup-schedule';
 import { FollowupSched } from '../model/followup-sched';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomvalidationService } from '../service/customvalidation.service';
 
 @Component({
   selector: 'app-record-visit',
@@ -17,19 +19,25 @@ export class RecordVisitComponent implements OnInit {
     followupSchedule: FollowupSched;
     lastFollowup: Followup;
     scheduleId: String;
-  constructor(private route: ActivatedRoute,
-                    private router: Router,
-                    private followupService: FollowupService) {
-                     this.followup = new Followup();
-                     this.followup.followupDate = new Date();
-//                      this.followup.followupId=20;
-                     }
+    registerForm: FormGroup;
+    submitted = false;
+
+    constructor(private route: ActivatedRoute, private router: Router, private followupService: FollowupService,
+      private fb: FormBuilder, private customValidator: CustomvalidationService) {
+      this.followup = new Followup();
+      this.followup.followupDate = new Date();
+      }
 
     onSubmit(){
     console.log("NEW Followup ", this.followup);
 
     this.followupService.save(this.followup).subscribe(result =>
-    this.onSaveSchedule());
+      this.onSaveSchedule());
+      this.submitted = true;
+      if (this.registerForm.valid) {
+        alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+        console.table(this.registerForm.value);
+      }
     }
 
     onSaveSchedule(){
@@ -57,10 +65,26 @@ export class RecordVisitComponent implements OnInit {
     this.router.navigate(['/followup-list']);
     }
 
-  ngOnInit(): void {
-  this.caseId = this.router.url.split("/")[2];
-    console.log("HELLO AARU", this.caseId);
+    get registerFormControl() {
+      return this.registerForm.controls;
+    }
 
+    ngOnInit(): void {
+    this.caseId = this.router.url.split("/")[2];
+      console.log("HELLO AARU", this.caseId);
+      this.registerForm = this.fb.group({
+        chiefComplaints: ['', Validators.required],
+        height: ['', Validators.required],
+        weight: ['', Validators.required],
+        muac: ['', Validators.required],
+        headCircumference: ['', Validators.required],
+        place: ['', Validators.required],
+        dietAdequacy: ['', Validators.required],
+        coMorbidities: ['', Validators.required],
+        provisionalDiagnosis: ['', Validators.required],
+        treatment: ['', Validators.required],
+        otherSymptoms: [''],
+      },);
+
+    }
   }
-
-}

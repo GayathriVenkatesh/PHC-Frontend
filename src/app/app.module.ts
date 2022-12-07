@@ -103,6 +103,7 @@ import { AdminPhcDoctorComponent } from './admin-phc-doctor/admin-phc-doctor.com
 import { AddDoctorModalComponent } from './add-doctor-modal/add-doctor-modal.component';
 import { AdminNrcDoctorComponent } from './admin-nrc-doctor/admin-nrc-doctor.component';
 import { AdminAnmComponent } from './admin-anm/admin-anm.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 // import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
@@ -164,6 +165,7 @@ import { AdminAnmComponent } from './admin-anm/admin-anm.component';
     AddDoctorModalComponent,
     AdminNrcDoctorComponent,
     AdminAnmComponent,
+    ReactiveFormComponent,
     // SortTableComponent
   ],
   imports: [

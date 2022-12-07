@@ -21,7 +21,53 @@
       (click)="modalRef.close()"></i>      
     </div>
     <div class="modal-body" style="font-family:Arial, Helvetica, sans-serif">
-      <div class="row">
+      <div class="row" style="color: black; font-family: Helvetica;">
+        <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" #userForm="ngForm" style="color: black">
+            <div class="column">
+              <div class="form-group">
+                  <label>NRC Name*</label>
+                  <input type="text" class="form-control" formControlName="nrc">
+                  <span style="color: #ef0000;"
+                      *ngIf="(registerFormControl['nrc'].touched || submitted) && registerFormControl['nrc'].errors && registerFormControl['nrc'].errors['required']">
+                    NRC Name is required
+                  </span>
+              </div>
+    
+              <div class="form-group">
+                <label>Address*</label>
+                <input type="text" class="form-control" formControlName="address">
+                <span style="color: #ef0000;"
+                    *ngIf="(registerFormControl['address'].touched || submitted) && registerFormControl['address'].errors && registerFormControl['address'].errors['required']">
+                    Address is required
+                </span>
+            </div>
+        
+              <div class="form-group">
+                <label style="margin-right: 20px;">Pincode*</label>
+                <input type="text" class="form-control" formControlName="pincode">
+                <span style="color: #ef0000;"
+                    *ngIf="(registerFormControl['pincode'].touched || submitted) && registerFormControl['pincode'].errors && registerFormControl['pincode'].errors['required']">
+                    Pincode is required
+                </span>
+              </div>
+    
+              <div class="form-group">
+                <label>Contact No*</label>
+                <input type="text" class="form-control" formControlName="contactNo"> 
+                <span style="color: #ef0000;"
+                    *ngIf="(registerFormControl['contactNo'].touched || submitted) && registerFormControl['contactNo'].errors && registerFormControl['contactNo'].errors['required']">
+                    Contact Number is required
+                </span>
+              </div>
+            
+                <button type="submit" class="btn rounded-pill btn-primary" 
+                style="color: white; float: left; background-color:#008ebe; width: 35%; 
+                border-color: white"> Save </button> 
+                </div>
+            </form>
+          </div>
+
+      <!-- <div class="row">
         <form (ngSubmit)="onSubmit()" #userForm="ngForm">
           <div class="column">
                <div class="mb-3">
@@ -48,7 +94,7 @@
           <button type="submit" class="btn rounded-pill btn-primary" 
           style="background-color: #008eBe; float: right; margin-right: 0px; width: 25%">Save</button>
       </form>
-      </div>
+      </div> -->
     </div>
   </div>
     <!-- <div class="modal-footer">

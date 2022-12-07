@@ -60,6 +60,7 @@ export class DischargedPatientsComponent implements OnInit {
           data.address.includes(filter) || data.pincode.includes(filter);
         }
       }
+      console.log("DATA BEING", this.dataSource);
     }) 
   }
 

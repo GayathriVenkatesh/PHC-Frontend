@@ -7,17 +7,30 @@
     padding-bottom: 20px;
   }
 
-  .circle {
-    width: 120%;
+  .square {
     height: 100%;
-    line-height: 110px;
+    width: 100%;
+    background-color: #3e4a74;
+    font-size: 18px;
+    font-weight: 600;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    border-width: 10px;
+  }
+
+  .circle {
+    width: 100%;
+    height: 100%;
+    /* margin: 10px; */
+    line-height: 100px;
     border-radius: 100%;
     border-color: black;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
-    color: rgb(62, 74, 116);
+    color: white;
     text-align: center;
-    background: #ffffff;
+    background-color: #3e4a74;
     border-width: 10px;
 }
 
@@ -29,56 +42,125 @@
   }
   </style>
 
-<div class="content-wrapper" style="margin-top: -7vh; width: 100vw; height: 107vh; overflow: auto;
+<div class="content-wrapper" style="margin-top: -7vh; width: 100%; overflow: hidden;
 border-radius: 0; background-color: rgb(62, 74, 116);">
 
     <!-- <div class="content-wrapper" style=" margin-top: -30px; width: 100vw; height: 100vh; border-radius: 0; background-color: rgb(62, 74, 116);"> -->
-    <div class="container-xl flex-grow-1 container-p-y" style="margin-top: 40px; overflow: hidden;">
-        <img src="../../assets/logo.jpg" style="align: center; align-items: center; width: 15%; margin-left: 42%">
-        <h2 style="font-family: Arial, Helvetica, sans-serif; margin-left: 38%; color: white;
-        margin-top: 20px; margin-bottom: 20px;">SNEHA SAM CARE</h2>
-        <h6 style="color: white; text-align: center;">
-            PHC is the basic health unit in a community with a qualified doctor of public sector, entrusted to provide integrated curative and preventive healthcare to its population. They play a major role in diagnosing and providing first line of curative management of a severe acute malnourished (SAM) child.
-        </h6>
+    <!-- <div class="container-xl flex-grow-1 container-p-y" style="margin-top: 40px;"> -->
+          <div class="row" style="color: black; width: 100%; text-align: left; margin-top: 40px;
+            background-color: #3e4a74; float: left; height: 40vh; margin-left: 0vw;" >
+              <div class="column" style="width: 50%; margin-top: 20px;">
+              <h2 style="font-family: Arial, Helvetica, sans-serif; color: white;
+                margin-top: 20px; margin-left: 20%;"><strong>SNEHA - SAM Care.</strong></h2>
+              <h6 style="color: white; margin-left: 20%; line-height: 150%;">
+                Making the existing healthcare workers accountable through <br>a digital intervention
+              </h6>
+              </div>  
+              <div class="column" style="width: 20%; height: 20%; margin-top: 20px;">
+                <img src="../../assets/logo.jpg" style="width: 60%; float: right;">
+              </div>        
+          </div>
 
-        <h6 style="color: white; text-align: center;">
-            ASHA is a health acitivist in  the community who mobilises and facilitate people in accessing health and health related services including those related to nutrition.
-        </h6>
-        <!-- <h3 style="font-family: 'Mulish'; margin-left: 45%; margin-top: 50px; margin-bottom: 20px;"><strong><u>Login As</u></strong></h3>              -->
-        <!-- <div class="col-lg-6 col-md-4 order-1"> -->
-        <!-- <div class="card">
-            <h3 class="card-header" style="background-color: #c4ddf8; margin-bottom: 20px; font-family: Serif;">Welcome</h3> -->
-
-        <div class="card" style="font-family: Arial, Helvetica, sans-serif; background-color: rgb(62, 74, 116);
-        margin-left: 20%; border-radius: 0; width: 70%">
-
-        <h3 class="card-header" style="background-color: rgb(62, 74, 116); color: white; 
-        font-family: Arial, Helvetica, sans-serif; margin-left: 38%; font-weight: 600;">Login As</h3>
-                
-            <div class="row" style="color: black; width: 100%; padding-left: 7%;" >
-                <!-- <form> -->
-                      <div class="column" style="width: 16%"> 
-                        <div class="circle"><a href="login-doctor">PHC Doctor</a></div>         
-                      </div>
-
-                      <div class="column" style="width: 16%"> 
-                        <div class="circle"><a href="login-nrc">NRC Doctor</a></div>         
-                      </div>
-                      
-                      <div class="column" style="width: 16%">                                                                                          
-                          <div class="circle"><a href="login-anm">ANM</a></div>  
-                      </div>
-
-                      <div class="column" style="width: 16%">
-                        <div class="circle"><a href="login-asha">ASHA</a></div>  
-                      </div>
-
-                      <div class="column" style="width: 16%"> 
-                        <div class="circle"><a href="login-admin">Admin</a></div>         
-                      </div>
-
-                <!-- </form> -->
+            <div class="row" style="color: black; width: 100%; background-color: white; height: 50vh; 
+            margin-left: 0vw; align: center; text-align: center; justify-content: center;" >
+              <h2 style="text-align: center; margin-top: 20px; color: #3e4a74; margin-bottom: -30px;">
+                <strong>Sign in As</strong>
+              </h2>
+              <div class="row" style="width: 100%;
+              justify-content: center; margin-bottom: 20px;" >
+                <div class="column" style="width: 16%;"> 
+                  <div class="circle">
+                    <a href="login-nrc" style="color: white; width: 10px;">
+                      <div style="-ms-transform: translateY(40%);
+                      transform: translateY(40%);">NRC Doctor</div>
+                    </a></div>         
+                </div>                     
+                <div class="column" style="width: 16%"> 
+                  <div class="circle"><a href="login-doctor" style="color: white">
+                    <div style="-ms-transform: translateY(40%);
+                    transform: translateY(40%);">PHC Doctor</div></a></div>         
+                </div>
+                <div class="column" style="width: 16%">                                                                                          
+                    <div class="circle"><a href="login-anm" style="color: white"><div style="-ms-transform: translateY(40%);
+                      transform: translateY(40%);">ANM</div></a></div>  
+                </div>
+                <div class="column" style="width: 16%">
+                  <div class="circle"><a href="login-asha" style="color: white"><div style="-ms-transform: translateY(40%);
+                    transform: translateY(40%);">ASHA Worker</div></a></div>  
+                </div>
+                <div class="column" style="width: 16%"> 
+                  <div class="circle"><a href="login-admin" style="color: white"><div style="-ms-transform: translateY(40%);
+                    transform: translateY(40%);">Admin</div></a></div>         
+                </div>
+              </div>
             </div>
-        </div>
+
+          <div class="row" style="color: black; width: 100%; text-align: left; margin-top: 20px;
+          background-color: #3e4a74; float: left; height: 60vh; margin-left: 0vw;" >
+            <div class="column" style="width: 40%; margin-top: 20px;">
+              <img src="" style="width: 30%; margin-left: 40px;">
+            </div>
+            <div class="column" style="width: 60%;">
+              <h2 style="font-family: Arial, Helvetica, sans-serif; color: white;
+              margin-top: 20px;"><strong>Who are we?</strong></h2>
+              <h6 style="color: white; width:fit-content; line-height: 150%;">
+              Making the existing healthcare workers accountable through a digital intervention.             
+              Making the existing healthcare workers accountable through a digital intervention              
+              Making the existing healthcare workers accountable through a digital intervention              
+              Making the existing healthcare workers accountable through a digital intervention              
+              Making the existing healthcare workers accountable through a digital intervention                        
+              </h6>
+            </div>
+          </div>
+
+          <div class="row" style="color: black; width: 100%; background-color: white; height: 70vh; 
+          margin-left: 0vw; align: center; text-align: center;" >
+            <h2 style="text-align: center; margin-top: 20px; color: #3e4a74; margin-bottom: -60px; margin-block-end: -90px; margin-block-start: 50px;">
+              <strong>Our Benefits</strong>
+            </h2>
+            <div class="row" style="justify-content: center;">
+              <div class="column" style="width: 25%;"> 
+                <div class="square"><a href="login-nrc" style="color: white;"></a></div>         
+              </div>
+              <div class="column" style="width: 25%;"> 
+                <div class="square"><a href="login-nrc" style="color: white"></a></div>         
+              </div>
+              <div class="column" style="width: 25%;"> 
+                <div class="square"></div>         
+              </div>
+            </div>
+            <div class="row" style="justify-content: center; margin-bottom: 20px;">
+              <div class="column" style="width: 25%;"> 
+                <div class="square"><a href="login-nrc" style="color: white"></a></div>         
+              </div>
+              <div class="column" style="width: 25%;"> 
+                <div class="square"><a href="login-nrc" style="color: white"></a></div>         
+              </div>
+              <div class="column" style="width: 25%;"> 
+                <div class="square"><a href="login-nrc" style="color: white"></a></div>         
+              </div>
+            </div>
+          </div>
+            
+          <div class="row" style="color: black; width: 100%; text-align: left; margin-top: 20px;
+          background-color: #3e4a74; float: left; height: 20vh; margin-left: 0vw;" >
+            <div class="column" style="width: 50%; margin-top: 20px;">
+              <img src="../../assets/logo.jpg" style="width: 10%; margin-left: 20%;">
+              
+            </div>
+            <div class="column" style="width: 50%; justify-content: center;">
+              <h5 style="font-family: Arial, Helvetica, sans-serif; color: white;
+              margin-top: 20px;"><strong>Contact Us</strong></h5>
+              <h6 style="color: white; width:fit-content; line-height: 150%;">
+                Email ID: gayaa2010@gmail.com <br>
+                Contact No: 7022029113              
+              </h6>
+            </div>
+          </div>
+      </div>
+
+          <!-- </div> -->
+
+        <!-- </div> -->
       
                       
