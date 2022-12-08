@@ -24,6 +24,7 @@ authError = false;
         localStorage.setItem('username', this.username);
         localStorage.setItem('phc', data.phcId);
         this.router.navigate(["home"]);
+        return;
         }
     });
     this.authError = true;
