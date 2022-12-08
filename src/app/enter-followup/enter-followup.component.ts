@@ -47,14 +47,12 @@ export class EnterFollowupComponent implements OnInit {
     //})
 
     this.patientService.getSdRange(this.scheduleId).subscribe(data => {
-    this.sdRange = data;
-    console.log("SD range", this.sdRange);
+      this.sdRange = data;
+      console.log("SD range", this.sdRange);
     });
 
-    console.log("height: ", this.followup.height, " weight: ", this.followup.height);
 
     this.registerForm = this.fb.group({
-      // name: ['', Validators.required],
       height: ['', Validators.required],
       weight: ['', Validators.required],
       muac: ['', Validators.required],
@@ -63,28 +61,20 @@ export class EnterFollowupComponent implements OnInit {
       dietAdequacy: ['', Validators.required],
       coMorbidities: ['', Validators.required],
       otherSymptoms: [''],
-
-      // email: ['', [Validators.required, Validators.email]],
-      // username: ['', [Validators.required], this.customValidator.userNameValidator.bind(this.customValidator)],
-      // password: ['', Validators.compose([Validators.required, this.customValidator.patternValidator()])],
-      // confirmPassword: ['', [Validators.required]],
     },
-      // {
-      //   validator: this.customValidator.MatchPassword('password', 'confirmPassword'),
-      // }
     );
-
+    console.log("height: ", this.registerForm.value.height);
   }
 
-    calculate(){
+    calculate() {
         if(this.followup.height <45){
-            this.followup.height=45;
+            this.followup.height = 45;
         }
         else if(this.followup.height>120){
             this.followup.height=120;
         }
-        for(var i=0;i<this.sdRange.length;i++){
-           if(this.followup.height==this.sdRange[i].lengthCm){
+        for(var i=0; i < this.sdRange.length; i++){
+           if(this.followup.height == this.sdRange[i].lengthCm){
                if(this.followup.weight <= this.sdRange[i].minus4Sd){
                this.sd=-4;
                }
@@ -104,8 +94,8 @@ export class EnterFollowupComponent implements OnInit {
 
 
         }
-        console.log("SD: ",this.sd);
-        this.followup.sdRange=this.sd;
+        console.log("SD: ", this.sd);
+        this.followup.sdRange = this.sd;
     }
 
 
@@ -116,8 +106,8 @@ export class EnterFollowupComponent implements OnInit {
     );
     this.submitted = true;
     if (this.registerForm.valid) {
-      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-      console.table(this.registerForm.value);
+      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      console.table("FORM VALUES", this.registerForm.value);
     }
   }
 
