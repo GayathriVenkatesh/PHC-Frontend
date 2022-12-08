@@ -39,10 +39,15 @@ export class AshaPatientFollowupComponent implements OnInit {
 
   ngOnInit(): void {
       this.caseId = this.router.url.split("/")[2];
-   this.ashaFollowupsService.getFollowups(this.caseId).subscribe(data => {
-      this.followups = data;
-      console.log(data);
+      this.ashaFollowupsService.getFollowups(this.caseId).subscribe(data => {
+          this.followups = data;
+          console.log(data);
       });
+      // this.followups = [
+      //     {followupId: 0, scheduleId: "1", sdRange:0, dietChart: '', dietAdequacy: '', coMorbidities: '', treatment: '',
+      //       followupDate: new Date(), height: 0, weight: 0, muac: 0, headCircumference: 0, provisionalDiagnosis: '',
+      //       place:"", otherSymptoms: '', reasonFollowup: '', reasonNotComing: '', status: false, stdev: 0, chiefComplaints: ''},
+      //   ]
       this.patientService.findByCaseId(this.caseId).subscribe(data => {
       this.patient = data;
 
