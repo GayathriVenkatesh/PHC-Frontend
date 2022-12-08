@@ -63,7 +63,13 @@
                 <button type="submit" class="btn rounded-pill btn-primary" 
                 style="color: white; float: left; background-color:#008ebe; width: 35%; 
                 border-color: white"> Save </button> 
+
+                <div *ngIf="nrcId">
+                  <button type="button" class="btn rounded-pill btn-primary" 
+                  style="color: white; margin-left: 10px; float: left; background-color:#ef0000; width: 50%; 
+                  border-color: white" (click)="openConfirm()"> Deactivate </button> 
                 </div>
+            </div>
             </form>
           </div>
 

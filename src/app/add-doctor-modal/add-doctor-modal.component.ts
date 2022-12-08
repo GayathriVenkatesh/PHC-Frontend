@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-add-doctor-modal',
@@ -14,9 +15,19 @@ export class AddDoctorModalComponent implements OnInit {
   parentName: String;
   title: String;
 
-  constructor(public modalRef: MdbModalRef<AddDoctorModalComponent>) { }
+  constructor(public modalRef: MdbModalRef<AddDoctorModalComponent>, private modalService: MdbModalService) { }
 
   ngOnInit(): void {
   }
+
+  // openConfirm(nrcId: number) {
+  //   this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
+  //     modalClass: 'modal-sm',
+  //     data: {
+  //           entity: 'NRC',
+  //           id: nrcId
+  //       }
+  //   })
+  // }
 
 }

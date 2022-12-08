@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { AshaWorker } from '../model/asha-worker';
 import { AshaWorkerService } from '../service/asha-worker.service';
 import { PHC } from '../model/phc';
 import { PhcService } from '../service/phc.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from '../service/customvalidation.service';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-add-phc-modal',
@@ -33,7 +34,8 @@ export class AddPhcModalComponent implements OnInit {
   submitted = false;
 
   constructor(public modalRef: MdbModalRef<AddPhcModalComponent>, private ashaWorkerService: AshaWorkerService, 
-    private phcService: PhcService, private fb: FormBuilder, private customValidator: CustomvalidationService) { }
+    private phcService: PhcService, private fb: FormBuilder, private customValidator: CustomvalidationService,
+    private modalService: MdbModalService) { }
 
   ngOnInit(): void {
     console.log(this.phcId);
@@ -72,5 +74,9 @@ export class AddPhcModalComponent implements OnInit {
     location.reload();
   }
 
-
+  openConfirm(nrcId: number) {
+    this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
+      modalClass: 'modal-sm'
+    })
+  }
 }
