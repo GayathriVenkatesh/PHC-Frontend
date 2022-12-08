@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
 import { NRC } from '../model/nrc';
 import { CustomvalidationService } from '../service/customvalidation.service';
 import { NrcService } from '../service/nrc.service';
@@ -23,7 +24,7 @@ export class AddNrcModalComponent implements OnInit {
   submitted = false;
 
   constructor(public modalRef: MdbModalRef<AddNrcModalComponent>, private nrcService: NrcService, 
-    private fb: FormBuilder, private customValidator: CustomvalidationService) { }
+    private fb: FormBuilder, private customValidator: CustomvalidationService, private modalService: MdbModalService) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -32,6 +33,16 @@ export class AddNrcModalComponent implements OnInit {
       pincode: ['', Validators.required],
       contactNo: ['', Validators.required],
     });
+  }
+
+  openConfirm(nrcId: number) {
+    this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
+      modalClass: 'modal-sm',
+      data: {
+            entity: 'NRC',
+            id: nrcId
+            }
+    })
   }
 
   get registerFormControl() {
