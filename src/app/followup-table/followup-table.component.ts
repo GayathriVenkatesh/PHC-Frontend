@@ -53,10 +53,10 @@ export class FollowupTableComponent implements OnInit {
     // this.followups = [
     //   {nextCommunity: new Date(), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
     //     childName: "gayu", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
-    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675"},
+    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675", place:"", lastCommunity: new Date(), lastNrc: new Date()},
     //   {nextCommunity: new Date("01-11-2022"), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
     //     childName: "aaru", followupDate: new Date(), ashaName: "hi", ashaNumber: "1", followupsDone: 2, 
-    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675"},
+    //     ashaId: 1, type: "community", rchId: 1, mobileNumber: "7675765675", place: "", lastCommunity: new Date(), lastNrc: new Date()},
     // ]
 
     this.searchText = "";
