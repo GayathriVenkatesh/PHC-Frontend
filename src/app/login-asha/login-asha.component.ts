@@ -12,6 +12,7 @@ export class LoginAshaComponent implements OnInit {
 
   username: string;
   password: string;
+  authError = false;
 
   constructor(private router: Router, private ashaService: AshaService) { }
 
@@ -23,8 +24,11 @@ export class LoginAshaComponent implements OnInit {
           if(this.password==data.password){
           localStorage.setItem('username', this.username);
           localStorage.setItem('asha', data.ashaId);
-          this.router.navigate(["asha-followups"]);}
+          this.router.navigate(["asha-followups"]);
+          return;
+          }
       });
+      this.authError = true;
       console.log("Username: ", this.username);
       console.log("Pass: ", this.password);
     }

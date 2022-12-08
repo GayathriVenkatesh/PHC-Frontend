@@ -11,6 +11,7 @@ export class LoginFormComponent implements OnInit {
 
 username: string;
 password: string;
+authError = false;
   constructor(private router: Router, private doctorService: DoctorService) { }
 
   ngOnInit(): void {
@@ -22,8 +23,10 @@ password: string;
         if(this.password == data.password){
         localStorage.setItem('username', this.username);
         localStorage.setItem('phc', data.phcId);
-        this.router.navigate(["home"]);}
+        this.router.navigate(["home"]);
+        }
     });
+    this.authError = true;
     console.log("Username: ", this.username);
     console.log("Pass: ", this.password);
   }

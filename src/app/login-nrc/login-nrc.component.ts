@@ -10,6 +10,7 @@ export class LoginNrcComponent implements OnInit {
 
   username: string;
   password: string;
+  authError = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -20,6 +21,9 @@ export class LoginNrcComponent implements OnInit {
     localStorage.setItem('username', this.username);
             localStorage.setItem('phc', '34');
     this.router.navigate(["nrc-home"]);
+    }
+    else{
+        this.authError = true;
     }
   console.log("Username: ", this.username);
     console.log("Pass: ", this.password);

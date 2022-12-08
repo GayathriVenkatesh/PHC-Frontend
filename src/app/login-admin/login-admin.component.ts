@@ -11,6 +11,7 @@ export class LoginAdminComponent implements OnInit {
 
   username: string;
   password: string;
+  authError = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -19,6 +20,9 @@ export class LoginAdminComponent implements OnInit {
   login() {
     if(this.username=="admin" && this.password=="password"){
     this.router.navigate(["admin-nrc"]);
+    }
+    else{
+        this.authError = true;
     }
   console.log("Username: ", this.username);
     console.log("Pass: ", this.password);
