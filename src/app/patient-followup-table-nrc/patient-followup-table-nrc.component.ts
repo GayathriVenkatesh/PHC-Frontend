@@ -25,6 +25,7 @@ export class PatientFollowupTableNrcComponent implements OnInit {
   general: FollowupDate[] = [];
   name: String;
   samNum: Number;
+  today: Date;
 
   constructor(private router: Router, private followupService: FollowupService, private modalService: MdbModalService) {}
 

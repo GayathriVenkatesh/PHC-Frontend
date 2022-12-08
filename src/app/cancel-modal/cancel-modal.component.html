@@ -23,24 +23,24 @@
     </div>
     <div class="modal-body" style="font-family:'Helvetica'">
       <div class="row">
-        <form>
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
             <div class="column">
                <div class="mb-6">
                    <label class="form-label" for="basic-default-age">Reason for Cancellation</label>
                    <!-- <textarea type="text" class="form-control" id="basic-default-company"></textarea> -->
-                   <select id="defaultSelect" class="form-select" style="margin-left: 10%; height: 40px; border: 1px solid #ced4da">
+                   <select [(ngModel)] = "followup.reasonNotComing" name="reasonNotComing" id="reasonNotComing" class="form-select" style="margin-left: 10%; height: 40px; border: 1px solid #ced4da">
                     <option>Choose</option>
-                    <option value="1">Relocated</option>
-                    <option value="2">Commute Issues</option>
-                    <option value="3">No Time</option>
-                    <option value="4">Lack of Clarity</option>
-                    <option value="5">Other</option>
+                    <option value="Relocated">Relocated</option>
+                    <option value="Commute Issues">Commute Issues</option>
+                    <option value="No Time">No Time</option>
+                    <option value="Lack of Clarity">Lack of Clarity</option>
+                    <option value="Other">Other</option>
                   </select>     
                   </div>
 
-                  <div class="mb-6">
+                  <div *ngIf = "followup.reasonNotComing=='Other'" class="mb-6">
                     <label class="form-label" for="basic-default-age">Other Reason</label>
-                    <input type="text" class="form-control" id="basic-default-company"  />
+                    <input type="text" [(ngModel)] = "otherReasonNotComing" name="otherReasonNotComing" id="otherReasonNotComing"  />
                 </div>
             </div>
 

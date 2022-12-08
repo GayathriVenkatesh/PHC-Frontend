@@ -10,6 +10,7 @@ import { PatientService } from '../service/patient.service';
 import { Patient } from '../model/patient';
 import { CustomvalidationService } from '../service/customvalidation.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SdRange } from '../model/sd-range';
 
 @Component({
   selector: 'app-enter-followup',
@@ -27,20 +28,30 @@ export class EnterFollowupComponent implements OnInit {
   patient: Patient;
   registerForm: FormGroup;
   submitted = false;
+  sdRange: SdRange[];
+  sd: number;
 
   constructor(private route: ActivatedRoute, private router: Router, private modalService: MdbModalService, private followupService: FollowupService,
     private patientService: PatientService, private fb: FormBuilder,
     private customValidator: CustomvalidationService) {
       this.followup = new Followup();
       this.followup.followupDate = new Date();
+      this.sd=0;
   }
 
   ngOnInit(): void {
     this.scheduleId = this.router.url.split("/")[2];
     console.log("HELLO AARU", this.caseId);
-    this.patientService.findByCaseId(this.caseId).subscribe(data => {
-      this.patient = data;
-    })
+    //this.patientService.findByCaseId(this.caseId).subscribe(data => {
+    //  this.patient = data;
+    //})
+
+    this.patientService.getSdRange(this.scheduleId).subscribe(data => {
+    this.sdRange = data;
+    console.log("SD range", this.sdRange);
+    });
+
+    console.log("height: ", this.followup.height, " weight: ", this.followup.height);
 
     this.registerForm = this.fb.group({
       // name: ['', Validators.required],
@@ -62,7 +73,41 @@ export class EnterFollowupComponent implements OnInit {
       //   validator: this.customValidator.MatchPassword('password', 'confirmPassword'),
       // }
     );
+
   }
+
+    calculate(){
+        if(this.followup.height <45){
+            this.followup.height=45;
+        }
+        else if(this.followup.height>120){
+            this.followup.height=120;
+        }
+        for(var i=0;i<this.sdRange.length;i++){
+           if(this.followup.height==this.sdRange[i].lengthCm){
+               if(this.followup.weight <= this.sdRange[i].minus4Sd){
+               this.sd=-4;
+               }
+               else if(this.followup.weight <= this.sdRange[i].minus3Sd){
+               this.sd=-3;
+               }
+               else if(this.followup.weight <= this.sdRange[i].minus2Sd){
+               this.sd=-2;
+               }
+               else if(this.followup.weight <= this.sdRange[i].minus1Sd){
+               this.sd=-1;
+               }
+               else{
+               this.sd=0;
+               }
+           }
+
+
+        }
+        console.log("SD: ",this.sd);
+        this.followup.sdRange=this.sd;
+    }
+
 
   onSubmit() {
     console.log("NEW Followup ", this.followup);
@@ -94,9 +139,10 @@ export class EnterFollowupComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  openCancelModal() {
+  openCancelModal(scheduleId: string) {
     this.modalRef = this.modalService.open(CancelModalComponent, {
-      modalClass: 'modal-md'
+      modalClass: 'modal-md',
+      data: {scheduleId: scheduleId}
     })
   }
 }

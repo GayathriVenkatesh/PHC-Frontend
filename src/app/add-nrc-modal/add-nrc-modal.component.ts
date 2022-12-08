@@ -49,7 +49,7 @@ export class AddNrcModalComponent implements OnInit {
       //else{
       this.nrcService.save(this.nrc).subscribe();
       //}
-      //location.reload();
+      location.reload();
       this.submitted = true;
       if (this.registerForm.valid) {
         alert('Form Submitted succesfully!!!\n Check the values in browser console.');

@@ -99,16 +99,46 @@
             <ng-container matColumnDef="followups">
               <th mat-header-cell *matHeaderCellDef> Followups Done </th>
               <td mat-cell *matCellDef="let f"> <a href="followup/{{ f.caseId }}">{{ f.followupsDone }}</a> </td>
-            </ng-container>  
+            </ng-container>
+
+            <ng-container matColumnDef="lastCommunity">
+              <th mat-header-cell *matHeaderCellDef> Last Community Followup </th>
+              <td mat-cell *matCellDef="let f">
+                <div *ngIf="(f.lastCommunity | date : 'dd-MM-y') == (this.last | date : 'dd-MM-y'); then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+<!--                  {{f.lastCommunity | date : "dd-MM-y"}}-->
+                  -
+                </ng-template>
+                <ng-template #elseBlock>
+                  {{f.lastCommunity | date : "dd-MM-y"}}
+                </ng-template>
+              </td>
+            </ng-container>
 
             <ng-container matColumnDef="nextCommunity">
               <th mat-header-cell *matHeaderCellDef> Next Community Followup </th>
-              <td mat-cell *matCellDef="let f"> {{f.nextCommunity | date : "dd-MM-y"}} </td>
+              <td mat-cell *matCellDef="let f">
+                <div *ngIf="(f.lastCommunity | date : 'dd-MM-y') > (this.today | date : 'dd-MM-y'); then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                  {{f.nextCommunity | date : "dd-MM-y"}}
+                </ng-template>
+                <ng-template #elseBlock>
+                   -
+                </ng-template>
+                 </td>
             </ng-container>  
 
             <ng-container matColumnDef="nextNrc">
               <th mat-header-cell *matHeaderCellDef> Next NRC Followup </th>
-              <td mat-cell *matCellDef="let f"> {{f.nextNrc | date : "dd-MM-y"}} </td>
+              <td mat-cell *matCellDef="let f">
+                <div *ngIf="f.nextNrc > this.today; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
+                  {{f.nextNrc | date : "dd-MM-y"}}
+                </ng-template>
+                <ng-template #elseBlock>
+                  -
+                </ng-template>
+              </td>
             </ng-container>  
            
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

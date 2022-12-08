@@ -25,8 +25,11 @@ export class PatientFollowupTableComponent implements OnInit {
   general: FollowupDate[] = [];
   name: String;
   samNum: Number;
+  today: Date;
 
-  constructor(private router: Router, private followupService: FollowupService, private modalService: MdbModalService) {}
+  constructor(private router: Router, private followupService: FollowupService, private modalService: MdbModalService) {
+  this.today = new Date();
+  }
 
   openModal(followupId: number, followupDate: Date) {
     const modalRef = this.modalService.open(ModalComponent, {
@@ -38,9 +41,11 @@ export class PatientFollowupTableComponent implements OnInit {
 //     modalRef.componentInstance.followupId=followupId;
   }
 
-  openCancelledModal() {
+  openCancelledModal(followupId: number, followupDate: Date) {
     this.modalRef = this.modalService.open(SmallModalComponent, {
-      modalClass: 'modal-sm'
+      modalClass: 'modal-sm',
+      data: { followupId: followupId,
+                     followupDate: followupDate},
     })
   }
 

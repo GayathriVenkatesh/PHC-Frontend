@@ -15,4 +15,6 @@ export class FollowupSchedule {
  rchId: number;
  mobileNumber: String;
 place: String;
+lastCommunity: Date;
+lastNrc: Date;
 }

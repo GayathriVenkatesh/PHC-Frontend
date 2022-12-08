@@ -50,7 +50,7 @@ export class TrackChildComponent implements OnInit {
       }
 
 //   this.children=[];
-      this.patientService.trackChild().subscribe(data => {
+      this.patientService.trackChildPhc(localStorage.getItem('phc') || '').subscribe(data => {
       console.log(data);
       console.log(this.asha);
         this.patients = data;

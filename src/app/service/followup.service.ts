@@ -68,6 +68,11 @@ export class FollowupService {
         return this.http.post<String>(this.followupsUrl+"-update", scheduleId);
       }
 
+      public cancel(scheduleId: Number) {
+      console.log("sched: ", scheduleId);
+         return this.http.post<String>(this.followupsUrl+"-cancel", scheduleId);
+            }
+
   // public save(followup: Followup) {
   //   return this.http.post<Followup>(this.followupsUrl + "s", followup);
   // }

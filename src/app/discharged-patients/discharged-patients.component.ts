@@ -46,7 +46,7 @@ export class DischargedPatientsComponent implements OnInit {
     this.searchText = ""; 
     this.pipe = new DatePipe('en');
 
-    this.patientService.getDischargedPatients().subscribe(data => {
+    this.patientService.getDischargedPatientsPhc(localStorage.getItem('phc') || '').subscribe(data => {
       this.patients = data;
       this.dataSource = new MatTableDataSource(this.patients);
       

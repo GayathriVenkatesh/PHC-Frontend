@@ -43,7 +43,7 @@ width: 100%"> -->
             <div class="column">
               <div class="form-group">
                   <label>Height (in cm)*</label>
-                  <input type="text" class="form-control" formControlName="height">
+                  <input type="text" [(ngModel)] = "followup.height" class="form-control" id="height" name="height" formControlName="height">
                   <span style="color: #ef0000;"
                       *ngIf="(registerFormControl['height'].touched || submitted) && registerFormControl['height'].errors && registerFormControl['height'].errors['required']">
                       Height is required
@@ -52,7 +52,7 @@ width: 100%"> -->
 
               <div class="form-group">
                 <label>Weight (in kg)*</label>
-                <input type="text" class="form-control" formControlName="weight">
+                <input type="text" [(ngModel)] = "followup.weight" class="form-control" id="weight" name="weight" class="form-control" formControlName="weight">
                 <span style="color: #ef0000;"
                     *ngIf="(registerFormControl['weight'].touched || submitted) && registerFormControl['weight'].errors && registerFormControl['weight'].errors['required']">
                     Weight is required
@@ -61,7 +61,7 @@ width: 100%"> -->
 
               <div class="form-group">
                 <label>MUAC (in mm)*</label>
-                <input type="text" class="form-control" formControlName="muac">
+                <input type="text" [(ngModel)] = "this.sd" class="form-control" id="muac" name="muac" formControlName="muac">
                 <span style="color: #ef0000;"
                     *ngIf="(registerFormControl['muac'].touched || submitted) && registerFormControl['muac'].errors && registerFormControl['muac'].errors['required']">
                     MUAC is required
@@ -197,7 +197,7 @@ width: 100%"> -->
               
                 <button type="button" class="btn rounded-pill btn-primary" 
                 style="color: #ef0000; float: right; background-color:white; width: 63%; border-color: #ef0000"
-                (click) = "openCancelModal()"> Cancel Followup </button>
+                (click) = "openCancelModal(this.scheduleId)"> Cancel Followup </button>
                 </div>
             </form>
         </div>

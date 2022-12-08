@@ -36,7 +36,7 @@
             <ng-template #thenCommunity>
               <div *ngIf="this.community[i].followupId; then thenBlock else elseBlock"></div>
               <ng-template #thenBlock>
-                <div *ngIf="this.community[i].status == 'cancelled'; then thenBlock1 else elseBlock1"></div>
+                <div *ngIf="this.community[i].status == 'CANCELLED'; then thenBlock1 else elseBlock1"></div>
                 <ng-template #thenBlock1>
                   <td>
                     <button type="button" (click)="openCancelledModal(this.community[i].followupId, this.community[i].followupDate)" class="btn rounded-pill btn-primary"

@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 import { map, filter, switchMap, delay } from 'rxjs/operators';
 import { DischargedPatient } from '../model/discharged-patient';
 import { url } from './url';
-
+import { SdRange } from '../model/sd-range';
 
 @Injectable()
 export class PatientService {
@@ -100,4 +100,11 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
        return this.http.get<Patient[]>(url + "/track-child");
      }
 
+     public trackChildPhc(phc: String): Observable<Patient[]> {
+            return this.http.get<Patient[]>(url + "/track-child/" + phc);
+          }
+
+    public getSdRange(caseId: String): Observable<SdRange[]> {
+     return this.http.get<SdRange[]>(url + "/sd-range/" + caseId);
+        }
 }

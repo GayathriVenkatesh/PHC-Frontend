@@ -21,6 +21,8 @@ export class FollowupTableNrcComponent implements OnInit {
   searchText: String;
   pipe: DatePipe;
   modalRef: MdbModalRef<WorkerDetailModalComponent> | null = null;
+  today: Date;
+    last: Date;
 
   dataSource = new MatTableDataSource<FollowupSchedule>;
 
@@ -29,19 +31,26 @@ export class FollowupTableNrcComponent implements OnInit {
       toDate: new FormControl(),
   });
 
-  displayedColumns: string[] = ['id', 'name', 'asha', 'followups', 'nextCommunity', 'nextNrc'];
+  displayedColumns: string[] = ['id', 'name', 'asha', 'followups', 'nextCommunity', 'lastNrc','nextNrc'];
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
   constructor(private followupService: FollowupService, private modalService: MdbModalService) {
-  }
+  this.today = new Date();
+    this.last = new Date('Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)');
+    }
 
   ngOnInit() {
     this.followupService.findFollowupSchedule().subscribe(data => {
       this.followups = data;
       console.log("followups", this.followups);
           this.dataSource = new MatTableDataSource(this.followups);
+
+          for(var i=0;i<this.followups.length;i++){
+                this.followups[i].lastNrc = new Date(this.followups[i].lastNrc);
+                }
     });
+
 
     // this.followups = [
     //   {nextCommunity: new Date(), nextNrc: new Date(), caseId: 1, followupId: 1, scheduleId: 1, samNum: 1, 
