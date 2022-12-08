@@ -27,6 +27,9 @@ border-radius: 0; background-color: rgb(62, 74, 116); overflow: auto;">
                 width: 50%; border-radius: 0;">
                 
                       <h3 class="card-header" style="background-color: #ffffff; margin-bottom: 20px; font-family: Arial, Helvetica, sans-serif; margin-left: 28%;">Login As NRC Doctor</h3>
+                      <div class="alert alert-danger" *ngIf="authError">
+                        Username or password is incorrect
+                      </div>
                 
                       <div class="row" style="color: black; font-size: 13px;">
                           <form style="color: black; font-size: 13px;">
