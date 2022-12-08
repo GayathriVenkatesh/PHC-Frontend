@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NrcDoctorService } from '../service/nrcdoctor.service';
 
 @Component({
   selector: 'app-login-nrc',
@@ -11,21 +12,23 @@ export class LoginNrcComponent implements OnInit {
   username: string;
   password: string;
   authError = false;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private nrcdoctorService: NrcDoctorService) { }
 
   ngOnInit(): void {
   }
 
   login() {
-    if(this.username=="nrc" && this.password=="password"){
-    localStorage.setItem('username', this.username);
-            localStorage.setItem('phc', '34');
-    this.router.navigate(["nrc-home"]);
-    }
-    else{
-        this.authError = true;
-    }
-  console.log("Username: ", this.username);
+    this.nrcdoctorService.findByUsername(this.username).subscribe(data => {
+            console.log("NRC DOC DETAILS", data);
+            if(this.password == data.password){
+            localStorage.setItem('username', this.username);
+            localStorage.setItem('nrc', data.nrcId);
+            this.router.navigate(["nrc-home"]);
+            return;
+            }
+    });
+    this.authError = true;
+    console.log("Username: ", this.username);
     console.log("Pass: ", this.password);
   }
 
