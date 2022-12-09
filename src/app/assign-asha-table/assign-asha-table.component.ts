@@ -65,14 +65,14 @@ export class AssignAshaTableComponent implements OnInit {
 
     this.pipe = new DatePipe('en');
       this.dataSource.filterPredicate = (data: any, filter: any) =>{
+        var b = true;
         if (this.fromDate && this.toDate) {
-          return data.dischargeDate >= this.fromDate && data.dischargeDate <= this.toDate;
-        }
-        else {
-          return data.name.includes(filter) || 
+          b =  new Date(data.dischargeDate) >= this.fromDate && new Date(data.dischargeDate) <= this.toDate;  
+        }    
+          return (data.name.includes(filter) || 
           data.address.includes(filter) || data.pincode.includes(filter) || 
-          data.mobileNumber.includes(filter) || data.nrcFrom.includes(filter);
-        }
+          data.mobileNumber.includes(filter) || data.nrcFrom.includes(filter)) && b;
+        
     }
     });
   }

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-discharged-patients',
@@ -32,6 +33,20 @@ export class DischargedPatientsComponent implements OnInit {
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
+  set fromDate(d: Date) { 
+    if (this.filterForm && this.filterForm.get('fromDate') && this.filterForm.get('fromDate')) {
+      this.filterForm = new FormGroup({
+        fromDate: new FormControl(),
+        toDate: new FormControl(),
+    });
+    }
+  }
+  set toDate(d: Date) { 
+    this.filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  }
 
   constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService) {
     
@@ -45,20 +60,26 @@ export class DischargedPatientsComponent implements OnInit {
   ngOnInit(): void {
     this.searchText = ""; 
     this.pipe = new DatePipe('en');
+    console.log("kugbkjlj", this.fromDate, this.toDate)
 
     this.patientService.getDischargedPatientsPhc(localStorage.getItem('phc') || '').subscribe(data => {
       this.patients = data;
+      // this.patients = [
+      //   {name: 'gaya', address: 'hsr', pincode: '560075', mobileNumber: '9876543210', caseId: 1, samId: 1, rchId: 1, date: new Date()},
+      //   {name: 'aaru', address: 'queen', pincode: '123456', mobileNumber: '8765432109', caseId: 2, samId: 2, rchId: 2, date: new Date("09-11-2022")}
+      // ]
       this.dataSource = new MatTableDataSource(this.patients);
       
       this.dataSource.filterPredicate = (data: any, filter: any) =>{
+        var b = true;
         if (this.fromDate && this.toDate) {
-          return data.date >= this.fromDate && data.date <= this.toDate;
+          b = new Date(data.date) >= this.fromDate && new Date(data.date) <= this.toDate;
         }
-        else {
-          return data.name.includes(filter) ||
-          data.samId == filter || data.rchId == filter || data.mobileNumber.includes(filter) ||
-          data.address.includes(filter) || data.pincode.includes(filter);
-        }
+        
+        return (data.name.includes(filter) ||
+        data.samId == filter || data.rchId == filter || data.mobileNumber.includes(filter) ||
+        data.address.includes(filter) || data.pincode.includes(filter)) && b;
+        
       }
       console.log("DATA BEING", this.dataSource);
     }) 
@@ -66,6 +87,9 @@ export class DischargedPatientsComponent implements OnInit {
 
   resetDate() {
     this.dataSource.filter = '';
+    this.fromDate = new Date("06-10-1998");
+    this.toDate = new Date("");
+    console.log("gaye", this.fromDate, this.toDate)
   }
 
   applyFilterDate() {

@@ -65,14 +65,14 @@ export class FollowupTableNrcComponent implements OnInit {
 
     this.pipe = new DatePipe('en');
     this.dataSource.filterPredicate = (data: any, filter: any) =>{
+      var b = true;
       if (this.fromDate && this.toDate) {
-        return data.nextCommunity >= this.fromDate && data.nextCommunity <= this.toDate;
+        b = new Date(data.nextCommunity) >= this.fromDate && new Date(data.nextCommunity) <= this.toDate;
       }
-      else {
-        return data.childName.includes(filter) || 
+        return (data.childName.includes(filter) || 
         data.ashaName.includes(filter) || 
-        data.followupsDone == filter;
-      }
+        data.followupsDone == filter) && b;
+      
   }
     console.log(this.dataSource);
   //});

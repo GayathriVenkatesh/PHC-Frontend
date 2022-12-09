@@ -92,14 +92,14 @@ export class TrackChildNrcComponent implements OnInit {
 
     this.pipe = new DatePipe('en');
       this.dataSource.filterPredicate = (data: any, filter: any) =>{
+        var b = true;
         if (this.fromDate && this.toDate) {
-          return data.dischargeDate >= this.fromDate && data.dischargeDate <= this.toDate;
+          b = new Date(data.dischargeDate) >= this.fromDate && new Date(data.dischargeDate) <= this.toDate;
         }
-        else {
-          return data.name.includes(filter) || 
+          return (data.name.includes(filter) || 
           data.nrcFrom.includes(filter) || data.mobileNumber.includes(filter) || 
-          data.ashaName.includes(filter) || data.samNum.includes(filter);
-        }
+          data.ashaName.includes(filter) || data.samNum.includes(filter)) && b;
+        
     }
     });
     });
