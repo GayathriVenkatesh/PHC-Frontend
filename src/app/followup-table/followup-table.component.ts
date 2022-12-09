@@ -33,6 +33,21 @@ export class FollowupTableComponent implements OnInit {
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
+  set fromDate(d: Date) { 
+    if (this.filterForm && this.filterForm.get('fromDate') && this.filterForm.get('fromDate')) {
+      this.filterForm = new FormGroup({
+        fromDate: new FormControl(),
+        toDate: new FormControl(),
+    });
+    }
+  }
+  set toDate(d: Date) { 
+    this.filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  }
+
   constructor(private followupService: FollowupService, private modalService: MdbModalService) {
   this.today = new Date();
   this.last = new Date('Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)');
@@ -78,6 +93,8 @@ export class FollowupTableComponent implements OnInit {
 
   resetDate() {
     this.dataSource.filter = '';
+    this.fromDate = new Date('');
+    this.toDate = new Date("");
   }
 
   applyFilterDate() {

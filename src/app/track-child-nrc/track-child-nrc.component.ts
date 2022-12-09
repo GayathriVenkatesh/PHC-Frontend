@@ -28,6 +28,20 @@ export class TrackChildNrcComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'date', 'mobile', 'nrc', 'asha', 'status'];
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
+  set fromDate(d: Date) { 
+    if (this.filterForm && this.filterForm.get('fromDate') && this.filterForm.get('fromDate')) {
+      this.filterForm = new FormGroup({
+        fromDate: new FormControl(),
+        toDate: new FormControl(),
+    });
+    }
+  }
+  set toDate(d: Date) { 
+    this.filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  }
 
   constructor(private patientService: PatientService) {
      this.asha = [];
@@ -107,6 +121,8 @@ export class TrackChildNrcComponent implements OnInit {
 
   resetDate() {
     this.dataSource.filter = '';
+    this.fromDate = new Date("");
+    this.toDate = new Date("");
   }
 
   applyFilterDate() {
