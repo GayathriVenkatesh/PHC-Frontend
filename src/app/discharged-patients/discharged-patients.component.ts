@@ -75,10 +75,10 @@ export class DischargedPatientsComponent implements OnInit {
         if (this.fromDate && this.toDate) {
           b = new Date(data.date) >= this.fromDate && new Date(data.date) <= this.toDate;
         }
-        
-        return (data.name.includes(filter) ||
-        data.samId == filter || data.rchId == filter || data.mobileNumber.includes(filter) ||
-        data.address.includes(filter) || data.pincode.includes(filter)) && b;
+        var f = String(filter);
+        return (String(data.name).includes(f) ||
+        String(data.samId) == f || String(data.rchId) == f || String(data.mobileNumber).includes(f) ||
+        String(data.address).includes(f) || String(data.pincode).includes(f)) && b;
         
       }
       console.log("DATA BEING", this.dataSource);
