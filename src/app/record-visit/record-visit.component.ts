@@ -6,6 +6,9 @@ import { FollowupSchedule } from '../model/followup-schedule';
 import { FollowupSched } from '../model/followup-sched';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from '../service/customvalidation.service';
+import { SdRange } from '../model/sd-range';
+import { Comorbidities } from '../model/comorbidities';
+import { PatientService } from '../service/patient.service';
 
 @Component({
   selector: 'app-record-visit',
@@ -21,11 +24,16 @@ export class RecordVisitComponent implements OnInit {
     scheduleId: String;
     registerForm: FormGroup;
     submitted = false;
+      sdRange: SdRange[];
+      sd: number;
+      height: number;
+      comorbidities: Comorbidities[];
 
     constructor(private route: ActivatedRoute, private router: Router, private followupService: FollowupService,
-      private fb: FormBuilder, private customValidator: CustomvalidationService) {
+      private fb: FormBuilder, private patientService: PatientService, private customValidator: CustomvalidationService) {
       this.followup = new Followup();
       this.followup.followupDate = new Date();
+      this.sd=0;
       }
 
     onSubmit() {
@@ -80,8 +88,50 @@ export class RecordVisitComponent implements OnInit {
       return this.registerForm.controls;
     }
 
+calculate() {
+    console.log("height: ", this.registerForm.value.height);
+    this.height = this.registerForm.value.height;
+        if(this.height <45){
+            this.height = 45;
+        }
+        else if(this.height>120){
+            this.height=120;
+        }
+        for(var i=0; i < this.sdRange.length; i++){
+           if(this.height == this.sdRange[i].lengthCm){
+               if(this.registerForm.value.weight <= this.sdRange[i].minus4Sd){
+               this.sd=-4;
+               }
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus3Sd){
+               this.sd=-3;
+               }
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus2Sd){
+               this.sd=-2;
+               }
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus1Sd){
+               this.sd=-1;
+               }
+               else{
+               this.sd=0;
+               }
+           }
+        }
+        console.log("SD: ", this.sd);
+        this.followup.sdRange = this.sd;
+    }
+
+
+
     ngOnInit(): void {
     this.caseId = this.router.url.split("/")[2];
+    this.patientService.getSdRange('1085').subscribe(data => {
+          this.sdRange = data;
+          console.log("SD range", this.sdRange);
+        });
+        this.patientService.getComorbidities().subscribe(data => {
+              this.comorbidities = data;
+              console.log("Comorbidities", this.comorbidities);
+            });
       console.log("HELLO AARU", this.caseId);
       this.registerForm = this.fb.group({
         chiefComplaints: ['', Validators.required],

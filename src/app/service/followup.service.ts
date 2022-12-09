@@ -41,6 +41,8 @@ export class FollowupService {
       return this.http.get<FollowupSchedule[]>(this.followupsUrl + "s-schedule/" + caseId);
     }
 
+
+
   public findByCaseId(caseId: String): Observable<FollowupDate[]> {
   return this.http.get<FollowupDate[]>(this.followupsUrl + "-dates/" + caseId);
   }

@@ -171,10 +171,18 @@
           <th mat-header-cell *matHeaderCellDef> Status </th>
 
             <td mat-cell *matCellDef="let p">
-            <span class="badge badge-warning" style="background-color: #e8fadf;">
-              <a style="color: #68c536;" href="track-child/{{p.caseId}}">
-                <strong>{{p.status}}</strong>
-              </a></span>          
+                <div *ngIf="p.status=='FOLLOWUPS - SAM'"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">{{p.status}} </span></div>
+<!--                <div *ngIf="followup.sdRange==-3"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">SAM </span></div>-->
+                <div *ngIf="p.status=='FOLLOWUPS - MAM'"> <span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">{{p.status}} </span></div>
+<!--                <div *ngIf="followup.sdRange==-1"> <span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM </span></div>-->
+                <div *ngIf="p.status=='FOLLOWUPS - Normal'"> <span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;"> {{p.status}} </span></div>
+                <div *ngIf="p.status=='AWAITING ASHA ASSIGNMENT'"> <span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;"> {{p.status}} </span></div>
+                <div *ngIf="p.status==''"> <span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;"> No FOLLOWUPS YET </span></div>
+<!--            <span class="badge badge-warning" style="background-color: #e8fadf;">-->
+<!--              <a style="color: #68c536;" href="track-child/{{p.caseId}}">-->
+<!--                  -->
+<!--                <strong>{{p.status}}</strong>-->
+<!--              </a></span>          -->
             </td>
 
 <!--            <div *ngIf = "p.status=='Followups - SAM'">-->
