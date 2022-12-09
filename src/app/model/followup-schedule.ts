@@ -17,4 +17,5 @@ export class FollowupSchedule {
 place: String;
 lastCommunity: Date;
 lastNrc: Date;
+sdRange: number;
 }

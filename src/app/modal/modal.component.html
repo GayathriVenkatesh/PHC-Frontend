@@ -43,7 +43,7 @@
 
             <tr>
               <td>Place of Follow Up</td>
-              <td>Doddathoguru</td>
+              <td>{{followup?.place}}</td>
             </tr>
           
           <tr>
@@ -63,7 +63,7 @@
 
           <tr>
             <td>MUAC</td>
-            <td><span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">{{followup?.muac}} mm</span></td>
+            <td>{{followup?.muac}} mm</td>
           </tr>
         </div>
 
@@ -100,7 +100,15 @@
 
           <tr>
             <td>Result</td>
-            <td><span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM</span></td>
+            <td>
+
+              <div *ngIf="followup.sdRange==-4"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">SAM </span></div>
+              <div *ngIf="followup.sdRange==-3"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">SAM </span></div>
+              <div *ngIf="followup.sdRange==-2"> <span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM </span></div>
+              <div *ngIf="followup.sdRange==-1"> <span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM </span></div>
+              <div *ngIf="followup.sdRange==0"> <span class="badge bg-label-success" style="color: #00a141 !important; background-color: #e0ffed; font-size: 90%;"> Normal </span></div>
+
+<!--              <span class="badge bg-label-warning" style="color: #ffab00; background-color: #fff2d6; font-size: 90%">MAM</span></td>-->
           </tr>
 
           <tr>

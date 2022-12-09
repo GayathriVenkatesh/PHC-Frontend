@@ -8,6 +8,8 @@ import { map, filter, switchMap, delay } from 'rxjs/operators';
 import { DischargedPatient } from '../model/discharged-patient';
 import { url } from './url';
 import { SdRange } from '../model/sd-range';
+import { RejectPhc } from '../model/reject-phc';
+import { Comorbidities } from '../model/comorbidities';
 
 @Injectable()
 export class PatientService {
@@ -96,6 +98,13 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
    //        return this.http.post<String>(this.dischargedPatientUrl+"-approve", caseId);
       }
 
+      public rejectPhc(reject: RejectPhc) {
+            console.log("rejected: ",reject);
+            return this.http.post<Number>(url + "/reject-phc", reject);
+         //        return this.http.post<Patient>(this.dischargedPatientUrl+"d-patient", patient);
+         //        return this.http.post<String>(this.dischargedPatientUrl+"-approve", caseId);
+            }
+
    public trackChild(): Observable<Patient[]> {
        return this.http.get<Patient[]>(url + "/track-child");
      }
@@ -103,6 +112,10 @@ public findDischargeByCaseId(caseId: String): Observable<Discharge> {
      public trackChildPhc(phc: String): Observable<Patient[]> {
             return this.http.get<Patient[]>(url + "/track-child/" + phc);
           }
+
+    public getComorbidities(): Observable<Comorbidities[]> {
+         return this.http.get<Comorbidities[]>(url + "/comorbidities");
+       }
 
     public getSdRange(caseId: String): Observable<SdRange[]> {
      return this.http.get<SdRange[]>(url + "/sd-range/" + caseId);

@@ -22,34 +22,36 @@
     </div>
     <div class="modal-body" style="font-family:Arial, Helvetica, sans-serif">
       <div class="row">
-        <form>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
           <div class="column">
                <div class="mb-3">
                    <label class="form-label" for="basic-default-age">Reason for Rejection*</label>
-                   <input type="text" class="form-control" id="basic-default-company" />
+                   <input type="text" [(ngModel)] = "this.reject.rejectReason" name="reject-reason" id="reject-reason" class="form-control"/>
                </div>
 
               <div class="mb-3">
                   <label class="form-label" for="basic-default-age">Please suggest PHC that is best suited for the patient</label>
                   <br>
-                  <select name="other-phc" id="other-phc" class="form-select form-select-lg" style="height: 40px; width: 100%; border: 1px solid #ced4da">
+                  <select [(ngModel)] = "this.reject.suggestedPhc" name="other-phc" id="other-phc" class="form-select form-select-lg" style="height: 40px; width: 100%; border: 1px solid #ced4da">
                     <option></option>
-<!--                    <option value="1">Pneumonia</option>-->
+                      <option *ngFor="let p of phc" value={{p.phcId}}>{{ p.phcId}} - {{p.name }} - {{p.pincode}}  </option>
+
+                      <!--                    <option value="1">Pneumonia</option>-->
 <!--                    <option value="2">CHD</option>-->
 <!--                    <option value="3">Tuberculosis</option>-->
-                      <option value="34">34 - Agara PHC - 560102</option>
-                      <option value="35"> 35 - Anjanapura PHC - 560108</option>
-                      <option value="36"> 36 - Arakere PHC - 572106</option>
-                      <option value="37"> 37 - Begur PHC - 560068</option>
-                      <option value="38"> 38 - Bommanahalli PHC - 560068</option>
-                      <option value="39"> 39 - Gottigere PHC - 560083</option>
-                      <option value="40">  40 - Kodichikkanahalli PHC - 560076</option>
-                      <option value="41">  41 - Konanakunte PHC - 560062</option>
-                      <option value="42"> 42 - RoopenaAgrahara PHC - 560068</option>
-                      <option value="43"> 43 - Singasandra PHC - 560100</option>
-                      <option value="44"> 44 - Uttarahalli PHC - 560061</option>
-                      <option value="45"> 45 - Vasanthpura PHC - 560061</option>
-                      <option value="46"> 46 - Yalachenahalli PHC - 560078</option>
+<!--                      <option value="34">34 - Agara PHC - 560102</option>-->
+<!--                      <option value="35"> 35 - Anjanapura PHC - 560108</option>-->
+<!--                      <option value="36"> 36 - Arakere PHC - 572106</option>-->
+<!--                      <option value="37"> 37 - Begur PHC - 560068</option>-->
+<!--                      <option value="38"> 38 - Bommanahalli PHC - 560068</option>-->
+<!--                      <option value="39"> 39 - Gottigere PHC - 560083</option>-->
+<!--                      <option value="40">  40 - Kodichikkanahalli PHC - 560076</option>-->
+<!--                      <option value="41">  41 - Konanakunte PHC - 560062</option>-->
+<!--                      <option value="42"> 42 - RoopenaAgrahara PHC - 560068</option>-->
+<!--                      <option value="43"> 43 - Singasandra PHC - 560100</option>-->
+<!--                      <option value="44"> 44 - Uttarahalli PHC - 560061</option>-->
+<!--                      <option value="45"> 45 - Vasanthpura PHC - 560061</option>-->
+<!--                      <option value="46"> 46 - Yalachenahalli PHC - 560078</option>-->
 <!--=======-->
 
 <!--                    <option value="1">Relocated</option>-->
@@ -84,7 +86,7 @@
           </div> -->
 
           <button type="submit" class="btn rounded-pill btn-primary" 
-          style="background-color: #008eBe; float: right; margin-right: 0px; width: 25%" (click)= "reject()">Save</button>
+          style="background-color: #008eBe; float: right; margin-right: 0px; width: 25%">Save</button>
       </form>
       </div>
     </div>

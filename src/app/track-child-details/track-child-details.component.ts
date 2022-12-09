@@ -9,6 +9,8 @@ import { Discharge } from '../model/discharge';
 import { FollowupService } from '../service/followup.service';
 import { FollowupSchedule } from '../model/followup-schedule';
 import { RemarksModalComponent } from '../remarks-modal/remarks-modal.component';
+import { Remarks } from '../model/remarks';
+import { RemarksService } from '../service/remarks.service';
 
 @Component({
   selector: 'app-track-child-details',
@@ -28,8 +30,10 @@ export class TrackChildDetailsComponent implements OnInit {
   disDate: Date;
   adDate: Date;
   followups: FollowupSchedule[];
+  remarks: Remarks[];
+  lastSd: number;
 
-  constructor(private router: Router,private modalService: MdbModalService, private patientService: PatientService, private followupService: FollowupService) {}
+  constructor(private router: Router,private modalService: MdbModalService, private patientService: PatientService, private followupService: FollowupService, private remarksService: RemarksService) {}
 
   openModal(followupId: number, followupDate: Date) {
     this.modalRef = this.modalService.open(ModalComponent, {
@@ -39,9 +43,10 @@ export class TrackChildDetailsComponent implements OnInit {
     });
   }
 
-  openRemarksModal() {
+  openRemarksModal(caseId: String) {
     this.modalRef = this.modalService.open(RemarksModalComponent, {
       modalClass: 'modal-sm',
+      data: {caseId: caseId}
     });
   }
 
@@ -80,6 +85,15 @@ this.followupService.getFollowupScheduleById(this.caseId).subscribe(data => {
     this.followups = data;
     console.log("followups: ",this.followups);
 
+    this.lastSd=this.followups[this.followups.length-1].sdRange;
+    console.log("lastSD: ", this.lastSd);
+
+
+});
+
+this.remarksService.findByCaseId(this.caseId).subscribe(data => {
+this.remarks = data;
+console.log("remarks: ", this.remarks);
 });
 
   }

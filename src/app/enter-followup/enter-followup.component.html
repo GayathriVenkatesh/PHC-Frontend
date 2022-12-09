@@ -26,7 +26,7 @@
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
       <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Record Follow Up: 
-        {{ this.patient?.name }} (SAM-{{this.patient?.samNum}})</h3>
+        </h3>
       <br>
     <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px; width: 95%;">    
       
@@ -111,10 +111,12 @@ width: 100%"> -->
               <div class="form-group">
                 <label>Co-morbidities*</label>
                 <select formControlName="coMorbidities" id="coMorbidities" class="form-select">
-                  <option value="Pneumonia">Pneumonia</option>
-                  <option value="CHD">CHD</option>
-                  <option value="Tuberculosis">Tuberculosis</option>
-                  <option value="None">None</option>
+                    <option *ngFor="let c of comorbidities" value={{c.comorbidCondition}}>{{ c.comorbidCondition }}  </option>
+
+                    <!--                  <option value="Pneumonia">Pneumonia</option>-->
+<!--                  <option value="CHD">CHD</option>-->
+<!--                  <option value="Tuberculosis">Tuberculosis</option>-->
+<!--                  <option value="None">None</option>-->
               </select>  
                 <span style="color: #ef0000;"
                     *ngIf="(registerFormControl['coMorbidities'].touched || submitted) && registerFormControl['coMorbidities'].errors && registerFormControl['coMorbidities'].errors['required']">
@@ -129,8 +131,12 @@ width: 100%"> -->
 
               <div class="form-group">
                 <label>Place of Follow Up*</label>
-                <input type="text" class="form-control" formControlName="place">
-                <span style="color: #ef0000;"
+                  <select formControlName="place" id="place" class="form-select">
+                      <option value="PHC/SC">PHC/SC</option>
+                      <option value="Anganwadi">Anganwadi</option>
+<!--                <input type="text" class="form-control" formControlName="place">-->
+                  </select>
+                  <span style="color: #ef0000;"
                     *ngIf="(registerFormControl['place'].touched || submitted) && registerFormControl['place'].errors && registerFormControl['place'].errors['required']">
                     Place of Follow Up is required
                 </span>

@@ -11,6 +11,7 @@ import { Patient } from '../model/patient';
 import { CustomvalidationService } from '../service/customvalidation.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SdRange } from '../model/sd-range';
+import { Comorbidities } from '../model/comorbidities';
 
 @Component({
   selector: 'app-enter-followup',
@@ -30,6 +31,8 @@ export class EnterFollowupComponent implements OnInit {
   submitted = false;
   sdRange: SdRange[];
   sd: number;
+  height: number;
+  comorbidities: Comorbidities[];
 
   constructor(private route: ActivatedRoute, private router: Router, private modalService: MdbModalService, private followupService: FollowupService,
     private patientService: PatientService, private fb: FormBuilder,
@@ -41,7 +44,7 @@ export class EnterFollowupComponent implements OnInit {
 
   ngOnInit(): void {
     this.scheduleId = this.router.url.split("/")[2];
-    console.log("HELLO AARU", this.caseId);
+    //console.log("HELLO AARU", this.caseId);
     //this.patientService.findByCaseId(this.caseId).subscribe(data => {
     //  this.patient = data;
     //})
@@ -50,6 +53,11 @@ export class EnterFollowupComponent implements OnInit {
       this.sdRange = data;
       console.log("SD range", this.sdRange);
     });
+
+    this.patientService.getComorbidities().subscribe(data => {
+          this.comorbidities = data;
+          console.log("Comorbidities", this.comorbidities);
+        });
 
 
     this.registerForm = this.fb.group({
@@ -63,28 +71,30 @@ export class EnterFollowupComponent implements OnInit {
       otherSymptoms: [''],
     },
     );
-    console.log("height: ", this.registerForm.value.height);
+    console.log("height: ", this.registerForm);
   }
 
     calculate() {
-        if(this.followup.height <45){
-            this.followup.height = 45;
+    console.log("height: ", this.registerForm.value.height);
+    this.height = this.registerForm.value.height;
+        if(this.height <45){
+            this.height = 45;
         }
-        else if(this.followup.height>120){
-            this.followup.height=120;
+        else if(this.height>120){
+            this.height=120;
         }
         for(var i=0; i < this.sdRange.length; i++){
-           if(this.followup.height == this.sdRange[i].lengthCm){
-               if(this.followup.weight <= this.sdRange[i].minus4Sd){
+           if(this.height == this.sdRange[i].lengthCm){
+               if(this.registerForm.value.weight <= this.sdRange[i].minus4Sd){
                this.sd=-4;
                }
-               else if(this.followup.weight <= this.sdRange[i].minus3Sd){
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus3Sd){
                this.sd=-3;
                }
-               else if(this.followup.weight <= this.sdRange[i].minus2Sd){
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus2Sd){
                this.sd=-2;
                }
-               else if(this.followup.weight <= this.sdRange[i].minus1Sd){
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus1Sd){
                this.sd=-1;
                }
                else{
@@ -100,6 +110,16 @@ export class EnterFollowupComponent implements OnInit {
 
 
   onSubmit() {
+  this.followup.height = this.registerForm.value.height;
+  this.followup.weight = this.registerForm.value.weight;
+  this.followup.sdRange = this.sd;
+  this.followup.muac = this.registerForm.value.muac;
+  this.followup.headCircumference = this.registerForm.value.headCircumference;
+  this.followup.dietAdequacy = this.registerForm.value.dietAdequacy;
+  this.followup.coMorbidities = this.registerForm.value.coMorbidities;
+  this.followup.otherSymptoms = this.registerForm.value.otherSymptoms;
+  this.followup.place = this.registerForm.value.place;
+  //this.followup = {height: this.registerForm.value.height, weight: this.registerForm.value.weight, sdRange: this.sd, muac: this.registerForm.value.muac, headCircumference: this.registerForm.value.headCircumference, dietAdequacy: this.registerForm.value.dietAdequacy, coMorbidities: this.registerForm.value.coMorbidities, otherSymptoms: this.registerForm.value.otherSymptoms, place: this.registerForm.value.place}
     console.log("NEW Followup ", this.followup);
     this.followupService.save(this.followup).subscribe(result =>
       this.update()

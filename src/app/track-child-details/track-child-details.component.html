@@ -9,9 +9,17 @@
   <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
       <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">
         Track Child: {{patient.name}} (RCH ID/SAM ID- {{this.patient?.rchId}}/{{this.patient?.samNum}})
-        <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span>
+
+        <div *ngIf="lastSd==-4"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">SAM</span> </div>
+        <div *ngIf="lastSd==-3"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">SAM</span> </div>
+        <div *ngIf="lastSd==-2"> <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span> </div>
+        <div *ngIf="lastSd==-1"> <span class="badge bg-label-warning" style="color: #ffe0db; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span> </div>
+        <div *ngIf="lastSd==0"> Normal </div>
+
+
+<!--        <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span>-->
         <button type="button" class="btn rounded-pill btn-primary" style="background-color: #008ebe; 
-        float: right; width: 12%; margin-right: 8%;" (click)="openRemarksModal()">Add Remarks</button>
+        float: right; width: 12%; margin-right: 8%;" (click)="openRemarksModal(caseId)">Add Remarks</button>
       </h3><br>
     <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px;">    
       <div class="card-header" style="background-color: #ffffff; font-family: Arial, Helvetica, sans-serif;">
@@ -152,7 +160,7 @@
             
             <tr style="color: black;">
               <td><strong>SD Range</strong></td>
-              <td>-1</td>
+              <td>0</td>
             </tr>
 
             <tr style="color: black;">
@@ -219,7 +227,7 @@
             <th style="color: black;">Follow Up Type</th>
             <th style="color: black;">Follow Up Done By</th>
             <th style="color: black;">Place of Followup</th>
-            <th style="color: black;">Contact</th>
+            <th style="color: black;">Result</th>
             <!-- <th style="color: black;">ASHA Worker</th> -->
           </tr>
         </thead>
@@ -229,7 +237,14 @@
             <td>{{f?.type}}</td>
             <td>{{f?.ashaName}}</td>
             <td>{{f?.place}}</td>
-            <td>{{f?.ashaNumber}}</td>
+            <td>
+              <div *ngIf="f.sdRange==-4"> SAM </div>
+              <div *ngIf="f.sdRange==-3"> SAM </div>
+              <div *ngIf="f.sdRange==-2"> MAM </div>
+              <div *ngIf="f.sdRange==-1"> MAM </div>
+              <div *ngIf="f.sdRange==0"> Normal </div>
+
+              </td>
           </tr>
           
 <!--          <tr (click)="openModal()">-->
@@ -265,20 +280,27 @@
             <td><strong>DOCTOR NAME</strong></td>
             <td><strong>DOCTOR CONTACT</strong></td>
           </tr>
-          
-          <tr style="color: black;">
-            <td>12-02-2022</td>
-            <td>Patient is deteriorating</td>
-            <td>Dr. Nilam</td>
-            <td>9876543210</td>
-          </tr>
 
-          <tr style="color: black;">
-            <td>20-02-2022</td>
-            <td>Condition is improving after increased protein intake</td>
-            <td>Dr. Purab</td>
-            <td>8765432109</td>
+          <tr *ngFor="let r of remarks;" >
+            <td >{{r?.date | date : "dd-MM-y"}} </td>
+            <td>{{r?.remark}}</td>
+            <td>{{r?.doctorName}}</td>
+            <td>{{r?.doctorNumber}}</td>
+
           </tr>
+<!--          <tr style="color: black;">-->
+<!--            <td>12-02-2022</td>-->
+<!--            <td>Patient is deteriorating</td>-->
+<!--            <td>Dr. Nilam</td>-->
+<!--            <td>9876543210</td>-->
+<!--          </tr>-->
+
+<!--          <tr style="color: black;">-->
+<!--            <td>20-02-2022</td>-->
+<!--            <td>Condition is improving after increased protein intake</td>-->
+<!--            <td>Dr. Purab</td>-->
+<!--            <td>8765432109</td>-->
+<!--          </tr>-->
         </tbody>
       </table>
   </div>

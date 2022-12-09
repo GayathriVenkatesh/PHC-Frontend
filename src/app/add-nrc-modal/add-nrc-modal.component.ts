@@ -28,11 +28,12 @@ export class AddNrcModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      nrc: ['', Validators.required],
+      nrc: [this.name, Validators.required],
       address: ['', Validators.required],
       pincode: ['', Validators.required],
       contactNo: ['', Validators.required],
     });
+
   }
 
   openConfirm(nrcId: number) {
