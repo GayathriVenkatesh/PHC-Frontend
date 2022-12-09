@@ -55,23 +55,23 @@ export class AddPhcModalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.asha = {name: this.registerForm.value.name, ward: this.ward, area: this.registerForm.value.address, pincode: this.registerForm.value.pincode, phoneNumber: this.registerForm.value.contactNo, phcName: this.registerForm.value.parentName, ashaId: this.ashaId };
-    this.phc = {phcId: this.phcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo, parentName: 'VVH' };
-    console.log(this.name, this.address, this.pincode, this.contact);
-    console.log("hello", this.asha);
-    console.log("hello", this.phc);
+    if (this.registerForm.valid) {
+      console.table(this.registerForm.value);
+      this.asha = {name: this.registerForm.value.name, ward: this.ward, area: this.registerForm.value.address, pincode: this.registerForm.value.pincode, phoneNumber: this.registerForm.value.contactNo, phcName: this.registerForm.value.parentName, ashaId: this.ashaId };
+      this.phc = {phcId: this.phcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo, parentName: 'VVH' };
+      console.log(this.name, this.address, this.pincode, this.contact);
+      console.log("hello", this.asha);
+      console.log("hello", this.phc);
 
-    if(this.entity=='ASHA'){
-    this.ashaWorkerService.ashaSave(this.asha).subscribe();}
-    else if(this.entity=='PHC'){
-    this.phcService.save(this.phc).subscribe();
-    }
-    this.submitted = true;
-      if (this.registerForm.valid) {
-        alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-        console.table(this.registerForm.value);
+      if (this.entity == 'ASHA') {
+        this.ashaWorkerService.ashaSave(this.asha).subscribe();
       }
-    location.reload();
+      else if (this.entity == 'PHC') {
+        this.phcService.save(this.phc).subscribe();
+      }
+      this.submitted = true;    
+      location.reload();
+    }
   }
 
   openConfirm(nrcId: number) {

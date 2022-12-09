@@ -110,25 +110,25 @@ export class EnterFollowupComponent implements OnInit {
 
 
   onSubmit() {
-  this.followup.height = this.registerForm.value.height;
-  this.followup.weight = this.registerForm.value.weight;
-  this.followup.sdRange = this.sd;
-  this.followup.muac = this.registerForm.value.muac;
-  this.followup.headCircumference = this.registerForm.value.headCircumference;
-  this.followup.dietAdequacy = this.registerForm.value.dietAdequacy;
-  this.followup.coMorbidities = this.registerForm.value.coMorbidities;
-  this.followup.otherSymptoms = this.registerForm.value.otherSymptoms;
-  this.followup.place = this.registerForm.value.place;
-  //this.followup = {height: this.registerForm.value.height, weight: this.registerForm.value.weight, sdRange: this.sd, muac: this.registerForm.value.muac, headCircumference: this.registerForm.value.headCircumference, dietAdequacy: this.registerForm.value.dietAdequacy, coMorbidities: this.registerForm.value.coMorbidities, otherSymptoms: this.registerForm.value.otherSymptoms, place: this.registerForm.value.place}
-    console.log("NEW Followup ", this.followup);
-    this.followupService.save(this.followup).subscribe(result =>
-      this.update()
-    );
-    this.submitted = true;
     if (this.registerForm.valid) {
-      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
       console.table("FORM VALUES", this.registerForm.value);
-    }
+
+      this.followup.height = this.registerForm.value.height;
+      this.followup.weight = this.registerForm.value.weight;
+      this.followup.sdRange = this.sd;
+      this.followup.muac = this.registerForm.value.muac;
+      this.followup.headCircumference = this.registerForm.value.headCircumference;
+      this.followup.dietAdequacy = this.registerForm.value.dietAdequacy;
+      this.followup.coMorbidities = this.registerForm.value.coMorbidities;
+      this.followup.otherSymptoms = this.registerForm.value.otherSymptoms;
+      this.followup.place = this.registerForm.value.place;
+    //this.followup = {height: this.registerForm.value.height, weight: this.registerForm.value.weight, sdRange: this.sd, muac: this.registerForm.value.muac, headCircumference: this.registerForm.value.headCircumference, dietAdequacy: this.registerForm.value.dietAdequacy, coMorbidities: this.registerForm.value.coMorbidities, otherSymptoms: this.registerForm.value.otherSymptoms, place: this.registerForm.value.place}
+      console.log("NEW Followup ", this.followup);
+      this.followupService.save(this.followup).subscribe(result =>
+        this.update()
+      );
+      this.submitted = true;
+    } 
   }
 
   update() {

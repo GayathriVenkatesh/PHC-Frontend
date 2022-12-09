@@ -49,12 +49,15 @@ export class AddNrcModalComponent implements OnInit {
   get registerFormControl() {
     return this.registerForm.controls;
   }
-    onSubmit() {
+
+  onSubmit() {
+    if (this.registerForm.valid) {
+      console.table(this.registerForm.value);
     //this.asha = {name: this.name, ward: this.ward, area: this.address, pincode: this.pincode, phoneNumber: this.contact, phcName: this.parentName, ashaId: this.ashaId };
-    this.nrc = {nrcId: this.nrcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo };
-    //console.log(this.name, this.address, this.pincode, this.contact);
-    //console.log("hello", this.asha);
-    console.log("hello", this.nrc);
+      this.nrc = {nrcId: this.nrcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo };
+      //console.log(this.name, this.address, this.pincode, this.contact);
+      //console.log("hello", this.asha);
+      console.log("hello", this.nrc);
 
       //if(this.entity=='ASHA'){
       //this.ashaWorkerService.ashaSave(this.asha).subscribe();}
@@ -63,10 +66,7 @@ export class AddNrcModalComponent implements OnInit {
       //}
       location.reload();
       this.submitted = true;
-      if (this.registerForm.valid) {
-        alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-        console.table(this.registerForm.value);
-      }
     }
-
+  }
 }
+  
