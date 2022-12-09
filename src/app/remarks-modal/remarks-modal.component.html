@@ -26,18 +26,18 @@
           <div class="column">
                <div class="mb-3">
                    <label class="form-label" for="basic-default-age">Enter remarks*</label>
-                   <textarea class="form-control" id="basic-default-company"></textarea>
+                   <textarea class="form-control" [(ngModel)] = "remarks.remark" id="remarks" name="remarks" required></textarea>                  
                </div>
 
                <div class="mb-3">
                 <label class="form-label" for="basic-default-age">Doctor name*</label>
-                <input class="form-control" id="basic-default-company">
+                <input type="text" class="form-control" [(ngModel)] = "remarks.doctorName" id="doctorName" name="doctorName">             
             </div>
 
             <div class="mb-3">
               <label class="form-label" for="basic-default-age">Doctor Contact No*</label>
-              <input class="form-control" id="basic-default-company">
-          </div>
+              <input type="text" class="form-control" [(ngModel)] = "remarks.doctorNumber" id="doctorContact" name="doctorContact">
+            </div>
           </div>
 
           <button type="submit" class="btn rounded-pill btn-primary" 

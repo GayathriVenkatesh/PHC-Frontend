@@ -55,9 +55,9 @@ export class EnterFollowupComponent implements OnInit {
     });
 
     this.patientService.getComorbidities().subscribe(data => {
-          this.comorbidities = data;
-          console.log("Comorbidities", this.comorbidities);
-        });
+      this.comorbidities = data;
+      console.log("Comorbidities", this.comorbidities);
+    });
 
 
     this.registerForm = this.fb.group({

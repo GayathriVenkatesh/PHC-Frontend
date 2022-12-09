@@ -15,12 +15,17 @@ export class RemarksModalComponent implements OnInit {
   constructor(public modalRef: MdbModalRef<RemarksModalComponent>, private remarksService: RemarksService) { }
 
   ngOnInit(): void {
+    this.remarks = new Remarks();
 
   }
 
   onSubmit() {
-  this.remarks= {remarkId: null, caseId: this.caseId, remark: "Doing good", doctorName: "Dr. Mishra", doctorNumber: "12121212", date: new Date()}
-  this.remarksService.save(this.remarks).subscribe();
+    // this.remarks = {remarkId: null, caseId: this.caseId, remark: "Doing good", doctorName: "Dr. Mishra", doctorNumber: "12121212", date: new Date()}
+    this.remarks.remarkId = null;
+    this.remarks.caseId = this.caseId;
+    this.remarks.date = new Date();
+    console.log("REMARKS", this.remarks);   
+    this.remarksService.save(this.remarks).subscribe();
+    this.modalRef.close()
   }
-
 }

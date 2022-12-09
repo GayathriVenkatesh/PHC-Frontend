@@ -2,25 +2,47 @@
   .mat-option {
     color: red;
   }
+
+  .column {
+     float: left;
+     width: 30%;
+     /* padding: 20px; */
+   }
+   
+   /* Clear floats after the columns */
+   .row:after {
+     content: "";
+     display: table;
+     clear: both;
+   }
 </style>
 
 <div class="content-wrapper" style="margin-left: 0vw; overflow: auto; margin-top: 0px; width: 100vw; height: 180vh; border-radius: 0; background-color: #3e4a74;">
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
+    <div class="row">
+      <!-- <div class="column"> -->
       <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">
         Track Child: {{patient.name}} (RCH ID/SAM ID- {{this.patient?.rchId}}/{{this.patient?.samNum}})
 
-        <div *ngIf="lastSd==-4"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">SAM</span> </div>
-        <div *ngIf="lastSd==-3"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;">SAM</span> </div>
-        <div *ngIf="lastSd==-2"> <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span> </div>
-        <div *ngIf="lastSd==-1"> <span class="badge bg-label-warning" style="color: #ffe0db; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span> </div>
-        <div *ngIf="lastSd==0"> Normal </div>
-
-
-<!--        <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%">MAM</span>-->
         <button type="button" class="btn rounded-pill btn-primary" style="background-color: #008ebe; 
         float: right; width: 12%; margin-right: 8%;" (click)="openRemarksModal(caseId)">Add Remarks</button>
-      </h3><br>
+      
+      </h3>
+      <!-- </div> -->
+        <!-- {{patient.name}} (RCH ID/SAM ID- {{this.patient?.rchId}}/{{this.patient?.samNum}}) -->
+
+      <!-- <div class="column"> -->
+        <div *ngIf="lastSd==-4"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;"><strong>SAM</strong></span> </div>
+        <div *ngIf="lastSd==-3"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;"><strong>SAM</strong></span> </div>
+        <div *ngIf="lastSd==-2"> <span class="badge bg-label-warning" style="color: #dc9404; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%"><strong>MAM</strong></span> </div>
+        <div *ngIf="lastSd==-1"> <span class="badge bg-label-warning" style="color: #ffe0db; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%"><strong>MAM</strong></span> </div>
+        <div *ngIf="lastSd==0"> <span class="badge bg-label-success" style="color: #ffe0db; margin-left: 10px; font-size: 14px; font-weight: bold; font-size: 90%"><strong>Normal</strong></span> </div>
+      <!-- </div> -->
+      <br>
+   
+    </div>
+
     <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 10px;">    
       <div class="card-header" style="background-color: #ffffff; font-family: Arial, Helvetica, sans-serif;">
       
