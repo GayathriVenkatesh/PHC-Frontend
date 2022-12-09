@@ -51,7 +51,7 @@ export class AddNrcModalComponent implements OnInit {
   }
     onSubmit() {
     //this.asha = {name: this.name, ward: this.ward, area: this.address, pincode: this.pincode, phoneNumber: this.contact, phcName: this.parentName, ashaId: this.ashaId };
-    this.nrc = {nrcId: this.nrcId, name: this.name,address: this.address, pincode: this.pincode, contactNumber: this.contact };
+    this.nrc = {nrcId: this.nrcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo };
     //console.log(this.name, this.address, this.pincode, this.contact);
     //console.log("hello", this.asha);
     console.log("hello", this.nrc);

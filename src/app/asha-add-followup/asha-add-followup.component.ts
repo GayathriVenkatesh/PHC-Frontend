@@ -37,6 +37,16 @@ export class AshaAddFollowupComponent implements OnInit {
     return this.registerForm.controls;
   }
     onSubmit(){
+      this.followup.height = this.registerForm.value.height;
+      this.followup.weight = this.registerForm.value.weight;
+      // this.followup.sdRange = this.sd;
+      this.followup.muac = this.registerForm.value.muac;
+      this.followup.headCircumference = this.registerForm.value.headCircumference;
+      this.followup.dietAdequacy = this.registerForm.value.dietAdequacy;
+      this.followup.coMorbidities = this.registerForm.value.coMorbidities;
+      this.followup.otherSymptoms = this.registerForm.value.otherSymptoms;
+      this.followup.place = this.registerForm.value.place;
+      
     console.log("NEW Followup ", this.followup);
     this.followupService.save(this.followup).subscribe(result =>
     this.update());

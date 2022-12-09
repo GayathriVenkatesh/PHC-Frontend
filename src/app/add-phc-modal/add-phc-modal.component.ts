@@ -55,8 +55,8 @@ export class AddPhcModalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.asha = {name: this.name, ward: this.ward, area: this.address, pincode: this.pincode, phoneNumber: this.contact, phcName: this.parentName, ashaId: this.ashaId };
-    this.phc = {phcId: this.phcId, name: this.name,address: this.address, pincode: this.pincode, contactNumber: this.contact, parentName: 'VVN' };
+    this.asha = {name: this.registerForm.value.name, ward: this.ward, area: this.registerForm.value.address, pincode: this.registerForm.value.pincode, phoneNumber: this.registerForm.value.contactNo, phcName: this.registerForm.value.parentName, ashaId: this.ashaId };
+    this.phc = {phcId: this.phcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo, parentName: 'VVH' };
     console.log(this.name, this.address, this.pincode, this.contact);
     console.log("hello", this.asha);
     console.log("hello", this.phc);
