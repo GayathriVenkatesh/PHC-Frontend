@@ -110,9 +110,10 @@ export class TrackChildNrcComponent implements OnInit {
         if (this.fromDate && this.toDate) {
           b = new Date(data.dischargeDate) >= this.fromDate && new Date(data.dischargeDate) <= this.toDate;
         }
-          return (data.name.includes(filter) || 
-          data.nrcFrom.includes(filter) || data.mobileNumber.includes(filter) || 
-          data.ashaName.includes(filter) || data.samNum.includes(filter)) && b;
+        var f = String(filter)
+          return (String(data.name).includes(f) || 
+          String(data.nrcFrom).includes(f) || String(data.mobileNumber).includes(f) || 
+          String(data.ashaName).includes(f) || String(data.samNum).includes(f)) && b;
         
     }
     });

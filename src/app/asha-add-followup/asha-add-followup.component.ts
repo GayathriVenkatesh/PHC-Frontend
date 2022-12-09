@@ -8,6 +8,7 @@ import { FollowupSched } from '../model/followup-sched';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from '../service/customvalidation.service';
+import { SdRange } from '../model/sd-range';
 
 @Component({
   selector: 'app-asha-add-followup',
@@ -20,9 +21,12 @@ export class AshaAddFollowupComponent implements OnInit {
     followup: Followup;
     date: Date;
     caseId: string;
+    height: number;
     followupSchedule: FollowupSched;
     lastFollowup: Followup;
     scheduleId: string;
+    sdRange: SdRange[];
+    sd: number;
     registerForm: FormGroup;
     submitted = false;
 
@@ -31,7 +35,42 @@ export class AshaAddFollowupComponent implements OnInit {
     this.followup = new Followup();
     this.followup.followupDate = new Date();
     this.date = new Date();
+    this.sd = 0;
   }
+
+  calculate() {
+    console.log("height: ", this.registerForm.value.height);
+    this.height = this.registerForm.value.height;
+        if(this.height <45){
+            this.height = 45;
+        }
+        else if(this.height>120){
+            this.height=120;
+        }
+        for(var i=0; i < this.sdRange.length; i++){
+           if(this.height == this.sdRange[i].lengthCm){
+               if(this.registerForm.value.weight <= this.sdRange[i].minus4Sd){
+               this.sd=-4;
+               }
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus3Sd){
+               this.sd=-3;
+               }
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus2Sd){
+               this.sd=-2;
+               }
+               else if(this.registerForm.value.weight <= this.sdRange[i].minus1Sd){
+               this.sd=-1;
+               }
+               else{
+               this.sd=0;
+               }
+           }
+
+
+        }
+        console.log("SD: ", this.sd);
+        this.followup.sdRange = this.sd;
+    }
 
   get registerFormControl() {
     return this.registerForm.controls;
@@ -42,7 +81,7 @@ export class AshaAddFollowupComponent implements OnInit {
       
         this.followup.height = this.registerForm.value.height;
         this.followup.weight = this.registerForm.value.weight;
-        // this.followup.sdRange = this.sd;
+        this.followup.sdRange = this.sd;
         this.followup.muac = this.registerForm.value.muac;
         this.followup.headCircumference = this.registerForm.value.headCircumference;
         this.followup.dietAdequacy = this.registerForm.value.dietAdequacy;

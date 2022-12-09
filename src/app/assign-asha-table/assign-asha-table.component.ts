@@ -83,10 +83,11 @@ export class AssignAshaTableComponent implements OnInit {
         var b = true;
         if (this.fromDate && this.toDate) {
           b =  new Date(data.dischargeDate) >= this.fromDate && new Date(data.dischargeDate) <= this.toDate;  
-        }    
-          return (data.name.includes(filter) || 
-          data.address.includes(filter) || data.pincode.includes(filter) || 
-          data.mobileNumber.includes(filter) || data.nrcFrom.includes(filter)) && b;
+        }   
+        var f = String(filter) 
+          return (String(data.name).includes(f) || 
+          String(data.address).includes(f) || String(data.pincode).includes(f) || 
+          String(data.mobileNumber).includes(f) || String(data.nrcFrom).includes(f)) && b;
         
     }
     });

@@ -47,11 +47,16 @@
 
           <div class="form-group">
             <label>Weight (in kg)*</label>
-            <input type="text" class="form-control" formControlName="weight">
+            <input type="text" class="form-control" formControlName="weight" (change)="calculate()">
             <span style="color: #ef0000;"
                 *ngIf="(registerFormControl['weight'].touched || submitted) && registerFormControl['weight'].errors && registerFormControl['weight'].errors['required']">
                 Weight is required
             </span>
+          </div>
+
+          <div class="form-group">
+            <label>SD Range</label>
+            <input type="text" class="form-control" value="{{sd}}" readonly>
           </div>
 
           <div class="form-group">
@@ -71,15 +76,6 @@
                 Head Circumference is required
             </span>
           </div>
-
-          <div class="form-group">
-            <label>Place of Follow Up*</label>
-            <input type="text" class="form-control" formControlName="place">
-            <span style="color: #ef0000;"
-                *ngIf="(registerFormControl['place'].touched || submitted) && registerFormControl['place'].errors && registerFormControl['place'].errors['required']">
-                Place of Follow Up is required
-            </span>
-        </div>
         </div>
         
         <div class="column">
@@ -123,6 +119,15 @@
             <label>Other Symptoms</label>
             <input type="text" class="form-control" formControlName="otherSymptoms">             
           </div>
+
+          <div class="form-group">
+            <label>Place of Follow Up*</label>
+            <input type="text" class="form-control" formControlName="place">
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['place'].touched || submitted) && registerFormControl['place'].errors && registerFormControl['place'].errors['required']">
+                Place of Follow Up is required
+            </span>
+        </div>
         
             <button type="submit" class="btn rounded-pill btn-primary" 
             style="color: white; float: left; background-color:#008ebe; width: 35%; 

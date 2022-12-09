@@ -6,6 +6,7 @@ import { FollowupSchedule } from '../model/followup-schedule';
 import { FollowupSched } from '../model/followup-sched';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from '../service/customvalidation.service';
+import { SdRange } from '../model/sd-range';
 
 @Component({
   selector: 'app-record-visit',
@@ -21,11 +22,15 @@ export class RecordVisitComponent implements OnInit {
     scheduleId: String;
     registerForm: FormGroup;
     submitted = false;
+    sdRange: SdRange[];
+    sd: number;
+    height: number;
 
     constructor(private route: ActivatedRoute, private router: Router, private followupService: FollowupService,
       private fb: FormBuilder, private customValidator: CustomvalidationService) {
       this.followup = new Followup();
       this.followup.followupDate = new Date();
+      this.sd = 0;
       }
 
     onSubmit() {
@@ -33,7 +38,7 @@ export class RecordVisitComponent implements OnInit {
         console.table(this.registerForm.value);
         this.followup.height = this.registerForm.value.height;
         this.followup.weight = this.registerForm.value.weight;
-        // this.followup.sdRange = this.sd;
+        this.followup.sdRange = this.sd;
         this.followup.muac = this.registerForm.value.muac;
         this.followup.headCircumference = this.registerForm.value.headCircumference;
         this.followup.dietAdequacy = this.registerForm.value.dietAdequacy;
@@ -73,12 +78,46 @@ export class RecordVisitComponent implements OnInit {
     }
 
     gotoFollowups(){
-    this.router.navigate(['/followup-list']);
+      this.router.navigate(['/followup-list']);
     }
 
     get registerFormControl() {
       return this.registerForm.controls;
     }
+
+    calculate() {
+      console.log("height: ", this.registerForm.value.height);
+      this.height = this.registerForm.value.height;
+          if(this.height <45){
+              this.height = 45;
+          }
+          else if(this.height>120){
+              this.height=120;
+          }
+          for(var i=0; i < this.sdRange.length; i++){
+             if(this.height == this.sdRange[i].lengthCm){
+                 if(this.registerForm.value.weight <= this.sdRange[i].minus4Sd){
+                 this.sd=-4;
+                 }
+                 else if(this.registerForm.value.weight <= this.sdRange[i].minus3Sd){
+                 this.sd=-3;
+                 }
+                 else if(this.registerForm.value.weight <= this.sdRange[i].minus2Sd){
+                 this.sd=-2;
+                 }
+                 else if(this.registerForm.value.weight <= this.sdRange[i].minus1Sd){
+                 this.sd=-1;
+                 }
+                 else{
+                 this.sd=0;
+                 }
+             }
+  
+  
+          }
+          console.log("SD: ", this.sd);
+          this.followup.sdRange = this.sd;
+      }
 
     ngOnInit(): void {
     this.caseId = this.router.url.split("/")[2];

@@ -83,9 +83,10 @@ export class FollowupTableComponent implements OnInit {
       if (this.fromDate && this.toDate) {
         b =  new Date(data.nextCommunity) >= this.fromDate && new Date(data.nextCommunity) <= this.toDate;
       }
-        return (data.childName.includes(filter) || 
-        data.ashaName.includes(filter) || 
-        data.followupsDone == filter) && b;
+      var f = String(filter);
+        return (String(data.childName).includes(f) || 
+        String(data.ashaName).includes(f) || 
+        String(data.followupsDone) == f) && b;
   }
     console.log(this.dataSource);
     });
