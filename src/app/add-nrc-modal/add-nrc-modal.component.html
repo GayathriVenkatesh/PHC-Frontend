@@ -26,7 +26,7 @@
             <div class="column">
               <div class="form-group">
                   <label>NRC Name*</label>
-                  <input type="text" class="form-control" formControlName="nrc" value="registerForm.value.nrc">
+                  <input type="text" class="form-control" formControlName="nrc">
                   <span style="color: #ef0000;"
                       *ngIf="(registerFormControl['nrc'].touched || submitted) && registerFormControl['nrc'].errors && registerFormControl['nrc'].errors['required']">
                     NRC Name is required
@@ -49,14 +49,22 @@
                     *ngIf="(registerFormControl['pincode'].touched || submitted) && registerFormControl['pincode'].errors && registerFormControl['pincode'].errors['required']">
                     Pincode is required
                 </span>
+                <span style="color: #ef0000;"
+                    *ngIf="(registerFormControl['pincode'].value) && registerFormControl['pincode'].value.length != 6">
+                    Pincode should contain 6 digits
+                </span>
               </div>
     
               <div class="form-group">
                 <label>Contact No*</label>
-                <input type="text" class="form-control" formControlName="contactNo"> 
+                <input type="text" class="form-control" formControlName="contact"> 
                 <span style="color: #ef0000;"
-                    *ngIf="(registerFormControl['contactNo'].touched || submitted) && registerFormControl['contactNo'].errors && registerFormControl['contactNo'].errors['required']">
+                    *ngIf="(registerFormControl['contact'].touched || submitted) && registerFormControl['contact'].errors && registerFormControl['contact'].errors['required']">
                     Contact Number is required
+                </span>
+                <span style="color: #ef0000;"
+                    *ngIf="(registerFormControl['contact'].value) && registerFormControl['contact'].value.length != 10">
+                    Contact Number should contain 10 digits
                 </span>
               </div>
             

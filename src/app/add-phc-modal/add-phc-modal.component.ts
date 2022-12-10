@@ -40,13 +40,13 @@ export class AddPhcModalComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.phcId);
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      parentName: ['', Validators.required],
-      address: ['', Validators.required],
-      pincode: ['', Validators.required],
-      contactNo: ['', Validators.required],
+      name: [this.name, Validators.required],
+      username: [this.username, Validators.required],
+      password: [this.password, Validators.required],
+      parentName: [this.parentName, Validators.required],
+      address: [this.address, Validators.required],
+      pincode: [this.pincode, Validators.required],
+      contactNo: [this.contact, Validators.required],
     });
   }
 
@@ -54,8 +54,12 @@ export class AddPhcModalComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  isValid(x: any) {
+    return (x.pincode.length == 6 && x.contactNo.length == 10)
+  }
+
   onSubmit() {
-    if (this.registerForm.valid) {
+    if (this.registerForm.valid && this.isValid(this.registerForm.value)) {
       console.table(this.registerForm.value);
       this.asha = {name: this.registerForm.value.name, ward: this.ward, area: this.registerForm.value.address, pincode: this.registerForm.value.pincode, phoneNumber: this.registerForm.value.contactNo, phcName: this.registerForm.value.parentName, ashaId: this.ashaId };
       this.phc = {phcId: this.phcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo, parentName: 'VVH' };

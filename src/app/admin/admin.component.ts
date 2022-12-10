@@ -38,7 +38,7 @@ export class AdminComponent implements OnInit {
   }
   ngOnInit(): void {
     this.nrc = [
-     {name: "Gayathri", address: "3rd Road, Chennai", pincode: "560075", nrcId:1, contactNumber: "9876543210"},
+    //  {name: "Gayathri", address: "3rd Road, Chennai", pincode: "560075", nrcId:1, contactNumber: "9876543210"},
     //  {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
     //  {name: "Aanchal", address: "5th Road, Delhi", pincode: "560075", contact: "9878263726"},
     //  {name: "Vani Vilas", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726"},
