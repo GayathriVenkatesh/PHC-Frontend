@@ -75,8 +75,25 @@ export class AshaAddFollowupComponent implements OnInit {
   get registerFormControl() {
     return this.registerForm.controls;
   }
+
+  isValid(x: any) {
+    if (x.height < 0 || x.height > 100) {
+      return false
+    }
+    if (x.weight < 0 || x.weight > 100) {
+      return false
+    }
+    if (x.muac < 0 || x.muac > 100) {
+      return false
+    }
+    if (x.headCircumference < 0 || x.headCircumference > 100) {
+      return false
+    }
+    return true;
+  }
+
     onSubmit() {
-      if (this.registerForm.valid) {
+      if (this.registerForm.valid && this.isValid(this.registerForm.value)) {
         console.table(this.registerForm.value);
       
         this.followup.height = this.registerForm.value.height;
@@ -120,6 +137,7 @@ export class AshaAddFollowupComponent implements OnInit {
         coMorbidities: ['', Validators.required],
         otherSymptoms: [''],
       },);
+    console.log("error", this.registerFormControl['height'])
   }
 
   openCancelModal() {

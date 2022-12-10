@@ -49,6 +49,10 @@
                         *ngIf="(registerFormControl['height'].touched || submitted) && registerFormControl['height'].errors && registerFormControl['height'].errors['required']">
                         Height is required
                     </span>
+                    <span style="color: #ef0000;"
+                  *ngIf="registerFormControl['height'].value < 0 || registerFormControl['height'].value > 100">
+                  Height should be between 0 and 100
+              </span> 
                 </div>
   
                 <div class="form-group">
@@ -58,6 +62,10 @@
                       *ngIf="(registerFormControl['weight'].touched || submitted) && registerFormControl['weight'].errors && registerFormControl['weight'].errors['required']">
                       Weight is required
                   </span>
+                  <span style="color: #ef0000;"
+                  *ngIf="registerFormControl['weight'].value < 0 || registerFormControl['weight'].value > 100">
+                  Weight should be between 0 and 100
+              </span>
                 </div>
                 
                 <div class="form-group">
@@ -72,6 +80,10 @@
                       *ngIf="(registerFormControl['muac'].touched || submitted) && registerFormControl['muac'].errors && registerFormControl['muac'].errors['required']">
                       MUAC is required
                   </span>
+                  <span style="color: #ef0000;"
+                  *ngIf="registerFormControl['muac'].value < 0 || registerFormControl['muac'].value > 100">
+                  MUAC should be between 0 and 100
+                  </span>
                 </div>
               </div>
               
@@ -83,6 +95,10 @@
                       *ngIf="(registerFormControl['headCircumference'].touched || submitted) && registerFormControl['headCircumference'].errors && registerFormControl['headCircumference'].errors['required']">
                       Head Circumference is required
                   </span>
+                  <span style="color: #ef0000;"
+                  *ngIf="registerFormControl['headCircumference'].value < 0 || registerFormControl['headCircumference'].value > 100">
+                  Head Circumference should be between 0 and 100
+                </span>
                 </div>
   
                 <div class="form-group">
