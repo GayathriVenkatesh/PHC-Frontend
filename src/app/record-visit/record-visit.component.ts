@@ -34,16 +34,16 @@ export class RecordVisitComponent implements OnInit {
       }
 
     isValid(x: any) {
-      if (x.height < 0 || x.height > 100) {
+      if (x.height < 45 || x.height > 120) {
         return false
       }
-      if (x.weight < 0 || x.weight > 100) {
+      if (x.weight < 0 || x.weight > 23) {
         return false
       }
-      if (x.muac < 0 || x.muac > 100) {
+      if (x.muac < 10 || x.muac > 200) {
         return false
       }
-      if (x.headCircumference < 0 || x.headCircumference > 100) {
+      if (x.headCircumference < 30 || x.headCircumference > 60) {
         return false
       }
       return true;

@@ -49,8 +49,8 @@ width: 100%"> -->
                       Height is required
                   </span>
                   <span style="color: #ef0000;"
-                  *ngIf="registerFormControl['height'].value < 0 || registerFormControl['height'].value > 100">
-                  Height should be between 0 and 100
+                  *ngIf="registerFormControl['height'].value < 45 || registerFormControl['height'].value > 120">
+                  Height should be between 45 and 120
               </span>
               </div>
 
@@ -62,8 +62,8 @@ width: 100%"> -->
                     Weight is required
                 </span>
                 <span style="color: #ef0000;"
-                  *ngIf="registerFormControl['weight'].value < 0 || registerFormControl['weight'].value > 100">
-                  Weight should be between 0 and 100
+                  *ngIf="registerFormControl['weight'].value < 0 || registerFormControl['weight'].value > 23">
+                  Weight should be between 0 and 23
               </span>
               </div>
 
@@ -80,8 +80,8 @@ width: 100%"> -->
                     MUAC is required
                 </span>
                 <span style="color: #ef0000;"
-                  *ngIf="registerFormControl['muac'].value < 0 || registerFormControl['muac'].value > 100">
-                  MUAC should be between 0 and 100
+                  *ngIf="registerFormControl['muac'].value < 10 || registerFormControl['muac'].value > 200">
+                  MUAC should be between 10 and 200
               </span>
               </div>
 
@@ -93,8 +93,8 @@ width: 100%"> -->
                     Head Circumference is required
                 </span>
                 <span style="color: #ef0000;"
-                  *ngIf="registerFormControl['headCircumference'].value < 0 || registerFormControl['headCircumference'].value > 100">
-                  Head Circumference should be between 0 and 100
+                  *ngIf="registerFormControl['headCircumference'].value < 30 || registerFormControl['headCircumference'].value > 60">
+                  Head Circumference should be between 30 and 60
               </span>
               </div>
             </div>
