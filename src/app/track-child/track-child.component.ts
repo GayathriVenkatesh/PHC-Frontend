@@ -66,6 +66,8 @@ export class TrackChildComponent implements OnInit {
     //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
     // ]
     // this.dataSource = new MatTableDataSource(this.patients);
+
+
     this.patientService.findAll().subscribe(data1 => {
       this.awaitingAsha = data1;
       for(var i = 0; i < data1.length; i++) {
@@ -82,46 +84,24 @@ export class TrackChildComponent implements OnInit {
                 }
 
 
-
-
-       // for(var i=0;i<data.length;i=i+5){
-       //   this.patients[i].status="FOLLOWUPS - NORMAL";
-       //   if(i+1<data.length){
-       //   this.patients[i+1].status="MISSING FOLLOWUPS";}
-       //   if(i+2<data.length){
-       //   this.patients[i+2].status="FOLLOWUPS - SAM";}
-       //   if(i+3<data.length){
-       //   this.patients[i+3].status="FOLLOWUPS - MAM";}
-       //   if(i+4<data.length){
-       //   this.patients[i+4].status="FOLLOWUPS - NORMAL";}
-       // }
-
-
     this.searchText = "";
 
-    // this.patients = [
-    //   {name: 'aaru', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
-    //   dischargeDate: new Date(), admissionDate: new Date(), dischargeSd: -1, dischargeId: "1", samNum: "4987", ashaId: 1, ashaName: ""},
-    //   {name: 'gayu', address: 'hsr', mobileNumber: '8765456', pincode: '786763', caseId: 1, samId: "1", 
-    //   rchId: "4", patientId: 1, gender: 'F', aadharId: '24', "abhaId": '1', ageInMonths: 2, nrcFrom: "", 
-    //   dischargeDate: new Date("2019-01-16"), admissionDate: new Date("2019-01-16"), dischargeSd: -1, dischargeId: "1", samNum: "3056", ashaId: 1, ashaName: ""},      
-    // ]
     this.dataSource = new MatTableDataSource(this.patients);
     //this.dataSource.filterPredicate = this.dateFilter();
     this.pipe = new DatePipe('en');
-        this.dataSource.filterPredicate = (data: any, filter: any) =>{
-          var b = true;
-          if (this.fromDate && this.toDate) {
-          console.log("DATE IS THERE: ", this.fromDate,this.toDate);
-          b = (new Date(data.dischargeDate) >= this.fromDate) && (new Date(data.dischargeDate) <= this.toDate);
-          }
-          var f = String(filter)
-            return (String(data.name).includes(f) ||
-            String(data.nrcFrom).includes(f) || String(data.mobileNumber).includes(f) ||
-            String(data.ashaName).includes(f) || String(data.samNum).includes(f)) && b;
-         
+    this.dataSource.filterPredicate = (data: any, filter: String) =>{
+      var b = true;
+      if (this.fromDate && this.toDate) {
+      console.log("DATE IS THERE: ", this.fromDate,this.toDate);
+      b = (new Date(data.dischargeDate) >= this.fromDate) && (new Date(data.dischargeDate) <= this.toDate);
       }
+      var f = String(filter)
+      console.log("FILTER", String(filter), data.nrcFrom, String(data.nrcFrom).includes(f))
+        return (String(data.name).includes(f) ||
+        String(data.nrcFrom).includes(f) || String(data.mobileNumber).includes(f) ||
+        String(data.ashaName).includes(f) || String(data.samNum).includes(f)) && b;       
+      }
+
     this.sdCalc();
     });
     });
@@ -252,10 +232,11 @@ this.finalP = this.patients;
     this.dataSource.filter = '' + Math.random();
   }
 
-  applyFilterText(filterValue: string) {
+  applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+    console.log("TEXT", this.dataSource.filter)
   }
 }
 

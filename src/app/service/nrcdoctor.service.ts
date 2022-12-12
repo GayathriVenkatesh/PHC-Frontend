@@ -17,7 +17,7 @@ export class NrcDoctorService {
   }
 
   public findAll(): Observable<NrcDoctor[]> {
-    return this.http.get<NrcDoctor[]>(this.nrcdoctorUrl);
+    return this.http.get<NrcDoctor[]>(this.nrcdoctorUrl+'s');
   }
 
   public findByUsername(username: String): Observable<NrcDoctor>{

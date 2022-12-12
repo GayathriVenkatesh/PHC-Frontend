@@ -10,6 +10,7 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 import { DischargedPatient } from '../model/discharged-patient';
 import { NrcDoctor } from '../model/nrc-doctor';
 import { PatientService } from '../service/patient.service';
+import { NrcDoctorService } from '../service/nrcdoctor.service';
 
 @Component({
   selector: 'app-admin-nrc-doctor',
@@ -33,18 +34,23 @@ export class AdminNrcDoctorComponent implements OnInit {
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
 
-  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService) {
+  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService, private doctorService: NrcDoctorService) {
     
   }
   ngOnInit(): void {
-    this.doctor = [
-      {username: "Gayathri", password: "1234", nrcId: "VVH"},
-      {username: "Aarushi", password: "5678", nrcId: "VVH"},
-      {username: "Aanchal", password: "1234", nrcId: "VVH"},
-      {username: "Manasa", password: "5678", nrcId: "VVH"},
-       
-    ]
-    this.dataSource = new MatTableDataSource(this.doctor);
+   // this.doctor = [
+   //   {username: "Gayathri", password: "1234", nrcId: "VVH"},
+   //   {username: "Aarushi", password: "5678", nrcId: "VVH"},
+   //   {username: "Aanchal", password: "1234", nrcId: "VVH"},
+   //   {username: "Manasa", password: "5678", nrcId: "VVH"},
+   //
+   // ]
+        this.doctorService.findAll().subscribe(data => {
+             this.doctor = data;
+             console.log("doctor: ", this.doctor);
+                 this.dataSource = new MatTableDataSource(this.doctor);
+             });
+    //this.dataSource = new MatTableDataSource(this.doctor);
   }
 
   resetDate() {

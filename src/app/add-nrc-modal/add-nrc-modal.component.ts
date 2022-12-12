@@ -29,9 +29,9 @@ export class AddNrcModalComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       nrc: [this.name, Validators.required],
-      address: ['', Validators.required],
-      pincode: ['', Validators.required],
-      contactNo: ['', Validators.required],
+      address: [this.address, Validators.required],
+      pincode: [this.pincode, Validators.required],
+      contact: [this.contact, Validators.required],
     });
 
   }
@@ -50,11 +50,14 @@ export class AddNrcModalComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  isValid(x: any) {
+    return (x.pincode.length == 6 && x.contact.length == 10)
+  }
   onSubmit() {
-    if (this.registerForm.valid) {
+    if (this.registerForm.valid && this.isValid(this.registerForm.value)) {
       console.table(this.registerForm.value);
     //this.asha = {name: this.name, ward: this.ward, area: this.address, pincode: this.pincode, phoneNumber: this.contact, phcName: this.parentName, ashaId: this.ashaId };
-      this.nrc = {nrcId: this.nrcId, name: this.registerForm.value.name, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contactNo };
+      this.nrc = {nrcId: this.nrcId, name: this.registerForm.value.nrc, address: this.registerForm.value.address, pincode: this.registerForm.value.pincode, contactNumber: this.registerForm.value.contact };
       //console.log(this.name, this.address, this.pincode, this.contact);
       //console.log("hello", this.asha);
       console.log("hello", this.nrc);
@@ -64,7 +67,7 @@ export class AddNrcModalComponent implements OnInit {
       //else{
       this.nrcService.save(this.nrc).subscribe();
       //}
-      location.reload();
+      //location.reload();
       this.submitted = true;
     }
   }

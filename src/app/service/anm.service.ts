@@ -8,12 +8,12 @@ import { url } from './url';
 @Injectable({
   providedIn: 'root'
 })
-export class DoctorService {
+export class AnmService {
   private doctorUrl: string;
 
 
   constructor(private http: HttpClient) {
-    this.doctorUrl = url + '/doctor';
+    this.doctorUrl = url + '/anm';
   }
 
   public findAll(): Observable<Doctor[]> {

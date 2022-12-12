@@ -36,8 +36,24 @@ export class RecordVisitComponent implements OnInit {
       this.sd=0;
       }
 
+    isValid(x: any) {
+      if (x.height < 45 || x.height > 120) {
+        return false
+      }
+      if (x.weight < 0 || x.weight > 23) {
+        return false
+      }
+      if (x.muac < 10 || x.muac > 200) {
+        return false
+      }
+      if (x.headCircumference < 30 || x.headCircumference > 60) {
+        return false
+      }
+      return true;
+    }
+
     onSubmit() {
-      if (this.registerForm.valid) {
+      if (this.registerForm.valid && this.isValid(this.registerForm.value)) {
         console.table(this.registerForm.value);
         this.followup.height = this.registerForm.value.height;
         this.followup.weight = this.registerForm.value.weight;

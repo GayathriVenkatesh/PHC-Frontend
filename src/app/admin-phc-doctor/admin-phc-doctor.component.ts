@@ -11,6 +11,7 @@ import { DischargedPatient } from '../model/discharged-patient';
 import { Doctor } from '../model/doctor';
 import { PHC } from '../model/phc';
 import { PatientService } from '../service/patient.service';
+import { DoctorService } from '../service/doctor.service';
 
 @Component({
   selector: 'app-admin-phc-doctor',
@@ -34,18 +35,23 @@ export class AdminPhcDoctorComponent implements OnInit {
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
 
-  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService) {
+  constructor(private router: Router, private patientService: PatientService, private modalService: MdbModalService, private doctorService: DoctorService) {
     
   }
   ngOnInit(): void {
-    this.doctor = [
-      {username: "Gayathri", password: "1234", phcId: "Agara PHC"},
-            {username: "Aarushi", password: "5678", phcId: "Anjanapura PHC"},
-            {username: "Aanchal", password: "1234", phcId: "Arakere PHC"},
-            {username: "Manasa", password: "5678", phcId: "Begur PHC"},
-       
-    ]
-    this.dataSource = new MatTableDataSource(this.doctor);
+    //this.doctor = [
+     // {username: "Gayathri", password: "1234", phcId: "Agara PHC"},
+    //        {username: "Aarushi", password: "5678", phcId: "Anjanapura PHC"},
+    //        {username: "Aanchal", password: "1234", phcId: "Arakere PHC"},
+    //        {username: "Manasa", password: "5678", phcId: "Begur PHC"},
+    //
+    //]
+    this.doctorService.findAll().subscribe(data => {
+         this.doctor = data;
+         console.log("doctor: ", this.doctor);
+             this.dataSource = new MatTableDataSource(this.doctor);
+         });
+    //this.dataSource = new MatTableDataSource(this.doctor);
   }
 
   resetDate() {
