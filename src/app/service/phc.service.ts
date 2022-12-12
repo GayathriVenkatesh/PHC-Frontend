@@ -6,6 +6,7 @@ import { PHC } from '../model/phc';
 // import { AshaChild } from '../model/asha-child';
 import { NRC } from '../model/nrc';
 import { NrcService } from '../service/nrc.service';
+import { url } from './url';
 
 
 @Injectable({
@@ -16,7 +17,7 @@ export class PhcService {
 
 
   constructor(private http: HttpClient) {
-    this.phcUrl = 'http://localhost:8080/phc-details';
+    this.phcUrl = url + '/phc-details';
   }
 
   public findAll(): Observable<PHC[]> {

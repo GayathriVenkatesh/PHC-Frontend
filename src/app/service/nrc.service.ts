@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Doctor } from '../model/doctor';
 import { PHC } from '../model/phc';
 import { NRC } from '../model/nrc';
+import { url } from './url';
 // import { AshaChild } from '../model/asha-child';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class NrcService {
 
 
   constructor(private http: HttpClient) {
-    this.nrcUrl = 'http://localhost:8080/nrc-details';
+    this.nrcUrl = url + '/nrc-details';
   }
 
   public findAll(): Observable<NRC[]> {
