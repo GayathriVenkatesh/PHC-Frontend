@@ -21,7 +21,7 @@
   <div class="content-wrapper" style="margin-top: 0px; width: 100vw; height: 110vh; overflow: auto; border-radius: 0; background-color: rgb(62, 74, 116);">
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y" style="margin-top: 40px;">
-        <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Record Follow Up: Kalyani (SAM-6231)</h3>
+        <h3 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 24px; margin-bottom: 10px; margin-top: 10px;">Record Follow Up</h3>
         <h5 style="font-family: Arial, Helvetica, sans-serif; color: white; margin-top: 10px;">Date: {{this.date | date : "dd-MM-y"}}</h5>
         <br>
       <div class="card" style="box-shadow: 0 0 2px grey; border-radius: 0; color: black; margin-top: 0px; width: 98%">    
@@ -47,11 +47,16 @@
 
           <div class="form-group">
             <label>Weight (in kg)*</label>
-            <input type="text" class="form-control" formControlName="weight">
+            <input type="text" class="form-control" formControlName="weight" (change)="calculate()">
             <span style="color: #ef0000;"
                 *ngIf="(registerFormControl['weight'].touched || submitted) && registerFormControl['weight'].errors && registerFormControl['weight'].errors['required']">
                 Weight is required
             </span>
+          </div>
+
+          <div class="form-group">
+            <label>SD Range</label>
+            <input type="text" class="form-control" value="{{sd}}" readonly>
           </div>
 
           <div class="form-group">
@@ -71,15 +76,6 @@
                 Head Circumference is required
             </span>
           </div>
-
-          <div class="form-group">
-            <label>Place of Follow Up*</label>
-            <input type="text" class="form-control" formControlName="place">
-            <span style="color: #ef0000;"
-                *ngIf="(registerFormControl['place'].touched || submitted) && registerFormControl['place'].errors && registerFormControl['place'].errors['required']">
-                Place of Follow Up is required
-            </span>
-        </div>
         </div>
         
         <div class="column">
@@ -123,6 +119,15 @@
             <label>Other Symptoms</label>
             <input type="text" class="form-control" formControlName="otherSymptoms">             
           </div>
+
+          <div class="form-group">
+            <label>Place of Follow Up*</label>
+            <input type="text" class="form-control" formControlName="place">
+            <span style="color: #ef0000;"
+                *ngIf="(registerFormControl['place'].touched || submitted) && registerFormControl['place'].errors && registerFormControl['place'].errors['required']">
+                Place of Follow Up is required
+            </span>
+        </div>
         
             <button type="submit" class="btn rounded-pill btn-primary" 
             style="color: white; float: left; background-color:#008ebe; width: 35%; 

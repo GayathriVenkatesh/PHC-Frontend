@@ -59,7 +59,13 @@
                         <td (click)="openModal(p.followupId, p.followupDate)">{{p.muac}}</td>
                         <td (click)="openModal(p.followupId, p.followupDate)">{{p.headCircumference}}</td>
                         <td (click)="openModal(p.followupId, p.followupDate)">{{p.sdRange}}</td>
-                        <td (click)="openModal(p.followupId, p.followupDate)"><span class="badge bg-label-danger"><strong>SAM</strong></span></td>
+                        <td (click)="openModal(p.followupId, p.followupDate)">
+                            <div *ngIf="p.sdRange==-4"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;"><strong>SAM</strong></span> </div>
+                            <div *ngIf="p.sdRange==-3"> <span class="badge bg-label-danger" style="color: #ef0000 !important; background-color: #ffe0db !important; font-size: 90%;"><strong>SAM</strong></span> </div>
+                            <div *ngIf="p.sdRange==-2"> <span class="badge bg-label-warning" style="color: #dc9404;   font-weight: bold; font-size: 90%"><strong>MAM</strong></span> </div>
+                            <div *ngIf="p.sdRange==-1"> <span class="badge bg-label-warning" style="color: #ffe0db;   font-weight: bold; font-size: 90%"><strong>MAM</strong></span> </div>
+                            <div *ngIf="p.sdRange==0"> <span class="badge bg-label-success" style="color: #ffe0db;   font-weight: bold; font-size: 90%"><strong>Normal</strong></span> </div>
+                        </td>
                       </ng-template>
 
                     <ng-template #elseBlock>

@@ -35,6 +35,21 @@ export class TrackChildComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'date', 'mobile', 'nrc', 'asha', 'status'];
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
+  set fromDate(d: Date) { 
+    if (this.filterForm && this.filterForm.get('fromDate') && this.filterForm.get('fromDate')) {
+      this.filterForm = new FormGroup({
+        fromDate: new FormControl(),
+        toDate: new FormControl(),
+    });
+    }
+  }
+  set toDate(d: Date) { 
+    this.filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  }
+
 
   constructor(private patientService: PatientService, private followupService: FollowupService) {
      this.asha = [];
@@ -94,20 +109,18 @@ export class TrackChildComponent implements OnInit {
     // ]
     this.dataSource = new MatTableDataSource(this.patients);
     //this.dataSource.filterPredicate = this.dateFilter();
-this.pipe = new DatePipe('en');
+    this.pipe = new DatePipe('en');
         this.dataSource.filterPredicate = (data: any, filter: any) =>{
+          var b = true;
           if (this.fromDate && this.toDate) {
           console.log("DATE IS THERE: ", this.fromDate,this.toDate);
-          var x = (new Date(data.dischargeDate) >= this.fromDate) && (new Date(data.dischargeDate) <= this.toDate);
-            //console.log("X ", x, typeof new Date(data.dischargeDate), typeof this.fromDate);
-            return x;
+          b = (new Date(data.dischargeDate) >= this.fromDate) && (new Date(data.dischargeDate) <= this.toDate);
           }
-          else {
-          console.log("no date");
-            return data.name.includes(filter) ||
-            data.nrcFrom.includes(filter) || data.mobileNumber.includes(filter) ||
-            data.ashaName.includes(filter) || data.samNum.includes(filter);
-         }
+          var f = String(filter)
+            return (String(data.name).includes(f) ||
+            String(data.nrcFrom).includes(f) || String(data.mobileNumber).includes(f) ||
+            String(data.ashaName).includes(f) || String(data.samNum).includes(f)) && b;
+         
       }
     this.sdCalc();
     });
@@ -229,6 +242,8 @@ this.finalP = this.patients;
 
   resetDate() {
     this.dataSource.filter = '';
+    this.fromDate = new Date("");
+    this.toDate = new Date("")
   }
 
   applyFilterDate() {

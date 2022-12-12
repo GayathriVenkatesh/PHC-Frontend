@@ -32,6 +32,21 @@ export class AssignAshaTableComponent implements OnInit {
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
+  set fromDate(d: Date) { 
+    if (this.filterForm && this.filterForm.get('fromDate') && this.filterForm.get('fromDate')) {
+      this.filterForm = new FormGroup({
+        fromDate: new FormControl(),
+        toDate: new FormControl(),
+    });
+    }
+  }
+  set toDate(d: Date) { 
+    this.filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  }
+
   constructor(private patientService: PatientService, private modalService: MdbModalService) {
     this.searchText = '';
   }
@@ -65,14 +80,15 @@ export class AssignAshaTableComponent implements OnInit {
 
     this.pipe = new DatePipe('en');
       this.dataSource.filterPredicate = (data: any, filter: any) =>{
+        var b = true;
         if (this.fromDate && this.toDate) {
-          return data.dischargeDate >= this.fromDate && data.dischargeDate <= this.toDate;
-        }
-        else {
-          return data.name.includes(filter) || 
-          data.address.includes(filter) || data.pincode.includes(filter) || 
-          data.mobileNumber.includes(filter) || data.nrcFrom.includes(filter);
-        }
+          b =  new Date(data.dischargeDate) >= this.fromDate && new Date(data.dischargeDate) <= this.toDate;  
+        }   
+        var f = String(filter) 
+          return (String(data.name).includes(f) || 
+          String(data.address).includes(f) || String(data.pincode).includes(f) || 
+          String(data.mobileNumber).includes(f) || String(data.nrcFrom).includes(f)) && b;
+        
     }
     });
   }
@@ -89,6 +105,8 @@ export class AssignAshaTableComponent implements OnInit {
 
   resetDate() {
     this.dataSource.filter = '';
+    this.fromDate = new Date("")
+    this.toDate = new Date("")
   }
 
   applyFilterDate() {

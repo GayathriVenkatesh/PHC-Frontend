@@ -41,7 +41,7 @@ export class RecordVisitComponent implements OnInit {
         console.table(this.registerForm.value);
         this.followup.height = this.registerForm.value.height;
         this.followup.weight = this.registerForm.value.weight;
-        // this.followup.sdRange = this.sd;
+        this.followup.sdRange = this.sd;
         this.followup.muac = this.registerForm.value.muac;
         this.followup.headCircumference = this.registerForm.value.headCircumference;
         this.followup.dietAdequacy = this.registerForm.value.dietAdequacy;
@@ -81,7 +81,7 @@ export class RecordVisitComponent implements OnInit {
     }
 
     gotoFollowups(){
-    this.router.navigate(['/followup-list']);
+      this.router.navigate(['/followup-list']);
     }
 
     get registerFormControl() {
@@ -124,7 +124,7 @@ calculate() {
 
     ngOnInit(): void {
     this.caseId = this.router.url.split("/")[2];
-    this.patientService.getSdRange('1085').subscribe(data => {
+    this.patientService.getSdRange('1').subscribe(data => {
           this.sdRange = data;
           console.log("SD range", this.sdRange);
         });

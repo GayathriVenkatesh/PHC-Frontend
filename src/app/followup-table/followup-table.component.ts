@@ -33,6 +33,21 @@ export class FollowupTableComponent implements OnInit {
   get fromDate() { return this.filterForm.get('fromDate')?.value; }
   get toDate() { return this.filterForm.get('toDate')?.value; }
 
+  set fromDate(d: Date) { 
+    if (this.filterForm && this.filterForm.get('fromDate') && this.filterForm.get('fromDate')) {
+      this.filterForm = new FormGroup({
+        fromDate: new FormControl(),
+        toDate: new FormControl(),
+    });
+    }
+  }
+  set toDate(d: Date) { 
+    this.filterForm = new FormGroup({
+      fromDate: new FormControl(),
+      toDate: new FormControl(),
+  });
+  }
+
   constructor(private followupService: FollowupService, private modalService: MdbModalService) {
   this.today = new Date();
   this.last = new Date('Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)');
@@ -64,14 +79,14 @@ export class FollowupTableComponent implements OnInit {
 
     this.pipe = new DatePipe('en');
     this.dataSource.filterPredicate = (data: any, filter: any) =>{
+      var b = true;
       if (this.fromDate && this.toDate) {
-        return data.nextCommunity >= this.fromDate && data.nextCommunity <= this.toDate;
+        b =  new Date(data.nextCommunity) >= this.fromDate && new Date(data.nextCommunity) <= this.toDate;
       }
-      else {
-        return data.childName.includes(filter) || 
-        data.ashaName.includes(filter) || 
-        data.followupsDone == filter;
-      }
+      var f = String(filter);
+        return (String(data.childName).includes(f) || 
+        String(data.ashaName).includes(f) || 
+        String(data.followupsDone) == f) && b;
   }
     console.log(this.dataSource);
     });
@@ -79,6 +94,8 @@ export class FollowupTableComponent implements OnInit {
 
   resetDate() {
     this.dataSource.filter = '';
+    this.fromDate = new Date('');
+    this.toDate = new Date("");
   }
 
   applyFilterDate() {
