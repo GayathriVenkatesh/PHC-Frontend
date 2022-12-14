@@ -27,8 +27,11 @@ export class LoginAshaComponent implements OnInit {
           this.router.navigate(["asha-followups"]);
           return;
           }
+          else{
+          this.authError = true;
+          }
       });
-      this.authError = true;
+
       console.log("Username: ", this.username);
       console.log("Pass: ", this.password);
     }

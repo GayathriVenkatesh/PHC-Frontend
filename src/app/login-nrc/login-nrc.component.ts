@@ -26,8 +26,11 @@ export class LoginNrcComponent implements OnInit {
             this.router.navigate(["nrc-home"]);
             return;
             }
+            else{
+              this.authError = true;
+              }
     });
-    this.authError = true;
+
     console.log("Username: ", this.username);
     console.log("Pass: ", this.password);
   }

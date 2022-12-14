@@ -26,8 +26,11 @@ authError = false;
         this.router.navigate(["home"]);
         return;
         }
+        else{
+          this.authError = true;
+          }
     });
-    this.authError = true;
+
     console.log("Username: ", this.username);
     console.log("Pass: ", this.password);
   }
