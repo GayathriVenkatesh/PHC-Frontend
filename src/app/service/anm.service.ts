@@ -24,4 +24,12 @@ export class AnmService {
   return this.http.get<Doctor>(this.doctorUrl + '/' + username);
   }
 
+  public deactivate(id: number){
+        return this.http.post<Doctor>(url + '/anm-deactivate', id)
+    }
+
+      public save(doctor: Doctor){
+        return this.http.post<Doctor>(this.doctorUrl+'s', doctor);
+        }
+
 }

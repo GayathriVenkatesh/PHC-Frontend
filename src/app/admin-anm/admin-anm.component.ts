@@ -47,7 +47,7 @@ export class AdminAnmComponent implements OnInit {
        
    // ]
     //this.dataSource = new MatTableDataSource(this.anm,);
-
+    //console.log("anm id: ", this.id);
     this.anmService.findAll().subscribe(data => {
                  this.anm = data;
                  console.log("doctor: ", this.anm);
@@ -75,7 +75,7 @@ export class AdminAnmComponent implements OnInit {
     })
   }
 
-  openModal(name: String, pw: String, parentName: String, parent: String, title: String) {
+  openModal(id: number | null, name: String, pw: String, parentName: String, parent: String, title: String) {
     this.modalRef = this.modalService.open(AddDoctorModalComponent, {
       modalClass: 'modal-md',
       data: {
@@ -83,7 +83,9 @@ export class AdminAnmComponent implements OnInit {
         password: pw,
         parent: parent,
         parentName: parentName,
-        title: title
+        title: title,
+        entity: 'ANM',
+        id: id
       }
     })
   }

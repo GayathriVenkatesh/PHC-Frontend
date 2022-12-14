@@ -24,4 +24,12 @@ export class DoctorService {
   return this.http.get<Doctor>(this.doctorUrl + '/' + username);
   }
 
+  public deactivate(id: number){
+        return this.http.post<Doctor>(url + '/doctor-deactivate', id)
+    }
+
+  public save(doctor: Doctor){
+    return this.http.post<Doctor>(this.doctorUrl+'s', doctor);
+    }
+
 }

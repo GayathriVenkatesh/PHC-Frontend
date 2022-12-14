@@ -26,6 +26,10 @@ export class NrcService {
   //return this.http.get<Doctor>(this.doctorUrl + '/' + username);
   //}
 
+    public deactivate(nrcId: number){
+    console.log("GG", nrcId);
+        return this.http.post(url + '/nrc-deactivate', nrcId)
+    }
 
   public save(nrc: NRC){
   return this.http.post<NRC>(this.nrcUrl, nrc);

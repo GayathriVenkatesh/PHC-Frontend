@@ -22,27 +22,26 @@
     </div>
     <div class="modal-body" style="font-family:Arial, Helvetica, sans-serif">
       <div class="row">
-        <form>
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
           <div class="column">
                <div class="mb-3">
                    <label class="form-label" for="basic-default-age">Username</label>
-                   <input type="text" class="form-control" id="basic-default-company" value={{this.username}}/>
+                   <input type="text" class="form-control" name="username" id="basic-default-company" [(ngModel)] = "this.username" value={{this.username}}/>
                </div>
 
                <div class="mb-3">
                     <label class="form-label" for="basic-default-age">Password</label>
-                    <input type="text" class="form-control" id="basic-default-company" value={{this.password}}/>
+                    <input type="text" class="form-control" name="password" id="basic-default-company" [(ngModel)] = "this.password" value={{this.password}}/>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-age">{{this.parent}} they belong to</label>
                     <br>
 
-                    <select id="parents" class="form-select" value={{this.parentName}} style="height: calc(1.5em + 0.75rem + 2px); width: 100%; border: 1px solid #ced4da">
+                    <select [(ngModel)] = "this.x" id="parents" name="parents" class="form-select" value={{this.parentName}} style="height: calc(1.5em + 0.75rem + 2px); width: 100%; border: 1px solid #ced4da">
                       <!-- <option></option> -->
-                      <option value="Pneumonia">Option 1</option>
-                      <option value="CHD">Option 2</option>
-                      <option value="Tuberculosis">Option 3</option>
+<!--                        <option></option>-->
+                        <option *ngFor="let p of phc" value={{p.phcId}}>{{ p.phcId}} - {{p.name }} - {{p.pincode}}  </option>
                     </select>  
                     <!-- <input type="text" class="form-control" id="basic-default-company" value={{this.parentName}}/> -->
                 </div>      
@@ -51,11 +50,11 @@
           <button type="submit" class="btn rounded-pill btn-primary" 
           style="background-color: #008eBe; float: right; margin-right: 0px; width: 25%">Save</button>
 
-          <!-- <div *ngIf="nrcId">
-            <button type="button" class="btn rounded-pill btn-primary" 
-            style="color: white; margin-left: 10px; float: left; background-color:#ef0000; width: 50%; 
-            border-color: white" (click)="openConfirm()"> Deactivate </button> 
-          </div> -->
+          <div *ngIf="id">
+            <button type="button" class="btn rounded-pill btn-primary"
+            style="color: white; margin-left: 10px; float: left; background-color:#ef0000; width: 50%;
+            border-color: white" (click)="openConfirm()"> Deactivate </button>
+          </div>
       </form>
       </div>
     </div>

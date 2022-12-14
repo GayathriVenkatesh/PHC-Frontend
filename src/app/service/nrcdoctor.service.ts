@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NrcDoctor } from '../model/nrcdoctor';
+import { NrcDoctor } from '../model/nrc-doctor';
 import { url } from './url';
 // import { AshaChild } from '../model/asha-child';
 
@@ -23,5 +23,13 @@ export class NrcDoctorService {
   public findByUsername(username: String): Observable<NrcDoctor>{
   return this.http.get<NrcDoctor>(this.nrcdoctorUrl + '/' + username);
   }
+
+  public save(doctor: NrcDoctor){
+    return this.http.post<NrcDoctor>(this.nrcdoctorUrl+'s', doctor);
+    }
+
+  public deactivate(id: number){
+          return this.http.post(url + '/nrc-doctor-deactivate', id)
+      }
 
 }

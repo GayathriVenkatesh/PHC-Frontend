@@ -36,12 +36,12 @@ export class AddNrcModalComponent implements OnInit {
 
   }
 
-  openConfirm(nrcId: number) {
+  openConfirm() {
     this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
       modalClass: 'modal-sm',
       data: {
             entity: 'NRC',
-            id: nrcId
+            id: this.nrcId
             }
     })
   }

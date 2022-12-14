@@ -46,4 +46,8 @@ export class AshaWorkerService {
   public delete(ashaId: number){
   return this.http.delete(this.ashaUrl + "/" + ashaId);
   }
+
+  public deactivate(id: number){
+        return this.http.post<AshaWorker>(url + '/asha-worker-deactivate', id)
+    }
 }

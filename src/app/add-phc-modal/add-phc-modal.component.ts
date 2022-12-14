@@ -7,6 +7,7 @@ import { PhcService } from '../service/phc.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from '../service/customvalidation.service';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+//import { PhcService } from '../service/phc.service';
 
 @Component({
   selector: 'app-add-phc-modal',
@@ -32,10 +33,19 @@ export class AddPhcModalComponent implements OnInit {
   phcId: number | null;
   registerForm: FormGroup;
   submitted = false;
+  id: number | null;
+  phcs: PHC[];
 
   constructor(public modalRef: MdbModalRef<AddPhcModalComponent>, private ashaWorkerService: AshaWorkerService, 
     private phcService: PhcService, private fb: FormBuilder, private customValidator: CustomvalidationService,
-    private modalService: MdbModalService) { }
+    private modalService: MdbModalService) {
+     if (this.entity == 'ASHA') {
+            this.id=this.ashaId;
+           }
+           else if (this.entity == 'PHC') {
+             this.id=this.phcId;
+           }
+           }
 
   ngOnInit(): void {
     console.log(this.phcId);
@@ -48,6 +58,12 @@ export class AddPhcModalComponent implements OnInit {
       pincode: [this.pincode, Validators.required],
       contactNo: [this.contact, Validators.required],
     });
+
+    this.phcService.findAll().subscribe(data => {
+        this.phcs = data;
+        console.log("phcs: ", this.phc);
+        });
+
   }
 
   get registerFormControl() {
@@ -78,9 +94,11 @@ export class AddPhcModalComponent implements OnInit {
     }
   }
 
-  openConfirm(nrcId: number) {
+  openConfirm() {
     this.modalRef = this.modalService.open(ConfirmDeleteComponent, {
-      modalClass: 'modal-sm'
+      modalClass: 'modal-sm',
+      data: {entity: this.entity,
+      id: this.id}
     })
   }
 }

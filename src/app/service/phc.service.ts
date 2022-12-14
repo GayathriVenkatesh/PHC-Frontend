@@ -36,4 +36,8 @@ export class PhcService {
   public delete(phcId: number){
   return this.http.delete(this.phcUrl + "/" + phcId);
   }
+
+  public deactivate(id: number){
+            return this.http.post<PHC>(url + '/phc-deactivate', id)
+        }
 }

@@ -38,6 +38,7 @@ export class AdminPhcComponent implements OnInit {
     
   }
   ngOnInit(): void {
+
     //this.phc = [
       //{name: "GYA", address: "3rd Road, Chennai", pincode: "560075", contact: "9878263726", parentName: "VVH"},
       //{name: "ARN", address: "21st Road, Bengaluru", pincode: "560075", contact: "9878263726", parentName: "IGH"},

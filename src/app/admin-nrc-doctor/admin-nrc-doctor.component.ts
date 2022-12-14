@@ -73,7 +73,7 @@ export class AdminNrcDoctorComponent implements OnInit {
     })
   }
 
-  openModal(name: String, pw: String, parentName: String, parent: String, title: String) {
+  openModal(id: number | null, name: String, pw: String, parentName: String, parent: String, title: String) {
     this.modalRef = this.modalService.open(AddDoctorModalComponent, {
       modalClass: 'modal-md',
       data: {
@@ -81,7 +81,9 @@ export class AdminNrcDoctorComponent implements OnInit {
         password: pw,
         parent: parent,
         parentName: parentName,
-        title: title
+        title: title,
+        entity: 'NRC Doctor',
+        id: id
       }
     })
   }
