@@ -86,7 +86,7 @@
               <ng-container matColumnDef="nextCommunity">
                 <th mat-header-cell *matHeaderCellDef> Next Community Followup </th>
                 <td mat-cell *matCellDef="let f">
-                  <div *ngIf="f.nextCommunity > this.today; then thenBlock else elseBlock"></div>
+                  <div *ngIf="(f.nextCommunity | date : 'y-MM-dd') > (this.today | date : 'y-MM-dd'); then thenBlock else elseBlock"></div>
                   <ng-template #thenBlock>
                     {{f.nextCommunity | date : "dd-MM-y"}}
                   </ng-template>
@@ -113,7 +113,7 @@
               <ng-container matColumnDef="nextNrc">
                 <th mat-header-cell *matHeaderCellDef> Next NRC Followup </th>
                 <td mat-cell *matCellDef="let f">
-                  <div *ngIf="f.nextNrc > this.today; then thenBlock else elseBlock"></div>
+                  <div *ngIf="(f.nextNrc | date : 'y-MM-dd') > (this.today | date : 'y-MM-dd'); then thenBlock else elseBlock"></div>
                   <ng-template #thenBlock>
                     {{f.nextNrc | date : "dd-MM-y"}}
                   </ng-template>
